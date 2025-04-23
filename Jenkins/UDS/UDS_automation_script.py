@@ -11,7 +11,7 @@ canoe_inst = CANoe()
 wait(10)
 
 # Step 3: Open config
-canoe_inst.open(r'C:\jenkins\workspace\PSA_BMS_BOOT_SW\Test\Bootloader_Automation\Bootloader_Automation.cfg')
+canoe_inst.open(r'C:\jenkins\workspace\CGVCU_BSW_V-V\M_Core\UDS\UDS_Configuration.cbf.cfg')
 wait(10)
 
 # Step 4: Start Measurement
