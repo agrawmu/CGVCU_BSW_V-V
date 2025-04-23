@@ -1,0 +1,1376 @@
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+char Polarian_ID[15];   
+int P2timeout = 100;
+int P2Stimeout = 1950;	
+char time_buf[100];
+ byte request_capture[64];
+ byte response_capture[64];
+ int test_input_result = 0;
+ int result = 0;
+message mDiagRq_VCU Msg_0x7A0;
+message mDiagRs_VCU Msg_0x7A8; 
+
+  diagRequest CGVCU.SerialNumber_Read did_f18C_read; 
+  diagRequest CGVCU._12V_Battery_Sense_Voltage_Read did_2360_read;
+  diagRequest CGVCU.Actual_Motor_Torque_Read did_1B74_read;
+  diagRequest CGVCU.Available_Motor_Torque_Read did_1B76_read;
+  diagRequest CGVCU.Battery_available_power_Read did_2378_read;
+  diagRequest CGVCU.Battery_Pack_1_Failure_Reason_Read did_138E_read;
+  diagRequest CGVCU.Battery_Pack_2_Failure_Reason_Read did_1390_read;
+  diagRequest CGVCU.Battery_State_of_Charge_Read did_2B07_read;
+  diagRequest CGVCU.Brake_Actuator_status_Read did_1B58_read;
+  diagRequest CGVCU.Brake_Cyliner_Pressure_Read did_233E_read;
+  diagRequest CGVCU.Bay_1_Door_Calibration_Start Bay_1_Door_Calibration_Start;
+  diagRequest CGVCU.Bay_1_Door_Calibration_Stop Bay_1_Door_Calibration_Stop;
+  diagRequest CGVCU.Bay_2_Door_Calibration_RequestResults Bay_2_Door_Calibration_RequestResults;
+ 
+  diagRequest CGVCU.FaultMemory_ReadAllIdentified FaultMemory_ReadAllIdentified;
+  
+  diagRequest CGVCU.SerialNumber_Write did_f18C_write;
+  diagRequest CGVCU.DefaultSession_Start default_session;
+  diagRequest CGVCU.ExtendedDiagnosticSession_Start extended_session;
+  diagRequest CGVCU.ProgrammingSession_Start programming_session;
+  diagRequest CGVCU.FaultMemory_Clear clear_dtc;
+  diagRequest CGVCU.TesterPresent_Send Tester_Present;
+  diagRequest CGVCU.ControlDTCSetting_On ControlDTCSetting_On;
+  diagRequest CGVCU.ControlDTCSetting_Off ControlDTCSetting_Off;
+}
+
+on message mDiagRq_VCU                             
+{
+  request_capture[0] = this.byte(0); request_capture[1] = this.byte(1); request_capture[2] = this.byte(2); request_capture[3] = this.byte(3); request_capture[4] = this.byte(4); request_capture[5] = this.byte(5); request_capture[6] = this.byte(6); request_capture[7] = this.byte(7);
+  request_capture[8] = this.byte(8); request_capture[9] = this.byte(9); request_capture[10] = this.byte(10);  
+}
+
+on message mDiagRs_VCU                            
+{  
+  response_capture[0] = this.byte(0); response_capture[1] = this.byte(1); response_capture[2] = this.byte(2); response_capture[3] = this.byte(3); response_capture[4] = this.byte(4); response_capture[5] = this.byte(5); response_capture[6] = this.byte(6); response_capture[7] = this.byte(7);
+  response_capture[8] = this.byte(8); response_capture[9] = this.byte(9); response_capture[10] = this.byte(10);  
+}
+
+void Maintest()
+{ 
+  TestReportFileName("UDS_AUTOMATION");                                                                         
+  TestModuleTitle("Verify the Diagnostic service");                               
+  TestModuleDescription("Test Author: Chaitra\n"); 
+  getLocalTimeString(time_buf);                                           
+  TestModuleDescription("Test Execution Date: ");
+  TestModuleDescription(time_buf); 
+  testModuleDescription("Testcases to check the UDS Services");
+  UDS_TC1();
+  /*UDS_TC2();
+  UDS_TC3();
+  UDS_TC4();
+  UDS_TC5();
+  UDS_TC6();
+  UDS_TC7();
+  UDS_TC8();
+  UDS_TC9();
+  UDS_TC10();
+  UDS_TC11();
+  UDS_TC12();
+  UDS_TC13();
+  UDS_TC14();
+  UDS_TC15();
+  UDS_TC16();
+  UDS_TC17();
+  UDS_TC18();
+  UDS_TC19();
+  UDS_TC20();
+  UDS_TC21();
+  UDS_TC22();
+  UDS_TC23();
+  UDS_TC24();
+  UDS_TC25();
+  UDS_TC26();
+  UDS_TC27();
+  UDS_TC28();
+  UDS_TC29();
+  UDS_TC30();
+  UDS_TC31(); 
+  UDS_T32();
+  UDS_T33();
+  UDS_T34();
+  UDS_TC35();*/
+  UDS_TC36();
+ 
+}
+
+void ActiveDiagnosticSessionDataIdentifier()
+{
+    Msg_0x7A0.byte(0) = 0x03;  
+    Msg_0x7A0.byte(1) = 0x22;  
+    Msg_0x7A0.byte(2) = 0xF1;  
+    Msg_0x7A0.byte(3) = 0x86; 
+    output(Msg_0x7A0); 
+    if(testWaitForMessage(mDiagRs_VCU,P2timeout))
+    {
+      testStep("","Request sent : %x %x %x ",request_capture[1],request_capture[2],request_capture[3]);
+     if((response_capture[1] == 0x62) && (response_capture[4] == 0x01))
+      {
+         TestStepPass("", "Active Diagnostic Session:Default_Session \n Response received: %x %x %x %x",response_capture[1],response_capture[2],response_capture[3],response_capture[4]);
+      }  
+      else if((response_capture[1] == 0x7F) && (response_capture[4] == 0x02))
+      {
+         TestStepPass("","Active Diagnostic Session: Programming_Session \n Response received: %x %x %x %x",response_capture[1],response_capture[2],response_capture[3],response_capture[4]);
+      } 
+      else if((response_capture[1] == 0x62) && (response_capture[4] == 0x03))
+      {
+         TestStepPass("","Active Diagnostic Session: Extended_Session \n Response received: %x %x %x %x",response_capture[1],response_capture[2],response_capture[3],response_capture[4]);
+      } 
+      else if(response_capture[1] == 0x7F)
+      {
+        TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+      }
+      else
+      {
+        TestStepFail("", "Unknown Response received: %x %x %x %x %x %x %x ",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5],response_capture[6],response_capture[7]);
+      }
+    }  
+    testWaitForTimeout(500);
+}
+
+
+void Send_Invalidsubfunction_10_SID()
+{
+    Msg_0x7A0.byte(0) = 0x02;                             
+    Msg_0x7A0.byte(1) = 0x10;
+    Msg_0x7A0.byte(2) = 0x05;
+    output(Msg_0x7A0);
+    
+    if(testWaitForMessage(mDiagRs_VCU,P2timeout) == 1)
+    {
+      testStep("","Request sent : %x %x",request_capture[1],request_capture[2]);
+      if(response_capture[1] == 0x50) 
+      {
+        TestStepFail("", "ECU did not respond with the desired NRC value Response received: %x %x %x %x %x %x",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5],response_capture[6]);
+      } 
+      else if((response_capture[1] == 0x7F) && (response_capture[3] == 0x12) )
+      {
+        TestStepPass("","Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+      }
+      else 
+      {
+        TestStepFail("", "Wrong Response received: %x %x %x %x %x %x %x ",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5],response_capture[6],response_capture[7]);
+      }
+    }
+   else
+   {
+      TestStepFail("", "Response timed out or Other error, Check Manually");
+   }
+  testWaitForTimeout(500);
+}
+
+void Send_Invalidsubfunction_3E_SID()
+{
+    Msg_0x7A0.byte(0) = 0x02;                             
+    Msg_0x7A0.byte(1) = 0x3E;
+    Msg_0x7A0.byte(2) = 0x05;
+    output(Msg_0x7A0);
+    
+    if(testWaitForMessage(mDiagRs_VCU,P2timeout) == 1)
+    {
+      testStep("","Request sent : %x %x",request_capture[1],request_capture[2]);
+      if(response_capture[1] == 0x7E) 
+      {
+        TestStepFail("", "ECU did not respond with the desired NRC value Response received: %x %x ",response_capture[1],response_capture[2]);
+      } 
+      else if((response_capture[1] == 0x7F) && (response_capture[3] == 0x12) )
+      {
+        TestStepPass("","Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+      }
+      else 
+      {
+        TestStepFail("", "Wrong Response received: %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+      }
+    }
+   else
+   {
+      TestStepFail("", "Response timed out or Other error, Check Manually");
+   }
+  testWaitForTimeout(500);
+}
+
+void Send_Invalidsubfunction_85_SID()
+{
+    Msg_0x7A0.byte(0) = 0x02;                             
+    Msg_0x7A0.byte(1) = 0x85;
+    Msg_0x7A0.byte(2) = 0x05;
+    output(Msg_0x7A0);
+    
+    if(testWaitForMessage(mDiagRs_VCU,P2timeout) == 1)
+    {
+      testStep("","Request sent : %x %x",request_capture[1],request_capture[2]);
+      if(response_capture[1] == 0XC5) 
+      {
+        TestStepFail("", "ECU did not respond with the desired NRC value Response received: %x %x ",response_capture[1],response_capture[2]);
+      } 
+      else if((response_capture[1] == 0x7F) && (response_capture[3] == 0x12) )
+      {
+        TestStepPass("","Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+      }
+      else 
+      {
+        TestStepFail("", "Wrong Response received: %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+      }
+    }
+   else
+   {
+      TestStepFail("", "Response timed out or Other error, Check Manually");
+   }
+  testWaitForTimeout(500);
+}
+
+void Send_InvalidDLC()
+{
+    Msg_0x7A0.byte(0) = 0x01;                             
+    Msg_0x7A0.byte(1) = 0x10;
+    Msg_0x7A0.byte(2) = 0x05;
+    output(Msg_0x7A0);
+  
+  if(testWaitForMessage(mDiagRs_VCU,P2timeout))
+    {
+      testStep("","Request sent : %x %x",request_capture[1],request_capture[2]);
+      if(response_capture[1] == 0x50)
+      {
+        TestStepFail("", "ECU did not respond with the desired NRC value Response received: %x %x %x %x %x %x",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5],response_capture[6]);
+      }        
+     else if((response_capture[1] == 0x7F) && (response_capture[3] == 0x13) )
+      {
+        TestStepPass("","Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+      }
+      else 
+      {
+        TestStepFail("", "Wrong Response received: %x %x %x %x %x %x %x ",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5],response_capture[6],response_capture[7]);
+      }
+    }
+   else
+   {
+      TestStepFail("", "Response timed out or Other error, Check Manually");
+   }
+  testWaitForTimeout(500);
+}
+
+void Send_InvalidDLC_3E_SID()
+{
+    Msg_0x7A0.byte(0) = 0x01;
+    Msg_0x7A0.byte(1) = 0x3E;
+    Msg_0x7A0.byte(2) = 0x00;
+    output(Msg_0x7A0);
+    if(testWaitForMessage(mDiagRs_VCU,P2timeout))
+    {
+      testStep("","Request sent : %x %x %x",request_capture[0],request_capture[1],request_capture[2]);
+      if(response_capture[1] == 0x7E)
+      {
+        TestStepFail("", "ECU did not respond with the desired NRC value Response received: %x %x ",response_capture[1],response_capture[2]);
+      }        
+     else if((response_capture[1] == 0x7F) && (response_capture[3] == 0x13) )
+      {
+        TestStepPass("","Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+      }
+      else 
+      {
+        TestStepFail("", "Wrong Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+      }
+    }
+   else
+   {
+      TestStepFail("", "Response timed out or Other error, Check Manually");
+   }
+  testWaitForTimeout(500);
+}
+
+void Send_InvalidDLC_14_SID()
+{
+    Msg_0x7A0.byte(0) = 0x01;
+    Msg_0x7A0.byte(1) = 0x14;
+    Msg_0x7A0.byte(2) = 0x03;
+    output(Msg_0x7A0);
+    if(testWaitForMessage(mDiagRs_VCU,P2timeout))
+    {
+      testStep("","Request sent : %x %x %x",request_capture[0],request_capture[1],request_capture[2]);
+      if(response_capture[1] == 0x7E)
+      {
+        TestStepFail("", "ECU did not respond with the desired NRC value Response received: %x %x ",response_capture[1],response_capture[2]);
+      }        
+     else if((response_capture[1] == 0x7F) && (response_capture[3] == 0x13) )
+      {
+        TestStepPass("","Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+      }
+      else 
+      {
+        TestStepFail("", "Wrong Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+      }
+    }
+   else
+   {
+      TestStepFail("", "Response timed out or Other error, Check Manually");
+   }
+  testWaitForTimeout(500);
+}
+
+void Send_InvalidDLC_22_SID()
+{
+    Msg_0x7A0.byte(0) = 0x01;
+    Msg_0x7A0.byte(1) = 0x22;
+    Msg_0x7A0.byte(2) = 0xF1;
+    Msg_0x7A0.byte(3) = 0x8C;
+    output(Msg_0x7A0);
+    if(testWaitForMessage(mDiagRs_VCU,P2timeout))
+    {
+      testStep("","Request sent : %x %x %x",request_capture[1],request_capture[2],request_capture[3]);
+      if(response_capture[1] == 0x62)
+      {
+        TestStepFail("", "ECU did not respond with the desired NRC value Response received: %x %x ",response_capture[1],response_capture[2]);
+      }        
+     else if((response_capture[1] == 0x7F) && (response_capture[3] == 0x13) )
+      {
+        TestStepPass("","Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+      }
+      else 
+      {
+        TestStepFail("", "Wrong Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+      }
+    }
+   else
+   {
+      TestStepFail("", "Response timed out or Other error, Check Manually");
+   }
+  testWaitForTimeout(500);
+}
+
+void Send_InvalidDLC_85_SID()
+{
+    Msg_0x7A0.byte(0) = 0x01;
+    Msg_0x7A0.byte(1) = 0x85;
+    Msg_0x7A0.byte(2) = 0x01;    
+    output(Msg_0x7A0);
+    if(testWaitForMessage(mDiagRs_VCU,P2timeout))
+    {
+      testStep("","Request sent : %x %x %x",request_capture[1],request_capture[2],request_capture[3]);
+      if(response_capture[1] == 0xC5)
+      {
+        TestStepFail("", "ECU did not respond with the desired NRC value Response received: %x %x ",response_capture[1],response_capture[2]);
+      }        
+     else if((response_capture[1] == 0x7F) && (response_capture[3] == 0x13) )
+      {
+        TestStepPass("","Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+      }
+      else 
+      {
+        TestStepFail("", "Wrong Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+      }
+    }
+   else
+   {
+      TestStepFail("", "Response timed out or Other error, Check Manually");
+   }
+  testWaitForTimeout(500);
+}
+
+void SendInvalidDLC_ClearDTC()
+{
+    Msg_0x7A0.byte(0) = 0x5;                             
+    Msg_0x7A0.byte(1) = 0x14;
+    Msg_0x7A0.byte(2) = 0xFF;
+    Msg_0x7A0.byte(3) = 0xFF;
+    Msg_0x7A0.byte(4) = 0xFF;
+    output(Msg_0x7A0);
+  
+  if(testWaitForMessage(mDiagRs_VCU,P2timeout) == 1)
+    {
+      testStep("","Request sent : %x %x %x %x",request_capture[1],request_capture[2],request_capture[3],request_capture[4]);
+      if(response_capture[1] == 0x7F && response_capture[3] == 0x13)
+      {
+        TestStepPass("","Response Received : %x %x %x",request_capture[0],request_capture[1],request_capture[2],response_capture[1],response_capture[2],response_capture[3]);
+      } 
+      else
+      {
+        TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+      }
+    }
+   else
+   {
+      TestStepFail("", "Response timed out or Other error, Check Manually");
+   }
+  testWaitForTimeout(500);
+}
+
+void Send_RequestOutOfRange_22_SID()
+{
+    Msg_0x7A0.byte(0) = 0x03;
+    Msg_0x7A0.byte(1) = 0x22;
+    Msg_0x7A0.byte(2) = 0xF1;
+    Msg_0x7A0.byte(3) = 0x11;
+    output(Msg_0x7A0);
+    if(testWaitForMessage(mDiagRs_VCU,P2timeout))
+    {
+      testStep("","Request sent : %x %x %x",request_capture[1],request_capture[2],request_capture[3]);
+      if(response_capture[1] == 0x62)
+      {
+        TestStepFail("", "ECU did not respond with the desired NRC value Response received: %x %x ",response_capture[1],response_capture[2]);
+      }        
+     else if((response_capture[1] == 0x7F) && (response_capture[3] == 0x31) )
+      {
+        TestStepPass("","Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+      }
+      else 
+      {
+        TestStepFail("", "Wrong Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+      }
+    }
+   else
+   {
+      TestStepFail("", "Response timed out or Other error, Check Manually");
+   }
+  testWaitForTimeout(500);
+}
+
+void diagSendRequest_default()
+{
+  diagSendRequest(default_session);
+ 
+  if(TestWaitForDiagResponse (default_session,P2timeout))
+    {  
+    TestStep("","Request sent: %x %x ",request_capture[1],request_capture[2]);
+    if((response_capture[1] == 0x50) && (response_capture[2] == 0x01))
+    {    
+      TestStepPass("","Entered into default session and Response received: %x %x %x %x %x %x",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5],response_capture[6]);
+    }
+    else if (response_capture[1] == 0x7F)
+    {
+      TestStepFail("", "Negative Response Received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+    else
+      {
+        TestStepFail("", "Unknown Response received from ECU: %x %x %x %x %x %x %x ",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5],response_capture[6],response_capture[7]);
+      }
+    } 
+    testWaitForTimeout(500);
+  
+}
+void diagSendRequest_Extended()
+{
+  diagSendRequest(extended_session);
+  
+  if(TestWaitForDiagResponse (extended_session,P2timeout))
+    {
+    TestStep("","Request sent: %x %x",request_capture[1],request_capture[2]);  
+    if((response_capture[1] == 0x50) && (response_capture[2] == 0x03))
+    {    
+      TestStepPass(""," Entered into Extended session and Response received is: %x %x %x %x %x %x",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5],response_capture[6]);
+    }
+    else if (response_capture[1] == 0x7F)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+    else
+      {
+        TestStepFail("", "Unknown Response received from ECU: %x %x %x %x %x %x %x ",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5],response_capture[6],response_capture[7]);
+      }
+    } 
+    testWaitForTimeout(500);
+}
+void diagSendRequest_Programming()
+{
+  diagSendRequest(programming_session);
+  
+  if(TestWaitForDiagResponse (programming_session,P2timeout))
+    { 
+    TestStep("","Request sent: %x %x",request_capture[1],request_capture[2]);
+    if((response_capture[1] == 0x50) && (response_capture[2] == 0x02))
+    {    
+      TestStepPass("","Entered into Programming_session and Response received is: %x %x %x %x %x %x",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5],response_capture[6]);
+    }
+    else if (response_capture[1] == 0x7F)
+    {
+      TestStepFail("", "Negative Response Received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+    else
+      {
+        TestStepFail("", "Unknown Response received from ECU: %x %x %x %x %x %x %x ",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5],response_capture[6],response_capture[7]);
+      }
+    } 
+    testWaitForTimeout(500);
+}
+
+
+void diagSendRequest_TesterPresent()
+{
+  diagSendRequest(Tester_Present);
+ 
+  if(TestWaitForDiagResponse (Tester_Present,P2timeout))
+    {  
+    TestStep("","Request sent: %x %x ",request_capture[1],request_capture[2]);
+    if((response_capture[1] == 0x7E) && (response_capture[2] == 0x00))
+    {    
+      TestStepPass("","Tester present enabled \n  Response received: %x %x ",response_capture[1],response_capture[2]);
+    }    
+    else
+    {
+        TestStepFail("", "Unknown Response received from ECU: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+    } 
+    testWaitForTimeout(500);
+    //ActiveDiagnosticSessionDataIdentifier();
+  
+}
+
+int RDBI_EXE(byte high_byte,byte low_byte, byte length)
+{
+  Msg_0x7A0.byte(0) = 0x3;
+  Msg_0x7A0.byte(1) = 0x22;
+  Msg_0x7A0.byte(2) = high_byte;
+  Msg_0x7A0.byte(3) = low_byte;
+  output(Msg_0x7A0);
+  //testWaitForTimeout(500);
+  
+  if(testWaitForMessage(mDiagRs_VCU,P2timeout))
+  {  
+    testStep("","Request Sent : %x %x %x %x",request_capture[0],request_capture[1],request_capture[2],request_capture[3]);  
+     if(response_capture[1] == 0x62)
+        {
+          TestStepPass("","");
+          return 1;
+        }  
+        else if(response_capture[1] == 0x7F)
+        {
+          TestStepFail("", "");
+          return 2;
+        }
+      else 
+      {
+        TestStepFail("", "");
+        return 3;
+      }
+    }
+   else
+   {
+      TestStepFail("", "Response timed out or Other error, Check Manually");
+    return 4;
+   }
+   testWaitForTimeout(10);
+}
+
+//-----------------------------------------------------------------------------Diagnostic Session Control----------------------------------------------------------------------------------------------
+testcase UDS_TC1()
+{
+    TestCaseTitle("UDS_TC1", "SID_10_Default_Session_0x01");
+    TestCaseDescription("Verify the Active Diagnostic Session after ECU Wakeup");
+    testStepBegin("UDS_TC1","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier();     
+    testWaitForTimeout(6000); 
+    
+}
+
+testcase UDS_TC2()
+{
+    TestCaseTitle("UDS_TC2", "SID_10_Extended_Session_0x03");
+    TestCaseDescription("Verify the Diagnostic Session Control in Extended Session");  
+    TestStepBegin("UDS_TC2","Test Case Started");
+    ActiveDiagnosticSessionDataIdentifier();
+    testWaitForTimeout(500);
+    diagSendRequest_Extended();
+    testWaitForTimeout(500);
+    ActiveDiagnosticSessionDataIdentifier(); 
+    testWaitForTimeout(50);
+    diagSendRequest_default();
+    testWaitForTimeout(1000);
+    ActiveDiagnosticSessionDataIdentifier();
+    testWaitForTimeout(6000);    
+}
+
+testcase UDS_TC3()
+{
+    TestCaseTitle("UDS_TC3", "SID_10_Programming_Session_0x02");
+    TestCaseDescription("Verify_the_Diagnostic_Session_Control_in_Programming Session");
+    TestStepBegin("UDS_TC3","Test Case Started");
+    testWaitForTimeout(6000); 
+    ActiveDiagnosticSessionDataIdentifier(); 
+    testWaitForTimeout(500);   
+    diagSendRequest_Extended(); 
+    testWaitForTimeout(500);    
+    ActiveDiagnosticSessionDataIdentifier();
+    testWaitForTimeout(500);    
+    diagSendRequest_Programming();    
+    testWaitForTimeout(500);    
+    //ActiveDiagnosticSessionDataIdentifier(); 
+    //testWaitForTimeout(500);    
+    diagSendRequest_default();
+    testWaitForTimeout(500);    
+    ActiveDiagnosticSessionDataIdentifier();
+    testWaitForTimeout(5000); 
+}
+
+testcase UDS_TC4()//12
+{
+    TestCaseTitle("UDS_TC4", "NRC_12_for_10SID");
+    TestCaseDescription("Verify the Negative Response code (0x10) - Diagnostic Session Control Service");
+    testStepBegin("UDS_TC4","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier();
+    Send_Invalidsubfunction_10_SID();
+    testWaitForTimeout(5000);
+}
+
+testcase UDS_TC5()
+{
+    TestCaseTitle("UDS_TC5", "Tester_Present_request_Extended");
+    TestCaseDescription("Verify the Tester Present (0x3E) in extended session");
+    testStepBegin("UDS_TC5","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier();  
+    diagSendRequest_Extended(); 
+    diagSendRequest_TesterPresent(); 
+    diagSendRequest_default();
+}
+
+testcase UDS_TC6()
+{
+    TestCaseTitle("UDS_TC6", "Tester_Present_request_Programming");
+    TestCaseDescription("Verify the Tester Present (0x3E) in programming session");
+    testStepBegin("UDS_TC6","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier();   
+    diagSendRequest_Extended(); 
+    diagSendRequest_Programming();  
+    diagSendRequest_TesterPresent();  
+    diagSendRequest_default();   
+     
+}
+
+testcase UDS_TC7()
+{
+    
+    TestCaseTitle("UDS_TC7", "NRC_13_in_Service_3E");
+    TestCaseDescription("Verify the Negative Response code (0x3E) -Tester Present");
+    testStepBegin("UDS_TC7","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier();
+    diagSendRequest_Extended(); 
+    Send_InvalidDLC_3E_SID();
+    ActiveDiagnosticSessionDataIdentifier(); 
+    Send_Invalidsubfunction_3E_SID(); 
+    diagSendRequest_default(); 
+}
+
+testcase UDS_TC8()
+{
+    TestCaseTitle("UDS_TC8", "Read_ECU_Serial_Number_F18C_default_session");
+    TestCaseDescription("Verify the ECU Serial Number (0xF18C) - Message structure in default session");
+    testStepBegin("UDS_TC8","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier();  
+    testWaitForTimeout(500);
+    diagSendRequest(did_f18C_read);    
+    result = RDBI_EXE(0xF1, 0x8C, 0x03); 
+    testWaitForTimeout(50);    
+    if(result == 1)
+    {
+      TestStepPass("","Response Received :%x %x %x %x %x %x %x",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5],response_capture[6],response_capture[7]);
+    }
+    else if(result == 2)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+   else if(result == 3)
+   { 
+     TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+   }  
+   TestStep("", "End of TestCase");
+   testWaitForTimeout(5000);
+}
+
+testcase UDS_TC9()
+{
+    TestCaseTitle("UDS_TC9", "Read_ECU_Serial_Number_F18C_Extended_Session");
+    TestCaseDescription("Verify the ECU Serial Number (0xF18C) - Message structure in Extended_Session");
+    testStepBegin("UDS_TC9","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier();
+    diagSendRequest_Extended();
+    diagSendRequest(did_f18C_read);
+    //testStep("","Request Sent : %x %x %x %x",request_capture[0],request_capture[1],request_capture[2],request_capture[3]);
+    result = RDBI_EXE(0xF1, 0x8C, 0x03);
+    if(result == 1)
+    {
+      TestStepPass("","Response Received :%x %x %x %x %x %x %x",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5],response_capture[6],response_capture[7]);
+    }
+    else if(result == 2)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+   else if(result == 3)
+   { 
+     TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+   } 
+    TestStep("", "End of TestCase");
+  testWaitForTimeout(6000);
+}
+
+testcase UDS_TC10()
+{
+    TestCaseTitle("UDS_TC10", "Read_Battery_Sense_Voltag_2360_default_session");
+    TestCaseDescription("Verify the 12V Battery Sense Voltage(0x2360) Message structure in default session");
+    testStepBegin("UDS_TC10","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier(); 
+    testWaitForTimeout(500);
+    diagSendRequest(did_2360_read);    
+    result = RDBI_EXE(0x23, 0x60, 0x03);
+    if(result == 1)
+    {
+      TestStepPass("","Response Received :%x %x %x %x %x",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5]);
+    }
+    else if(result == 2)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+   else if(result == 3)
+   { 
+     TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+   } 
+    TestStep("", "End of TestCase");
+  testWaitForTimeout(5000);
+}
+
+testcase UDS_TC11()
+{
+    TestCaseTitle("UDS_TC11", "Read_Battery_Sense_Voltag_2360_Extended_session");
+    TestCaseDescription("Verify the 12V Battery Sense Voltage(0x2360) Message structure in Extended session");
+    testStepBegin("UDS_TC11","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier(); 
+    diagSendRequest_Extended();
+    diagSendRequest(did_2360_read);    
+    result = RDBI_EXE(0x23, 0x60, 0x03);
+    if(result == 1)
+    {
+      TestStepPass("","Response Received :%x %x %x %x %x",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5]);
+    }
+    else if(result == 2)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+   else if(result == 3)
+   { 
+     TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+   } 
+    TestStep("", "End of TestCase");
+  testWaitForTimeout(5000);
+}
+
+testcase UDS_TC12()
+{
+    TestCaseTitle("UDS_TC12", "Read_Actual_Motor_Torque_1B74_default_session");
+    TestCaseDescription("Verify the Actual Motor Torque (0x1B74)Message structure in default session");
+    testStepBegin("UDS_TC12","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier();    
+    diagSendRequest(did_1B74_read);    
+    result = RDBI_EXE(0x1B, 0x74, 0x03);
+    if(result == 1)
+    {
+      TestStepPass("","Response Received :%x %x %x %x ",response_capture[1],response_capture[2],response_capture[3],response_capture[4]);
+    }
+    else if(result == 2)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+   else if(result == 3)
+   { 
+     TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+   } 
+    TestStep("", "End of TestCase");
+  testWaitForTimeout(5000);
+}
+
+testcase UDS_TC13()
+{
+    TestCaseTitle("UDS_TC13", "Read_Actual_Motor_Torque_1B74_Extended_session");
+    TestCaseDescription("Verify the Actual Motor Torque (0x1B74)Message structure in Extended session");
+    testStepBegin("UDS_TC13","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier();
+    diagSendRequest_Extended();
+    diagSendRequest(did_1B74_read);    
+    result = RDBI_EXE(0x1B, 0x74, 0x03);
+    if(result == 1)
+    {
+      TestStepPass("","Response Received :%x %x %x %x ",response_capture[1],response_capture[2],response_capture[3],response_capture[4]);
+    }
+    else if(result == 2)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+   else if(result == 3)
+   { 
+     TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+   } 
+    TestStep("", "End of TestCase");
+  testWaitForTimeout(5000);
+}
+
+testcase UDS_TC14()
+{
+    TestCaseTitle("UDS_TC14", "Available_Motor_Torque_1B76_default_session");
+    TestCaseDescription("Verify the Available Motor Torque (0x1B76)Message structure in default session");
+    testStepBegin("UDS_TC14","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier();    
+    diagSendRequest(did_1B76_read);    
+    result = RDBI_EXE(0x1B, 0x76, 0x03);
+    if(result == 1)
+    {
+      TestStepPass("","Response Received :%x %x %x %x %x ",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5]);
+    }
+    else if(result == 2)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+   else if(result == 3)
+   { 
+     TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+   } 
+    TestStep("", "End of TestCase");
+  testWaitForTimeout(5000);
+}
+
+testcase UDS_TC15()
+{
+    TestCaseTitle("UDS_TC15", "Available_Motor_Torque_1B76_Extended_session");
+    TestCaseDescription("Verify the Available Motor Torque (0x1B76)Message structure in Extended session");
+    testStepBegin("UDS_TC15","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier(); 
+    diagSendRequest_Extended();
+    diagSendRequest(did_1B76_read);   
+    result = RDBI_EXE(0x1B, 0x76, 0x03);
+    if(result == 1)
+    {
+      TestStepPass("","Response Received :%x %x %x %x %x ",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5]);
+    }
+    else if(result == 2)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+   else if(result == 3)
+   { 
+     TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+   } 
+    TestStep("", "End of TestCase");
+  testWaitForTimeout(5000);
+}
+
+testcase UDS_TC16()
+{
+    TestCaseTitle("UDS_TC16", "Battery_available_power_2378_default_session");
+    TestCaseDescription("Verify the Battery available power (0x2378)Message structure in default session");
+    testStepBegin("UDS_TC16","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier();    
+    diagSendRequest(did_2378_read);   
+    result = RDBI_EXE(0x23, 0x78, 0x03);
+    if(result == 1)
+    {
+      TestStepPass("","Response Received :%x %x %x %x %x %x %x",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5],response_capture[6],response_capture[7]);
+    }
+    else if(result == 2)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+   else if(result == 3)
+   { 
+     TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+   }
+ testWaitForTimeout(5000);
+}
+
+testcase UDS_TC17()
+{
+    TestCaseTitle("UDS_TC17", "Battery_available_power_2378_extended_session");
+    TestCaseDescription("Verify the Battery available power (0x2378)Message structure in extended session");
+    testStepBegin("UDS_TC17","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier();
+    diagSendRequest_Extended();
+    diagSendRequest(did_2378_read);    
+    result = RDBI_EXE(0x23, 0x78, 0x03);
+    if(result == 1)
+    {
+      TestStepPass("","Response Received :%x %x %x %x %x %x %x",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5],response_capture[6],response_capture[7]);
+    }
+    else if(result == 2)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+   else if(result == 3)
+   { 
+     TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+   }
+  testWaitForTimeout(5000);
+}
+
+testcase UDS_TC18()
+{
+    TestCaseTitle("UDS_TC18", "Battery_Pack_1_Failure_Reason_138E_default_session");
+    TestCaseDescription("Verify the Battery Pack 1 Failure Reason (0x138E) Message structure in default session");
+    testStepBegin("UDS_TC18","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier();    
+    diagSendRequest(did_138E_read);    
+    result = RDBI_EXE(0x13, 0x8E, 0x03);
+    if(result == 1)
+    {
+      TestStepPass("","Response Received :%x %x %x %x ",response_capture[1],response_capture[2],response_capture[3],response_capture[4]);
+    }
+    else if(result == 2)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+   else if(result == 3)
+   { 
+     TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+   }
+  testWaitForTimeout(5000);
+}
+
+testcase UDS_TC19()
+{
+    TestCaseTitle("UDS_TC19", "Battery_Pack_1_Failure_Reason_138E_Extended_session");
+    TestCaseDescription("Verify the Battery Pack 1 Failure Reason (0x138E) Message structure in Extended session");
+    testStepBegin("UDS_TC19","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier(); 
+    diagSendRequest_Extended();
+    diagSendRequest(did_138E_read);    
+    result = RDBI_EXE(0x13, 0x8E, 0x03);
+    if(result == 1)
+    {
+      TestStepPass("","Response Received :%x %x %x %x ",response_capture[1],response_capture[2],response_capture[3],response_capture[4]);
+    }
+    else if(result == 2)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+   else if(result == 3)
+   { 
+     TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+   }
+ testWaitForTimeout(5000);
+}
+
+testcase UDS_TC20()
+{
+    TestCaseTitle("UDS_TC20", "Battery_Pack_2_Failure_Reason_1390_default_session");
+    TestCaseDescription("Verify the Battery Pack 2 Failure Reason (0x1390) - Message structure in default session");
+    testStepBegin("UDS_TC20","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier();    
+    diagSendRequest(did_1390_read);
+    
+    result = RDBI_EXE(0x13, 0x90, 0x03);
+    if(result == 1)
+    {
+      TestStepPass("","Response Received :%x %x %x %x ",response_capture[1],response_capture[2],response_capture[3],response_capture[4]);
+    }
+    else if(result == 2)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+   else if(result == 3)
+   { 
+     TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+   }
+  testWaitForTimeout(5000);
+}
+
+testcase UDS_TC21()
+{
+    TestCaseTitle("UDS_TC21", "Battery_Pack_2_Failure_Reason_1390_Extended_session");
+    TestCaseDescription("Verify the Battery Pack 2 Failure Reason (0x1390) - Message structure in Extended session");
+    testStepBegin("UDS_TC21","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier();
+    diagSendRequest_Extended();
+    diagSendRequest(did_1390_read);
+    
+    result = RDBI_EXE(0x13, 0x90, 0x03);
+    if(result == 1)
+    {
+      TestStepPass("","Response Received :%x %x %x %x ",response_capture[1],response_capture[2],response_capture[3],response_capture[4]);
+    }
+    else if(result == 2)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+   else if(result == 3)
+   { 
+     TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+   }
+  testWaitForTimeout(5000);
+}
+
+testcase UDS_TC22()
+{
+    TestCaseTitle("UDS_TC22", "Battery_State_of_Charge _2B07_default_session");
+    TestCaseDescription("Verify the Battery State of Charge (0x2B07) - Message structure in default session");
+    testStepBegin("UDS_TC22","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier();    
+    diagSendRequest(did_2B07_read);
+    
+    result = RDBI_EXE(0x2B, 0x07, 0x03);
+    if(result == 1)
+    {
+      TestStepPass("","Response Received :%x %x %x %x %x",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5]);
+    }
+    else if(result == 2)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+   else if(result == 3)
+   { 
+     TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+   }
+  testWaitForTimeout(5000);
+}
+
+testcase UDS_TC23()
+{
+    TestCaseTitle("UDS_TC23", "Battery_State_of_Charge _2B07_extended_session");
+    TestCaseDescription("Verify the Battery State of Charge (0x2B07) - Message structure in Extended session");
+    testStepBegin("UDS_TC23","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier(); 
+    diagSendRequest_Extended();
+    diagSendRequest(did_2B07_read);
+    
+    result = RDBI_EXE(0x2B, 0x07, 0x03);
+    if(result == 1)
+    {
+      TestStepPass("","Response Received :%x %x %x %x %x",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5]);
+    }
+    else if(result == 2)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+   else if(result == 3)
+   { 
+     TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+   }
+  testWaitForTimeout(5000);
+}
+
+testcase UDS_TC24()
+{
+    TestCaseTitle("UDS_TC24", "Brake_Actuator_status_1B58_default_session");
+    TestCaseDescription("Verify the Brake Actuator status (0x1B58) Message structure in default session");
+    testStepBegin("UDS_TC24","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier();    
+    diagSendRequest(did_1B58_read);
+    
+    result = RDBI_EXE(0x1B, 0x58, 0x03);
+    if(result == 1)
+    {
+      TestStepPass("","Response Received :%x %x %x %x ",response_capture[1],response_capture[2],response_capture[3],response_capture[4]);
+    }
+    else if(result == 2)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+   else if(result == 3)
+   { 
+     TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+   }
+ testWaitForTimeout(5000);
+}
+
+testcase UDS_TC25()
+{
+    TestCaseTitle("UDS_TC25", "Brake_Actuator_status_1B58_Extended_session");
+    TestCaseDescription("Verify the Brake Actuator status (0x1B58) Message structure in Extended session");
+    testStepBegin("UDS_TC25","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier(); 
+    diagSendRequest_Extended();
+    diagSendRequest(did_1B58_read);
+  
+    result = RDBI_EXE(0x1B, 0x58, 0x03);
+    if(result == 1)
+    {
+      TestStepPass("","Response Received :%x %x %x %x ",response_capture[1],response_capture[2],response_capture[3],response_capture[4]);
+    }
+    else if(result == 2)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+   else if(result == 3)
+   { 
+     TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+   }
+  testWaitForTimeout(5000);
+}
+
+testcase UDS_TC26()
+{
+    TestCaseTitle("UDS_TC26", " Brake_Cyliner_Pressure_233E_default_session");
+    TestCaseDescription("Verify the Brake Cyliner Pressure (0x233E) Message structure in default session");
+    testStepBegin("UDS_TC26","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier();    
+    diagSendRequest(did_233E_read);
+    
+    result = RDBI_EXE(0x23, 0x3E, 0x03);
+    if(result == 1)
+    {
+      TestStepPass("","Response Received :%x %x %x %x ",response_capture[1],response_capture[2],response_capture[3],response_capture[4]);
+    }
+    else if(result == 2)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+   else if(result == 3)
+   { 
+     TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+   }
+  testWaitForTimeout(5000);
+}
+
+testcase UDS_TC27()
+{
+    TestCaseTitle("UDS_TC27", " Brake_Cyliner_Pressure_233E_Extended_session");
+    TestCaseDescription("Verify the Brake Cyliner Pressure (0x233E) Message structure in Extended session");
+    testStepBegin("UDS_TC27","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier(); 
+    diagSendRequest_Extended();
+    diagSendRequest(did_233E_read);
+    
+    result = RDBI_EXE(0x23, 0x3E, 0x03);
+    if(result == 1)
+    {
+      TestStepPass("","Response Received :%x %x %x %x ",response_capture[1],response_capture[2],response_capture[3],response_capture[4]);
+    }
+    else if(result == 2)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+   else if(result == 3)
+   { 
+     TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+   }
+  testWaitForTimeout(5000);
+}
+
+testcase UDS_TC28()
+{
+    TestCaseTitle("UDS_TC28", "NRCs_13_and_31_for_the_22SID");
+    TestCaseDescription("Verify the Negative Response code (0x22) ReadDataByIdentifier");
+    testStepBegin("UDS_TC28","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier(); 
+    diagSendRequest_Extended();
+    Send_InvalidDLC_22_SID();
+    ActiveDiagnosticSessionDataIdentifier();
+    Send_RequestOutOfRange_22_SID();
+    testWaitForTimeout(5000);
+}
+
+testcase UDS_TC29()
+{
+    TestCaseTitle("UDS_TC29", " Write_Serial_Number_0xF18_Extended_session");
+    TestCaseDescription("Verify the Serial Number (0xF18C) Message structure in Extended session using service 2E");
+    testStepBegin("UDS_TC29","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier(); 
+    diagSendRequest_Extended();
+    diagSendRequest(did_f18C_write);
+    testwaitfortimeout(200);
+    Msg_0x7A0.byte(0) = 0x07;
+    Msg_0x7A0.byte(1) = 0x2E;
+    Msg_0x7A0.byte(2) = 0xF1;
+    Msg_0x7A0.byte(3) = 0x8C;
+    Msg_0x7A0.byte(4) = 0xAA;                  
+    Msg_0x7A0.byte(5) = 0xBB;
+    Msg_0x7A0.byte(6) = 0xCC;
+    Msg_0x7A0.byte(7) = 0xDD;
+    output(Msg_0x7A0);
+    if(testWaitForMessage(mDiagRs_VCU,P2timeout) == 1)
+    {
+      testStep("","Request sent : %x %x %x %x %x %x %x %x",request_capture[0],request_capture[1],request_capture[2],request_capture[3],request_capture[4],request_capture[5],request_capture[6],request_capture[7]);
+      if(response_capture[1] == 0x6E && response_capture[2] == 0xF1 && response_capture[3] == 0x8C)
+      {
+        TestStepPass("","Positive response for WDBI \n Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+      } 
+      else if(response_capture[1] == 0x7F)
+      {
+        TestStepFail("", "ECU respond with the NRC value \n Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+      }
+      else
+      {
+        TestStepFail("", "ECU did not respond with the desired NRC value \n Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+      }
+   }
+    //read
+    diagSendRequest(did_f18C_read);    
+    result = RDBI_EXE(0xF1, 0x8C, 0x03); 
+    testWaitForTimeout(50);    
+    if(result == 1)
+    {
+      TestStepPass("","Response Received :%x %x %x %x %x %x %x",response_capture[1],response_capture[2],response_capture[3],response_capture[4],response_capture[5],response_capture[6],response_capture[7]);
+    }
+    else if(result == 2)
+    {
+      TestStepFail("", "Negative Response received: %x %x %x ",response_capture[1],response_capture[2],response_capture[3]);
+    }
+   else if(result == 3)
+   { 
+     TestStepFail("", "ECU did not respond with the desired NRC value Response Received : %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+   }
+  testWaitForTimeout(5000);
+}
+
+testcase UDS_TC30()
+{
+    TestCaseTitle("UDS_TC30", "ClearDiagnosticInformation_0x14_Service");
+    TestCaseDescription("Verify the ClearDiagnosticInformation (0x14) Service");
+    testStepBegin("UDS_TC30","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier(); 
+    diagSendRequest_Extended();
+    diagSendRequest(clear_dtc);
+    Msg_0x7A0.byte(0) = 0x04;
+    Msg_0x7A0.byte(1) = 0x14;
+    Msg_0x7A0.byte(2) = 0xFF;
+    Msg_0x7A0.byte(3) = 0xFF;
+    Msg_0x7A0.byte(4) = 0xFF;  
+    output(Msg_0x7A0);
+    if(testWaitForMessage(mDiagRs_VCU,P2timeout))
+     {
+      testStep("","Request Sent : %x %x %x %x",request_capture[1],request_capture[2],request_capture[3],request_capture[4]); 
+      if((response_capture[1] == 0x54))
+      {    
+        TestStepPass("","clear_dtc Response received: %x ",response_capture[1]);
+      }
+      else
+      {
+        TestStepFail("", "NRC received Response received: %x ",response_capture[1]);
+      } 
+    }
+     //diagSendRequest_default();
+    testWaitForTimeout(8000);
+}
+
+testcase UDS_TC31()
+{
+    TestCaseTitle("UDS_TC31", "ClearDiagnosticInformation_0x14_Service");
+    TestCaseDescription("Verify  the ClearDiagnosticInformation (0x14) Service with Particular DTC");
+    testStepBegin("UDS_TC31","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier(); 
+    diagSendRequest_Extended();
+    diagSendRequest(clear_dtc);    
+    testWaitForTimeout(10000);
+    Msg_0x7A0.byte(0) = 0x04;
+    Msg_0x7A0.byte(1) = 0x14;
+    Msg_0x7A0.byte(2) = 0x0A;
+    Msg_0x7A0.byte(3) = 0x1F;
+    Msg_0x7A0.byte(4) = 0x09;  
+    output(Msg_0x7A0);
+    if(testWaitForMessage(mDiagRs_VCU,P2timeout)==1)
+     {      
+      testStep("","Request Sent : %x %x %x %x",request_capture[1],request_capture[2],request_capture[3],request_capture[4]); 
+      if((response_capture[1] == 0x54))
+      {    
+        TestStepPass("","clear_dtc Response received: %x ",response_capture[1]);
+      }
+      else
+      {
+        TestStepFail("", "NRC received Response received: %x ",response_capture[1]);
+      } 
+    }
+    testWaitForTimeout(5000);
+}
+
+testcase UDS_T32()
+{
+    
+    TestCaseTitle("UDS_T32", "NRC_13_in_Service_14");
+    TestCaseDescription("Verify the Negative Response code (0x14) Service");
+    testStepBegin("UDS_T32","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier();
+    diagSendRequest_Extended(); 
+    Send_InvalidDLC_14_SID();
+    ActiveDiagnosticSessionDataIdentifier(); 
+    Send_Invalidsubfunction_3E_SID(); 
+    diagSendRequest_default(); 
+}
+
+testcase UDS_T33()//85 01
+{
+    
+    TestCaseTitle("UDS_T33", "ControlDTCSetting_0x85_using_sub_function_0x01");
+    TestCaseDescription("Verify that the ControlDTCSetting (0x85) service Using sub function(0x01)");
+    testStepBegin("UDS_T33","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier();
+    diagSendRequest_Extended();
+    diagSendRequest( ControlDTCSetting_On);
+    Msg_0x7A0.byte(0) = 0x02;
+    Msg_0x7A0.byte(1) = 0x85;
+    Msg_0x7A0.byte(2) = 0x01;     
+    output(Msg_0x7A0);
+    if(testWaitForMessage (mDiagRs_VCU,P2timeout))
+     {
+      testStep("","Request Sent : %x %x",request_capture[1],request_capture[2]); 
+      if((response_capture[1] == 0xC5) && (response_capture[2] == 0x01))
+      {    
+        TestStepPass("","ControlDTCSetting on Response received: %x %x",response_capture[1],response_capture[2]);
+      }
+      else
+      {
+        TestStepFail("", "NRC received Response received: %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+      } 
+    }
+    testWaitForTimeout(5000);
+}
+
+testcase UDS_T34()//85 02
+{
+    
+    TestCaseTitle("UDS_T34", "ControlDTCSetting_0x85_using_sub_function_0x02");
+    TestCaseDescription("Verify that the ControlDTCSetting (0x85) service Using sub function(0x02)");
+    testStepBegin("UDS_T34","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier();
+    diagSendRequest_Extended();
+    diagSendRequest(ControlDTCSetting_Off);
+    Msg_0x7A0.byte(0) = 0x02;
+    Msg_0x7A0.byte(1) = 0x85;
+    Msg_0x7A0.byte(2) = 0x02;     
+    output(Msg_0x7A0);
+    if(testWaitForMessage(mDiagRs_VCU,P2timeout))
+     {
+      testStep("","Request Sent : %x %x",request_capture[1],request_capture[2]); 
+      if((response_capture[1] == 0xC5) && (response_capture[2] == 0x02))
+      {    
+        TestStepPass("","ControlDTCSetting on Response received: %x %x",response_capture[1],response_capture[2]);
+      }
+      else
+      {
+        TestStepFail("", "NRC received Response received: %x %x %x",response_capture[1],response_capture[2],response_capture[3]);
+      } 
+    }
+    testWaitForTimeout(5000);
+}
+
+testcase UDS_TC35()//NRC 12 and 13 for 85
+{
+    TestCaseTitle("UDS_TC35", "NRCs_12_and_13_for_the_85SID");
+    TestCaseDescription("Verify the Negative Response code ControlDTCSetting (0x85) service");
+    testStepBegin("UDS_TC35","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier(); 
+    diagSendRequest_Extended();
+    Send_InvalidDLC_85_SID();
+    ActiveDiagnosticSessionDataIdentifier();
+    Send_Invalidsubfunction_85_SID();
+    testWaitForTimeout(5000);
+}
+
+testcase UDS_TC36()//NRC 12 and 13 for 85
+{
+    TestCaseTitle("UDS_TC36", "wgbfwehf iufgweiuf uirhgrwe uy");
+    TestCaseDescription("Verify the Negative Response code ControlDTCSetting (0x85) service");
+    testStepBegin("UDS_TC36","Test Case Started ");    
+    ActiveDiagnosticSessionDataIdentifier(); 
+    diagSendRequest_Extended();
+    Send_InvalidDLC_85_SID();
+    ActiveDiagnosticSessionDataIdentifier();
+    Send_Invalidsubfunction_85_SID();
+    testWaitForTimeout(5000);
+}
+
+
+
+
+
+
