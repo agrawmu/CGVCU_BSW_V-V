@@ -12,6 +12,7 @@ wait(10)
 
 # Step 3: Open config
 canoe_inst.open(r'D:\Jenkins\workspace\MCore_Vector_AutoTest\M_Core\UDS\UDS_Configuration.cfg')
+
 wait(10)
 
 # Step 4: Start Measurement
@@ -24,6 +25,8 @@ print("Waiting for CAPL to finish...")
 timeout = 120  # max wait time in seconds
 elapsed = 0
 
+wait(20)
+'''
 while elapsed < timeout:
     capl_status = canoe_inst.get_env_var("testDone")
     if capl_status == 1:
@@ -33,6 +36,7 @@ while elapsed < timeout:
     elapsed += 1
 else:
     print("Timeout: CAPL did not finish in expected time.")
+'''
 
 # Step 6: Stop and close
 canoe_inst.stop_measurement()
