@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<testmodule starttime="2025-04-26 12:33:12" timestamp="   0.000000" verdicts="2_basic" measurementid="9625d66e-0872-4bbe-84a3-b1f621f9cad8">
+  <testcase starttime="2025-04-26 12:33:12" timestamp="   0.000000">
+    <teststep timestamp="   0.003571" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=1960 (0x7A8) Elapsed time=3.57117ms (max=100ms)</teststep>
+    <teststep timestamp="   0.000000" level="0" type="user" ident="UDS_TC1" result="na">Test Case Started </teststep>
+    <teststep timestamp="   0.003571" level="0" type="user" ident="" result="na">Request sent : 22 f1 86 </teststep>
+    <teststep timestamp="   0.003571" level="0" type="user" ident="" result="fail">Unknown Response received: 62 f1 86 2 4d 9 34 </teststep>
+    <teststep timestamp="   0.503571" level="1" type="auto" ident="Resume reason" result="na">Elapsed time=500ms (max=500ms)</teststep>
+    <teststep timestamp="   6.503571" level="1" type="auto" ident="Resume reason" result="na">Elapsed time=6000ms (max=6000ms)</teststep>
+    <verdict time="2025-04-26 12:33:12" timestamp="   0.003571" endtime="2025-04-26 12:33:19" endtimestamp="   6.503571" result="fail" />
+    <title>SID_10_Default_Session_0x01</title>
+    <ident>UDS_TC1</ident>
+    <description>Verify the Active Diagnostic Session after ECU Wakeup</description>
+  </testcase>
+  <testcase starttime="2025-04-26 12:33:19" timestamp="   6.503571">
+    <teststep timestamp="   6.505857" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=1960 (0x7A8) Elapsed time=2.28603ms (max=100ms)</teststep>
+    <teststep timestamp="   6.503571" level="0" type="user" ident="UDS_TC2" result="na">Test Case Started</teststep>
+    <teststep timestamp="   6.505857" level="0" type="user" ident="" result="na">Request sent : 22 f1 86 </teststep>
+    <teststep timestamp="   6.505857" level="0" type="user" ident="" result="fail">Unknown Response received: 62 f1 86 2 4d 9 34 </teststep>
+    <teststep timestamp="   7.005857" level="1" type="auto" ident="Resume reason" result="na">Elapsed time=500ms (max=500ms)</teststep>
+    <teststep timestamp="   7.505857" level="1" type="auto" ident="Resume reason" result="na">Elapsed time=500ms (max=500ms)</teststep>
+    <teststep timestamp="   7.508793" level="1" type="auto" ident="Resume reason" result="na">Resumed on Diagnostics response from &apos;CGVCU&apos; Elapsed time=2.93613ms (max=100ms)</teststep>
+    <teststep timestamp="   7.508793" level="0" type="user" ident="" result="na">Request sent: 10 3</teststep>
+    <teststep timestamp="   7.508793" level="0" type="user" ident="" result="pass"> Entered into Extended session and Response received is: 50 3 0 a 1 f4</teststep>
+    <teststep timestamp="   8.008793" level="1" type="auto" ident="Resume reason" result="na">Elapsed time=500ms (max=500ms)</teststep>
+    <teststep timestamp="   8.508793" level="1" type="auto" ident="Resume reason" result="na">Elapsed time=500ms (max=500ms)</teststep>
+    <teststep timestamp="   8.510311" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=1960 (0x7A8) Elapsed time=1.51809ms (max=100ms)</teststep>
+    <teststep timestamp="   8.510311" level="0" type="user" ident="" result="na">Request sent : 22 f1 86 </teststep>
+    <teststep timestamp="   8.510311" level="0" type="user" ident="" result="fail">Unknown Response received: 62 f1 86 2 4d 9 34 </teststep>
+    <teststep timestamp="   9.010311" level="1" type="auto" ident="Resume reason" result="na">Elapsed time=500ms (max=500ms)</teststep>
+    <teststep timestamp="   9.060311" level="1" type="auto" ident="Resume reason" result="na">Elapsed time=50ms (max=50ms)</teststep>
+    <teststep timestamp="   9.062303" level="1" type="auto" ident="Resume reason" result="na">Resumed on Diagnostics response from &apos;CGVCU&apos; Elapsed time=1.99194ms (max=100ms)</teststep>
+    <teststep timestamp="   9.062303" level="0" type="user" ident="" result="na">Request sent: 10 1 </teststep>
+    <teststep timestamp="   9.062303" level="0" type="user" ident="" result="pass">Entered into default session and Response received: 50 1 0 a 1 f4</teststep>
+    <teststep timestamp="   9.562303" level="1" type="auto" ident="Resume reason" result="na">Elapsed time=500ms (max=500ms)</teststep>
+    <teststep timestamp="  10.562303" level="1" type="auto" ident="Resume reason" result="na">Elapsed time=1000ms (max=1000ms)</teststep>
+    <teststep timestamp="  10.564299" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=1960 (0x7A8) Elapsed time=1.996ms (max=100ms)</teststep>
+    <teststep timestamp="  10.564299" level="0" type="user" ident="" result="na">Request sent : 22 f1 86 </teststep>
+    <teststep timestamp="  10.564299" level="0" type="user" ident="" result="fail">Unknown Response received: 62 f1 86 2 4d 9 34 </teststep>
+    <teststep timestamp="  11.064299" level="1" type="auto" ident="Resume reason" result="na">Elapsed time=500ms (max=500ms)</teststep>
+    <teststep timestamp="  17.064299" level="1" type="auto" ident="Resume reason" result="na">Elapsed time=6000ms (max=6000ms)</teststep>
+    <verdict time="2025-04-26 12:33:19" timestamp="   6.505857" endtime="2025-04-26 12:33:29" endtimestamp="  17.064299" result="fail" />
+    <title>SID_10_Extended_Session_0x03</title>
+    <ident>UDS_TC2</ident>
+    <description>Verify the Diagnostic Session Control in Extended Session</description>
+  </testcase>
+  <verdict time="2025-04-26 12:33:12" timestamp="   0.003571" endtime="2025-04-26 12:33:29" endtimestamp="  17.064299" result="fail" />
+  <title>Verify the Diagnostic service</title>
+  <description>Test Author: Chaitra\n Test Execution Date:  Sat Apr 26 12:33:12 2025 Testcases to check the UDS Services</description>
+  <testlogfiles>
+  </testlogfiles>
+  <engineer>
+    <xinfo>
+      <name>Windows Login Name</name>
+      <description>Validation</description>
+    </xinfo>
+  </engineer>
+  <testsetup>
+    <xinfo>
+      <name>Version</name>
+      <description>CANoe.ISO11783.J1939.CANopen.CAN.LIN.MOST.FlexRay.J1587.Ethernet.Car2x.AFDX.A429.Scope.SmartCharging /pro 15.3.89 (SP3)</description>
+    </xinfo>
+    <xinfo>
+      <name>Configuration</name>
+      <description>D:\Jenkins\workspace\MCore_Vector_AutoTest\M_Core\UDS\UDS_Configuration.cfg</description>
+    </xinfo>
+    <xinfo>
+      <name>Database CAN_TC_V1.0.4 2 on CAN</name>
+      <description>D:\Jenkins\workspace\MCore_Vector_AutoTest\M_Core\UDS\DBC\CAN_TC_V1.0.4 2.dbc (2025-04-25 15:27:26)</description>
+    </xinfo>
+    <xinfo>
+      <name>Diagnostic Description of CGVCU</name>
+      <description>Base_Variant, en-US, D:\Jenkins\workspace\MCore_Vector_AutoTest\M_Core\UDS\CDD\CGVCU_LMDD_V1_6_01122025 3 1.cdd (1.6, 2025-01-09 15:49:20-05:00)</description>
+    </xinfo>
+    <xinfo>
+      <name>Test Module Name</name>
+      <description>Automation_capl</description>
+    </xinfo>
+    <xinfo>
+      <name>Test Module File</name>
+      <description>D:\Jenkins\workspace\MCore_Vector_AutoTest\M_Core\UDS\UDS_Testcase.can</description>
+    </xinfo>
+    <xinfo>
+      <name>Last modification of Test Module File</name>
+      <description>2025-04-26, 12:31:27</description>
+    </xinfo>
+    <xinfo>
+      <name>Windows Computer Name</name>
+      <description>IAST-BLR-VVD02</description>
+    </xinfo>
+    <xinfo>
+      <name>Nodelayer Module J1939TestServiceLibraryNL</name>
+      <description>J1939 Test Service Library for CANoe, Version 15.3.89.0, C:\Program Files\Vector CANoe 15\Exec32\J1939TestServiceLibraryNL.dll</description>
+    </xinfo>
+  </testsetup>
+  <hardware name="CAN Channel Interfaces" category="CategoryCANIF">
+    <xinfoset type="device">
+      <xinfoobject type="device">
+      <xinfo key="channel">
+        <name>Channel</name>
+        <description>1</description>
+      </xinfo>
+      <xinfo key="device">
+        <name>Device</name>
+        <description>VN1630</description>
+      </xinfo>
+      <xinfo key="serialnumber">
+        <name>Serial number</name>
+        <description>27283</description>
+      </xinfo>
+      <xinfo key="driverdllversion">
+        <name>Driver DLL version</name>
+        <description>20.30.16</description>
+      </xinfo>
+      <xinfo key="driverversion">
+        <name>Driver version</name>
+        <description>20.30.14</description>
+      </xinfo>
+      </xinfoobject>
+    </xinfoset>
+  </hardware>
+</testmodule>
+<!--footprint="90168640135fe9c465077f2d6af69217" version="1"-->
