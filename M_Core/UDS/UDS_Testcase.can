@@ -66,7 +66,7 @@ void Maintest()
   UDS_TC3();
   UDS_TC4();
   UDS_TC5();
-  /*UDS_TC6();
+  UDS_TC6();
   UDS_TC7();
   UDS_TC8();
   UDS_TC9();
@@ -96,7 +96,6 @@ void Maintest()
   UDS_T33();
   UDS_T34();
   UDS_TC35();
-  UDS_TC36();*/
  @TestAutomation::TestDone = 1;
 }
 
@@ -1352,22 +1351,3 @@ testcase UDS_TC35()//NRC 12 and 13 for 85
     Send_Invalidsubfunction_85_SID();
     testWaitForTimeout(5000);
 }
-
-testcase UDS_TC36()//NRC 12 and 13 for 85
-{
-    TestCaseTitle("UDS_TC36", "wgbfwehf iufgweiuf uirhgrwe uy");
-    TestCaseDescription("Verify the Negative Response code ControlDTCSetting (0x85) service");
-    testStepBegin("UDS_TC36","Test Case Started ");    
-    ActiveDiagnosticSessionDataIdentifier(); 
-    diagSendRequest_Extended();
-    Send_InvalidDLC_85_SID();
-    ActiveDiagnosticSessionDataIdentifier();
-    Send_Invalidsubfunction_85_SID();
-    testWaitForTimeout(5000);
-}
-
-
-
-
-
-
