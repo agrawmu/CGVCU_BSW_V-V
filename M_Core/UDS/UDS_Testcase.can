@@ -1,8 +1,4 @@
 /*@!Encoding:1252*/
-includes
-{
-  
-}
 
 variables
 {
@@ -64,12 +60,13 @@ void Maintest()
   TestModuleDescription("Test Execution Date: ");
   TestModuleDescription(time_buf); 
   testModuleDescription("Testcases to check the UDS Services");
+  @TestAutomation::TestDone = 0;
   UDS_TC1();
   UDS_TC2();
-  /*UDS_TC3();
+  UDS_TC3();
   UDS_TC4();
   UDS_TC5();
-  UDS_TC6();
+  /*UDS_TC6();
   UDS_TC7();
   UDS_TC8();
   UDS_TC9();
@@ -100,7 +97,7 @@ void Maintest()
   UDS_T34();
   UDS_TC35();
   UDS_TC36();*/
- 
+ @TestAutomation::TestDone = 1;
 }
 
 void ActiveDiagnosticSessionDataIdentifier()
