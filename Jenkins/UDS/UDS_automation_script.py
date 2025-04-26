@@ -34,9 +34,9 @@ while test_done_var.Value != 1 and elapsed < timeout_sec:
     elapsed += 1
 
 if test_done_var.Value == 1:
-    print("✅ CAPL execution completed.")
+    print("CAPL execution completed.")
 else:
-    print("⚠️ Timeout: CAPL did not finish in time.")
+    print("Timeout: CAPL did not finish in time.")
 
 # Step 6: Stop measurement and close CANoe
 print("Stopping measurement...")
@@ -44,4 +44,4 @@ canoe_app.Measurement.Stop()
 wait(5)
 print("Closing CANoe...")
 canoe_app.Quit()
-print("✅ Automation complete.")
+print("Automation complete.")
