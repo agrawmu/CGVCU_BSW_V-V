@@ -4,7 +4,7 @@ Test Setup    Connect To Remote Machine    # Establish an SSH connection before 
 Test Teardown    Close Connection    # Close the SSH connection after tests finish
 
 *** Variables ***
-${REMOTE_IP}    192.168.0.175    # IP address of the remote machine where the tests are executed
+${REMOTE_IP}    192.168.0.22    # IP address of the remote machine where the tests are executed
 ${USERNAME}     root    # SSH login username (root in this case)
 
 *** Keywords ***

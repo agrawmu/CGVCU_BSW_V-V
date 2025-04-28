@@ -4,7 +4,7 @@ Test Setup    Connect To Remote Machine
 Test Teardown    Close Connection
 
 *** Variables ***
-${REMOTE_IP}    192.168.0.38
+${REMOTE_IP}    192.168.0.22
 ${USERNAME}     root
 
 *** Keywords ***
