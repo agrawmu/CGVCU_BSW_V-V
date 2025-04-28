@@ -6,7 +6,7 @@ Library    OperatingSystem
 Library    Collections
 
 *** Variables ***
-${REMOTE_IP}    192.168.0.156
+${REMOTE_IP}    192.168.0.22
 ${USERNAME}     root
 
 *** Keywords ***
