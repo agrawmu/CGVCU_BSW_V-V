@@ -12,7 +12,7 @@ canoe_app = win32com.client.Dispatch("CANoe.Application")
 wait(5)
 
 # Step 3: Open CANoe configuration
-cfg_path = r'D:\Jenkins\workspace\MCore_Vector_AutoTest\M_Core\UDS\UDS_Configuration.cfg'
+cfg_path = r'D:\Jenkins\workspace\CGVCU_BSW_M_core_V_and_V\M_Core\UDS\UDS_Configuration.cfg'
 print(f"Opening configuration: {cfg_path}")
 canoe_app.Open(cfg_path)
 wait(10)
@@ -35,8 +35,10 @@ while test_done_var.Value != 1 and elapsed < timeout_sec:
 
 if test_done_var.Value == 1:
     print("CAPL execution completed.")
+    exit_code = 0
 else:
     print("Timeout: CAPL did not finish in time.")
+    exit_code = 1
 
 # Step 6: Stop measurement and close CANoe
 print("Stopping measurement...")
