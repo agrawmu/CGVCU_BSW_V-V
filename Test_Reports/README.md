@@ -1,0 +1,1 @@
+This folder is to pull the reports after executing builds from Jenkins
