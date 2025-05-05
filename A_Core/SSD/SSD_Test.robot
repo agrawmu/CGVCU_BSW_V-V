@@ -16,15 +16,17 @@ Connect To Remote Machine
 
 *** Test Cases ***
 
-Test Case 1. Verify the functionality of the API that lists files in SSD
+CGMN-29620: Verify the functionality of the API that lists files in SSD
     [Documentation]    Verifying the API retrieves a list of files and directories in SSD
+	Log    verifies from SWE.1 Requriment:XXXX
     ${file_content}=    Execute Command    curl -X GET http://localhost/ssd/list
     Log    Response from API: ${file_content}
     Should Contain    ${file_content}    directory_tree
     Log    Successfully retrieved the list of files in SSD
 
-Test Case 2. Verify the functionality of the API that writes a file in SSD
+CGMN-29621: Verify the functionality of the API that writes a file in SSD
     [Documentation]    Verifying the API can successfully create and write a file in SSD
+	Log    verifies from SWE.1 Requriment: http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-16247
     ${file_content}=    Execute Command    curl -X POST http://localhost/ssd/write -H "Content-Type: application/json" -d '{"path": "Validation.txt", "data": "Validation team validate the functionalities of the release modules and can''t validate the not implemented modules "}'
     Log    Response from API (Write): ${file_content}
     Should Contain    ${file_content}    "message":"File written successfully"
@@ -39,8 +41,9 @@ Test Case 2. Verify the functionality of the API that writes a file in SSD
 
     Log    Successfully created, validated, and deleted the file in SSD
 
-Test Case 3. Verify the functionality of the API that reads data from a written file in SSD
+CGMN-29641: Verify the functionality of the API that reads data from a written file in SSD
     [Documentation]    Verifying the API can successfully read the data from a written file in SSD
+	Log    verifies from SWE.1 Requriment: http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-16251
     ${file_content}=    Execute Command    curl -X POST http://localhost/ssd/write -H "Content-Type: application/json" -d '{"path": "Validation.txt", "data": "Hello, World!"}'
     Log    Response from API (Write): ${file_content}
     Should Contain    ${file_content}    "message":"File written successfully"
@@ -55,8 +58,9 @@ Test Case 3. Verify the functionality of the API that reads data from a written 
 
     Log    Successfully wrote, read, and deleted the file in SSD
 
-Test Case 4. Verify the functionality of the API that creates a new directory in SSD
+CGMN-29642: Verify the functionality of the API that creates a new directory in SSD
     [Documentation]    Verifying the API can successfully create a new directory in SSD
+	Log    verifies from SWE.1 Requriment:XXXX
     ${file_content}=    Execute Command    curl -X POST http://localhost/ssd/create_directory -H "Content-Type: application/json" -d '{"path": "new_directory_SSD"}'
     Log    Response from API (Create Directory): ${file_content}
     Should Contain    ${file_content}    "message":"Directory created successfully"
@@ -75,8 +79,9 @@ Test Case 4. Verify the functionality of the API that creates a new directory in
 
     Log    Successfully created and deleted the directory in SSD
 
-Test Case 5. Verify the functionality of the API that writes a file in a new directory in SSD
+CGMN-29643: Verify the functionality of the API that writes a file in a new directory in SSD
     [Documentation]    Verifying the API can successfully create and write a file in a new directory in SSD
+	Log    verifies from SWE.1 Requriment:http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-16247 and http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-16248
     ${file_content}=    Execute Command    curl -X POST http://localhost/ssd/create_directory -H "Content-Type: application/json" -d '{"path": "new_directory_SSD"}'
     Log    Response from API (Create Directory): ${file_content}
     Should Contain    ${file_content}    "message":"Directory created successfully"
@@ -99,8 +104,9 @@ Test Case 5. Verify the functionality of the API that writes a file in a new dir
 
     Log    Successfully created, wrote, and deleted the file in a new directory in SSD
 
-Test Case 6. Verify the functionality of the API that reads data from a written file in a new directory in SSD
+CGMN-29644: Verify the functionality of the API that reads data from a written file in a new directory in SSD
     [Documentation]    Verifying the API can successfully read the data from a written file in a new directory in SSD
+	Log    verifies from SWE.1 Requriment: http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-16251
     ${file_content}=    Execute Command    curl -X POST http://localhost/ssd/create_directory -H "Content-Type: application/json" -d '{"path": "new_directory_SSD"}'
     Log    Response from API (Create Directory): ${file_content}
     Should Contain    ${file_content}    "message":"Directory created successfully"
@@ -123,8 +129,9 @@ Test Case 6. Verify the functionality of the API that reads data from a written 
 
     Log    Successfully wrote, read, and deleted the file in the new directory in SSD
 
-Test Case 7. Verify the functionality of the API that deletes a file in SSD
+CGMN-29645: Verify the functionality of the API that deletes a file in SSD
     [Documentation]    Verifying the API can successfully delete a file in SSD
+	Log    verifies from SWE.1 Requriment: http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-16252
     ${file_content}=    Execute Command    curl -X POST http://localhost/ssd/create_directory -H "Content-Type: application/json" -d '{"path": "new_directory_SSD"}'
     Log    Response from API (Create Directory): ${file_content}
     Should Contain    ${file_content}    "message":"Directory created successfully"
@@ -147,8 +154,9 @@ Test Case 7. Verify the functionality of the API that deletes a file in SSD
 
     Log    Successfully deleted the selected file in SSD
 
-Test Case 8. Verify the functionality of the API that deletes a directory in SSD
+CGMN-29646: Verify the functionality of the API that deletes a directory in SSD
     [Documentation]    Verifying the API can successfully delete a directory in SSD
+	Log    verifies from SWE.1 Requriment: http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-16252
     ${file_content}=    Execute Command    curl -X POST http://localhost/ssd/create_directory -H "Content-Type: application/json" -d '{"path": "new_directory_SSD"}'
     Log    Response from API (Create Directory): ${file_content}
     Should Contain    ${file_content}    "message":"Directory created successfully"
@@ -167,8 +175,9 @@ Test Case 8. Verify the functionality of the API that deletes a directory in SSD
 
     Log    Successfully deleted the selected directory in SSD
 
-Test Case 9. Verify the functionality of the API that storage status of SSD
+CGMN-29647: Verify the functionality of the API that storage status of SSD
     [Documentation]    Verifying the API can successfully show total, used, and remaining space of SSD
+	Log    verifies from SWE.1 Requriment: http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-16253
     ${file_content}=    Execute Command    curl -X GET http://localhost/ssd/status
     Log    Response from API (Storage Status): ${file_content}
 
@@ -177,8 +186,9 @@ Test Case 9. Verify the functionality of the API that storage status of SSD
     Should Contain    ${file_content}    "used_space"
     Log    Successfully retrieved SSD storage status
 
-Test Case 10. Verify the functionality of the API that secure write file in SSD
+CGMN-29648: Verify the functionality of the API that secure write file in SSD
     [Documentation]    Verifying the API can successfully create a secure write file in SSD
+	Log    verifies from SWE.1 Requriment:XXXX
     ${file_content}=    Execute Command    curl -X POST http://localhost/ssd/encrypt_write -H "Content-Type: application/json" -d '{"path": "secure.txt", "data": "Secret Message"}'
     Log    Response from API (Secure Write File): ${file_content}
 
@@ -196,8 +206,9 @@ Test Case 10. Verify the functionality of the API that secure write file in SSD
 
     Log    Successfully wrote and deleted a secure file in SSD
 
-Test Case 11. Verify the functionality of the API that reads data from a secure file in SSD
+CGMN-29649: Verify the functionality of the API that reads data from a secure file in SSD
     [Documentation]    Verifying the API can successfully read secure data from a secure file in SSD
+	Log    verifies from SWE.1 Requriment:XXXX
     ${file_content}=    Execute Command    curl -X POST http://localhost/ssd/encrypt_write -H "Content-Type: application/json" -d '{"path": "secure.txt", "data": "Secret Message"}'
     Log    Response from API (Secure Write File): ${file_content}
 
@@ -215,8 +226,9 @@ Test Case 11. Verify the functionality of the API that reads data from a secure 
 
     Log    Successfully read and deleted a secure file in SSD
 
-Test Case 12. Verify the functionality of the API that Logs events
+CGMN-29650: Verify the functionality of the API that Logs events
     [Documentation]    Verifying the API can successfully log events in SSD
+	Log    verifies from SWE.1 Requriment: http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-16257
     ${file_content}=    Execute Command    curl -X POST http://localhost/ssd/log_event -H "Content-Type: application/json" -d '{"message": "Sample log message"}'
     Log    Response from API (Log Event): ${file_content}
 
@@ -229,8 +241,9 @@ Test Case 12. Verify the functionality of the API that Logs events
 
     Log    Successfully observed the log records stored in SSD
 
-Test Case 13. Verify the functionality of the API that sets access control for write in SSD
+CGMN-29651: Verify the functionality of the API that sets access control for write in SSD
     [Documentation]    Verifying the API enforces write-only access for files in SSD
+	Log    verifies from SWE.1 Requriment: http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-16254
     ${file_content}=    Execute Command    curl -X POST http://localhost/ssd/write -H "Content-Type: application/json" -d '{"path": "Validation.txt", "data": "Hello, World!"}'
     Log    Response from API (Write File): ${file_content}
     Should Contain    ${file_content}    "message":"File written successfully"
@@ -249,8 +262,9 @@ Test Case 13. Verify the functionality of the API that sets access control for w
 
     Log    Successfully verified write-only access for file in SSD
 
-Test Case 14. Verify the functionality of the API that sets access control for read in SSD
+CGMN-29652: Verify the functionality of the API that sets access control for read in SSD
     [Documentation]    Verifying the API enforces read-only access for files in SSD
+	Log    verifies from SWE.1 Requriment: http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-16254
     ${file_content}=    Execute Command    curl -X POST http://localhost/ssd/write -H "Content-Type: application/json" -d '{"path": "Validation.txt", "data": "Hello, World!"}'
     Log    Response from API (Write File): ${file_content}
     Should Contain    ${file_content}    "message":"File written successfully"
@@ -273,8 +287,9 @@ Test Case 14. Verify the functionality of the API that sets access control for r
 
     Log    Successfully verified read-only access for file in SSD
 
-Test Case 15. Verify the functionality of the API that restricts reading a file when write access is set
+CGMN-29653: Verify the functionality of the API that restricts reading a file when write access is set
     [Documentation]    Verifying that a file cannot be read when it has write-only access in SSD
+	Log    verifies from SWE.1 Requriment: http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-16254
     ${file_content}=    Execute Command    curl -X POST http://localhost/ssd/write -H "Content-Type: application/json" -d '{"path": "Validation.txt", "data": "Hello, World!"}'
     Log    Response from API (Write File): ${file_content}
     Should Contain    ${file_content}    "message":"File written successfully"
@@ -297,8 +312,9 @@ Test Case 15. Verify the functionality of the API that restricts reading a file 
 
     Log    Successfully verified that a file with write-only access cannot be read
 
-Test Case 16. Verify the functionality of the API that Access control for read and try to write in SSD
+CGMN-29654: Verify the functionality of the API that Access control for read and try to write in SSD
     [Documentation]    Verifying the file API's cannot access write operation while having read access in SSD
+	Log    verifies from SWE.1 Requriment: http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-16254
     ${file_content}=    Execute Command    curl -X POST http://localhost/ssd/write -H "Content-Type: application/json" -d '{"path": "Validation.txt", "data": "Hello, World!"}'
     Log    ${file_content}
     Should Contain    ${file_content}    "message":"File written successfully"
@@ -328,8 +344,9 @@ Test Case 16. Verify the functionality of the API that Access control for read a
     Log    Observed the file is not written while giving a read access control
 
 
-Test Case 17. Verify the functionality of the API that SSD Format
+CGMN-29655: Verify the functionality of the API that SSD Format
     [Documentation]    Verifying the API's can successfully format all created files in SSD
+	Log    verifies from SWE.1 Requriment: http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-16246
     ${file_content}=    Execute Command    curl -X POST http://localhost/ssd/write -H "Content-Type: application/json" -d '{"path": "Validation.txt", "data": "Hello, World!"}'
     Log    ${file_content}
     Should Contain    ${file_content}    "message":"File written successfully"
@@ -357,8 +374,9 @@ Test Case 17. Verify the functionality of the API that SSD Format
     Log    Observed the SSD data is formatted
 
 
-Test Case 18. Verify the functionality of the API that create multiple directories in SSD
+CGMN-29656: Verify the functionality of the API that create multiple directories in SSD
     [Documentation]    Verifying the API's can successfully create multiple new directories in SSD
+	Log    verifies from SWE.1 Requriment:XXXX
     ${file_content_1}=    Execute Command    curl -X POST "http://localhost/ssd/create_directory" -H "Content-Type: application/json" -d '{"path": "new_directory_SSD"}'
     Log    ${file_content_1}
     Should Contain    ${file_content_1}    "message":"Directory created successfully"
@@ -395,8 +413,9 @@ Test Case 18. Verify the functionality of the API that create multiple directori
 
     Log    Observed the new directories created in SSD
 
-Test Case 19. Verify the functionality of the API that write same file multiple times in SSD
+CGMN-29658: Verify the functionality of the API that write same file multiple times in SSD
     [Documentation]    Verifying the API's can successfully write the file multiple times for same name in SSD
+	Log    verifies from SWE.1 Requriment: http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-16247 and http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-16248
     ${file_content}=    Execute Command    curl -X POST "http://localhost/ssd/write" -H "Content-Type: application/json" -d '{"path": "Validation.txt", "data": "Hello, World!"}'
     Log    ${file_content}
     Should Contain    ${file_content}    "message":"File written successfully"
@@ -411,9 +430,9 @@ Test Case 19. Verify the functionality of the API that write same file multiple 
 
     Log    Observed the write file created in SSD
 
-Test Case 20. Verify the functionality of the API that writes multiple times to the same file in SSD
+CGMN-29659: Verify the functionality of the API that writes multiple times to the same file in SSD
     [Documentation]    Verifying the API can successfully write data multiple times in the same file in SSD
-
+	Log    verifies from SWE.1 Requriment: http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-16247 and http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-16248
     ${file_content}=    Execute Command    curl -X POST "http://localhost/ssd/write" -H "Content-Type: application/json" -d '{"path": "Validation1.txt", "data": "Hello, World!"}'
     Log    ${file_content}
     Should Contain    ${file_content}    "message":"File written successfully"
@@ -432,9 +451,9 @@ Test Case 20. Verify the functionality of the API that writes multiple times to 
 
     Log    Observed the data should be added
 
-Test Case 21. Verify the functionality of the API that deletes an unknown file in SSD
+CGMN-29660: Verify the functionality of the API that deletes an unknown file in SSD
     [Documentation]    Verifying the API does not successfully delete an unknown file in SSD
-
+	Log    verifies from SWE.1 Requriment: http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-16252
     ${file_content}=    Execute Command    curl -X POST "http://localhost/ssd/delete" -H "Content-Type: application/json" -d '{"path": "new_directory_SSD/Test1.txt"}'
     Log    ${file_content}
     Should Contain    ${file_content}    "File or directory not found"
@@ -442,12 +461,12 @@ Test Case 21. Verify the functionality of the API that deletes an unknown file i
     Log    Observed no such file
 
 
-Test Case 22. Verify the functionality of the API that writes a file after removing SSD
+CGMN-29661: Verify the functionality of the API that writes a file after removing SSD
     [Documentation]    Verifying the API does not allow writing a file when SSD is removed
-
-#    Execute Command    umount /dev/nvme0n1 /mnt/ssd
-#    Log    SSD unmounted
-    Log To Console    Remove ssd from the mother board and press enter
+	Log    verifies from SWE.1 Requriment: XXXX
+    Execute Command    umount /dev/nvme0n1 /mnt/ssd
+    Log    SSD unmounted
+#    Log To Console    Remove ssd from the mother board and press enter
     ${user_verification}=    Evaluate    input("Press enter ")
     ${file_content}=    Execute Command    curl -X POST "http://localhost/ssd/write" -H "Content-Type: application/json" -d '{"path": "Validation.txt", "data": "Hello, World!"}'
     Log    ${file_content}
@@ -455,8 +474,8 @@ Test Case 22. Verify the functionality of the API that writes a file after remov
     Should Not Contain    ${file_content}    File written successfully
 
 
-#    Execute Command    mount /dev/nvme0n1 /mnt/ssd
-#    Log    SSD remounted
+    Execute Command    mount /dev/nvme0n1 /mnt/ssd
+    Log    SSD remounted
 
     Log    Observed error while writing file when SSD was removed
 
