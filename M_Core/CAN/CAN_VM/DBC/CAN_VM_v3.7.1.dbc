@@ -1,0 +1,2641 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: EPB SBW_Allied ESS2 ESS1 AVAS EBCM2L VSC HMI EBCM1U SBW VCU WHD TOOL
+
+
+BO_ 104 mWhdWarn: 8 WHD
+ SG_ MsgCntr : 52|4@1+ (1,0) [0|15] ""  VCU
+ SG_ W_TORQUE_LIMIT : 41|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_MOTOR_OVERSPEED : 39|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_FLYING_START : 42|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_CPU_FAULT : 40|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_CAN_SEND_ERROR : 37|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_CAN_OVERFLOW : 38|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_INV06_FAULT : 36|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_INV05_FAULT : 35|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_INV04_FAULT : 34|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_INV03_FAULT : 33|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_INV02_FAULT : 32|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_INV01_FAULT : 31|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_UNDERVOLTAGE : 28|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_OVERVOLTAGE : 27|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_INV06_OVERCURRENT : 26|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_INV05_OVERCURRENT : 25|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_INV04_OVERCURRENT : 24|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_INV03_OVERCURRENT : 23|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_INV02_OVERCURRENT : 22|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_INV01_OVERCURRENT : 21|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_DCLINK_COMM : 20|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_WINDING_TEMP : 18|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_DCLINK_TEMP : 19|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_CPU_TEMP : 17|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_INV06_TEMP : 16|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_INV05_TEMP : 15|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_INV04_TEMP : 14|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_INV03_TEMP : 13|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_INV02_TEMP : 12|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_INV01_TEMP : 11|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_POSSENSOR : 7|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_TEMP_SENSOR : 6|1@1+ (1,0) [0|1] ""  VCU
+ SG_ W_MOTOR_STALLED : 2|1@1+ (1,0) [0|1] ""  VCU
+
+BO_ 102 mWhdStat3: 8 WHD
+ SG_ WhdCurr_Ph2C : 56|8@1+ (1,-127) [-127|128] "A"  VCU
+ SG_ WhdCurr_Ph2B : 40|8@1+ (1,-127) [-127|128] "A"  VCU
+ SG_ WhdCurr_Ph2A : 24|8@1+ (1,-127) [-127|128] "A"  VCU
+ SG_ WhdCurr_Ph1C : 48|8@1+ (1,-127) [-127|128] "A"  VCU
+ SG_ WhdCurr_Ph1B : 32|8@1+ (1,-127) [-127|128] "A"  VCU
+ SG_ WhdCurr_Ph1A : 16|8@1+ (1,-127) [-127|128] "A"  VCU
+ SG_ WhdAngle : 0|12@1+ (0.5,0) [0|360] "deg"  VCU
+
+BO_ 101 mWhdStat2: 8 WHD
+ SG_ WhdShtdwnRdy : 41|1@1+ (1,0) [0|1] ""  VCU
+ SG_ WhdRdy : 40|1@1+ (1,0) [0|1] ""  VCU
+ SG_ MsgCntr : 52|4@1+ (1,0) [0|15] ""  VCU
+ SG_ WhdState : 44|4@1+ (1,0) [0|15] ""  VCU
+ SG_ HwWakeStat : 43|1@1+ (1,0) [0|1] ""  VCU
+ SG_ TrqLmt_Volt : 63|1@1+ (1,0) [0|1] ""  VCU
+ SG_ TrqLmt_TrqSlew : 62|1@1+ (1,0) [0|1] ""  VCU
+ SG_ TrqLmt_SpdSlew : 61|1@1+ (1,0) [0|1] ""  VCU
+ SG_ TrqLmt_Pwr : 60|1@1+ (1,0) [0|1] ""  VCU
+ SG_ TrqLmt_MtrTmpr : 59|1@1+ (1,0) [0|1] ""  VCU
+ SG_ TrqLmt_MtrSpd : 58|1@1+ (1,0) [0|1] ""  VCU
+ SG_ TrqLmt_InvTmpr : 57|1@1+ (1,0) [0|1] ""  VCU
+ SG_ TrqLmt_Design : 56|1@1+ (1,0) [0|1] ""  VCU
+ SG_ TrqAvailRegen : 32|8@1+ (1,0) [0|255] "Nm"  VCU
+ SG_ TrqAvailMtr : 24|8@1+ (1,0) [0|255] "Nm"  VCU
+ SG_ InvTmpr : 16|8@1+ (1,-40) [-40|214] "degC"  VCU
+ SG_ MtrTmpr : 8|8@1+ (1,-40) [-40|214] "degC"  VCU
+ SG_ LvVolt : 0|8@1+ (0.1,0) [0|25.4] "V"  VCU
+
+BO_ 100 mWhdStat: 8 WHD
+ SG_ MvVolt : 28|12@1+ (0.05,0) [0|100] "V"  VCU
+ SG_ MvCurrEst : 40|12@1- (0.1,0) [-204.8|204.7] "ADC"  VCU
+ SG_ MtrTrqEst : 16|12@1- (0.5,0) [-1024|1023] "Nm"  VCU
+ SG_ MtrSpd : 4|12@1- (0.5,0) [-1024|1023] "rpm"  VCU
+ SG_ HwEnblStat : 1|1@1+ (1,0) [0|1] ""  VCU
+ SG_ TrqEnblStat : 0|1@1+ (1,0) [0|1] ""  VCU
+ SG_ MsgCrc : 56|8@1+ (1,0) [0|255] ""  VCU
+ SG_ MsgCntr : 52|4@1+ (1,0) [0|15] ""  VCU
+
+BO_ 19 mWhdCtrl2: 8 VCU
+ SG_ WhdShtdwnRq : 50|1@1+ (1,0) [0|1] ""  WHD
+ SG_ MsgCrc : 56|8@1+ (1,0) [0|255] ""  WHD
+ SG_ TrqLmtRegen : 40|8@1+ (1,0) [0|254] "Nm"  WHD
+ SG_ TrqLmtMtr : 32|8@1+ (1,0) [0|254] "Nm"  WHD
+ SG_ MsgCntr : 52|4@1+ (1,0) [0|15] ""  WHD
+ SG_ ClearFltRq : 51|1@1+ (1,0) [0|1] ""  WHD
+ SG_ VoltLmtMin : 8|8@1+ (0.1,35) [35|60.5] "V"  WHD
+ SG_ VoltLmtMax : 0|8@1+ (0.1,35) [35|60.5] "V"  WHD
+ SG_ CurrLmtRegen : 24|8@1+ (0.5,0) [0|127] "ADC"  WHD
+ SG_ CurrLmtMtr : 16|8@1+ (0.5,0) [0|127] "ADC"  WHD
+
+BO_ 773 mEpb_EpbStat: 8 EPB
+ SG_ Flt_StallEngaged : 43|1@0+ (1,0) [0|1] ""  VCU
+ SG_ SwStat : 40|1@0+ (1,0) [0|1] ""  VCU
+ SG_ SwRev : 47|4@0+ (1,0) [0|15] ""  VCU
+ SG_ SwMin : 27|4@0+ (1,0) [0|15] ""  VCU
+ SG_ SwMaj : 31|4@0+ (1,0) [0|15] ""  VCU
+ SG_ Flt_EpbOpenCircuit : 36|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_EpbMtrCurrent : 35|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_EpbIC : 34|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_EpbGndShort : 37|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_EpbBattShort : 38|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_StallDisengaged : 42|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_mBrkCtrl : 33|2@0+ (1,0) [0|3] ""  VCU
+ SG_ EpbStat : 7|4@0+ (1,0) [0|15] ""  VCU
+ SG_ Flt_Epb : 39|1@0+ (1,0) [0|1] ""  VCU
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  VCU
+ SG_ EPB_Current : 11|12@0+ (0.01,0) [0|40.95] "A"  VCU
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  VCU
+
+BO_ 656 mSbwStat: 8 SBW
+ SG_ TrqSnsIn_1C : 56|8@1+ (1,0) [0|255] ""  VCU
+ SG_ TrqSnsIn : 48|8@1- (1,0) [-128|127] "Count"  VCU
+ SG_ InvTmpr : 40|8@1+ (1,0) [0|255] "degC"  VCU
+ SG_ SwitchStat : 32|4@1+ (1,0) [0|15] ""  VCU
+ SG_ LvVolt : 24|8@1+ (0.1,0) [0|25.5] "V"  VCU
+ SG_ MtrCurr : 16|8@1+ (0.1,0) [0|25.5] "A"  VCU
+ SG_ MtrDcStat : 8|8@1- (1,0) [-100|100] "pct"  VCU
+ SG_ MtrTrqEst : 0|8@1- (1,0) [-128|127] "Count"  VCU
+
+BO_ 667 mSbwCtrl_Allied: 8 VCU
+ SG_ EstopReq : 52|1@1+ (1,0) [0|1] ""  SBW_Allied
+ SG_ CommandVariable2 : 32|16@1- (0.00390625,0) [-128|127.99609375] ""  SBW_Allied
+ SG_ CommandVariable1 : 8|24@1- (0.001,0) [-8192|8192] ""  SBW_Allied
+ SG_ CommandMode : 0|8@1+ (1,0) [0|0] ""  SBW_Allied
+ SG_ MsgCrc : 56|8@1+ (1,0) [0|255] ""  SBW_Allied
+ SG_ MsgCntr : 48|4@1+ (1,0) [0|15] ""  SBW_Allied
+ SG_ ClearFaults : 55|1@1+ (1,0) [0|1] ""  SBW_Allied
+
+BO_ 664 mSbwPosition: 8 SBW_Allied
+ SG_ RawPosition : 24|24@1- (0.0001,0) [-838.8608|838.8607] "DEG"  VCU
+ SG_ RightStopLmt : 52|1@1+ (1,0) [0|1] ""  VCU
+ SG_ MsgCrc : 56|8@1+ (1,0) [0|255] ""  VCU
+ SG_ MsgCntr : 48|4@1+ (1,0) [0|15] ""  VCU
+ SG_ LeftStopLmt : 53|1@1+ (1,0) [0|1] ""  VCU
+ SG_ Position : 0|24@1- (0.0001,0) [-838.8608|838.8607] "DEG"  VCU
+
+BO_ 663 mSbwFaults: 8 SBW_Allied
+ SG_ Flt_VehicleSpd : 32|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Flt_RotEnc : 16|2@1+ (1,0) [0|3] ""  VCU
+ SG_ FLT_Temp : 14|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Warn_Temp : 12|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Flt_TrqLinearity : 10|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Flt_TrqRange : 8|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Flt_ErrorCurrent : 6|2@1+ (1,0) [0|3] ""  VCU
+ SG_ FltBattLow : 4|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Flt_mSbwCtrl : 44|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Flt_BlockData : 46|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Flt_BootCnt : 42|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Flt_MfgCRC : 40|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Flt_CfgCRC : 38|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Flt_BattHigh : 2|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Flt_AppCRC : 36|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Flt_SASRng : 28|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Flt_DrvWtch : 26|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Flt_DrvSPI : 24|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Flt_GateDrv : 22|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Flt_RotEncVar : 20|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Flt_RotEncBits : 18|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Flt_EEPROM : 0|2@1+ (1,0) [0|3] ""  VCU
+ SG_ MsgCrc : 56|8@1+ (1,0) [0|255] ""  VCU
+ SG_ MsgCntr : 48|4@1+ (1,0) [0|15] ""  VCU
+
+BO_ 2566819238 VEP2_BMS2: 8 ESS2
+ SG_ MvVoltAux : 16|16@1+ (0.05,0) [0|3212.75] "V"  VCU
+
+BO_ 2566850726 STATUS_BMS2: 8 ESS2
+ SG_ STATUS_Runmode_F3 : 0|8@1+ (1,0) [0|12] "enum"  VCU
+
+BO_ 2365559974 mCurrAvailPeak_BMS2: 8 ESS2
+ SG_ CurrAvailChrgPeak : 16|16@1+ (0.05,-1600) [-1600|1612.75] "A"  VCU
+ SG_ CurrAvailDschrgPeak : 0|16@1+ (0.05,-1600) [-1600|1612.75] "A"  VCU
+
+BO_ 2364552870 HVESSS2_BMS2: 8 ESS2
+ SG_ LmtDschrg_Volt : 6|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtDschrg_Tmpr : 2|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtDschrg_Tbd : 10|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtDschrg_Soc : 0|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtDschrg_Diag : 4|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtDschrg_Curr : 8|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtChrg_Volt : 38|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtChrg_Tmpr : 34|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtChrg_Tbd : 42|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtChrg_Soc : 32|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtChrg_Diag : 36|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtChrg_Curr : 40|2@1+ (1,0) [0|3] "enum"  VCU
+
+BO_ 2364577446 HVESSS1_BMS2: 8 ESS2
+ SG_ MsgCrc : 56|8@1+ (1,0) [0|255] ""  VCU
+ SG_ MsgCntr : 36|4@1+ (1,0) [0|15] ""  VCU
+ SG_ IntChrgrStat : 32|2@1+ (1,0) [0|3] ""  VCU
+ SG_ InertSwStat : 22|2@1+ (1,0) [0|3] ""  VCU
+ SG_ BattSocStat : 24|4@1+ (1,0) [0|15] ""  VCU
+ SG_ BattCntctrPcStat : 8|2@1+ (1,0) [0|3] ""  VCU
+ SG_ BattCntctrPos : 0|2@1+ (1,0) [0|3] ""  VCU
+ SG_ HvIsoStatPassive : 16|4@1+ (1,0) [0|15] ""  VCU
+ SG_ OpStat : 44|4@1+ (1,0) [0|15] ""  VCU
+ SG_ BattRdyCount : 48|8@1+ (1,0) [0|250] ""  VCU
+ SG_ BattCntctrNeg : 2|2@1+ (1,0) [0|3] ""  VCU
+ SG_ HvilStat : 20|2@1+ (1,0) [0|3] ""  VCU
+ SG_ BattCntctrStat : 10|2@1+ (1,0) [0|3] ""  VCU
+ SG_ CellBalActive : 30|2@1+ (1,0) [0|3] ""  VCU
+ SG_ CellBalStat : 28|2@1+ (1,0) [0|3] ""  VCU
+ SG_ BattDiscWarn : 4|4@1+ (1,0) [0|15] ""  VCU
+ SG_ BattEnblStat : 40|4@1+ (1,0) [0|15] ""  VCU
+ SG_ HvIsoStatActive : 12|4@1+ (1,0) [0|15] ""  VCU
+
+BO_ 2364607398 HVESSD9_BMS2: 8 ESS2
+ SG_ ThrmlEventDetect : 32|2@1+ (1,0) [0|3] ""  VCU
+ SG_ CellTmprMinIdCell : 24|8@1+ (1,0) [0|250] ""  VCU
+ SG_ CellTmprMaxIdCell : 8|8@1+ (1,0) [0|250] ""  VCU
+ SG_ CellTmprMinIdMod : 16|8@1+ (1,0) [0|250] ""  VCU
+ SG_ CellTmprMaxIdMod : 0|8@1+ (1,0) [0|250] ""  VCU
+
+BO_ 2364607142 HVESSD8_BMS2: 8 ESS2
+ SG_ CellVoltMinIdCell : 24|8@1+ (1,0) [0|250] ""  VCU
+ SG_ CellVoltMaxIdCell : 8|8@1+ (1,0) [0|250] ""  VCU
+ SG_ CellVoltMinIdMod : 16|8@1+ (1,0) [0|250] ""  VCU
+ SG_ CellVoltMaxIdMod : 0|8@1+ (1,0) [0|250] ""  VCU
+ SG_ CellVoltAvg : 32|16@1+ (0.001,0) [0|64.255] "V"  VCU
+
+BO_ 2364580006 HVESSD7_BMS2: 8 ESS2
+ SG_ ChrgVoltMax : 48|16@1+ (0.05,0) [0|3212.75] "V"  VCU
+ SG_ EnrgyAvailDschrg : 0|24@1+ (0.001,0) [0|16449.535] "kWh"  VCU
+ SG_ EnrgyAvailChrg : 24|24@1+ (0.001,0) [0|16449.535] "kWh"  VCU
+
+BO_ 2364577190 HVESSD6_BMS2: 8 ESS2
+ SG_ BattTmpr : 56|8@1+ (1,-40) [-40|210] "degC"  VCU
+ SG_ ElecTmpr : 48|8@1+ (1,-40) [-40|210] "degC"  VCU
+ SG_ MvVoltBus : 0|16@1+ (0.05,0) [0|3212.75] "V"  VCU
+
+BO_ 2364576934 HVESSD5_BMS2: 8 ESS2
+ SG_ CurrAvailChrg : 16|16@1+ (0.05,-1600) [0|1612.75] "A"  VCU
+ SG_ CellSocMin : 32|16@1+ (0.0015625,0) [0|100.3984375] "%"  VCU
+ SG_ CellSocMax : 48|16@1+ (0.0015625,0) [0|100.3984375] "%"  VCU
+ SG_ CurrAvailDschrg : 0|16@1+ (0.05,-1600) [-1600|0] "A"  VCU
+
+BO_ 2364576678 HVESSD4_BMS2: 8 ESS2
+ SG_ CapacAvailDschrg : 0|16@1+ (0.01,0) [0|642.55] "Ah"  VCU
+ SG_ CapacAvailChrg : 16|16@1+ (0.01,0) [0|642.55] "Ah"  VCU
+ SG_ CellBalCount : 32|16@1+ (1,0) [0|64255] ""  VCU
+
+BO_ 2364576422 HVESSD3_BMS2: 8 ESS2
+ SG_ CellTmprDeltaStat : 48|2@1+ (1,0) [0|3] ""  VCU
+ SG_ CellTmprMin : 16|16@1+ (0.03125,-273) [-273|1734.96875] "degC"  VCU
+ SG_ CellTmprMax : 0|16@1+ (0.03125,-273) [-273|1734.96875] "degC"  VCU
+ SG_ CellTmprAvg : 32|16@1+ (0.03125,-273) [-273|1734.96875] "degC"  VCU
+
+BO_ 2364576166 HVESSD2_BMS2: 8 ESS2
+ SG_ CellVoltDeltaStat : 48|4@1+ (1,0) [0|15] ""  VCU
+ SG_ BattSocFast : 0|16@1+ (0.0015625,0) [0|100.3984375] "%"  VCU
+ SG_ CellVoltMin : 32|16@1+ (0.001,0) [0|64.255] "V"  VCU
+ SG_ CellVoltMax : 16|16@1+ (0.001,0) [0|64.255] "V"  VCU
+
+BO_ 2364607654 HVESSD10_BMS2: 8 ESS2
+ SG_ HvIsoResistPassive : 48|16@1+ (0.1,0) [0|6425.5] "Ohm/V"  VCU
+ SG_ HvIsoResistActive : 32|16@1+ (0.1,0) [0|6425.5] "Ohm/V"  VCU
+ SG_ CellSocMinIdMod : 16|8@1+ (1,0) [0|250] ""  VCU
+ SG_ CellSocMinIdCell : 24|8@1+ (1,0) [0|250] ""  VCU
+ SG_ CellSocMaxIdMod : 0|8@1+ (1,0) [0|250] ""  VCU
+ SG_ CellSocMaxIdCell : 8|8@1+ (1,0) [0|250] ""  VCU
+
+BO_ 2364575910 HVESSD1_BMS2: 8 ESS2
+ SG_ PwrAvailChrg : 16|16@1+ (0.05,0) [0|3212.75] "kW"  VCU
+ SG_ PwrAvailDischrg : 0|16@1+ (0.05,0) [0|3212.75] "kW"  VCU
+ SG_ MvCurrBatt : 48|16@1+ (0.05,-1600) [-1600|1612.75] "A"  VCU
+ SG_ MvVoltBatt : 32|16@1+ (0.05,0) [0|3212.75] "V"  VCU
+
+BO_ 2350622457 mHVESSC1_BMS2: 8 VCU
+ SG_ ThrmlMgmtRq : 18|2@1+ (1,0) [0|3] ""  ESS2
+ SG_ PwrDownCmd : 2|2@1+ (1,0) [0|3] ""  ESS2
+ SG_ HvResistLowRq : 16|2@1+ (1,0) [0|3] ""  ESS2
+ SG_ HvResistHighRq : 14|2@1+ (1,0) [0|3] ""  ESS2
+ SG_ HvIsoPassiveRq : 6|2@1+ (1,0) [0|3] ""  ESS2
+ SG_ HvIsoActiveRq : 4|2@1+ (1,0) [0|3] ""  ESS2
+ SG_ EnblIntChrgrRq : 10|2@1+ (1,0) [0|3] ""  ESS2
+ SG_ CellBalRq : 8|2@1+ (1,0) [0|3] ""  ESS2
+ SG_ EnblConsent : 12|2@1+ (1,0) [0|3] ""  ESS2
+ SG_ MsgCrc : 56|8@1+ (1,0) [0|255] ""  ESS2
+ SG_ MsgCntr : 52|4@1+ (1,0) [0|15] ""  ESS2
+ SG_ EnblRq : 0|2@1+ (1,0) [0|3] ""  ESS2
+
+BO_ 2365512102 AUXIO1_BMS2: 8 ESS2
+ SG_ AUX_08 : 8|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ AUX_07 : 10|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ AUX_06 : 12|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ AUX_05 : 14|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ AUX_04_LPR : 0|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ AUX_03 : 2|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ AUX_02 : 4|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ AUX_01_HPR : 6|2@1+ (1,0) [0|3] "enum"  VCU
+
+BO_ 2364552947 HVESSS2: 8 ESS1
+ SG_ LmtDschrg_Volt : 6|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtDschrg_Tmpr : 2|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtDschrg_Tbd : 10|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtDschrg_Soc : 0|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtDschrg_Diag : 4|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtDschrg_Curr : 8|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtChrg_Volt : 38|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtChrg_Tmpr : 34|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtChrg_Tbd : 42|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtChrg_Soc : 32|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtChrg_Diag : 36|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ LmtChrg_Curr : 40|2@1+ (1,0) [0|3] "enum"  VCU
+
+BO_ 2566819315 VEP2: 8 ESS1
+ SG_ MvVoltAux : 16|16@1+ (0.05,0) [0|3212.75] "V"  VCU
+
+BO_ 2364607731 HVESSD10: 8 ESS1
+ SG_ HvIsoResistPassive : 48|16@1+ (0.1,0) [0|6425.5] "Ohm/V"  VCU
+ SG_ HvIsoResistActive : 32|16@1+ (0.1,0) [0|6425.5] "Ohm/V"  VCU
+ SG_ CellSocMinIdMod : 16|8@1+ (1,0) [0|250] ""  VCU
+ SG_ CellSocMinIdCell : 24|8@1+ (1,0) [0|250] ""  VCU
+ SG_ CellSocMaxIdMod : 0|8@1+ (1,0) [0|250] ""  VCU
+ SG_ CellSocMaxIdCell : 8|8@1+ (1,0) [0|250] ""  VCU
+
+BO_ 2566850803 STATUS: 8 ESS1
+ SG_ STATUS_Runmode_F3 : 0|8@1+ (1,0) [0|12] "enum"  VCU
+
+BO_ 2350642169 mHVESSC1: 8 VCU
+ SG_ ThrmlMgmtRq : 18|2@1+ (1,0) [0|3] ""  ESS1
+ SG_ PwrDownCmd : 2|2@1+ (1,0) [0|3] ""  ESS1
+ SG_ HvResistLowRq : 16|2@1+ (1,0) [0|3] ""  ESS1
+ SG_ HvResistHighRq : 14|2@1+ (1,0) [0|3] ""  ESS1
+ SG_ HvIsoPassiveRq : 6|2@1+ (1,0) [0|3] ""  ESS1
+ SG_ HvIsoActiveRq : 4|2@1+ (1,0) [0|3] ""  ESS1
+ SG_ EnblIntChrgrRq : 10|2@1+ (1,0) [0|3] ""  ESS1
+ SG_ CellBalRq : 8|2@1+ (1,0) [0|3] ""  ESS1
+ SG_ EnblConsent : 12|2@1+ (1,0) [0|3] ""  ESS1
+ SG_ MsgCrc : 56|8@1+ (1,0) [0|255] ""  ESS1
+ SG_ MsgCntr : 52|4@1+ (1,0) [0|15] ""  ESS1
+ SG_ EnblRq : 0|2@1+ (1,0) [0|3] ""  ESS1
+
+BO_ 2364577523 HVESSS1: 8 ESS1
+ SG_ MsgCrc : 56|8@1+ (1,0) [0|255] ""  VCU
+ SG_ MsgCntr : 36|4@1+ (1,0) [0|15] ""  VCU
+ SG_ IntChrgrStat : 32|2@1+ (1,0) [0|3] ""  VCU
+ SG_ InertSwStat : 22|2@1+ (1,0) [0|3] ""  VCU
+ SG_ BattSocStat : 24|4@1+ (1,0) [0|15] ""  VCU
+ SG_ BattCntctrPcStat : 8|2@1+ (1,0) [0|3] ""  VCU
+ SG_ BattCntctrPos : 0|2@1+ (1,0) [0|3] ""  VCU
+ SG_ HvIsoStatPassive : 16|4@1+ (1,0) [0|15] ""  VCU
+ SG_ OpStat : 44|4@1+ (1,0) [0|15] ""  VCU
+ SG_ BattRdyCount : 48|8@1+ (1,0) [0|250] ""  VCU
+ SG_ BattCntctrNeg : 2|2@1+ (1,0) [0|3] ""  VCU
+ SG_ HvilStat : 20|2@1+ (1,0) [0|3] ""  VCU
+ SG_ BattCntctrStat : 10|2@1+ (1,0) [0|3] ""  VCU
+ SG_ CellBalActive : 30|2@1+ (1,0) [0|3] ""  VCU
+ SG_ CellBalStat : 28|2@1+ (1,0) [0|3] ""  VCU
+ SG_ BattDiscWarn : 4|4@1+ (1,0) [0|15] ""  VCU
+ SG_ BattEnblStat : 40|4@1+ (1,0) [0|15] ""  VCU
+ SG_ HvIsoStatActive : 12|4@1+ (1,0) [0|15] ""  VCU
+
+BO_ 2364607475 HVESSD9: 8 ESS1
+ SG_ ThrmlEventDetect : 32|2@1+ (1,0) [0|3] ""  VCU
+ SG_ CellTmprMinIdCell : 24|8@1+ (1,0) [0|250] ""  VCU
+ SG_ CellTmprMaxIdCell : 8|8@1+ (1,0) [0|250] ""  VCU
+ SG_ CellTmprMinIdMod : 16|8@1+ (1,0) [0|250] ""  VCU
+ SG_ CellTmprMaxIdMod : 0|8@1+ (1,0) [0|250] ""  VCU
+
+BO_ 2364607219 HVESSD8: 8 ESS1
+ SG_ CellVoltMinIdCell : 24|8@1+ (1,0) [0|250] ""  VCU
+ SG_ CellVoltMaxIdCell : 8|8@1+ (1,0) [0|250] ""  VCU
+ SG_ CellVoltMinIdMod : 16|8@1+ (1,0) [0|250] ""  VCU
+ SG_ CellVoltMaxIdMod : 0|8@1+ (1,0) [0|250] ""  VCU
+ SG_ CellVoltAvg : 32|16@1+ (0.001,0) [0|64.255] "V"  VCU
+
+BO_ 2364580083 HVESSD7: 8 ESS1
+ SG_ ChrgVoltMax : 48|16@1+ (0.05,0) [0|3212.75] "V"  VCU
+ SG_ EnrgyAvailDschrg : 0|24@1+ (0.001,0) [0|16449.535] "kWh"  VCU
+ SG_ EnrgyAvailChrg : 24|24@1+ (0.001,0) [0|16449.535] "kWh"  VCU
+
+BO_ 2364577267 HVESSD6: 8 ESS1
+ SG_ BattTmpr : 56|8@1+ (1,-40) [-40|210] "degC"  VCU
+ SG_ ElecTmpr : 48|8@1+ (1,-40) [-40|210] "degC"  VCU
+ SG_ MvVoltBus : 0|16@1+ (0.05,0) [0|3212.75] "V"  VCU
+
+BO_ 2364577011 HVESSD5: 8 ESS1
+ SG_ CurrAvailChrg : 16|16@1+ (0.05,-1600) [0|1612.75] "A"  VCU
+ SG_ CellSocMin : 32|16@1+ (0.0015625,0) [0|100.3984375] "%"  VCU
+ SG_ CellSocMax : 48|16@1+ (0.0015625,0) [0|100.3984375] "%"  VCU
+ SG_ CurrAvailDschrg : 0|16@1+ (0.05,-1600) [-1600|0] "A"  VCU
+
+BO_ 2364576755 HVESSD4: 8 ESS1
+ SG_ CapacAvailDschrg : 0|16@1+ (0.01,0) [0|642.55] "Ah"  VCU
+ SG_ CapacAvailChrg : 16|16@1+ (0.01,0) [0|642.55] "Ah"  VCU
+ SG_ CellBalCount : 32|16@1+ (1,0) [0|64255] ""  VCU
+
+BO_ 521 mVehState3: 8 VCU
+ SG_ TargetVehSpd_mps : 31|12@0- (0.01,0) [-20.48|20.47] "mps" Vector__XXX
+ SG_ ROI : 23|8@0- (0.01,0) [-1.28|1.27] ""  TOOL
+ SG_ AebSrc : 47|4@0+ (1,0) [0|15] ""  TOOL
+ SG_ Aeb_Active : 40|1@0+ (1,0) [0|0] ""  TOOL
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  TOOL
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  TOOL
+ SG_ ArbVehSpd_mps_Valid : 8|1@0+ (1,0) [0|0] ""  TOOL
+ SG_ ArbVehSpd_mps : 7|12@0- (0.01,0) [-20.48|20.47] "mps"  TOOL
+
+BO_ 2046 ADVICS_LineCheck2: 8 EBCM2L
+
+BO_ 2044 ADVICS_LineCheck: 8 TOOL
+
+BO_ 2035 ADVICS_CCP_DTO: 8 EBCM2L
+
+BO_ 2034 ADVICS_CCP_CRO: 8 TOOL
+
+BO_ 520 mVehState2: 8 VCU
+ SG_ maxSpeedAllowed : 47|12@0+ (0.015625,0) [0|63.984375] "m/s"  TOOL
+ SG_ MsgCrc : 56|8@1+ (1,0) [0|255] ""  TOOL,EBCM2L,EBCM1U
+ SG_ MsgCntr : 48|4@1+ (1,0) [0|15] ""  TOOL,EBCM2L,EBCM1U
+ SG_ maxDecelAvail : 23|12@0- (0.015625,0) [-32|31.984375] "m/s2"  TOOL
+ SG_ ActGndWhlAng : 7|16@0- (0.01,0) [-327.68|327.67] "deg"  TOOL,EBCM2L,EBCM1U
+ SG_ maxAccelAvail : 27|12@0- (0.015625,0) [-32|31.984375] "m/s2"  TOOL
+
+BO_ 103 mWhdFaults: 8 WHD
+ SG_ E_CAN_mWhdCtrl2 : 49|2@1+ (1,0) [0|3] ""  VCU
+ SG_ E_CAN_mWhdCtrl : 47|2@1+ (1,0) [0|3] ""  VCU
+ SG_ E_INV08_FAULT : 46|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV07_FAULT : 45|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV08_OVERCURRENT : 44|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV07_OVERCURRENT : 43|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV08_TEMP : 42|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV07_TEMP : 41|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_ZERO_POSITION : 9|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_WINDING_TEMP : 18|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_UNDERVOLTAGE : 28|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_TEMP_SENSOR : 6|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_READING_TIMEOUT : 3|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_POSSENSOR : 7|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_OVERVOLTAGE : 27|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_MOTOR_STALLED : 2|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_MOTOR_OVERSPEED : 39|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INVALID_SETTINGS : 1|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV06_TEMP : 16|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV06_OVERCURRENT : 26|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV06_FAULT : 36|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV05_TEMP : 15|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV05_OVERCURRENT : 25|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV05_FAULT : 35|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV04_TEMP : 14|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV04_OVERCURRENT : 24|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV04_FAULT : 34|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV03_TEMP : 13|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV03_OVERCURRENT : 23|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV03_FAULT : 33|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV02_TEMP : 12|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV02_OVERCURRENT : 22|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV02_FAULT : 32|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV01_TEMP : 11|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV01_OVERCURRENT : 21|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INV01_FAULT : 31|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_HW_ENABLE : 10|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_HALL_SEQUENCE : 4|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_HALL_SECTOR : 5|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_ENCODER : 8|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_DCLINK_TEMP : 19|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_DCLINK_COMM : 20|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_CPU_TEMP : 17|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_CPU_FAULT : 40|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_CAN_TIMEOUT : 30|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_CAN_SEND_ERR : 37|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_CAN_SAME_ID : 29|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_CAN_OVERFLOW : 38|1@1+ (1,0) [0|1] ""  VCU
+ SG_ E_INIT_ERROR : 0|1@1+ (1,0) [0|1] ""  VCU
+ SG_ MsgCntr : 52|4@1+ (1,0) [0|15] ""  VCU
+ SG_ SwVerMin : 60|4@1+ (1,0) [0|15] ""  VCU
+ SG_ SwVerMaj : 56|4@1+ (1,0) [0|15] ""  VCU
+
+BO_ 18 mWhdCtrl: 8 VCU
+ SG_ MtrMode : 18|3@1+ (1,0) [0|7] ""  WHD
+ SG_ Debug : 23|1@1+ (1,0) [0|1] ""  WHD
+ SG_ Boot : 22|1@1+ (1,0) [0|1] ""  WHD
+ SG_ SpdSlewLmt : 8|8@1+ (0.01,0) [0|2.54] "rpm/ms"  WHD
+ SG_ TrqSlewLmt : 0|8@1+ (0.1,0) [0|25.4] "Nm/ms"  WHD
+ SG_ EnblCmd : 21|1@1+ (1,0) [0|1] ""  WHD
+ SG_ SpdCmd : 36|12@1- (0.5,0) [-1024|1023] "rpm"  WHD
+ SG_ TrqCmd : 24|12@1- (0.5,0) [-1024|1023] "Nm"  WHD
+ SG_ CtrlMode : 16|2@1+ (1,0) [0|0] ""  WHD
+ SG_ MsgCrc : 56|8@1+ (1,0) [0|255] ""  WHD
+ SG_ MsgCntr : 52|4@1+ (1,0) [0|15] ""  WHD
+
+BO_ 1668 mDiagRs_Whd: 8 WHD
+
+BO_ 257 mWhdMotorBoot: 8 WHD
+ SG_ Motor_reserved : 0|64@1+ (1,0) [0|10000] ""  TOOL
+
+BO_ 660 mSbwSys_Allied: 8 SBW_Allied
+ SG_ RightEndStopValue : 22|10@1+ (-1,0) [-1023|0] "deg"  VCU
+ SG_ ProgOffset : 32|16@1- (0.01,0) [-327.68|327.67] "deg"  VCU
+ SG_ LeftEndStopValue : 12|10@1+ (1,0) [0|1023] "deg"  VCU
+ SG_ MsgCrc : 56|8@1+ (1,0) [0|255] ""  VCU
+ SG_ MsgCntr : 48|4@1+ (1,0) [0|15] ""  VCU
+ SG_ SwVerRev : 8|4@1+ (1,0) [0|15] ""  VCU
+ SG_ SwVerMin : 0|4@1+ (1,0) [0|15] ""  VCU
+ SG_ SwVerMaj : 4|4@1+ (1,0) [0|15] ""  VCU
+
+BO_ 1681 mEbcm2L_SwVer: 8 EBCM2L
+ SG_ SwVerStat : 8|1@0+ (1,0) [0|1] ""  VCU
+ SG_ SwVerRev : 15|4@0+ (1,0) [0|15] ""  VCU
+ SG_ SwVerMin : 3|4@0+ (1,0) [0|15] ""  VCU
+ SG_ SwVerMaj : 7|4@0+ (1,0) [0|15] ""  VCU
+
+BO_ 1680 mEbcm1U_SwVer: 8 EBCM1U
+ SG_ SwVerStat : 8|1@0+ (1,0) [0|1] ""  VCU
+ SG_ SwVerRev : 15|4@0+ (1,0) [0|15] ""  VCU
+ SG_ SwVerMin : 3|4@0+ (1,0) [0|15] ""  VCU
+ SG_ SwVerMaj : 7|4@0+ (1,0) [0|15] ""  VCU
+
+BO_ 525 mVcuGyroAngle: 8 VCU
+ SG_ Tilt : 55|16@0- (0.01,0) [-25|25] "deg"  TOOL
+ SG_ Pitch : 39|16@0- (0.01,0) [-25|25] "deg"  TOOL
+ SG_ GyroXAng : 7|16@0- (0.001,0) [-30|30] "deg"  TOOL
+ SG_ GyroYAng : 23|16@0- (0.001,0) [-30|30] "deg"  TOOL
+
+BO_ 7 mEbcm2L_BrkTrqEst: 8 EBCM2L
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  VCU
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  VCU
+ SG_ BrkTrqEstR : 39|12@0+ (0.5,0) [0|2047.5] "Nm"  VCU
+ SG_ BrkTrqEstFR : 23|12@0+ (0.5,0) [0|2047.5] "Nm"  VCU
+ SG_ BrkTrqEstFL : 7|12@0+ (0.5,0) [0|2047.5] "Nm"  VCU
+
+BO_ 523 mVcuImuLinAccel_Filt: 8 VCU
+ SG_ Z_Accel_Filt : 39|16@0- (0.001,0) [-32.768|32.767] "m/s2"  EBCM1U,EBCM2L
+ SG_ Y_Accel_Filt : 23|16@0- (0.001,0) [-32.768|32.767] "m/s2"  EBCM1U,EBCM2L
+ SG_ X_Accel_Filt : 7|16@0- (0.001,0) [-32.768|32.767] "m/s2"  EBCM1U,EBCM2L
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  EBCM1U,EBCM2L
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  EBCM1U,EBCM2L
+
+BO_ 524 mVcuImuAngVel_Filt: 8 VCU
+ SG_ Z_Angular_Rate_Filt : 39|16@0- (0.01,0) [-327.68|327.67] "deg/s"  EBCM1U,EBCM2L
+ SG_ Y_Angular_Rate_Filt : 23|16@0- (0.01,0) [-327.68|327.67] "deg/s"  EBCM1U,EBCM2L
+ SG_ X_Angular_Rate_Filt : 7|16@0- (0.01,0) [-327.68|327.67] "deg/s"  EBCM1U,EBCM2L
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  EBCM1U,EBCM2L
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  EBCM1U,EBCM2L
+
+BO_ 132 mEbcm2L_diagMsg: 8 EBCM2L
+ SG_ Advics_Data7 : 63|8@0+ (1,0) [0|0] ""  TOOL
+ SG_ Advics_Data6 : 55|8@0+ (1,0) [0|0] ""  TOOL
+ SG_ Advics_Data5 : 47|8@0+ (1,0) [0|0] ""  TOOL
+ SG_ Advics_Data4 : 39|8@0+ (1,0) [0|0] ""  TOOL
+ SG_ Advics_Data3 : 31|8@0+ (1,0) [0|0] ""  TOOL
+ SG_ Advics_Data2 : 23|8@0+ (1,0) [0|0] ""  TOOL
+ SG_ Advics_Data1 : 15|8@0+ (1,0) [0|0] ""  TOOL
+ SG_ Advics_Data0 : 7|8@0+ (1,0) [0|0] ""  TOOL
+
+BO_ 131 mEbcm1U_diagMsg: 8 EBCM1U
+ SG_ Advics_Data7 : 63|8@0+ (1,0) [0|0] ""  TOOL
+ SG_ Advics_Data6 : 55|8@0+ (1,0) [0|0] ""  TOOL
+ SG_ Advics_Data5 : 47|8@0+ (1,0) [0|0] ""  TOOL
+ SG_ Advics_Data4 : 39|8@0+ (1,0) [0|0] ""  TOOL
+ SG_ Advics_Data3 : 31|8@0+ (1,0) [0|0] ""  TOOL
+ SG_ Advics_Data2 : 23|8@0+ (1,0) [0|0] ""  TOOL
+ SG_ Advics_Data1 : 15|8@0+ (1,0) [0|0] ""  TOOL
+ SG_ Advics_Data0 : 7|8@0+ (1,0) [0|0] ""  TOOL
+
+BO_ 2684354559 mWhdMotor_discover: 4 WHD
+ SG_ Discovery : 0|32@1+ (1,0) [0|10000] ""  TOOL
+
+BO_ 256 mWhdGFTBoot: 8 WHD
+ SG_ GFT_reserved : 0|64@1+ (1,0) [0|10000] ""  TOOL
+
+BO_ 128 mEbcm2L_BrkPress: 8 EBCM2L
+ SG_ PrsrRearWCP : 39|16@0- (0.01,0) [-2|32.767] "MPa"  VCU
+ SG_ PrsrFrontWCP : 23|16@0- (0.01,0) [-327.68|327.67] "MPa"  VCU
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  VCU
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  VCU
+ SG_ PrsrMstrCylValid : 52|1@0+ (1,0) [0|1] ""  VCU
+ SG_ PrsrMstCyl : 7|16@0- (0.001,0) [-2|32.767] "MPa"  VCU
+
+BO_ 769 mAVASCmd: 8 VCU
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  AVAS
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  AVAS
+ SG_ VehSpdAVAS : 47|12@0- (0.015625,0) [-64|63.96875] "m/s"  AVAS
+ SG_ GearRq_AVAS : 11|2@0+ (1,0) [0|3] ""  AVAS
+ SG_ AVAS_TestMode : 4|1@0+ (1,0) [0|1] ""  AVAS
+
+BO_ 518 mVcuImuAngVel: 8 VCU
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  EBCM2L,EBCM1U
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  EBCM2L,EBCM1U
+ SG_ Y_Angular_Rate : 23|16@0- (0.01,0) [-327.68|327.67] "deg/s"  EBCM2L,EBCM1U
+ SG_ X_Angular_Rate : 7|16@0- (0.01,0) [-327.68|327.67] "deg/s"  EBCM2L,EBCM1U
+ SG_ Z_Angular_Rate : 39|16@0- (0.01,0) [-327.68|327.67] "deg/s"  EBCM2L,EBCM1U
+
+BO_ 517 mVcuImuLinAccel: 8 VCU
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  EBCM2L,EBCM1U
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  EBCM2L,EBCM1U
+ SG_ Z_Accel : 39|16@0- (0.001,0) [-32.768|32.767] "m/s2"  EBCM2L,EBCM1U
+ SG_ Y_Accel : 23|16@0- (0.001,0) [-32.768|32.767] "m/s2"  EBCM2L,EBCM1U
+ SG_ X_Accel : 7|16@0- (0.001,0) [-32.768|32.767] "m/s2"  EBCM2L,EBCM1U
+
+BO_ 122 mEbcm2L_Stat: 8 EBCM2L
+ SG_ AutoBrkEngd : 21|1@0+ (1,0) [0|0] ""  VCU
+ SG_ Flt_mVehState2 : 55|2@0+ (1,0) [0|3] ""  VCU
+ SG_ Flt_mWhdStat : 19|2@0+ (1,0) [0|0] ""  VCU
+ SG_ EbcmControllerID : 28|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_mVcuImuLinAccel : 7|2@0+ (1,0) [0|3] ""  VCU
+ SG_ Flt_mVcuImuAngVel : 15|2@0+ (1,0) [0|3] ""  VCU
+ SG_ Flt_mWhdCtrl : 11|2@0+ (1,0) [0|3] ""  VCU
+ SG_ Flt_ElWhlSpdR : 20|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_ElWhlSpdFR : 22|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_ElWhlSpdFL : 23|1@0+ (1,0) [0|1] ""  VCU
+ SG_ VehMvmt : 53|2@0+ (1,0) [0|0] ""  VCU
+ SG_ Flt_12vMtr : 2|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_12vCtrl : 1|1@0+ (1,0) [0|1] ""  VCU
+ SG_ WakeStat : 29|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_mVehState : 13|2@0+ (1,0) [0|3] ""  VCU
+ SG_ EbcmShtdwnRdy : 31|1@0+ (1,0) [0|1] ""  VCU
+ SG_ EbcmRdy : 30|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_mBrkCtrl : 9|2@0+ (1,0) [0|3] ""  VCU
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  VCU
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  VCU
+ SG_ Flt_Hold : 3|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_Critical : 0|1@0+ (1,0) [0|1] ""  VCU
+ SG_ MtrTmprEst : 27|12@0+ (0.1,0) [0|200] "degC"  VCU
+ SG_ Warn_MtrTmpr : 5|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_MtrTmpr : 4|1@0+ (1,0) [0|1] ""  VCU
+ SG_ BrkFluidLevSns_EBCM2 : 17|2@0+ (1,0) [0|0] ""  VCU
+
+BO_ 115 mEbcm1U_Stat2: 8 EBCM1U
+ SG_ ToShtdwn : 45|3@0+ (1,0) [0|7] ""  VCU
+ SG_ HoldStat : 47|2@0+ (1,0) [0|3] ""  VCU
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  VCU
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  VCU
+ SG_ LvVolt : 39|8@0+ (0.1,0) [0|25.5] "V"  VCU
+ SG_ MtrCurrEst : 31|8@0+ (1,0) [0|255] "A"  VCU
+
+BO_ 125 mEbcm1U_Stat: 8 EBCM1U
+ SG_ AutoBrkEngd : 21|1@0+ (1,0) [0|0] ""  VCU
+ SG_ Flt_mVehState2 : 55|2@0+ (1,0) [0|3] ""  VCU
+ SG_ Flt_mWhdStat : 19|2@0+ (1,0) [0|0] ""  VCU
+ SG_ EbcmControllerID : 28|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_mVcuImuLinAccel : 7|2@0+ (1,0) [0|3] ""  VCU
+ SG_ Flt_mWhdCtrl : 11|2@0+ (1,0) [0|3] ""  VCU
+ SG_ Flt_mVcuImuAngVel : 15|2@0+ (1,0) [0|3] ""  VCU
+ SG_ Flt_12vMtr : 2|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_12vCtrl : 1|1@0+ (1,0) [0|1] ""  VCU
+ SG_ WakeStat : 29|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_mVehState : 13|2@0+ (1,0) [0|3] ""  VCU
+ SG_ EbcmShtdwnRdy : 31|1@0+ (1,0) [0|1] ""  VCU
+ SG_ EbcmRdy : 30|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_mBrkCtrl : 9|2@0+ (1,0) [0|3] ""  VCU
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  VCU
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  VCU
+ SG_ Flt_Hold : 3|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_Critical : 0|1@0+ (1,0) [0|1] ""  VCU
+ SG_ MtrTmprEst : 27|12@0+ (0.1,0) [0|200] "degC"  VCU
+ SG_ Warn_MtrTmpr : 5|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_MtrTmpr : 4|1@0+ (1,0) [0|1] ""  VCU
+ SG_ BrkFluidLevSns_EBCM1 : 17|2@0+ (1,0) [0|0] ""  VCU
+ SG_ Flt_CanWhlSpdR : 20|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_CanWhlSpdFR : 22|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_CanWhlSpdFL : 23|1@0+ (1,0) [0|1] ""  VCU
+
+BO_ 1976 mDiagRs_EBCM2L: 8 EBCM2L
+
+BO_ 1968 mDiagRq_EBCM2L: 8 TOOL
+ SG_ Advics_Diag2 : 39|16@0+ (1,0) [0|0] ""  EBCM2L
+ SG_ Advics_Diag1 : 7|32@0+ (1,0) [0|0] ""  EBCM2L
+
+BO_ 1669 mDiagRq_Whd: 8 TOOL
+
+BO_ 1638 VcuTask1msStat: 8 VCU
+ SG_ CpuUtilizationValid : 7|1@0+ (1,0) [0|1] ""  TOOL
+ SG_ MaxUtilizationValid : 5|1@0+ (1,0) [0|1] ""  TOOL
+ SG_ MaxExecTimeValid : 0|1@0+ (1,0) [0|1] ""  TOOL
+ SG_ CpuUtilization : 15|16@0+ (0.001,0) [0|1000] "pct"  TOOL
+ SG_ MaxUtilization : 31|16@0+ (0.001,0) [0|1000] "pct"  TOOL
+ SG_ MaxExecTime : 47|24@0+ (0.001,0) [0|1000] "s"  TOOL
+
+BO_ 2364576499 HVESSD3: 8 ESS1
+ SG_ CellTmprDeltaStat : 48|2@1+ (1,0) [0|3] ""  VCU
+ SG_ CellTmprMin : 16|16@1+ (0.03125,-273) [-273|1734.96875] "degC"  VCU
+ SG_ CellTmprMax : 0|16@1+ (0.03125,-273) [-273|1734.96875] "degC"  VCU
+ SG_ CellTmprAvg : 32|16@1+ (0.03125,-273) [-273|1734.96875] "degC"  VCU
+
+BO_ 2364576243 HVESSD2: 8 ESS1
+ SG_ CellVoltDeltaStat : 48|4@1+ (1,0) [0|15] ""  VCU
+ SG_ BattSocFast : 0|16@1+ (0.0015625,0) [0|100.3984375] "%"  VCU
+ SG_ CellVoltMin : 32|16@1+ (0.001,0) [0|64.255] "V"  VCU
+ SG_ CellVoltMax : 16|16@1+ (0.001,0) [0|64.255] "V"  VCU
+
+BO_ 2364575987 HVESSD1: 8 ESS1
+ SG_ MvVoltBatt : 32|16@1+ (0.05,0) [0|3212.75] "V"  VCU
+ SG_ PwrAvailChrg : 16|16@1+ (0.05,0) [0|3212.75] "kW"  VCU
+ SG_ PwrAvailDischrg : 0|16@1+ (0.05,0) [0|3212.75] "kW"  VCU
+ SG_ MvCurrBatt : 48|16@1+ (0.05,-1600) [-1600|1612.75] "A"  VCU
+
+BO_ 2365512179 AUXIO1: 8 ESS1
+ SG_ AUX_08 : 8|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ AUX_07 : 10|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ AUX_06 : 12|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ AUX_05 : 14|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ AUX_04_LPR : 0|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ AUX_03 : 2|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ AUX_02 : 4|2@1+ (1,0) [0|3] "enum"  VCU
+ SG_ AUX_01_HPR : 6|2@1+ (1,0) [0|3] "enum"  VCU
+
+BO_ 2365560051 mCurrAvailPeak: 8 ESS1
+ SG_ CurrAvailChrgPeak : 16|16@1+ (0.05,-1600) [-1600|1612.75] "A"  VCU
+ SG_ CurrAvailDschrgPeak : 0|16@1+ (0.05,-1600) [-1600|1612.75] "A"  VCU
+
+BO_ 1633 VehDiagPort: 8 VCU
+ SG_ MobilityInhibitCode : 0|4@1+ (1,0) [0|15] ""  TOOL
+
+BO_ 2365450241 mVscStat: 8 VSC
+ SG_ VscMode : 0|8@1+ (1,0) [0|255] ""  VCU
+ SG_ VscEstop : 16|32@1+ (1,0) [0|4294967295] ""  VCU
+ SG_ CtrlMode : 8|8@1+ (1,0) [0|255] ""  VCU
+
+BO_ 2365450496 mUserValue: 8 VCU
+ SG_ ConfigValue : 8|32@1+ (1,0) [0|4294967295] ""  VSC
+ SG_ ConfigId : 0|8@1+ (1,0) [0|255] ""  VSC
+
+BO_ 2365446452 mRightJoyStat2: 8 VSC
+ SG_ RightZ_Value : 6|10@1+ (1,0) [0|1023] ""  VCU
+ SG_ RightZ_Pos : 4|2@1+ (1,0) [0|3] ""  VCU
+ SG_ RightZ_Ntrl : 0|2@1+ (1,0) [0|3] ""  VCU
+ SG_ RightZ_Neg : 2|2@1+ (1,0) [0|3] ""  VCU
+
+BO_ 2365446196 mRightJoyStat: 8 VSC
+ SG_ RightY_Value : 22|10@1+ (1,0) [0|1023] ""  VCU
+ SG_ RightY_Pos : 20|2@1+ (1,0) [0|3] ""  VCU
+ SG_ RightY_Ntrl : 16|2@1+ (1,0) [0|3] ""  VCU
+ SG_ RightY_Neg : 18|2@1+ (1,0) [0|3] ""  VCU
+ SG_ RightX_Value : 6|10@1+ (1,0) [0|1023] ""  VCU
+ SG_ RightX_Pos : 4|2@1+ (1,0) [0|3] ""  VCU
+ SG_ RightX_Ntrl : 0|2@1+ (1,0) [0|3] ""  VCU
+ SG_ RightX_Neg : 2|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Btn_4 : 46|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Btn_3 : 44|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Btn_2 : 42|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Btn_1 : 40|2@1+ (1,0) [0|3] ""  VCU
+
+BO_ 2365445939 mLeftJoyStat2: 8 VSC
+ SG_ LeftZ_Value : 6|10@1+ (1,0) [0|1023] ""  VCU
+ SG_ LeftZ_Pos : 4|2@1+ (1,0) [0|3] ""  VCU
+ SG_ LeftZ_Ntrl : 0|2@1+ (1,0) [0|3] ""  VCU
+ SG_ LeftZ_Neg : 2|2@1+ (1,0) [0|3] ""  VCU
+
+BO_ 2365445683 mLeftJoyStat: 8 VSC
+ SG_ LeftY_Value : 22|10@1+ (1,0) [0|1023] ""  VCU
+ SG_ LeftY_Pos : 20|2@1+ (1,0) [0|3] ""  VCU
+ SG_ LeftY_Ntrl : 16|2@1+ (1,0) [0|3] ""  VCU
+ SG_ LeftY_Neg : 18|2@1+ (1,0) [0|3] ""  VCU
+ SG_ LeftX_Value : 6|10@1+ (1,0) [0|1023] ""  VCU
+ SG_ LeftX_Pos : 4|2@1+ (1,0) [0|3] ""  VCU
+ SG_ LeftX_Ntrl : 0|2@1+ (1,0) [0|3] ""  VCU
+ SG_ LeftX_Neg : 2|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Btn_Up : 44|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Btn_Right : 42|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Btn_Left : 46|2@1+ (1,0) [0|3] ""  VCU
+ SG_ Btn_Dwn : 40|2@1+ (1,0) [0|3] ""  VCU
+
+BO_ 2 mEbcm2L_TrqLmts: 8 EBCM2L
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  VCU
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  VCU
+ SG_ VehAccelEbcm : 39|16@0- (0.01,0) [-327.68|327.67] "m/s2"  VCU
+ SG_ StopLightRq : 54|1@0+ (1,0) [0|1] ""  VCU
+ SG_ TrqSlewRq : 53|2@0+ (1,0) [0|1] ""  VCU
+ SG_ RegBrkTrqRq : 15|8@0+ (0.5,0) [0|127.5] "Nm"  VCU
+ SG_ TrqLmtMtrRq : 7|8@0+ (0.5,0) [0|127.5] "Nm"  VCU
+
+BO_ 129 mEbcm2L_WhlSlip: 8 EBCM2L
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  VCU
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  VCU
+ SG_ WhlSlipR : 39|16@0- (0.01,0) [-100|327.67] "Pct"  VCU
+ SG_ WhlSlipFR : 23|16@0- (0.01,0) [-100|327.67] "Pct"  VCU
+ SG_ WhlSlipFL : 7|16@0- (0.01,0) [-100|327.67] "Pct"  VCU
+
+BO_ 124 mEbcm2L_WhlCnt: 8 EBCM2L
+ SG_ WhlCntR : 39|12@0+ (1,0) [0|4093] "Count"  VCU
+ SG_ WhlCntFR : 23|12@0+ (1,0) [0|4093] "Count"  VCU
+ SG_ WhlCntFL : 7|12@0+ (1,0) [0|4093] "Count"  VCU
+
+BO_ 127 mEbcm2L_WhlSpd: 8 EBCM2L
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  VCU
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  VCU
+ SG_ WhlSpdR : 39|12@0- (0.01,0) [-20.48|20.45] "m/s"  VCU
+ SG_ WhlSpdFR : 23|12@0- (0.01,0) [-20.48|20.45] "m/s"  VCU
+ SG_ WhlSpdFL : 7|12@0- (0.01,0) [-20.48|20.45] "m/s"  VCU
+
+BO_ 1977 mDiagRs_EBCM1U: 8 EBCM1U
+
+BO_ 1969 mDiagRq_EBCM1U: 8 TOOL
+ SG_ Advics_Diag2 : 39|16@0+ (1,0) [0|0] ""  EBCM1U
+ SG_ Advics_Diag1 : 7|32@0+ (1,0) [0|0] ""  EBCM1U
+
+BO_ 1296 mHmiPadStat: 8 VCU
+ SG_ VolVoice : 48|8@1+ (0.5,0) [0|100] "pct"  HMI
+ SG_ VolMp3 : 56|8@1+ (0.5,0) [0|100] "pct"  HMI
+ SG_ AudioVoice : 32|8@1+ (1,0) [0|255] ""  HMI
+ SG_ AudioMp3 : 40|8@1+ (1,0) [0|255] ""  HMI
+ SG_ KeypadO : 0|1@1+ (1,0) [0|1] ""  HMI
+ SG_ PadLight : 23|1@1+ (1,0) [0|1] ""  HMI
+ SG_ PadCodeState : 16|3@1+ (1,0) [0|7] ""  HMI
+ SG_ KeypadC : 9|1@1+ (1,0) [0|1] ""  HMI
+ SG_ PadActive : 22|1@1+ (1,0) [0|1] ""  HMI
+ SG_ Keypad4 : 4|1@1+ (1,0) [0|1] ""  HMI
+ SG_ Keypad3 : 3|1@1+ (1,0) [0|1] ""  HMI
+ SG_ Keypad2 : 2|1@1+ (1,0) [0|1] ""  HMI
+ SG_ Keypad1 : 1|1@1+ (1,0) [0|1] ""  HMI
+
+BO_ 770 mVcuSys: 8 VCU
+ SG_ VcuStateShtdwn : 43|4@0+ (1,0) [0|0] ""  TOOL
+ SG_ VcuStateInit : 47|4@0+ (1,0) [0|0] ""  TOOL
+ SG_ MtrTrqLmtDecel : 24|8@1+ (1,0) [0|255] "Nm"  TOOL
+ SG_ MtrTrqLmtAccel : 16|8@1+ (1,0) [0|255] "Nm"  TOOL
+ SG_ AdcuShtdwnRq : 8|1@0+ (1,0) [0|1] ""  TOOL
+ SG_ EstopTest : 32|3@1+ (1,0) [0|7] ""  TOOL
+ SG_ EbcmShtdwnRq : 10|1@0+ (1,0) [0|1] ""  TOOL
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  TOOL
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  TOOL
+
+BO_ 768 mEbcm2L_EpbStat: 8 EBCM2L
+ SG_ Flt_EpbOpenCircuit : 36|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_EpbMtrCurrent : 35|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_EpbIC : 34|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_EpbGndShort : 37|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_EpbBattShort : 38|1@0+ (1,0) [0|1] ""  VCU
+ SG_ Flt_Epb : 39|1@0+ (1,0) [0|1] ""  VCU
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  VCU
+ SG_ EpbStat : 4|4@1+ (1,0) [0|15] ""  VCU
+ SG_ EPB_Current : 11|12@0+ (0.01,0) [0|40.95] "A"  VCU
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  VCU
+
+BO_ 516 mVcuFaults: 8 VCU
+ SG_ Flt_InvalidGearRq : 61|1@0+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_LocEpb : 54|2@1+ (1,0) [0|3] ""  TOOL
+ SG_ Flt_LocTo : 34|2@1+ (1,0) [0|3] ""  TOOL
+ SG_ Flt_LocBe : 32|2@1+ (1,0) [0|3] ""  TOOL
+ SG_ Flt_12vSys : 26|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_WriteEeprom : 24|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_ReadEeprom : 25|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_BrkSafeSys : 58|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_SafeCircuit : 5|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_MstrSwitch : 4|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_CntctrStat : 59|2@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_BrkPrsr : 56|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_WhdEnbl : 62|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_SbwEnbl : 47|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_SafeSteer : 52|2@1+ (1,0) [0|3] ""  TOOL
+ SG_ Flt_SafeProp : 50|2@1+ (1,0) [0|3] ""  TOOL
+ SG_ Flt_SafeExtLight : 48|2@1+ (1,0) [0|3] ""  TOOL
+ SG_ Flt_EpbSys : 57|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_DcdcEnbl : 63|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_48Volt : 2|2@1+ (1,0) [0|3] ""  TOOL
+ SG_ Flt_12Volt : 0|2@1+ (1,0) [0|3] ""  TOOL
+ SG_ Flt_LocWhd : 6|2@1+ (1,0) [0|3] ""  TOOL
+ SG_ Flt_LocTc : 22|2@1+ (1,0) [0|3] ""  TOOL
+ SG_ Flt_LocSbw : 20|2@1+ (1,0) [0|3] ""  TOOL
+ SG_ Flt_LocAVAS : 18|2@1+ (1,0) [0|3] ""  TOOL
+ SG_ Flt_LocVsc : 16|2@1+ (1,0) [0|3] ""  TOOL
+ SG_ Flt_LocEss : 14|2@1+ (1,0) [0|3] ""  TOOL
+ SG_ Flt_LocEbcm2 : 12|2@1+ (1,0) [0|3] ""  TOOL
+ SG_ Flt_LocEbcm1 : 10|2@1+ (1,0) [0|3] ""  TOOL
+ SG_ Flt_LocAdcu : 8|2@1+ (1,0) [0|3] ""  TOOL
+ SG_ Flt_LocLrr : 40|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_KeypadLight : 46|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_KeypadC : 45|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_Keypad4 : 44|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_LocFcmCan : 43|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_ImuRst : 42|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_ImuSns : 41|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_Bay2Pwr12v : 39|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_Bay2MtrPos : 37|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_Bay2Mtr : 38|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_Bay2BeltSns : 36|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_Bay1Pwr12v : 31|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_Bay1MtrPos : 29|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_Bay1Mtr : 30|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Flt_Bay1BeltSns : 28|1@1+ (1,0) [0|1] ""  TOOL
+
+BO_ 514 mVehState: 8 VCU
+ SG_ SBW_RtEndStopReached : 28|1@0+ (1,0) [0|1] ""  TOOL
+ SG_ SBW_LfEndStopReached : 29|1@0+ (1,0) [0|1] ""  TOOL
+ SG_ Invld_GearRq : 55|1@0+ (1,0) [0|1] ""  TOOL
+ SG_ EstopDetected : 41|1@0+ (1,0) [0|1] ""  TOOL
+ SG_ Tether_Connected : 43|1@0+ (1,0) [0|0] ""  TOOL
+ SG_ VehParkRq : 42|1@0- (1,0) [0|0] ""  TOOL
+ SG_ ArbVehSpdValid : 40|1@0+ (1,0) [0|0] ""  TOOL
+ SG_ ArbVehSpd : 39|12@0- (0.02,0) [-40.96|40.94] "kph"  TOOL
+ SG_ GearRq : 24|2@1+ (1,0) [0|3] ""  TOOL
+ SG_ GearChangeParkAllow : 30|1@0+ (1,0) [0|0] ""  TOOL
+ SG_ TO_Allowed : 52|1@0+ (1,0) [0|0] ""  TOOL
+ SG_ LOS_Allowed : 54|1@0+ (1,0) [0|0] ""  TOOL
+ SG_ AD_Allowed : 53|1@0+ (1,0) [0|0] ""  TOOL
+ SG_ GearChangeDrvRevAllow : 31|1@0+ (1,0) [0|0] ""  TOOL
+ SG_ GearAct : 26|2@1+ (1,0) [0|3] ""  TOOL,EBCM1U,EBCM2L
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  TOOL,EBCM1U,EBCM2L
+ SG_ MsgCntr : 48|4@1+ (1,0) [0|15] ""  TOOL,EBCM2L,EBCM1U
+ SG_ VehDte : 6|10@1+ (0.1,0) [0|102.3] "Km"  TOOL
+ SG_ LvVolt : 16|8@1+ (0.1,0) [0|25.5] "V"  TOOL
+ SG_ CrashSns : 5|1@1+ (1,0) [0|1] ""  TOOL,EBCM1U
+ SG_ VcuEstopSns : 4|1@1+ (1,0) [0|1] ""  TOOL,EBCM1U,EBCM2L
+ SG_ VehState : 0|4@1+ (1,0) [0|15] ""  TOOL,EBCM1U,EBCM2L
+
+BO_ 268 mAVAS_Stat: 8 AVAS
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  VCU
+ SG_ AVAS_LoC : 1|1@0+ (1,0) [0|0] ""  VCU
+ SG_ AVAS_E2E_Fault : 0|1@0+ (1,0) [0|0] ""  VCU
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  VCU
+ SG_ HwMin : 39|8@0+ (1,0) [0|255] ""  VCU
+ SG_ HwMaj : 31|8@0+ (1,0) [0|255] ""  VCU
+ SG_ SwMin : 23|8@0+ (1,0) [0|255] ""  VCU
+ SG_ SwMaj : 15|8@0+ (1,0) [0|255] ""  VCU
+
+BO_ 1632 mVcuEcuStat: 8 VCU
+ SG_ WakeHoldStat : 0|2@1+ (1,0) [0|3] ""  TOOL
+ SG_ EcuModingStat : 2|3@1+ (1,0) [0|7] ""  TOOL
+ SG_ EcuWakeSource : 5|3@1+ (1,0) [0|7] ""  TOOL
+ SG_ VcuLvOk : 8|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ DrvpOk : 9|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ SnsrPwrOk : 10|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ NvmOk : 11|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Hso16WakeHoldOutCmd : 12|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ Hso16Status : 13|3@1+ (1,0) [0|7] ""  TOOL
+ SG_ RaptorWakeSource : 16|8@1+ (1,0) [0|255] ""  TOOL
+ SG_ MomSwPress : 24|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ MprdEnCmd : 25|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ MomSwInRaw : 26|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ CanChk : 28|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ EthChk : 29|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ LinChk : 30|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ FlashChk : 31|1@1+ (1,0) [0|1] ""  TOOL
+ SG_ IdleTmr : 32|16@1+ (0.01,0) [0|10000] "s"  TOOL
+
+BO_ 2365450752 mUserText: 8 VCU
+ SG_ UserTextString6 : 56|8@1- (1,0) [0|0] ""  VSC
+ SG_ UserTextString5 : 48|8@1- (1,0) [0|0] ""  VSC
+ SG_ UserTextString4 : 40|8@1- (1,0) [0|0] ""  VSC
+ SG_ UserTextString3 : 32|8@1- (1,0) [0|0] ""  VSC
+ SG_ UserTextString2 : 24|8@1- (1,0) [0|0] ""  VSC
+ SG_ UserTextString1 : 16|8@1- (1,0) [0|0] ""  VSC
+ SG_ UserTextStringSeg : 8|8@1- (1,0) [0|0] ""  VSC
+ SG_ UserTextStringKey : 0|8@1- (1,0) [0|0] ""  VSC
+
+BO_ 2634009292 mVcuGitSHA: 8 VCU
+ SG_ Git_SHA8 : 63|8@0+ (1,0) [0|255] "ASCII"  TOOL
+ SG_ Git_SHA7 : 55|8@0+ (1,0) [0|255] "ASCII"  TOOL
+ SG_ Git_SHA6 : 47|8@0+ (1,0) [0|255] "ASCII"  TOOL
+ SG_ Git_SHA5 : 39|8@0+ (1,0) [0|255] "ASCII"  TOOL
+ SG_ Git_SHA4 : 31|8@0+ (1,0) [0|255] "ASCII"  TOOL
+ SG_ Git_SHA3 : 23|8@0+ (1,0) [0|255] "ASCII"  TOOL
+ SG_ Git_SHA2 : 15|8@0+ (1,0) [0|255] "ASCII"  TOOL
+ SG_ Git_SHA1 : 7|8@0+ (1,0) [0|255] "ASCII"  TOOL
+
+BO_ 2634005196 mVcuVehID: 8 VCU
+ SG_ VehId_Char8 : 63|8@0+ (1,0) [0|255] "ASCII"  TOOL
+ SG_ VehId_Char7 : 55|8@0+ (1,0) [0|255] "ASCII"  TOOL
+ SG_ VehId_Char6 : 47|8@0+ (1,0) [0|255] "ASCII"  TOOL
+ SG_ VehId_Char5 : 39|8@0+ (1,0) [0|255] "ASCII"  TOOL
+ SG_ VehId_Char4 : 31|8@0+ (1,0) [0|255] "ASCII"  TOOL
+ SG_ VehId_Char3 : 23|8@0+ (1,0) [0|255] "ASCII"  TOOL
+ SG_ VehId_Char2 : 15|8@0+ (1,0) [0|255] "ASCII"  TOOL
+ SG_ VehId_Char1 : 7|8@0+ (1,0) [0|255] "ASCII"  TOOL
+
+BO_ 2634009804 mVcuSwVer: 4 VCU
+ SG_ SwStat : 24|1@0+ (1,0) [0|1] ""  TOOL
+ SG_ SwRev : 23|8@0+ (1,0) [0|255] ""  TOOL
+ SG_ SwMin : 15|8@0+ (1,0) [0|255] ""  TOOL
+ SG_ SwMaj : 7|8@0+ (1,0) [0|255] ""  TOOL
+
+BO_ 666 mSbwCtrl: 8 VCU
+ SG_ MsgCrc : 32|8@1+ (1,0) [0|255] ""  SBW
+ SG_ MsgCntr : 48|4@1+ (1,0) [0|15] ""  SBW
+ SG_ CtrlMode : 0|3@1+ (1,0) [0|5] ""  SBW
+ SG_ MtrDcCmd : 24|8@1- (1,0) [-100|100] "pct"  SBW
+ SG_ AngleCmd : 9|10@0+ (1,0) [0|1023] "Count"  SBW
+
+BO_ 658 mSbwStat2: 8 SBW
+ SG_ SteerAngle8b : 7|8@0+ (1,0) [0|255] "Count"  VCU
+ SG_ ProtectActive : 59|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RemModeActive : 63|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RightStopLmt : 57|1@1+ (1,0) [0|1] ""  VCU
+ SG_ OverTemp : 58|1@1+ (1,0) [0|1] ""  VCU
+ SG_ LeftStopLmt : 56|1@1+ (1,0) [0|1] ""  VCU
+ SG_ RS232Mode : 48|1@1+ (1,0) [0|0] ""  VCU
+ SG_ MtrAdjust : 49|2@1+ (1,0) [0|3] ""  VCU
+ SG_ HostMode : 51|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FaultLight : 52|1@1+ (1,0) [0|1] ""  VCU
+ SG_ FltCode : 32|8@1+ (1,0) [0|255] ""  VCU
+ SG_ SelectedMap : 28|3@1+ (1,0) [0|7] ""  VCU
+ SG_ SteerAngle : 9|10@0+ (1,0) [0|1023] "Count"  VCU
+
+BO_ 659 mSbwStat_Allied: 8 SBW_Allied
+ SG_ MotorTemp : 24|8@1+ (1,-40) [-40|215] "C"  VCU
+ SG_ MsgCrc : 56|8@1+ (1,0) [0|255] ""  VCU
+ SG_ MsgCntr : 48|4@1+ (1,0) [0|15] ""  VCU
+ SG_ BoardTemp : 16|8@1+ (1,-40) [-40|215] "C"  VCU
+ SG_ LvVolt : 0|8@1+ (0.1,0) [0|25.5] "V"  VCU
+ SG_ MtrCurr : 8|8@1+ (0.1,0) [0|25.5] "A"  VCU
+
+BO_ 130 mEbcm1U_BrkPress2: 8 EBCM1U
+ SG_ PrsrRearWCP : 39|16@0- (0.01,0) [-2|32.767] "MPa"  VCU
+ SG_ PrsrFrontWCP : 23|16@0- (0.01,0) [-327.68|327.67] "MPa"  VCU
+ SG_ PrsrEstMstrCylValid : 52|1@0+ (1,0) [0|1] ""  VCU
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  VCU
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  VCU
+ SG_ PrsrEstMstCyl : 7|16@0- (0.001,0) [-2|32.767] "MPa"  VCU
+
+BO_ 126 mEbcm2L_BrkPress2: 8 EBCM2L
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  VCU
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  VCU
+ SG_ PrsrEstRR : 31|12@0+ (0.01,0) [0|40.95] "MPa"  VCU
+ SG_ PrsrEstRL : 35|12@0+ (0.01,0) [0|40.95] "MPa"  VCU
+ SG_ PrsrEstFR : 7|12@0+ (0.01,0) [0|40.95] "MPa"  VCU
+ SG_ PrsrEstFL : 11|12@0+ (0.01,0) [0|40.95] "MPa"  VCU
+
+BO_ 123 mEbcm2L_Stat2: 8 EBCM2L
+ SG_ EbdActv : 42|1@0+ (1,0) [0|1] ""  VCU
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  SBW_Allied,VCU
+ SG_ EscAvail : 41|2@0+ (1,0) [0|3] ""  VCU
+ SG_ TcsAvail : 8|1@0+ (1,0) [0|1] ""  VCU
+ SG_ AbsAvail : 10|1@0+ (1,0) [0|1] ""  VCU
+ SG_ TcsActv : 54|1@0+ (1,0) [0|1] ""  VCU
+ SG_ EscActv : 53|1@0+ (1,0) [0|1] ""  VCU
+ SG_ AebRdy : 52|1@0+ (1,0) [0|1] ""  VCU
+ SG_ AbsActv : 55|1@0+ (1,0) [0|1] ""  VCU
+ SG_ VehSpdEbcm : 7|12@0- (0.01,0) [-20.48|20.45] "m/s"  SBW_Allied,VCU
+ SG_ ToShtdwn : 45|3@0+ (1,0) [0|7] ""  VCU
+ SG_ HoldStat : 47|2@0+ (1,0) [0|3] ""  VCU
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  SBW_Allied,VCU
+ SG_ LvVolt : 39|8@0+ (0.1,0) [0|25.5] "V"  VCU
+ SG_ MtrCurrEst : 31|8@0+ (1,0) [0|255] "A"  VCU
+
+BO_ 116 mBrkCtrl: 8 VCU
+ SG_ EpbCalCmd : 47|1@0+ (1,0) [0|1] ""  EPB
+ SG_ EbcmMaintModeRq : 36|1@0+ (1,0) [0|0] ""  EBCM1U,EBCM2L
+ SG_ RegBrkAvail : 23|12@0+ (0.05,0) [0|204.75] "Nm"  EBCM1U,EBCM2L
+ SG_ ClearFltRq : 32|1@0+ (1,0) [0|0] ""  EBCM2L,EBCM1U
+ SG_ DsblTCS : 26|1@0+ (1,0) [0|1] ""  EBCM2L
+ SG_ EbcmShtdwnRq : 27|1@0+ (1,0) [0|1] ""  EBCM2L,EBCM1U
+ SG_ BrkEnbl_EBCM2L : 25|1@0+ (1,0) [0|1] ""  EBCM1U,EBCM2L
+ SG_ EPBCmd : 45|2@0+ (1,0) [0|3] ""  EPB,EBCM2L,EBCM1U
+ SG_ BrkEnbl_EBCM1U : 24|1@0+ (1,0) [0|1] ""  EBCM1U
+ SG_ BrkTrqRq : 7|16@0+ (0.1,0) [0|6553.5] "Nm"  EBCM2L,EBCM1U
+ SG_ MsgCrc : 63|8@0+ (1,0) [0|255] ""  EPB,EBCM2L,EBCM1U
+ SG_ MsgCntr : 51|4@0+ (1,0) [0|15] ""  EPB,EBCM2L,EBCM1U
+ SG_ HoldRq : 40|1@0+ (1,0) [0|1] ""  EBCM2L,EBCM1U
+
+BO_ 2047 mDiagRq_Func: 8 TOOL
+
+BO_TX_BU_ 2046 : EBCM1U,EBCM2L;
+BO_TX_BU_ 2035 : EBCM1U,EBCM2L;
+
+
+CM_ BU_ ESS1 "Energy Storage System 48V Battery";
+CM_ BU_ EBCM2L "Upstream Electronic Brake Control Module (Upper)";
+CM_ BU_ EBCM1U "Downstream Electronic Brake Control Module (Lower)";
+CM_ BU_ SBW "Steer By Wire Controller";
+CM_ BU_ VCU "Vehicle Control Unit";
+CM_ BU_ WHD "Wheel Hub Drive Motor/Controller Assembly";
+CM_ BU_ TOOL "Generic CAN Tool";
+CM_ SG_ 104 MsgCntr "Dedicated message safety counter";
+CM_ SG_ 102 WhdCurr_Ph2C "WHD Assembly Phase W current";
+CM_ SG_ 102 WhdCurr_Ph2B "WHD Assembly Phase V current";
+CM_ SG_ 102 WhdCurr_Ph2A "WHD Assembly Phase U current";
+CM_ SG_ 102 WhdCurr_Ph1C "WHD Assembly Phase W current";
+CM_ SG_ 102 WhdCurr_Ph1B "WHD Assembly Phase V current";
+CM_ SG_ 102 WhdCurr_Ph1A "WHD Assembly Phase U current";
+CM_ SG_ 102 WhdAngle "WHD Assembly Motor angle";
+CM_ SG_ 101 WhdShtdwnRdy "Identifies if the WHD assembly is ready to commence a Lv/Mv shutdown";
+CM_ SG_ 101 WhdRdy "Identifies whether the WHD is ready to produce torque";
+CM_ SG_ 101 MsgCntr "Dedicated message safety counter";
+CM_ SG_ 101 WhdState "Identifies the WHD Controller's functional State";
+CM_ SG_ 101 HwWakeStat "Identifies the status of the WHD controller wake circuit";
+CM_ SG_ 101 TrqLmt_Volt "Flag that identifies when the requested torque is actively limited due to a MV Bus Voltage limit";
+CM_ SG_ 101 TrqLmt_TrqSlew "Flag that identifies when the requested torque is actively limited due to a WHD torque slew rate limit";
+CM_ SG_ 101 TrqLmt_SpdSlew "Flag that identifies when the requested torque is actively limited due to a WHD speed slew rate limit";
+CM_ SG_ 101 TrqLmt_Pwr "Flag that identifies when the requested torque is actively limited due to a MV Bus Power limit";
+CM_ SG_ 101 TrqLmt_MtrTmpr "Flag that identifies when the requested torque is actively limited due to the WHD Motor temperature";
+CM_ SG_ 101 TrqLmt_MtrSpd "Flag that identifies when the requested torque is actively limited due to a WHD Motor speed limit";
+CM_ SG_ 101 TrqLmt_InvTmpr "Flag that identifies when the requested torque is actively limited due to the WHD Controller temperature";
+CM_ SG_ 101 TrqLmt_Design "Flag that identifies when the requested torque is actively limited due to the WHD assembly base design";
+CM_ SG_ 101 TrqAvailRegen "Maximum, dynamic regen torque that can be provided by the WHD assembly";
+CM_ SG_ 101 TrqAvailMtr "Maximum, dynamic motoring torque that can be provided by the WHD assembly";
+CM_ SG_ 101 InvTmpr "Highest WHD controller temperature";
+CM_ SG_ 101 MtrTmpr "Highest WHD motor temperature";
+CM_ SG_ 101 LvVolt "Actual LV (12V) voltage";
+CM_ SG_ 100 MvVolt "Actual MV (48V) DC Bus voltage";
+CM_ SG_ 100 MvCurrEst "Estimated WHD Bus current";
+CM_ SG_ 100 MtrTrqEst "Estimated WHD motor torque";
+CM_ SG_ 100 MtrSpd "Actual WHD motor speed";
+CM_ SG_ 100 HwEnblStat "Identifies the status of the WHD controller circuit used to directly disable the gate drive activation";
+CM_ SG_ 100 TrqEnblStat "Identifies the status of the WHD controller torque enable status (ie, gate drive activation status)";
+CM_ SG_ 100 MsgCrc "mWhdStat Message Checksum (E2E data ID: 0x15)";
+CM_ SG_ 100 MsgCntr "Dedicated message safety counter";
+CM_ SG_ 19 WhdShtdwnRq "Request for the WHD controller to perform a shutdown";
+CM_ SG_ 19 MsgCrc "mWhdCtrl2 Message Checksum (E2E data ID: 0x93)";
+CM_ SG_ 19 TrqLmtRegen "Absolute value representing a dynamic, maximum DC Torque value for the WHD assembly.  Applies during all WHD regen events in both Speed Control and Torque Control modes";
+CM_ SG_ 19 TrqLmtMtr "Absolute value representing a dynamic, maximum Torque value for the WHD assembly.  Applies during all WHD motoring events in both Speed Control and Torque Control modes";
+CM_ SG_ 19 MsgCntr "Dedicated message safety counter";
+CM_ SG_ 19 ClearFltRq "Request to clear all WHD faults and warnings";
+CM_ SG_ 19 VoltLmtMin "Minimum dynamic DC Bus voltage value for the WHD  Assembly.  Applies during both Speed Control and Torque Control modes";
+CM_ SG_ 19 VoltLmtMax "Maximum dynamic DC Bus voltage value for the WHD  Assembly.  Applies during both Speed Control and Torque Control modes";
+CM_ SG_ 19 CurrLmtRegen "Absolute value representing a dynamic, maximum DC Bus current value for the WHD assembly.  Applies during all WHD regen events";
+CM_ SG_ 19 CurrLmtMtr "Absolute value representing a dynamic, maximum DC Bus current value for the WHD assembly.  Applies during all WHD motoring events";
+CM_ BO_ 773 "Magna EPB - Electric Park Brake Status";
+CM_ SG_ 773 Flt_StallEngaged "EPB is stuck in Engaged Position.";
+CM_ SG_ 773 SwStat "Release status of software.";
+CM_ SG_ 773 SwRev "Revision of Software version.";
+CM_ SG_ 773 Flt_EpbMtrCurrent "Any fault related to motor current.";
+CM_ SG_ 773 Flt_EpbIC "Any fault related to internal EPB motor circuit.";
+CM_ SG_ 773 Flt_StallDisengaged "EPB is stuck in Disengaged Position.";
+CM_ SG_ 773 Flt_mBrkCtrl "Fault reporting for EBCM reception of mBrkCtrl message from CGVCU.";
+CM_ SG_ 773 EpbStat "Fully Released is a service state required to fully extract EPB in order to remove rear brake / wheel.";
+CM_ SG_ 773 Flt_Epb "General EPB fault exists.";
+CM_ SG_ 773 MsgCntr "Check the MessageCounter consistency at least on every message reception";
+CM_ SG_ 773 EPB_Current "Current drawn by EPB motor.";
+CM_ SG_ 773 MsgCrc "mEpb_EpbStat Message Checksum (E2E data ID: 0x2F)";
+CM_ BO_ 656 "Allied Motion Message.";
+CM_ SG_ 656 InvTmpr "100°C will result in half motor duty mode until temperature drops below 95°C.  120°C shutdown";
+CM_ SG_ 656 LvVolt "Measured input voltage of Steering System.";
+CM_ SG_ 656 MtrCurr "Motor Current";
+CM_ BO_ 667 "Allied Motion Message.
+Previously Named G7GenericCommand.  Modified signals.";
+CM_ SG_ 667 EstopReq "Estop request from GCVCU.";
+CM_ SG_ 667 MsgCrc "mSbwCtrl_Allied  Message Checksum (E2E data ID: 0x14)";
+CM_ SG_ 667 MsgCntr "Message Counter 0..14.
+15 indicates Fault";
+CM_ BO_ 664 "Allied Motion Message.
+Previously Named G7GenericFdbk6";
+CM_ SG_ 664 RightStopLmt "Flag indicating that steering has reached Right Stop Limit.";
+CM_ SG_ 664 MsgCrc "mSbwPosition  Message Checksum (Autosar Profile 1 - E2E data ID: 0x19)";
+CM_ SG_ 664 MsgCntr "Message Counter 0..14
+15 indicates fault";
+CM_ SG_ 664 LeftStopLmt "Flag indicating that steering has reached Left Stop Limit.";
+CM_ BO_ 663 "Allied Motion Message.
+Previously Named G7GenericFdbk5.  Changed generic DTC names to reflect fault description.  Added mSbwCtrl Message fault.";
+CM_ SG_ 663 Flt_RotEnc "Unsuccessful Communication with Rotary Encoder";
+CM_ SG_ 663 FLT_Temp "Temp above 120C.";
+CM_ SG_ 663 Warn_Temp "Temp above 110C";
+CM_ SG_ 663 Flt_TrqLinearity "Error in relationship between torque sensors.";
+CM_ SG_ 663 Flt_TrqRange "Raw Torque outside usable range.";
+CM_ SG_ 663 Flt_ErrorCurrent "Error between commanded and actual current.";
+CM_ SG_ 663 Flt_SASRng "Error in single or relationship between the three position sensors.";
+CM_ SG_ 663 Flt_DrvWtch "External Watchdog timeout.";
+CM_ SG_ 663 Flt_DrvSPI "Unsuccessful communication with gate driver";
+CM_ SG_ 663 Flt_GateDrv "Bit Error detected from gate driver.";
+CM_ SG_ 663 Flt_RotEncVar "Excessive error in rotor encoder position.";
+CM_ SG_ 663 Flt_RotEncBits "Bit Error detected in rotor encoder communication.";
+CM_ SG_ 663 MsgCrc "mSbwFaults  Message Checksum (Autosar Profile 1 - E2E data ID: 0x18)";
+CM_ SG_ 663 MsgCntr "Message Counter 0..14
+15 indicates fault";
+CM_ SG_ 2566819238 MvVoltAux "The first power output from an ECU.";
+CM_ BO_ 2365559974 "Current limits from ESS BMS2.";
+CM_ SG_ 2365559974 CurrAvailChrgPeak "Previously named ABSPOWER_Regen_Current_Limit";
+CM_ SG_ 2365559974 CurrAvailDschrgPeak "Previously named ABSPOWER_Discharge_Current_Limit";
+CM_ BO_ 2364577446 "High Voltage Energy Storage System Status 1 Status data set 1 for High Voltage Energy Storage System BMS2.";
+CM_ SG_ 2364577446 MsgCrc "The CRC is defined as follows: Length: 8 bits, Polynomial: x^8+x^5+x^3+x^2+x+1, Initial Value: FFh, Input Data Reflection: Not reflected, Result Data Reflection: Not reflected, XOR value: FFh";
+CM_ SG_ 2364577446 IntChrgrStat "Indicates that the charger in this HVES instance is on.  External chargers may use the External Energy Source Connection Status (SPN 7898) and related SPs.
+Previously named HVESSS1_Inertial_Charger_Status";
+CM_ SG_ 2364577446 InertSwStat "Switch indicating that an impact has been sensed by the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSS1_Inertia_Switch_Status";
+CM_ SG_ 2364577446 BattSocStat "Status of the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) State of Charge (SOC).
+Previously named HVESSS1_State_Of_Charge_Status";
+CM_ SG_ 2364577446 BattCntctrPcStat "Position of the high-voltage bus contactor pre-charge relay.  When this relay is closed, the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) is bringing the h-v bus up to its op level
+Prev named HVESSS1_Precharge_Relay_State";
+CM_ SG_ 2364577446 BattCntctrPos "Position of the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) positive side bus contactor.
+Previously named HVESSS1_Pos_Contactor_State";
+CM_ SG_ 2364577446 HvIsoStatPassive "Status of the high-voltage bus electrical passive isolation test as performed by the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSS1_Passive_Isolation_Test";
+CM_ SG_ 2364577446 OpStat "Provides feedback on where the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) is in its operating spectrum.
+Previously named HVESSS1_Operational_Status";
+CM_ SG_ 2364577446 BattRdyCount "he number of High Voltage Energy Storage Packs that are currently ready or are actively providing high voltage energy in the HVESS system. This parameter will increment after cntctrs are closed.
+Previously named HVESSS1_Number_of_HVESPs";
+CM_ SG_ 2364577446 BattCntctrNeg "Position of the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) negative side bus contactor.
+Previously named HVESSS1_Neg_Contactor_State.";
+CM_ SG_ 2364577446 HvilStat "Status of the High Voltage Interlock Loop from the viewpoint of the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSS1_HVIL_Status";
+CM_ SG_ 2364577446 BattCntctrStat "Position of the center high-voltage contactor.
+Previously named HVESSS1_Center_Contactor_State.";
+CM_ SG_ 2364577446 CellBalActive "Indicates whether or not the cells in the High Voltage Energy Storage 1 pack (or system) are currently being balanced.
+Previously named HVESSS1_Cell_Balancing_Active";
+CM_ SG_ 2364577446 CellBalStat "Indicates whether or not the cells in the High Voltage Energy Storage 1 pack (or system) are balanced.
+Previously named HVESSS1_Cell_Balance_Status";
+CM_ SG_ 2364577446 BattDiscWarn "Indicates that the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) is about to disconnect from the high voltage bus due to unacceptable conditions.
+Previously named HVESSS1_Bus_Disconnect_Warn.";
+CM_ SG_ 2364577446 BattEnblStat "This parameter provides high level feedback on the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) high voltage bus connection.
+Previously named HVESSS1_Bus_Connection_Status";
+CM_ SG_ 2364577446 HvIsoStatActive "Status of the high-voltage bus electrical active isolation test as performed by the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSS1_Active_Isolation_Test";
+CM_ BO_ 2364607398 "High Voltage Energy Storage System Data 9 Data set 9 (thermal) for High Voltage Energy Storage System BMS2.";
+CM_ SG_ 2364607398 ThrmlEventDetect "A sensor has detected the presence of a thermal event at or near High Voltage Energy Storage System  (or Pack 1 in systems with only one pack).";
+CM_ SG_ 2364607398 CellTmprMinIdCell "Identifies the location of SPN 8076 (HVESS Lowest Cell Temperature) within SPN 8243 (HVESS Lowest Cell Temperature Module Number).";
+CM_ SG_ 2364607398 CellTmprMaxIdCell "Identifies the location of SPN 8075 (HVESS Highest Cell Temperature) within SPN 8241 (HVESS Highest Cell Temperature Module Number).";
+CM_ SG_ 2364607398 CellTmprMinIdMod "Identifies the location of the module containing SPN 8076 (HVESS Lowest Cell Temperature ).
+Previously named HVESSD9_Low_Temp_Module.";
+CM_ SG_ 2364607398 CellTmprMaxIdMod "Identifies the location of the module containing SPN 8075 (HVESS Highest Cell Temperature).
+Previously named HVESSD9_High_Temp_Module";
+CM_ BO_ 2364607142 "High Voltage Energy Storage System Data 8 Data set 8 (electrical data) for High Voltage Energy Storage System BMS2.";
+CM_ SG_ 2364607142 CellVoltMinIdCell "Identifies the location of SPN 5923 (HVESS Lowest Cell Voltage) within SPN 8238 (HVESS Lowest Cell Voltage Module Number).";
+CM_ SG_ 2364607142 CellVoltMaxIdCell "Identifies the location of SPN 5922 (HVESS Highest Cell Voltage) within SPN 8236 (HVESS Highest Cell Voltage Module Number).";
+CM_ SG_ 2364607142 CellVoltMinIdMod "Identifies the location of the module containing SPN 5923 (HVESS Lowest Cell Voltage).
+Previoussly named HVESSD8_Low_Cell_Volt_Mod";
+CM_ SG_ 2364607142 CellVoltMaxIdMod "Identifies the location of the module containing SPN 5922 (HVESS Highest Cell Voltage).
+Previously named HVESSD8_High_Cell_Volt_Mod";
+CM_ SG_ 2364607142 CellVoltAvg "The average cell voltage in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD8_Average_Cell_Voltage";
+CM_ BO_ 2364580006 "High Voltage Energy Storage System Data 7 Data set 7 (electrical) for High Voltage Energy Storage System BMS2.";
+CM_ SG_ 2364580006 ChrgVoltMax "The maximum voltage level not to be exceeded while charging the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD7_Max_Charge_Voltage_Lim";
+CM_ SG_ 2364580006 EnrgyAvailDschrg "The amount of stored electrical energy in High Voltage Energy Storage System (or Pack 1 in systems with only one pack) that is available for use by the hybrid system.
+Previously named HVESSD7_Discharge_Energy";
+CM_ SG_ 2364580006 EnrgyAvailChrg "The amount of unused electrical energy storage available to be filled by charging High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD7_Charge_Energy.";
+CM_ BO_ 2364577190 "High Voltage Energy Storage System Data 6 Data set 6 (external or interface data) for High Voltage Energy Storage System BMS2.";
+CM_ SG_ 2364577190 BattTmpr "The temperature of High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD6_Temperature";
+CM_ SG_ 2364577190 ElecTmpr "The temperature of the electronics or control modules in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD6_Electronics_Temp";
+CM_ SG_ 2364577190 MvVoltBus "The voltage level of the high voltage bus, as measured by the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) on the bus side (not the battery side) of its contactors.
+Previously named HVESSD6_Bus_Voltage";
+CM_ BO_ 2364576934 "High Voltage Energy Storage System Data 5
+Data set 5 (electrical data) for High Voltage Energy Storage System BMS2.";
+CM_ SG_ 2364576934 CurrAvailChrg "The maximum permissible current flow into the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD5_Regen_Current_Limit.";
+CM_ SG_ 2364576934 CellSocMin "Indicates the state of charge of the lowest-charged cell in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD5_Min_Cell_State_Of_Charge.";
+CM_ SG_ 2364576934 CellSocMax "Indicates the state of charge of the highest-charged cell in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD5_Max_Cell_State_Of_Charge";
+CM_ SG_ 2364576934 CurrAvailDschrg "The maximum permissible current flow out of the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD5_Discharge_Current_Limit.";
+CM_ BO_ 2364576678 "High Voltage Energy Storage System Data 4 Data set 4 (electrical data) for High Voltage Energy Storage System BMS2.";
+CM_ SG_ 2364576678 CapacAvailDschrg "The amount of stored electrical charge in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) that is available for use by the hybrid system.
+Previously named HVESSD4_Discharge_Capacity.";
+CM_ SG_ 2364576678 CapacAvailChrg "The amount of unused electrical charge storage in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) that is available to be filled by charging.
+Previously named HVESSD4_Charge_Capacity.";
+CM_ SG_ 2364576678 CellBalCount "The number of cells that are currently being balanced in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD4_Cell_Balancing_Count.";
+CM_ BO_ 2364576422 "High Voltage Energy Storage System Data 3 Data set 3 (thermal data) for High Voltage Energy Storage System BMS2.";
+CM_ SG_ 2364576422 CellTmprDeltaStat "Indicates whether or not the differential between the highest and lowest cell temperatures are within acceptable limits per the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).";
+CM_ SG_ 2364576422 CellTmprMin "The lowest temperature level reported by any cell in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD3_Lowest_Cell_Temp.";
+CM_ SG_ 2364576422 CellTmprMax "The highest temperature level reported by any cell in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD3_Highest_Cell_Temp";
+CM_ SG_ 2364576422 CellTmprAvg "The average temperature level of all cells in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD3_Average_Cell_Temp";
+CM_ BO_ 2364576166 "High Voltage Energy Storage System Data 2
+Data set 2 (electrical data) for High Voltage Energy Storage System BMS2
+";
+CM_ SG_ 2364576166 CellVoltDeltaStat "Indicates whether or not the differential between the highest and lowest cell voltages are within acceptable limits.
+Previously named HVESSD2_Cell_Volt_Differential.";
+CM_ SG_ 2364576166 BattSocFast "Indicates the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) state of charge.
+Previously named HVESSD2_State_Of_Charge
+";
+CM_ SG_ 2364576166 CellVoltMin "The lowest voltage level reported by any cell in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD2_Lowest_Cell_Voltage";
+CM_ SG_ 2364576166 CellVoltMax "The highest voltage level reported by any cell in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD2_Highest_Cell_Voltage
+";
+CM_ BO_ 2364607654 "High Voltage Energy Storage System Data 10 Data set 10 (electrical) for High Voltage Energy Storage System BMS2";
+CM_ SG_ 2364607654 HvIsoResistPassive "The isolation resistance expressed in Ohms per Volt that resulted from the High-Voltage Bus Passive Isolation Test.";
+CM_ SG_ 2364607654 HvIsoResistActive "The isolation resistance expressed in Ohms per Volt that resulted from the High-Voltage Bus Active Isolation Test.";
+CM_ SG_ 2364607654 CellSocMinIdMod "Identifies the location of the module containing SPN 8084 (HVESS Lowest Cell State of Charge).";
+CM_ SG_ 2364607654 CellSocMinIdCell "Identifies the location of SPN 8084 (HVESS Lowest Cell State of Charge) within SPN 8247 (HVESS Lowest Cell State of Charge Module Number).";
+CM_ SG_ 2364607654 CellSocMaxIdMod "Identifies the location of the module containing SPN 8085 (HVESS Highest Cell State of Charge).";
+CM_ SG_ 2364607654 CellSocMaxIdCell "Identifies the location of SPN 8085 (HVESS Highest Cell State of Charge) within SPN 8245 (HVESS Highest Cell State of Charge Module Number).";
+CM_ BO_ 2364575910 "High Voltage Energy Storage System Data 1 Data set 1 (electrical data) for High Voltage Energy Storage System BMS2";
+CM_ SG_ 2364575910 PwrAvailChrg "Previously named HVESSD1_Regen_Power_Lim";
+CM_ SG_ 2364575910 PwrAvailDischrg "The rate at which the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) can currently provide energy for propulsion or other uses.
+Previously named HVESSD1_Discharge_Power_Lim";
+CM_ SG_ 2364575910 MvCurrBatt "The current in or out of the High Voltage Energy Storage 1 pack (or system).  This parameter should be synchronized with SPN 5919 (HVES1 Voltage Level) such that a realized power value can be calculated.  
+Previously named HVESSD1_Current.";
+CM_ SG_ 2364575910 MvVoltBatt "The voltage level of the High Voltage Energy Storage 1 pack (or system).  This parameter should be synchronized with SPN 5920 (HVES1 Current) such that a realized power value can be calculated.
+Previously named HVESSD1_Voltage";
+CM_ BO_ 2350622457 "High Voltage Energy Storage System Control 1 Control commands to be sent to High Voltage Energy Storage System (or Pack 1 in systems with only one pack).";
+CM_ SG_ 2350622457 ThrmlMgmtRq "Request to engage Thermal Management Maintenance Mode for the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).";
+CM_ SG_ 2350622457 PwrDownCmd "Command to shut down the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).";
+CM_ SG_ 2350622457 HvResistLowRq "This parameter is used to request connection of this HVES instance High-Voltage bus low side resistor in order to perform an isolation test.";
+CM_ SG_ 2350622457 HvResistHighRq "This parameter is used to request connection of this HVES instance High-Voltage bus high side resistor in order to perform an isolation test.";
+CM_ SG_ 2350622457 HvIsoPassiveRq "Command for the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) to perform a passive electrical isolation test on the high voltage bus.";
+CM_ SG_ 2350622457 HvIsoActiveRq "Command for the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) to perform an active electrical isolation test on the high voltage bus.";
+CM_ SG_ 2350622457 EnblIntChrgrRq "When the HVES has an internal charger this parameter will enable it.";
+CM_ SG_ 2350622457 CellBalRq "Command for the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) to perform cell balancing.";
+CM_ SG_ 2350622457 EnblConsent "This parameter provides an indication to the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) that an external device is ready for this HVES instance to proceed with normal operation.";
+CM_ SG_ 2350622457 MsgCrc "The CRC is defined as follows: Length: 8 bits, Polynomial: x^8+x^5+x^3+x^2+x+1, Initial Value: FFh, Input Data Reflection: Not reflected, Result Data Reflection: Not reflected, XOR value: FFh";
+CM_ SG_ 2350622457 MsgCntr "The message counter is used to detect situations where the transmitting ECU malfunction repeats the same frame all the time.";
+CM_ SG_ 2350622457 EnblRq "Command to connect the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) to the high-voltage bus.";
+CM_ SG_ 2365512102 AUX_08 "OutAux3-FutureOut";
+CM_ SG_ 2365512102 AUX_07 "OutAux2-Fault";
+CM_ SG_ 2365512102 AUX_06 "OutAux1-Alarm";
+CM_ SG_ 2365512102 AUX_05 "OutAux0-12V";
+CM_ SG_ 2365512102 AUX_04_LPR "InAux3-12vEn";
+CM_ SG_ 2365512102 AUX_03 "InAux2-eStop";
+CM_ SG_ 2365512102 AUX_02 "InAux2-ChrKey";
+CM_ SG_ 2365512102 AUX_01_HPR "InAux0-DscKey";
+CM_ SG_ 2566819315 MvVoltAux "The first power output from an ECU.";
+CM_ BO_ 2364607731 "High Voltage Energy Storage System Data 10 Data set 10 (electrical) for High Voltage Energy Storage System (or Pack 1 in systems with only one pack).";
+CM_ SG_ 2364607731 HvIsoResistPassive "The isolation resistance expressed in Ohms per Volt that resulted from the High-Voltage Bus Passive Isolation Test.";
+CM_ SG_ 2364607731 HvIsoResistActive "The isolation resistance expressed in Ohms per Volt that resulted from the High-Voltage Bus Active Isolation Test.";
+CM_ SG_ 2364607731 CellSocMinIdMod "Identifies the location of the module containing SPN 8084 (HVESS Lowest Cell State of Charge).";
+CM_ SG_ 2364607731 CellSocMinIdCell "Identifies the location of SPN 8084 (HVESS Lowest Cell State of Charge) within SPN 8247 (HVESS Lowest Cell State of Charge Module Number).";
+CM_ SG_ 2364607731 CellSocMaxIdMod "Identifies the location of the module containing SPN 8085 (HVESS Highest Cell State of Charge).";
+CM_ SG_ 2364607731 CellSocMaxIdCell "Identifies the location of SPN 8085 (HVESS Highest Cell State of Charge) within SPN 8245 (HVESS Highest Cell State of Charge Module Number).";
+CM_ BO_ 2350642169 "High Voltage Energy Storage System Control 1 Control commands to be sent to High Voltage Energy Storage System (or Pack 1 in systems with only one pack).";
+CM_ SG_ 2350642169 ThrmlMgmtRq "Request to engage Thermal Management Maintenance Mode for the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).";
+CM_ SG_ 2350642169 PwrDownCmd "Command to shut down the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).";
+CM_ SG_ 2350642169 HvResistLowRq "This parameter is used to request connection of this HVES instance High-Voltage bus low side resistor in order to perform an isolation test.";
+CM_ SG_ 2350642169 HvResistHighRq "This parameter is used to request connection of this HVES instance High-Voltage bus high side resistor in order to perform an isolation test.";
+CM_ SG_ 2350642169 HvIsoPassiveRq "Command for the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) to perform a passive electrical isolation test on the high voltage bus.";
+CM_ SG_ 2350642169 HvIsoActiveRq "Command for the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) to perform an active electrical isolation test on the high voltage bus.";
+CM_ SG_ 2350642169 EnblIntChrgrRq "When the HVES has an internal charger this parameter will enable it.";
+CM_ SG_ 2350642169 CellBalRq "Command for the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) to perform cell balancing.";
+CM_ SG_ 2350642169 EnblConsent "This parameter provides an indication to the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) that an external device is ready for this HVES instance to proceed with normal operation.";
+CM_ SG_ 2350642169 MsgCrc "The CRC is defined as follows: Length: 8 bits, Polynomial: x^8+x^5+x^3+x^2+x+1, Initial Value: FFh, Input Data Reflection: Not reflected, Result Data Reflection: Not reflected, XOR value: FFh";
+CM_ SG_ 2350642169 MsgCntr "The message counter is used to detect situations where the transmitting ECU malfunction repeats the same frame all the time.";
+CM_ SG_ 2350642169 EnblRq "Command to connect the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) to the high-voltage bus.";
+CM_ BO_ 2364577523 "High Voltage Energy Storage System Status 1 Status data set 1 for High Voltage Energy Storage System (or Pack 1 in systems with only one pack).";
+CM_ SG_ 2364577523 MsgCrc "The CRC is defined as follows: Length: 8 bits, Polynomial: x^8+x^5+x^3+x^2+x+1, Initial Value: FFh, Input Data Reflection: Not reflected, Result Data Reflection: Not reflected, XOR value: FFh";
+CM_ SG_ 2364577523 IntChrgrStat "Indicates that the charger in this HVES instance is on.  External chargers may use the External Energy Source Connection Status (SPN 7898) and related SPs.
+Previously named HVESSS1_Inertial_Charger_Status";
+CM_ SG_ 2364577523 InertSwStat "Switch indicating that an impact has been sensed by the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSS1_Inertia_Switch_Status";
+CM_ SG_ 2364577523 BattSocStat "Status of the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) State of Charge (SOC).
+Previously named HVESSS1_State_Of_Charge_Status";
+CM_ SG_ 2364577523 BattCntctrPcStat "Position of the high-voltage bus contactor pre-charge relay.  When this relay is closed, the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) is bringing the h-v bus up to its op level
+Prev named HVESSS1_Precharge_Relay_State";
+CM_ SG_ 2364577523 BattCntctrPos "Position of the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) positive side bus contactor.
+Previously named HVESSS1_Pos_Contactor_State";
+CM_ SG_ 2364577523 HvIsoStatPassive "Status of the high-voltage bus electrical passive isolation test as performed by the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSS1_Passive_Isolation_Test";
+CM_ SG_ 2364577523 OpStat "Provides feedback on where the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) is in its operating spectrum.
+Previously named HVESSS1_Operational_Status";
+CM_ SG_ 2364577523 BattRdyCount "he number of High Voltage Energy Storage Packs that are currently ready or are actively providing high voltage energy in the HVESS system. This parameter will increment after cntctrs are closed.
+Previously named HVESSS1_Number_of_HVESPs";
+CM_ SG_ 2364577523 BattCntctrNeg "Position of the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) negative side bus contactor.
+Previously named HVESSS1_Neg_Contactor_State.";
+CM_ SG_ 2364577523 HvilStat "Status of the High Voltage Interlock Loop from the viewpoint of the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSS1_HVIL_Status";
+CM_ SG_ 2364577523 BattCntctrStat "Position of the center high-voltage contactor.
+Previously named HVESSS1_Center_Contactor_State.";
+CM_ SG_ 2364577523 CellBalActive "Indicates whether or not the cells in the High Voltage Energy Storage 1 pack (or system) are currently being balanced.
+Previously named HVESSS1_Cell_Balancing_Active";
+CM_ SG_ 2364577523 CellBalStat "Indicates whether or not the cells in the High Voltage Energy Storage 1 pack (or system) are balanced.
+Previously named HVESSS1_Cell_Balance_Status";
+CM_ SG_ 2364577523 BattDiscWarn "Indicates that the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) is about to disconnect from the high voltage bus due to unacceptable conditions.
+Previously named HVESSS1_Bus_Disconnect_Warn.";
+CM_ SG_ 2364577523 BattEnblStat "This parameter provides high level feedback on the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) high voltage bus connection.
+Previously named HVESSS1_Bus_Connection_Status";
+CM_ SG_ 2364577523 HvIsoStatActive "Status of the high-voltage bus electrical active isolation test as performed by the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSS1_Active_Isolation_Test";
+CM_ BO_ 2364607475 "High Voltage Energy Storage System Data 9 Data set 9 (thermal) for High Voltage Energy Storage System (or Pack 1 in systems with only one pack).";
+CM_ SG_ 2364607475 ThrmlEventDetect "A sensor has detected the presence of a thermal event at or near High Voltage Energy Storage System  (or Pack 1 in systems with only one pack).";
+CM_ SG_ 2364607475 CellTmprMinIdCell "Identifies the location of SPN 8076 (HVESS Lowest Cell Temperature) within SPN 8243 (HVESS Lowest Cell Temperature Module Number).";
+CM_ SG_ 2364607475 CellTmprMaxIdCell "Identifies the location of SPN 8075 (HVESS Highest Cell Temperature) within SPN 8241 (HVESS Highest Cell Temperature Module Number).";
+CM_ SG_ 2364607475 CellTmprMinIdMod "Identifies the location of the module containing SPN 8076 (HVESS Lowest Cell Temperature ).
+Previously named HVESSD9_Low_Temp_Module.";
+CM_ SG_ 2364607475 CellTmprMaxIdMod "Identifies the location of the module containing SPN 8075 (HVESS Highest Cell Temperature).
+Previously named HVESSD9_High_Temp_Module";
+CM_ BO_ 2364607219 "High Voltage Energy Storage System Data 8 Data set 8 (electrical data) for High Voltage Energy Storage System (or Pack 1 in systems with only one pack).";
+CM_ SG_ 2364607219 CellVoltMinIdCell "Identifies the location of SPN 5923 (HVESS Lowest Cell Voltage) within SPN 8238 (HVESS Lowest Cell Voltage Module Number).";
+CM_ SG_ 2364607219 CellVoltMaxIdCell "Identifies the location of SPN 5922 (HVESS Highest Cell Voltage) within SPN 8236 (HVESS Highest Cell Voltage Module Number).";
+CM_ SG_ 2364607219 CellVoltMinIdMod "Identifies the location of the module containing SPN 5923 (HVESS Lowest Cell Voltage).
+Previoussly named HVESSD8_Low_Cell_Volt_Mod";
+CM_ SG_ 2364607219 CellVoltMaxIdMod "Identifies the location of the module containing SPN 5922 (HVESS Highest Cell Voltage).
+Previously named HVESSD8_High_Cell_Volt_Mod";
+CM_ SG_ 2364607219 CellVoltAvg "The average cell voltage in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD8_Average_Cell_Voltage";
+CM_ BO_ 2364580083 "High Voltage Energy Storage System Data 7 Data set 7 (electrical) for High Voltage Energy Storage System (or Pack 1 in systems with only one pack).";
+CM_ SG_ 2364580083 ChrgVoltMax "The maximum voltage level not to be exceeded while charging the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD7_Max_Charge_Voltage_Lim";
+CM_ SG_ 2364580083 EnrgyAvailDschrg "The amount of stored electrical energy in High Voltage Energy Storage System (or Pack 1 in systems with only one pack) that is available for use by the hybrid system.
+Previously named HVESSD7_Discharge_Energy";
+CM_ SG_ 2364580083 EnrgyAvailChrg "The amount of unused electrical energy storage available to be filled by charging High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD7_Charge_Energy.";
+CM_ BO_ 2364577267 "High Voltage Energy Storage System Data 6 Data set 6 (external or interface data) for High Voltage Energy Storage System (or Pack 1 in systems with only one pack).";
+CM_ SG_ 2364577267 BattTmpr "The temperature of High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD6_Temperature";
+CM_ SG_ 2364577267 ElecTmpr "The temperature of the electronics or control modules in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD6_Electronics_Temp";
+CM_ SG_ 2364577267 MvVoltBus "The voltage level of the high voltage bus, as measured by the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) on the bus side (not the battery side) of its contactors.
+Previously named HVESSD6_Bus_Voltage";
+CM_ BO_ 2364577011 "High Voltage Energy Storage System Data 5
+Data set 5 (electrical data) for High Voltage Energy Storage System (or Pack 1 in systems with only one pack).";
+CM_ SG_ 2364577011 CurrAvailChrg "The maximum permissible current flow into the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD5_Regen_Current_Limit.";
+CM_ SG_ 2364577011 CellSocMin "Indicates the state of charge of the lowest-charged cell in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD5_Min_Cell_State_Of_Charge.";
+CM_ SG_ 2364577011 CellSocMax "Indicates the state of charge of the highest-charged cell in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD5_Max_Cell_State_Of_Charge";
+CM_ SG_ 2364577011 CurrAvailDschrg "The maximum permissible current flow out of the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD5_Discharge_Current_Limit.";
+CM_ BO_ 2364576755 "High Voltage Energy Storage System Data 4 Data set 4 (electrical data) for High Voltage Energy Storage System (or Pack 1 in systems with only one pack).";
+CM_ SG_ 2364576755 CapacAvailDschrg "The amount of stored electrical charge in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) that is available for use by the hybrid system.
+Previously named HVESSD4_Discharge_Capacity.";
+CM_ SG_ 2364576755 CapacAvailChrg "The amount of unused electrical charge storage in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) that is available to be filled by charging.
+Previously named HVESSD4_Charge_Capacity.";
+CM_ SG_ 2364576755 CellBalCount "The number of cells that are currently being balanced in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD4_Cell_Balancing_Count.";
+CM_ BO_ 521 "Vehicle level data";
+CM_ SG_ 521 TargetVehSpd_mps "VCU Arbitrated Vehicle Speed";
+CM_ SG_ 521 ROI "Roll Over Index";
+CM_ SG_ 521 AebSrc "CGVCU determined source of Aeb Trigger .";
+CM_ SG_ 521 Aeb_Active "AEB Event is detected and VCU is actively engaging AEB.";
+CM_ SG_ 521 MsgCrc "mVehState3 Message Checksum (E2E data ID: 0x54)";
+CM_ SG_ 521 ArbVehSpd_mps_Valid "Validity for Arbitrated Vehicle Speed.";
+CM_ SG_ 521 ArbVehSpd_mps "VCU Arbitrated Vehicle Speed";
+CM_ BO_ 2046 "ID Reserved for use by ADVICS";
+CM_ BO_ 2044 "ID Reserved for use by ADVICS";
+CM_ BO_ 2035 "ID Reserved for use by ADVICS";
+CM_ BO_ 2034 "ID Reserved for use by ADVICS";
+CM_ BO_ 520 "Vehicle level data.";
+CM_ SG_ 520 maxSpeedAllowed "Maximum Speed Allowed based on ESS Discharge capacity.";
+CM_ SG_ 520 MsgCrc "mVehState2 Message Checksum (E2E data ID: 0x53)";
+CM_ SG_ 520 maxDecelAvail "Maximum Deceleration Rate Available.";
+CM_ SG_ 520 ActGndWhlAng "Actual Road Wheel Angle.  Positive values are to the left in vehicle coordinate system.";
+CM_ SG_ 520 maxAccelAvail "Maximum Acceleration available based on ESS Discharge capacity.";
+CM_ SG_ 103 MsgCntr "Dedicated message safety counter";
+CM_ SG_ 103 SwVerMin "WHD Assembly Software Version - Minor";
+CM_ SG_ 103 SwVerMaj "WHD Assembly Software Version - Major";
+CM_ SG_ 18 SpdSlewLmt "Absolute value representing a dynamic, maximum speed slew rate for the WHD assembly.  Applies during motor/regen, forward/reverse.";
+CM_ SG_ 18 TrqSlewLmt "Absolute value representing a dynamic, maximum torque slew rate for the WHD assembly. Applies during motor/regen, forward/reverse.";
+CM_ SG_ 18 EnblCmd "While operating in either a Torque or Speed Control mode, EnblCmd determines when the motor control torque function will be enabled.";
+CM_ SG_ 18 SpdCmd "While operating in Speed Control mode, SpdCmd identifies the desired Motor Speed value";
+CM_ SG_ 18 TrqCmd "While operating in Torque Control mode, TrqCmd identifies the desired Motor Torque value.";
+CM_ SG_ 18 CtrlMode "Identifies the desired motor control mode";
+CM_ SG_ 18 MsgCrc "mWhdCtrl Message Checksum (E2E data ID: 0x30)";
+CM_ SG_ 18 MsgCntr "Dedicated message safety counter";
+CM_ BO_ 660 "Software version and Calibrated Values from SBW.";
+CM_ SG_ 660 RightEndStopValue "Calibrated Right End Stop value.";
+CM_ SG_ 660 ProgOffset "Programmed offset between Raw Position and Corrected Position.";
+CM_ SG_ 660 LeftEndStopValue "Calibrated Left End Stop value.";
+CM_ SG_ 660 MsgCrc "mSbwSys  Message Checksum (Autosar Profile 1 - E2E data ID: 0x17)";
+CM_ SG_ 660 MsgCntr "Message Counter 0..14
+15 indicates fault";
+CM_ SG_ 660 SwVerRev "Major Software version number.";
+CM_ SG_ 660 SwVerMin "Minor software version number.";
+CM_ SG_ 660 SwVerMaj "Major Software version number.";
+CM_ BO_ 1681 "Ebcm1U Software Version";
+CM_ BO_ 1680 "Ebcm1U Software Version
+EBCM1U will be deprecated in future release.";
+CM_ BO_ 7 "Brake Torque Estimation";
+CM_ SG_ 7 MsgCrc "mEbcm2L_BrkTrqEst Message Checksum (E2E data ID: 0x21)";
+CM_ SG_ 7 BrkTrqEstR "Brake Torque Estimate Rear";
+CM_ SG_ 7 BrkTrqEstFR "Brake Torque Estimate Front Right";
+CM_ SG_ 7 BrkTrqEstFL "Brake Torque Estimate Front Left";
+CM_ BO_ 523 "IMU Data after Filter";
+CM_ SG_ 523 Z_Accel_Filt "Untransformed";
+CM_ SG_ 523 Y_Accel_Filt "Untransformed";
+CM_ SG_ 523 X_Accel_Filt "Untransformed";
+CM_ SG_ 523 MsgCrc "mVcuImuLinAccel_Filt Message Checksum (E2E data ID: 0x55)";
+CM_ BO_ 524 "IMU Data after Filter";
+CM_ SG_ 524 MsgCrc "mVcuImuAngVel_Filt Message Checksum (E2E data ID: 0x56)";
+CM_ BO_ 132 "Diagnostic / Debug message used by ADVICS EBCM2";
+CM_ BO_ 131 "Diagnostic / Debug message used by ADVICS EBCM1
+EBCM1U will be deprecated in future release.";
+CM_ BO_ 256 "Previously named 'debug_1'";
+CM_ BO_ 128 "Brake Apply Pressure as measured upstream from EBCM2L.";
+CM_ SG_ 128 PrsrRearWCP "Rear Axle Wheel Cylinder Pressure.";
+CM_ SG_ 128 PrsrFrontWCP "Front Axle Wheel Cylinder Pressure.";
+CM_ SG_ 128 MsgCrc "mEbcm2L_BrkPress Message Checksum (E2E data ID: 0x2B)";
+CM_ SG_ 128 PrsrMstrCylValid "Validity for Measured inlet pressure as reported by EBCM2_Lower.";
+CM_ SG_ 128 PrsrMstCyl "Measured inlet pressure as reported by EBCM2_Lower.";
+CM_ BO_ 769 "Command to AVAS";
+CM_ SG_ 769 MsgCrc "J1850 CRC, Use Bytes 0-6 in the 8 byte message data field";
+CM_ SG_ 769 AVAS_TestMode "Flag indicating AVAS Test in progress.  Command data does not reflect actual vehicle speed or Gear.";
+CM_ BO_ 518 "Untransformed ";
+CM_ SG_ 518 MsgCrc "mVcuImuAngVel Message Checksum (E2E data ID: 0x52)";
+CM_ BO_ 517 "Untransformed Acceleration.";
+CM_ SG_ 517 MsgCrc "mVcuImuLinAccel Message Checksum (E2E data ID: 0x51)";
+CM_ SG_ 517 Z_Accel "Untransformed";
+CM_ SG_ 517 Y_Accel "Untransformed";
+CM_ SG_ 517 X_Accel "Untransformed";
+CM_ BO_ 122 "Downstream EBCM (Lower)";
+CM_ SG_ 122 AutoBrkEngd "Automatic Braking Engaged due to FUSA issue.";
+CM_ SG_ 122 Flt_mVehState2 "Fault reporting for EBCM reception of mBrkCtrl message from CGVCU.";
+CM_ SG_ 122 Flt_mWhdStat "Fault reporting for EBCM reception of mWhdStat message from SBW.";
+CM_ SG_ 122 EbcmControllerID "Identified for Upper or Lower Ebcm.";
+CM_ SG_ 122 Flt_mVcuImuLinAccel "Fault reporting for EBCM reception of mVcuImuLinAccel message from CGVCU.";
+CM_ SG_ 122 Flt_mVcuImuAngVel "Fault reporting for EBCM reception of mVcuImuAngVel message from CGVCU.";
+CM_ SG_ 122 Flt_mWhdCtrl "Fault reporting for EBCM reception of mWhdCtrl message from CGVCU.";
+CM_ SG_ 122 Flt_ElWhlSpdR "Fault related to Electrically connected Wheel Speec Sensor.";
+CM_ SG_ 122 Flt_ElWhlSpdFR "Fault related to Electrically connected Wheel Speec Sensor.";
+CM_ SG_ 122 Flt_ElWhlSpdFL "Fault related to Electrically connected Wheel Speec Sensor.";
+CM_ SG_ 122 Flt_12vMtr "Indicate CAN_VehMot bus off state";
+CM_ SG_ 122 Flt_12vCtrl "Indicate CAN_VehMot bus off state";
+CM_ SG_ 122 Flt_mVehState "Fault reporting for EBCM reception of mVehState message from CGVCU.";
+CM_ SG_ 122 EbcmShtdwnRdy "Flag indicating Ebcm is ready for Shutdown. (Idle)";
+CM_ SG_ 122 EbcmRdy "Ebcm is ready";
+CM_ SG_ 122 Flt_mBrkCtrl "Fault reporting for EBCM reception of mBrkCtrl message from CGVCU.";
+CM_ SG_ 122 MsgCrc "mEbcm2L_Stat Message Checksum (E2E data ID: 0x26)";
+CM_ SG_ 122 Flt_Hold "This flag is set if EBCM Hold has failed.";
+CM_ SG_ 122 Flt_Critical "The critical fault flag will be set if there are faults set that prevent the brake controller from being able to build pressure.";
+CM_ SG_ 122 MtrTmprEst "An estimated temperate of the internal components of the pump motor";
+CM_ SG_ 122 Warn_MtrTmpr "This flag is set when the internal motor circuit temperature is > 150 C";
+CM_ SG_ 122 Flt_MtrTmpr "This flag is set when the internal motor circuit temperature is > 180 C";
+CM_ BO_ 115 "Upstream EBCM (Upper)
+EBCM1U will be deprecated in future release.";
+CM_ SG_ 115 MsgCrc "mEbcm1U_Stat2 Message Checksum (E2E data ID: 0x22)";
+CM_ BO_ 125 "Upstream EBCM (Upper)
+EBCM1U will be deprecated in future release.";
+CM_ SG_ 125 AutoBrkEngd "Automatic Braking Engaged due to FUSA issue.";
+CM_ SG_ 125 Flt_mVehState2 "Fault reporting for EBCM reception of mBrkCtrl message from CGVCU.";
+CM_ SG_ 125 Flt_mWhdStat "Fault reporting for EBCM reception of mWhdStat message from SBW.";
+CM_ SG_ 125 EbcmControllerID "Identified for Upper or Lower Ebcm.";
+CM_ SG_ 125 Flt_mVcuImuLinAccel "Fault reporting for EBCM reception of mVcuImuLinAccel message from CGVCU.";
+CM_ SG_ 125 Flt_mWhdCtrl "Fault reporting for EBCM reception of mWhdCtrl message from CGVCU.";
+CM_ SG_ 125 Flt_mVcuImuAngVel "Fault reporting for EBCM reception of mVcuImuAngVel message from CGVCU.";
+CM_ SG_ 125 Flt_12vMtr "Indicate CAN_VehMot bus off state";
+CM_ SG_ 125 Flt_12vCtrl "Indicate CAN_VehMot bus off state";
+CM_ SG_ 125 Flt_mVehState "Fault reporting for EBCM reception of mVehState message from CGVCU.";
+CM_ SG_ 125 EbcmShtdwnRdy "Flag indicating Ebcm is ready for Shutdown. (Idle)";
+CM_ SG_ 125 EbcmRdy "Ebcm is ready";
+CM_ SG_ 125 Flt_mBrkCtrl "Fault reporting for EBCM reception of mBrkCtrl message from CGVCU.";
+CM_ SG_ 125 MsgCrc "mEbcm1U_Stat Message Checksum (E2E data ID: 0x28)";
+CM_ SG_ 125 Flt_Hold "This flag is set if EBCM Hold has failed.";
+CM_ SG_ 125 Flt_Critical "The critical fault flag will be set if there are faults set that prevent the brake controller from being able to build pressure.";
+CM_ SG_ 125 MtrTmprEst "An estimated temperate of the internal components of the pump motor";
+CM_ SG_ 125 Warn_MtrTmpr "This flag is set when the internal motor circuit temperature is > 150 C";
+CM_ SG_ 125 Flt_MtrTmpr "This flag is set when the internal motor circuit temperature is > 180 C";
+CM_ SG_ 125 BrkFluidLevSns_EBCM1 "Status of Brake Fluid Sensor connected to EBCM1 Upper.";
+CM_ SG_ 125 Flt_CanWhlSpdR "Fault related to CAN connected Wheel Speed Sensor.";
+CM_ SG_ 125 Flt_CanWhlSpdFR "Fault related to CAN connected Wheel Speed Sensor.";
+CM_ SG_ 125 Flt_CanWhlSpdFL "Fault related to CAN connected Wheel Speed Sensor.";
+CM_ BO_ 1976 "Downstream EBCM (Lower)";
+CM_ BO_ 1968 "Downstream EBCM (Lower)";
+CM_ SG_ 1638 CpuUtilization "Percent Utilization";
+CM_ SG_ 1638 MaxUtilization "Max Percent Utilization";
+CM_ SG_ 1638 MaxExecTime "Max Execution Time in seconds?";
+CM_ BO_ 2364576499 "High Voltage Energy Storage System Data 3 Data set 3 (thermal data) for High Voltage Energy Storage System (or Pack 1 in systems with only one pack).";
+CM_ SG_ 2364576499 CellTmprDeltaStat "Indicates whether or not the differential between the highest and lowest cell temperatures are within acceptable limits per the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).";
+CM_ SG_ 2364576499 CellTmprMin "The lowest temperature level reported by any cell in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD3_Lowest_Cell_Temp.";
+CM_ SG_ 2364576499 CellTmprMax "The highest temperature level reported by any cell in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD3_Highest_Cell_Temp";
+CM_ SG_ 2364576499 CellTmprAvg "The average temperature level of all cells in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD3_Average_Cell_Temp";
+CM_ BO_ 2364576243 "High Voltage Energy Storage System Data 2
+Data set 2 (electrical data) for High Voltage Energy Storage System (or Pack 1 in systems with only one pack).";
+CM_ SG_ 2364576243 CellVoltDeltaStat "Indicates whether or not the differential between the highest and lowest cell voltages are within acceptable limits.
+Previously named HVESSD2_Cell_Volt_Differential.";
+CM_ SG_ 2364576243 BattSocFast "Indicates the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) state of charge.
+Previously named HVESSD2_State_Of_Charge
+";
+CM_ SG_ 2364576243 CellVoltMin "The lowest voltage level reported by any cell in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD2_Lowest_Cell_Voltage";
+CM_ SG_ 2364576243 CellVoltMax "The highest voltage level reported by any cell in the High Voltage Energy Storage System (or Pack 1 in systems with only one pack).
+Previously named HVESSD2_Highest_Cell_Voltage
+";
+CM_ BO_ 2364575987 "High Voltage Energy Storage System Data 1 Data set 1 (electrical data) for High Voltage Energy Storage System (or Pack 1 in systems with only one pack).";
+CM_ SG_ 2364575987 MvVoltBatt "The voltage level of the High Voltage Energy Storage 1 pack (or system).  This parameter should be synchronized with SPN 5920 (HVES1 Current) such that a realized power value can be calculated.
+Previously named HVESSD1_Voltage";
+CM_ SG_ 2364575987 PwrAvailChrg "Previously named HVESSD1_Regen_Power_Lim";
+CM_ SG_ 2364575987 PwrAvailDischrg "The rate at which the High Voltage Energy Storage System (or Pack 1 in systems with only one pack) can currently provide energy for propulsion or other uses.
+Previously named HVESSD1_Discharge_Power_Lim";
+CM_ SG_ 2364575987 MvCurrBatt "The current in or out of the High Voltage Energy Storage 1 pack (or system).  This parameter should be synchronized with SPN 5919 (HVES1 Voltage Level) such that a realized power value can be calculated.  
+Previously named HVESSD1_Current.";
+CM_ SG_ 2365512179 AUX_08 "OutAux3-FutureOut";
+CM_ SG_ 2365512179 AUX_07 "OutAux2-Fault";
+CM_ SG_ 2365512179 AUX_06 "OutAux1-Alarm";
+CM_ SG_ 2365512179 AUX_05 "OutAux0-12V";
+CM_ SG_ 2365512179 AUX_04_LPR "InAux3-12vEn";
+CM_ SG_ 2365512179 AUX_03 "InAux2-eStop";
+CM_ SG_ 2365512179 AUX_02 "InAux2-ChrKey";
+CM_ SG_ 2365512179 AUX_01_HPR "InAux0-DscKey";
+CM_ BO_ 2365560051 "Current limits from ESS.";
+CM_ SG_ 2365560051 CurrAvailChrgPeak "Previously named ABSPOWER_Regen_Current_Limit";
+CM_ SG_ 2365560051 CurrAvailDschrgPeak "Previously named ABSPOWER_Discharge_Current_Limit";
+CM_ BO_ 2365450241 "Status message from VSS.";
+CM_ SG_ 2365450241 CtrlMode "Identifies the desired motor control mode";
+CM_ BO_ 2365450496 "User Value to VSS Controller.";
+CM_ BO_ 2365446452 "Right Joystick from VSS";
+CM_ BO_ 2365446196 "Right Joystick from VSS";
+CM_ BO_ 2365445939 "Left Joystick from VSS";
+CM_ BO_ 2365445683 "Left Joystick from VSS";
+CM_ BO_ 2 "Downstream EBCM (Lower)";
+CM_ SG_ 2 MsgCrc "mEbcm2L_TrqLmts  Message Checksum (E2E data ID: 0x20)";
+CM_ SG_ 2 MsgCntr "Check the MessageCounter consistency at least on every message reception";
+CM_ BO_ 129 "Downstream EBCM (Lower)";
+CM_ SG_ 129 MsgCrc "mEbcm2L_WhlSlip Message Checksum (E2E data ID: 0x24)";
+CM_ BO_ 124 "Downstream EBCM (Lower)";
+CM_ SG_ 124 WhlCntR "Accumulative wrap-around wheel speed sensor pulse counter.  36 pulses per revolution";
+CM_ SG_ 124 WhlCntFR "Accumulative wrap-around wheel speed sensor pulse counter.  36 pulses per revolution";
+CM_ SG_ 124 WhlCntFL "Accumulative wrap-around wheel speed sensor pulse counter.  36 pulses per revolution";
+CM_ BO_ 127 "Downstream EBCM (Lower)";
+CM_ SG_ 127 MsgCrc "mEbcm2L_WhlSpd Message Checksum (E2E data ID: 0x2A)";
+CM_ BO_ 1977 "Upstream EBCM (Upper) - EBCM1U will be deprecated with DV2.0";
+CM_ BO_ 1969 "Upstream EBCM (Upper) - EBCM1U will be deprecated with DV2.0";
+CM_ SG_ 770 VcuStateShtdwn "VCU Shutdown Sub State";
+CM_ SG_ 770 VcuStateInit "VCU Initialization Sub State";
+CM_ SG_ 770 AdcuShtdwnRq "Signal from VCU to request ADCU to shutdown.";
+CM_ SG_ 770 EstopTest "ESTOP = Estop button is pressed (aka.True/Active/Pressed/Engaged).  OK = Estop button is not pressed (aka. False/NotActive/NotPressed/Disengaged)";
+CM_ SG_ 770 EbcmShtdwnRq "Signal is deprecated.  Please use mBrkCtrl.EbcmShtdwnRq.  Retained for backward compatibility.";
+CM_ SG_ 770 MsgCrc "mVcuSys Message Checksum (E2E data ID: 0x58)";
+CM_ BO_ 768 "Electric Park Brake Status";
+CM_ SG_ 768 Flt_EpbMtrCurrent "Any fault related to motor current.";
+CM_ SG_ 768 Flt_EpbIC "Any fault related to internal EPB motor circuit.";
+CM_ SG_ 768 Flt_Epb "General EPB fault exists.";
+CM_ SG_ 768 MsgCntr "Check the MessageCounter consistency at least on every message reception";
+CM_ SG_ 768 EpbStat "Fully Released is a service state required to fully extract EPB in order to remove rear brake / wheel.";
+CM_ SG_ 768 EPB_Current "Current drawn by EPB motor.";
+CM_ SG_ 768 MsgCrc "mEbcm2L_EpbStat Message Checksum (E2E data ID: 0x2E)";
+CM_ BO_ 516 "VCU Faults Reporting";
+CM_ SG_ 516 Flt_LocFcmCan "Loss of Com Fault on FCM on CAN";
+CM_ BO_ 514 "Vehicle Level State Data.";
+CM_ SG_ 514 Invld_GearRq "Invalid Gear Transition is being requested by Controlling Source (AD / TO / LOS)";
+CM_ SG_ 514 EstopDetected "Indication that Estop has been detected.";
+CM_ SG_ 514 ArbVehSpdValid "Validity for Arbitrated Vehicle Speed.";
+CM_ SG_ 514 ArbVehSpd "VCU Arbitrated Vehicle Speed";
+CM_ SG_ 514 MsgCrc "mVehState Message Checksum (E2E data ID: 0x50)";
+CM_ SG_ 514 CrashSns "Crash condition has been sensed.";
+CM_ BO_ 268 "AVAS Status";
+CM_ SG_ 268 MsgCrc "J1850 CRC, Use Bytes 0-6 in the 8 byte message data field";
+CM_ SG_ 268 AVAS_LoC "AVAS has not received message mAVAS_Cmd within 300ms.";
+CM_ SG_ 268 AVAS_E2E_Fault "AVAS has received  invalid CRC or Alive Counter from mAVAS_Cmd.";
+CM_ BO_ 1632 "VCU Ecu Moding and Internal Test Status";
+CM_ BO_ 2365450752 "Text to appear on VSS Controller.";
+CM_ BO_ 2634009292 "Timestamp for GIT release";
+CM_ BO_ 2634005196 "LMDD Vehicle ID";
+CM_ BO_ 2634009804 "VCU Software Version";
+CM_ BO_ 666 "Allied Motion Message.
+Previously Named G7GenericCommand.  Modified signals.";
+CM_ SG_ 666 MsgCrc "J1850 CRC";
+CM_ SG_ 666 MsgCntr "Message Counter 0..14.
+15 indicates Fault";
+CM_ BO_ 658 "Previously named 'EPAS2'";
+CM_ BO_ 659 "Allied Motion Message.";
+CM_ SG_ 659 MsgCrc "mSbwStat_Allied  Message Checksum (Autosar Profile 1 - E2E data ID: 0x16)";
+CM_ SG_ 659 MsgCntr "Message Counter 0..14
+15 indicates fault";
+CM_ SG_ 659 LvVolt "Measured input voltage of Steering System.";
+CM_ SG_ 659 MtrCurr "Motor Current";
+CM_ BO_ 130 "Estimated Brake Apply Pressure downstream of EBCM1 as reported by EBCM1L.
+EBCM1U will be deprecated in future release.";
+CM_ SG_ 130 PrsrRearWCP "Rear Axle Wheel Cylinder Pressure.";
+CM_ SG_ 130 PrsrFrontWCP "Front Axle Wheel Cylinder Pressure.";
+CM_ SG_ 130 PrsrEstMstrCylValid "Validity for Estimated Output pressure as reported by EBCM1_Upper.";
+CM_ SG_ 130 MsgCrc "mEbcu1U_BrkPress2 Message Checksum (E2E data ID: 0x2C)";
+CM_ SG_ 130 PrsrEstMstCyl "Estimated brake apply pressure output as reported by EBCM1_Upper.";
+CM_ BO_ 126 "Downstream EBCM (Lower) - Estimated wheel output brake pressure from EBCM2.";
+CM_ SG_ 126 MsgCrc "mEbcm2L_BrkPress2  Message Checksum (E2E data ID: 0x29)";
+CM_ SG_ 126 PrsrEstRR "Estimated Wheel Brake Pressure as reported by EBCM2 Lower.";
+CM_ SG_ 126 PrsrEstRL "Estimated Wheel Brake Pressure as reported by EBCM2 Lower.";
+CM_ SG_ 126 PrsrEstFR "Estimated Wheel Brake Pressure as reported by EBCM2 Lower.";
+CM_ SG_ 126 PrsrEstFL "Estimated Wheel Brake Pressure as reported by EBCM2 Lower.";
+CM_ BO_ 123 "Downstream EBCM (Lower)";
+CM_ SG_ 123 EbdActv "Electronic Brake Distribution actively reducing braking force.";
+CM_ SG_ 123 MsgCrc "mEbcm2L_Stat2  Message Checksum (E2E data ID: 0x27)";
+CM_ SG_ 123 EscAvail "EBCM ESC function is available.";
+CM_ SG_ 123 AbsAvail "ABS function is available.";
+CM_ SG_ 123 EscActv "EBCM ESC function is actuating.";
+CM_ SG_ 123 AebRdy "Flag indicating if AEB is available.";
+CM_ SG_ 123 AbsActv "ABS actuation in progress.";
+CM_ BO_ 116 "Brake Control Message to EBCMs";
+CM_ SG_ 116 EpbCalCmd "Command to EPB to Begin Calibration Routine";
+CM_ SG_ 116 EbcmMaintModeRq "Ebcm Maintenance Mode.  Must be enabled for special features like Full Release of EPB foir service.";
+CM_ SG_ 116 RegBrkAvail "Regenarative Braking Capacity.";
+CM_ SG_ 116 ClearFltRq "Command to clear faults on Ebcm.";
+CM_ SG_ 116 DsblTCS "Signal to Disable Traction Control";
+CM_ SG_ 116 EbcmShtdwnRq "Signal from VCU to request EBCM Shutdown.  mVcuSys.EbcmShtdwnRq will be removed in the future, currently retained for backward compatibility.";
+CM_ SG_ 116 BrkEnbl_EBCM2L "This signal is used as a request to the brake controller to generate braking torque. If the signal is set to OFF (0x0) and there is a value set for TotalTorqueRequest, the brake controller will not generate a torque.";
+CM_ SG_ 116 EPBCmd "Command to Electric Park Brake.  Fully Released command is to fully retract EPB for service (wheel removal, etc.).
+Fully Released command will only respond during EbcmMaintMode request = 1.";
+CM_ SG_ 116 BrkEnbl_EBCM1U "This signal is used as a request to the brake controller to generate braking torque. If the signal is set to OFF (0x0) and there is a value set for TotalTorqueRequest, the brake controller will not generate a torque.";
+CM_ SG_ 116 BrkTrqRq "The requested amount of braking torque.";
+CM_ SG_ 116 MsgCrc "mBrkCtrl Message Checksum (E2E data ID: 0x23)";
+CM_ SG_ 116 HoldRq "Hold request to brake controller. When active, the brake controller will automatically hold the required pressure when the vehicle is completely stopped (the pump will also be disengaged).";
+CM_ BO_ 2047 "Previously named 'Diag_RQ_FUNC'.  UDS Diagnostic Functional request message";
+BA_DEF_ SG_  "SPN" INT 0 524287;
+BA_DEF_ SG_  "SigType" ENUM  "Default","Range","RangeSigned","ASCII","Discrete","Control","ReferencePGN","DTC","StringDelimiter","StringLength","StringLengthControl","MessageCounter","MessageChecksum";
+BA_DEF_ SG_  "Gateway_ID" INT 0 0;
+BA_DEF_ SG_  "GenSigEVName" STRING ;
+BA_DEF_ SG_  "GenSigILSupport" ENUM  "No","Yes";
+BA_DEF_ SG_  "GenSigCycleTime" INT 0 0;
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 0;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
+BA_DEF_ SG_  "GenSigStartValue" INT 0 2147483647;
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 0 3600000;
+BA_DEF_ BO_  "GenMsgFastOnStart" INT 0 100000;
+BA_DEF_ BO_  "GenMsgILSupport" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgRequestable" INT 0 1;
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 100000;
+BA_DEF_ BO_  "GenMsgNrOfRepetition" INT 0 1000000;
+BA_DEF_ BO_  "GenMsgDelayTime" INT 0 1000;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","NotUsed","IfActive","On Request","NotUsed","NotUsed","NotUsed","NotUsed","noMsgSendType";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 3600000;
+BA_DEF_ BU_  "ECU" STRING ;
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BU_  "CANoeStartDelay" INT 0 0;
+BA_DEF_ BU_  "CANoeJitterMin" INT 0 0;
+BA_DEF_ BU_  "CANoeJitterMax" INT 0 0;
+BA_DEF_ BU_  "CANoeDrift" INT 0 0;
+BA_DEF_ BU_  "NmNode" INT 0 1;
+BA_DEF_ BU_  "NmStationAddress" HEX 0 0;
+BA_DEF_  "DBName" STRING ;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "Baudrate" INT 0 0;
+BA_DEF_  "DatabaseVersion" STRING ;
+BA_DEF_  "ProtocolType" STRING ;
+BA_DEF_REL_ BU_SG_REL_  "GenSigTimeoutTime" INT 0 0;
+BA_DEF_REL_ BU_SG_REL_  "GenSigTimeoutMsg" INT 0 0;
+BA_DEF_DEF_  "SPN" 0;
+BA_DEF_DEF_  "SigType" "Default";
+BA_DEF_DEF_  "Gateway_ID" 0;
+BA_DEF_DEF_  "GenSigEVName" "Env@Nodename_@Signame";
+BA_DEF_DEF_  "GenSigILSupport" "Yes";
+BA_DEF_DEF_  "GenSigCycleTime" 0;
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "NoSigSendType";
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "GenMsgFastOnStart" 0;
+BA_DEF_DEF_  "GenMsgILSupport" "Yes";
+BA_DEF_DEF_  "GenMsgRequestable" 1;
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "GenMsgNrOfRepetition" 0;
+BA_DEF_DEF_  "GenMsgDelayTime" 0;
+BA_DEF_DEF_  "GenMsgSendType" "noMsgSendType";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_REL_ "GenSigTimeoutTime" 0;
+BA_DEF_DEF_REL_ "GenSigTimeoutMsg" 0;
+BA_DEF_DEF_  "ECU" "";
+BA_DEF_DEF_  "NodeLayerModules" "";
+BA_DEF_DEF_  "CANoeStartDelay" 0;
+BA_DEF_DEF_  "CANoeJitterMin" 0;
+BA_DEF_DEF_  "CANoeJitterMax" 0;
+BA_DEF_DEF_  "CANoeDrift" 0;
+BA_DEF_DEF_  "NmNode" 0;
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_  "Baudrate" 500000;
+BA_DEF_DEF_  "DatabaseVersion" "";
+BA_DEF_DEF_  "ProtocolType" "";
+BA_ "DBName" "CAN_VM";
+BA_ "GenMsgCycleTimeFast" BO_ 104 20;
+BA_ "GenMsgSendType" BO_ 104 0;
+BA_ "GenMsgCycleTime" BO_ 104 20;
+BA_ "GenMsgCycleTimeFast" BO_ 102 20;
+BA_ "GenMsgSendType" BO_ 102 0;
+BA_ "GenMsgCycleTime" BO_ 102 20;
+BA_ "GenMsgCycleTimeFast" BO_ 101 20;
+BA_ "GenMsgSendType" BO_ 101 0;
+BA_ "GenMsgCycleTime" BO_ 101 20;
+BA_ "GenMsgCycleTimeFast" BO_ 100 20;
+BA_ "GenMsgSendType" BO_ 100 0;
+BA_ "GenMsgCycleTime" BO_ 100 20;
+BA_ "GenMsgCycleTimeFast" BO_ 19 100;
+BA_ "GenMsgSendType" BO_ 19 0;
+BA_ "GenMsgCycleTime" BO_ 19 100;
+BA_ "GenMsgSendType" BO_ 773 0;
+BA_ "GenMsgCycleTime" BO_ 773 20;
+BA_ "GenMsgSendType" BO_ 656 0;
+BA_ "GenMsgCycleTime" BO_ 656 10;
+BA_ "GenMsgSendType" BO_ 667 0;
+BA_ "GenMsgCycleTime" BO_ 667 10;
+BA_ "GenMsgCycleTimeFast" BO_ 664 10;
+BA_ "GenMsgSendType" BO_ 664 0;
+BA_ "GenMsgCycleTime" BO_ 664 10;
+BA_ "GenMsgCycleTimeFast" BO_ 663 100;
+BA_ "GenMsgSendType" BO_ 663 0;
+BA_ "GenMsgCycleTime" BO_ 663 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2566819238 1000;
+BA_ "GenMsgSendType" BO_ 2566819238 0;
+BA_ "GenMsgCycleTime" BO_ 2566819238 1000;
+BA_ "GenMsgCycleTimeFast" BO_ 2566850726 0;
+BA_ "GenMsgCycleTime" BO_ 2566850726 0;
+BA_ "GenMsgCycleTimeFast" BO_ 2365559974 500;
+BA_ "GenMsgSendType" BO_ 2365559974 0;
+BA_ "GenMsgCycleTime" BO_ 2365559974 500;
+BA_ "GenMsgCycleTimeFast" BO_ 2364552870 100;
+BA_ "GenMsgSendType" BO_ 2364552870 0;
+BA_ "GenMsgCycleTime" BO_ 2364552870 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2364577446 100;
+BA_ "GenMsgSendType" BO_ 2364577446 0;
+BA_ "GenMsgCycleTime" BO_ 2364577446 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2364607398 100;
+BA_ "GenMsgSendType" BO_ 2364607398 0;
+BA_ "GenMsgCycleTime" BO_ 2364607398 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2364607142 100;
+BA_ "GenMsgSendType" BO_ 2364607142 0;
+BA_ "GenMsgCycleTime" BO_ 2364607142 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2364580006 100;
+BA_ "GenMsgSendType" BO_ 2364580006 0;
+BA_ "GenMsgCycleTime" BO_ 2364580006 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2364577190 100;
+BA_ "GenMsgSendType" BO_ 2364577190 0;
+BA_ "GenMsgCycleTime" BO_ 2364577190 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2364576934 100;
+BA_ "GenMsgSendType" BO_ 2364576934 0;
+BA_ "GenMsgCycleTime" BO_ 2364576934 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2364576678 100;
+BA_ "GenMsgSendType" BO_ 2364576678 0;
+BA_ "GenMsgCycleTime" BO_ 2364576678 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2364576422 100;
+BA_ "GenMsgSendType" BO_ 2364576422 0;
+BA_ "GenMsgCycleTime" BO_ 2364576422 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2364576166 100;
+BA_ "GenMsgSendType" BO_ 2364576166 0;
+BA_ "GenMsgCycleTime" BO_ 2364576166 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2364607654 100;
+BA_ "GenMsgSendType" BO_ 2364607654 0;
+BA_ "GenMsgCycleTime" BO_ 2364607654 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2364575910 20;
+BA_ "GenMsgSendType" BO_ 2364575910 0;
+BA_ "GenMsgCycleTime" BO_ 2364575910 20;
+BA_ "GenMsgSendType" BO_ 2350622457 0;
+BA_ "GenMsgCycleTime" BO_ 2350622457 20;
+BA_ "GenMsgCycleTimeFast" BO_ 2365512102 100;
+BA_ "GenMsgSendType" BO_ 2365512102 0;
+BA_ "GenMsgCycleTime" BO_ 2365512102 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2364552947 100;
+BA_ "GenMsgSendType" BO_ 2364552947 0;
+BA_ "GenMsgCycleTime" BO_ 2364552947 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2566819315 1000;
+BA_ "GenMsgSendType" BO_ 2566819315 0;
+BA_ "GenMsgCycleTime" BO_ 2566819315 1000;
+BA_ "GenMsgCycleTimeFast" BO_ 2364607731 100;
+BA_ "GenMsgSendType" BO_ 2364607731 0;
+BA_ "GenMsgCycleTime" BO_ 2364607731 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2566850803 0;
+BA_ "GenMsgCycleTime" BO_ 2566850803 0;
+BA_ "GenMsgSendType" BO_ 2350642169 0;
+BA_ "GenMsgCycleTime" BO_ 2350642169 20;
+BA_ "GenMsgCycleTimeFast" BO_ 2364577523 100;
+BA_ "GenMsgSendType" BO_ 2364577523 0;
+BA_ "GenMsgCycleTime" BO_ 2364577523 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2364607475 100;
+BA_ "GenMsgSendType" BO_ 2364607475 0;
+BA_ "GenMsgCycleTime" BO_ 2364607475 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2364607219 100;
+BA_ "GenMsgSendType" BO_ 2364607219 0;
+BA_ "GenMsgCycleTime" BO_ 2364607219 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2364580083 100;
+BA_ "GenMsgSendType" BO_ 2364580083 0;
+BA_ "GenMsgCycleTime" BO_ 2364580083 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2364577267 100;
+BA_ "GenMsgSendType" BO_ 2364577267 0;
+BA_ "GenMsgCycleTime" BO_ 2364577267 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2364577011 100;
+BA_ "GenMsgSendType" BO_ 2364577011 0;
+BA_ "GenMsgCycleTime" BO_ 2364577011 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2364576755 100;
+BA_ "GenMsgSendType" BO_ 2364576755 0;
+BA_ "GenMsgCycleTime" BO_ 2364576755 100;
+BA_ "GenMsgCycleTimeFast" BO_ 521 50;
+BA_ "GenMsgSendType" BO_ 521 0;
+BA_ "GenMsgCycleTime" BO_ 521 50;
+BA_ "GenMsgCycleTimeFast" BO_ 2046 0;
+BA_ "GenMsgCycleTime" BO_ 2046 0;
+BA_ "GenMsgCycleTimeFast" BO_ 2044 0;
+BA_ "GenMsgCycleTime" BO_ 2044 0;
+BA_ "GenMsgCycleTimeFast" BO_ 2035 0;
+BA_ "GenMsgCycleTime" BO_ 2035 0;
+BA_ "GenMsgCycleTimeFast" BO_ 2034 0;
+BA_ "GenMsgCycleTime" BO_ 2034 0;
+BA_ "GenMsgSendType" BO_ 520 0;
+BA_ "GenMsgCycleTime" BO_ 520 20;
+BA_ "GenMsgCycleTimeFast" BO_ 103 20;
+BA_ "GenMsgSendType" BO_ 103 0;
+BA_ "GenMsgCycleTime" BO_ 103 20;
+BA_ "GenMsgCycleTimeFast" BO_ 18 10;
+BA_ "GenMsgSendType" BO_ 18 0;
+BA_ "GenMsgCycleTime" BO_ 18 10;
+BA_ "GenMsgCycleTimeFast" BO_ 1668 0;
+BA_ "GenMsgSendType" BO_ 1668 3;
+BA_ "GenMsgCycleTime" BO_ 1668 0;
+BA_ "GenMsgSendType" BO_ 257 3;
+BA_ "GenMsgCycleTimeFast" BO_ 660 0;
+BA_ "GenMsgSendType" BO_ 660 0;
+BA_ "GenMsgCycleTime" BO_ 660 10000;
+BA_ "GenMsgCycleTimeFast" BO_ 1681 10000;
+BA_ "GenMsgSendType" BO_ 1681 0;
+BA_ "GenMsgCycleTime" BO_ 1681 10000;
+BA_ "GenMsgCycleTimeFast" BO_ 1680 10000;
+BA_ "GenMsgSendType" BO_ 1680 0;
+BA_ "GenMsgCycleTime" BO_ 1680 10000;
+BA_ "GenMsgCycleTimeFast" BO_ 525 20;
+BA_ "GenMsgSendType" BO_ 525 0;
+BA_ "GenMsgCycleTime" BO_ 525 20;
+BA_ "GenMsgCycleTimeFast" BO_ 7 12;
+BA_ "GenMsgSendType" BO_ 7 0;
+BA_ "GenMsgCycleTime" BO_ 7 12;
+BA_ "GenMsgCycleTimeFast" BO_ 523 100;
+BA_ "GenMsgSendType" BO_ 523 0;
+BA_ "GenMsgCycleTime" BO_ 523 100;
+BA_ "GenMsgCycleTimeFast" BO_ 524 100;
+BA_ "GenMsgSendType" BO_ 524 0;
+BA_ "GenMsgCycleTime" BO_ 524 100;
+BA_ "GenMsgCycleTimeFast" BO_ 132 48;
+BA_ "GenMsgSendType" BO_ 132 0;
+BA_ "GenMsgCycleTime" BO_ 132 48;
+BA_ "GenMsgCycleTimeFast" BO_ 131 48;
+BA_ "GenMsgSendType" BO_ 131 0;
+BA_ "GenMsgCycleTime" BO_ 131 48;
+BA_ "GenMsgCycleTimeFast" BO_ 2684354559 0;
+BA_ "GenMsgSendType" BO_ 2684354559 3;
+BA_ "GenMsgCycleTime" BO_ 2684354559 0;
+BA_ "GenMsgSendType" BO_ 256 3;
+BA_ "GenMsgCycleTime" BO_ 256 0;
+BA_ "GenMsgSendType" BO_ 128 0;
+BA_ "GenMsgCycleTime" BO_ 128 12;
+BA_ "GenMsgCycleTimeFast" BO_ 769 100;
+BA_ "GenMsgSendType" BO_ 769 0;
+BA_ "GenMsgCycleTime" BO_ 769 100;
+BA_ "GenMsgSendType" BO_ 518 0;
+BA_ "GenMsgCycleTime" BO_ 518 10;
+BA_ "GenMsgSendType" BO_ 517 0;
+BA_ "GenMsgCycleTime" BO_ 517 10;
+BA_ "GenMsgSendType" BO_ 122 0;
+BA_ "GenMsgCycleTime" BO_ 122 24;
+BA_ "GenMsgSendType" BO_ 115 0;
+BA_ "GenMsgCycleTime" BO_ 115 24;
+BA_ "GenMsgSendType" BO_ 125 0;
+BA_ "GenMsgCycleTime" BO_ 125 24;
+BA_ "GenMsgSendType" BO_ 1976 3;
+BA_ "GenMsgCycleTime" BO_ 1976 0;
+BA_ "GenMsgCycleTime" BO_ 1968 0;
+BA_ "GenMsgCycleTimeFast" BO_ 1669 0;
+BA_ "GenMsgSendType" BO_ 1669 3;
+BA_ "GenMsgCycleTime" BO_ 1669 0;
+BA_ "GenMsgCycleTimeFast" BO_ 1638 10;
+BA_ "GenMsgSendType" BO_ 1638 0;
+BA_ "GenMsgCycleTime" BO_ 1638 10;
+BA_ "GenMsgCycleTimeFast" BO_ 2364576499 100;
+BA_ "GenMsgSendType" BO_ 2364576499 0;
+BA_ "GenMsgCycleTime" BO_ 2364576499 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2364576243 100;
+BA_ "GenMsgSendType" BO_ 2364576243 0;
+BA_ "GenMsgCycleTime" BO_ 2364576243 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2364575987 20;
+BA_ "GenMsgSendType" BO_ 2364575987 0;
+BA_ "GenMsgCycleTime" BO_ 2364575987 20;
+BA_ "GenMsgCycleTimeFast" BO_ 2365512179 100;
+BA_ "GenMsgSendType" BO_ 2365512179 0;
+BA_ "GenMsgCycleTime" BO_ 2365512179 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2365560051 500;
+BA_ "GenMsgSendType" BO_ 2365560051 0;
+BA_ "GenMsgCycleTime" BO_ 2365560051 500;
+BA_ "GenMsgCycleTimeFast" BO_ 1633 10;
+BA_ "GenMsgSendType" BO_ 1633 0;
+BA_ "GenMsgCycleTime" BO_ 1633 10;
+BA_ "GenMsgCycleTimeFast" BO_ 2365450241 100;
+BA_ "GenMsgSendType" BO_ 2365450241 0;
+BA_ "GenMsgCycleTime" BO_ 2365450241 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2365450496 0;
+BA_ "GenMsgSendType" BO_ 2365450496 3;
+BA_ "GenMsgCycleTime" BO_ 2365450496 0;
+BA_ "GenMsgCycleTimeFast" BO_ 2365446452 62;
+BA_ "GenMsgSendType" BO_ 2365446452 0;
+BA_ "GenMsgCycleTime" BO_ 2365446452 62;
+BA_ "GenMsgCycleTimeFast" BO_ 2365446196 62;
+BA_ "GenMsgSendType" BO_ 2365446196 0;
+BA_ "GenMsgCycleTime" BO_ 2365446196 62;
+BA_ "GenMsgCycleTimeFast" BO_ 2365445939 62;
+BA_ "GenMsgSendType" BO_ 2365445939 0;
+BA_ "GenMsgCycleTime" BO_ 2365445939 62;
+BA_ "GenMsgCycleTimeFast" BO_ 2365445683 62;
+BA_ "GenMsgSendType" BO_ 2365445683 0;
+BA_ "GenMsgCycleTime" BO_ 2365445683 62;
+BA_ "GenMsgSendType" BO_ 2 0;
+BA_ "GenMsgCycleTime" BO_ 2 12;
+BA_ "GenMsgSendType" BO_ 129 0;
+BA_ "GenMsgCycleTime" BO_ 129 24;
+BA_ "GenMsgCycleTimeFast" BO_ 124 12;
+BA_ "GenMsgSendType" BO_ 124 0;
+BA_ "GenMsgCycleTime" BO_ 124 12;
+BA_ "GenMsgCycleTimeFast" BO_ 127 12;
+BA_ "GenMsgSendType" BO_ 127 0;
+BA_ "GenMsgCycleTime" BO_ 127 12;
+BA_ "GenMsgSendType" BO_ 1977 3;
+BA_ "GenMsgCycleTime" BO_ 1977 0;
+BA_ "GenMsgCycleTime" BO_ 1969 0;
+BA_ "GenMsgSendType" BO_ 1296 0;
+BA_ "GenMsgCycleTime" BO_ 1296 20;
+BA_ "GenMsgSendType" BO_ 770 0;
+BA_ "GenMsgCycleTime" BO_ 770 50;
+BA_ "GenMsgSendType" BO_ 768 0;
+BA_ "GenMsgCycleTime" BO_ 768 20;
+BA_ "GenMsgSendType" BO_ 516 0;
+BA_ "GenMsgCycleTime" BO_ 516 100;
+BA_ "GenMsgSendType" BO_ 514 0;
+BA_ "GenMsgCycleTime" BO_ 514 50;
+BA_ "GenMsgCycleTimeFast" BO_ 268 500;
+BA_ "GenMsgSendType" BO_ 268 0;
+BA_ "GenMsgCycleTime" BO_ 268 500;
+BA_ "GenMsgCycleTimeFast" BO_ 1632 100;
+BA_ "GenMsgSendType" BO_ 1632 0;
+BA_ "GenMsgCycleTime" BO_ 1632 100;
+BA_ "GenMsgCycleTimeFast" BO_ 2365450752 0;
+BA_ "GenMsgSendType" BO_ 2365450752 3;
+BA_ "GenMsgCycleTime" BO_ 2365450752 0;
+BA_ "GenMsgSendType" BO_ 2634009292 0;
+BA_ "GenMsgCycleTime" BO_ 2634009292 10000;
+BA_ "GenMsgSendType" BO_ 2634005196 0;
+BA_ "GenMsgCycleTime" BO_ 2634005196 10000;
+BA_ "GenMsgSendType" BO_ 2634009804 0;
+BA_ "GenMsgCycleTime" BO_ 2634009804 10000;
+BA_ "GenMsgSendType" BO_ 666 0;
+BA_ "GenMsgCycleTime" BO_ 666 20;
+BA_ "GenMsgSendType" BO_ 658 0;
+BA_ "GenMsgCycleTime" BO_ 658 10;
+BA_ "GenMsgSendType" BO_ 659 0;
+BA_ "GenMsgCycleTime" BO_ 659 100;
+BA_ "GenMsgSendType" BO_ 130 0;
+BA_ "GenMsgCycleTime" BO_ 130 12;
+BA_ "GenMsgSendType" BO_ 126 0;
+BA_ "GenMsgCycleTime" BO_ 126 12;
+BA_ "GenMsgCycleTimeFast" BO_ 123 12;
+BA_ "GenMsgSendType" BO_ 123 0;
+BA_ "GenMsgCycleTime" BO_ 123 12;
+BA_ "GenMsgSendType" BO_ 116 0;
+BA_ "GenMsgCycleTime" BO_ 116 6;
+BA_ "GenMsgCycleTime" BO_ 2047 0;
+BA_ "GenSigStartValue" SG_ 2365559974 CurrAvailChrgPeak 0;
+BA_ "GenSigStartValue" SG_ 2365559974 CurrAvailDschrgPeak 0;
+BA_ "GenSigStartValue" SG_ 2364577190 BattTmpr 0;
+BA_ "GenSigStartValue" SG_ 2364577190 ElecTmpr 0;
+BA_ "Gateway_ID" SG_ 2364577190 MvVoltBus 991;
+BA_ "GenSigStartValue" SG_ 2364576934 CurrAvailChrg 32000;
+BA_ "GenSigStartValue" SG_ 2364576934 CurrAvailDschrg 0;
+BA_ "Gateway_ID" SG_ 2364576422 CellTmprMin 983;
+BA_ "GenSigStartValue" SG_ 2364576422 CellTmprMin 0;
+BA_ "Gateway_ID" SG_ 2364576422 CellTmprMax 982;
+BA_ "GenSigStartValue" SG_ 2364576422 CellTmprMax 0;
+BA_ "GenSigStartValue" SG_ 2364576422 CellTmprAvg 0;
+BA_ "Gateway_ID" SG_ 2364576166 BattSocFast 979;
+BA_ "Gateway_ID" SG_ 2364575910 MvCurrBatt 973;
+BA_ "GenSigStartValue" SG_ 2364575910 MvCurrBatt 0;
+BA_ "GenSigStartValue" SG_ 2364577267 BattTmpr 0;
+BA_ "GenSigStartValue" SG_ 2364577267 ElecTmpr 0;
+BA_ "Gateway_ID" SG_ 2364577267 MvVoltBus 2521;
+BA_ "GenSigStartValue" SG_ 2364577011 CurrAvailChrg 32000;
+BA_ "GenSigStartValue" SG_ 2364577011 CurrAvailDschrg 0;
+BA_ "GenSigStartValue" SG_ 521 TargetVehSpd_mps 0;
+BA_ "GenSigStartValue" SG_ 521 ArbVehSpd_mps 0;
+BA_ "Gateway_ID" SG_ 660 RightEndStopValue 2986;
+BA_ "GenSigStartValue" SG_ 660 RightEndStopValue -0;
+BA_ "Gateway_ID" SG_ 660 ProgOffset 2984;
+BA_ "Gateway_ID" SG_ 660 LeftEndStopValue 2985;
+BA_ "GenSigStartValue" SG_ 660 LeftEndStopValue 0;
+BA_ "Gateway_ID" SG_ 660 MsgCrc 2983;
+BA_ "Gateway_ID" SG_ 660 MsgCntr 2982;
+BA_ "Gateway_ID" SG_ 660 SwVerRev 2981;
+BA_ "Gateway_ID" SG_ 660 SwVerMin 2741;
+BA_ "Gateway_ID" SG_ 660 SwVerMaj 2740;
+BA_ "Gateway_ID" SG_ 2364576499 CellTmprMin 2512;
+BA_ "GenSigStartValue" SG_ 2364576499 CellTmprMin 0;
+BA_ "Gateway_ID" SG_ 2364576499 CellTmprMax 2511;
+BA_ "GenSigStartValue" SG_ 2364576499 CellTmprMax 0;
+BA_ "GenSigStartValue" SG_ 2364576499 CellTmprAvg 0;
+BA_ "Gateway_ID" SG_ 2364576243 BattSocFast 2508;
+BA_ "Gateway_ID" SG_ 2364575987 MvCurrBatt 2502;
+BA_ "GenSigStartValue" SG_ 2364575987 MvCurrBatt 0;
+BA_ "GenSigStartValue" SG_ 2365560051 CurrAvailChrgPeak 0;
+BA_ "GenSigStartValue" SG_ 2365560051 CurrAvailDschrgPeak 0;
+BA_ "Gateway_ID" SG_ 129 MsgCrc 2996;
+BA_ "Gateway_ID" SG_ 129 MsgCntr 2995;
+BA_ "Gateway_ID" SG_ 129 WhlSlipR 946;
+BA_ "GenSigStartValue" SG_ 129 WhlSlipR 0;
+BA_ "Gateway_ID" SG_ 129 WhlSlipFR 945;
+BA_ "GenSigStartValue" SG_ 129 WhlSlipFR 0;
+BA_ "Gateway_ID" SG_ 129 WhlSlipFL 944;
+BA_ "GenSigStartValue" SG_ 129 WhlSlipFL 0;
+BA_ "Gateway_ID" SG_ 127 MsgCrc 2122;
+BA_ "Gateway_ID" SG_ 127 MsgCntr 2103;
+BA_ "Gateway_ID" SG_ 770 VcuStateShtdwn 889;
+BA_ "Gateway_ID" SG_ 770 VcuStateInit 888;
+BA_ "Gateway_ID" SG_ 770 MtrTrqLmtDecel 886;
+BA_ "Gateway_ID" SG_ 770 MtrTrqLmtAccel 885;
+BA_ "Gateway_ID" SG_ 770 AdcuShtdwnRq 884;
+BA_ "Gateway_ID" SG_ 770 EstopTest 883;
+BA_ "Gateway_ID" SG_ 770 EbcmShtdwnRq 2435;
+BA_ "Gateway_ID" SG_ 770 MsgCrc 2405;
+BA_ "Gateway_ID" SG_ 770 MsgCntr 2404;
+BA_ "GenSigStartValue" SG_ 514 ArbVehSpd 0;
+BA_ "Gateway_ID" SG_ 658 SteerAngle8b 714;
+BA_ "Gateway_ID" SG_ 658 ProtectActive 713;
+BA_ "Gateway_ID" SG_ 658 FaultLight 705;
+BA_ "Gateway_ID" SG_ 658 SelectedMap 703;
+BA_ "GenSigStartValue" SG_ 659 MotorTemp 40;
+BA_ "GenSigStartValue" SG_ 659 BoardTemp 40;
+BA_ "Gateway_ID" SG_ 123 EbdActv 2965;
+BA_ "Gateway_ID" SG_ 123 MsgCrc 672;
+VAL_ 102 WhdCurr_Ph2C 255 "SNA" 254 "Fault" ;
+VAL_ 102 WhdCurr_Ph2B 255 "SNA" 254 "Fault" ;
+VAL_ 102 WhdCurr_Ph2A 255 "SNA" 254 "Fault" ;
+VAL_ 102 WhdCurr_Ph1C 255 "SNA" 254 "Fault" ;
+VAL_ 102 WhdCurr_Ph1B 255 "SNA" 254 "Fault" ;
+VAL_ 102 WhdCurr_Ph1A 255 "SNA" 254 "Fault" ;
+VAL_ 102 WhdAngle 4095 "SNA" 4094 "Fault" ;
+VAL_ 101 WhdShtdwnRdy 1 "True" 0 "False" ;
+VAL_ 101 WhdRdy 1 "True" 0 "False" ;
+VAL_ 101 WhdState 3 "ERROR" 2 "RUN" 1 "IDLE" 0 "INIT" ;
+VAL_ 101 HwWakeStat 1 "True" 0 "False" ;
+VAL_ 101 TrqLmt_Volt 1 "True" 0 "False" ;
+VAL_ 101 TrqLmt_TrqSlew 1 "True" 0 "False" ;
+VAL_ 101 TrqLmt_SpdSlew 1 "True" 0 "False" ;
+VAL_ 101 TrqLmt_Pwr 1 "True" 0 "False" ;
+VAL_ 101 TrqLmt_MtrTmpr 1 "True" 0 "False" ;
+VAL_ 101 TrqLmt_MtrSpd 1 "True" 0 "False" ;
+VAL_ 101 TrqLmt_InvTmpr 1 "True" 0 "False" ;
+VAL_ 101 TrqLmt_Design 1 "True" 0 "False" ;
+VAL_ 101 InvTmpr 255 "SNA" 254 "Fault" ;
+VAL_ 101 MtrTmpr 255 "SNA" 254 "Fault" ;
+VAL_ 100 MvVolt 4095 "SNA" 4094 "Fault" ;
+VAL_ 100 MvCurrEst 2047 "SNA" 2046 "Fault" ;
+VAL_ 100 MtrTrqEst 2047 "SNA" 2046 "Fault" ;
+VAL_ 100 MtrSpd 2047 "SNA" 2046 "Fault" ;
+VAL_ 100 HwEnblStat 1 "True" 0 "False" ;
+VAL_ 100 TrqEnblStat 1 "True" 0 "False" ;
+VAL_ 19 WhdShtdwnRq 1 "True" 0 "False" ;
+VAL_ 19 TrqLmtRegen 255 "No_Limit" ;
+VAL_ 19 TrqLmtMtr 255 "No_Limit" ;
+VAL_ 19 ClearFltRq 1 "True" 0 "False" ;
+VAL_ 19 CurrLmtRegen 255 "No_Limit" ;
+VAL_ 19 CurrLmtMtr 255 "No_Limit" ;
+VAL_ 773 Flt_StallEngaged 1 "Fault" 0 "OK" ;
+VAL_ 773 SwStat 1 "Released" 0 "Development" ;
+VAL_ 773 Flt_EpbOpenCircuit 1 "Fault" 0 "No Fault." ;
+VAL_ 773 Flt_EpbMtrCurrent 1 "Fault" 0 "No Fault." ;
+VAL_ 773 Flt_EpbIC 1 "Fault" 0 "No Fault." ;
+VAL_ 773 Flt_EpbGndShort 1 "Fault" 0 "No Fault." ;
+VAL_ 773 Flt_EpbBattShort 1 "Fault" 0 "No Fault." ;
+VAL_ 773 Flt_StallDisengaged 1 "Fault" 0 "OK" ;
+VAL_ 773 Flt_mBrkCtrl 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 773 EpbStat 8 "SNA" 7 "Unknown" 6 "Releasing" 5 "Applying" 4 "Fully Released" 3 "Incomplete" 2 "Released" 1 "Applied" 0 "Init" ;
+VAL_ 773 Flt_Epb 1 "Fault" 0 "No Fault." ;
+VAL_ 656 SwitchStat 15 "Position 5" 12 "Position 4" 9 "Position 3" 6 "Position 2" 3 "Position 1" 0 "Position 0" ;
+VAL_ 667 EstopReq 1 "ESTOP Requested" 0 "No Estop" ;
+VAL_ 667 CommandMode 17 "Set Bias" 176 "Locked" 16 "Set Position Offset" 5 "Position w/ Velocity Limit" 4 "Position" 3 "Velocity" 2 "Assist" 1 "Current" 0 "Off" ;
+VAL_ 667 MsgCntr 21 "Fault" ;
+VAL_ 667 ClearFaults 1 "True" 0 "False" ;
+VAL_ 664 RightStopLmt 1 "Right Stop Limit is reached" 0 "Not at Right Stop Limit." ;
+VAL_ 664 MsgCntr 21 "Fault" ;
+VAL_ 664 LeftStopLmt 1 "Left Stop Limit is reached" 0 "Not at Left Stop Limit." ;
+VAL_ 663 Flt_VehicleSpd 3 "Lamp On DTC Set" 2 "Lamp On DTC Clear" 1 "Lamp Off DTC Set" 0 "Lamp Off DTC Clear" ;
+VAL_ 663 Flt_RotEnc 3 "Lamp On DTC Set" 2 "Lamp On DTC Clear" 1 "Lamp Off DTC Set" 0 "Lamp Off DTC Clear" ;
+VAL_ 663 FLT_Temp 3 "Lamp On DTC Set" 2 "Lamp On DTC Clear" 1 "Lamp Off DTC Set" 0 "Lamp Off DTC Clear" ;
+VAL_ 663 Warn_Temp 3 "Lamp On DTC Set" 2 "Lamp On DTC Clear" 1 "Lamp Off DTC Set" 0 "Lamp Off DTC Clear" ;
+VAL_ 663 Flt_TrqLinearity 3 "Lamp On DTC Set" 2 "Lamp On DTC Clear" 1 "Lamp Off DTC Set" 0 "Lamp Off DTC Clear" ;
+VAL_ 663 Flt_TrqRange 3 "Lamp On DTC Set" 2 "Lamp On DTC Clear" 1 "Lamp Off DTC Set" 0 "Lamp Off DTC Clear" ;
+VAL_ 663 Flt_ErrorCurrent 3 "Lamp On DTC Set" 2 "Lamp On DTC Clear" 1 "Lamp Off DTC Set" 0 "Lamp Off DTC Clear" ;
+VAL_ 663 FltBattLow 3 "Lamp On DTC Set" 2 "Lamp On DTC Clear" 1 "Lamp Off DTC Set" 0 "Lamp Off DTC Clear" ;
+VAL_ 663 Flt_mSbwCtrl 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 663 Flt_BlockData 3 "Lamp On DTC Set" 2 "Lamp On DTC Clear" 1 "Lamp Off DTC Set" 0 "Lamp Off DTC Clear" ;
+VAL_ 663 Flt_BootCnt 3 "Lamp On DTC Set" 2 "Lamp On DTC Clear" 1 "Lamp Off DTC Set" 0 "Lamp Off DTC Clear" ;
+VAL_ 663 Flt_MfgCRC 3 "Lamp On DTC Set" 2 "Lamp On DTC Clear" 1 "Lamp Off DTC Set" 0 "Lamp Off DTC Clear" ;
+VAL_ 663 Flt_CfgCRC 3 "Lamp On DTC Set" 2 "Lamp On DTC Clear" 1 "Lamp Off DTC Set" 0 "Lamp Off DTC Clear" ;
+VAL_ 663 Flt_BattHigh 3 "Lamp On DTC Set" 2 "Lamp On DTC Clear" 1 "Lamp Off DTC Set" 0 "Lamp Off DTC Clear" ;
+VAL_ 663 Flt_AppCRC 3 "Lamp On DTC Set" 2 "Lamp On DTC Clear" 1 "Lamp Off DTC Set" 0 "Lamp Off DTC Clear" ;
+VAL_ 663 Flt_SASRng 3 "Lamp On DTC Set" 2 "Lamp On DTC Clear" 1 "Lamp Off DTC Set" 0 "Lamp Off DTC Clear" ;
+VAL_ 663 Flt_DrvWtch 3 "Lamp On DTC Set" 2 "Lamp On DTC Clear" 1 "Lamp Off DTC Set" 0 "Lamp Off DTC Clear" ;
+VAL_ 663 Flt_DrvSPI 3 "Lamp On DTC Set" 2 "Lamp On DTC Clear" 1 "Lamp Off DTC Set" 0 "Lamp Off DTC Clear" ;
+VAL_ 663 Flt_GateDrv 3 "Lamp On DTC Set" 2 "Lamp On DTC Clear" 1 "Lamp Off DTC Set" 0 "Lamp Off DTC Clear" ;
+VAL_ 663 Flt_RotEncVar 3 "Lamp On DTC Set" 2 "Lamp On DTC Clear" 1 "Lamp Off DTC Set" 0 "Lamp Off DTC Clear" ;
+VAL_ 663 Flt_RotEncBits 3 "Lamp On DTC Set" 2 "Lamp On DTC Clear" 1 "Lamp Off DTC Set" 0 "Lamp Off DTC Clear" ;
+VAL_ 663 Flt_EEPROM 3 "Lamp On DTC Set" 2 "Lamp On DTC Clear" 1 "Lamp Off DTC Set" 0 "Lamp Off DTC Clear" ;
+VAL_ 663 MsgCntr 21 "Fault" ;
+VAL_ 2566850726 STATUS_Runmode_F3 12 "ENUM_MAX" 11 "FW_UPDATE" 10 "ON_BUS" 9 "LEAVE_SLOW" 8 "LEAVE" 7 "JOIN_FAIL" 6 "JOIN" 5 "IDLE_DLY" 4 "IDLE" 3 "AWAKE" 2 "BOOT" 1 "SLEEP" 0 "UNINITIALIZED" ;
+VAL_ 2364552870 LmtDschrg_Volt 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552870 LmtDschrg_Tmpr 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552870 LmtDschrg_Tbd 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552870 LmtDschrg_Soc 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552870 LmtDschrg_Diag 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552870 LmtDschrg_Curr 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552870 LmtChrg_Volt 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552870 LmtChrg_Tmpr 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552870 LmtChrg_Tbd 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552870 LmtChrg_Soc 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552870 LmtChrg_Diag 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552870 LmtChrg_Curr 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364577446 IntChrgrStat 3 "N/A" 2 "ERROR" 1 "ON" 0 "OFF" ;
+VAL_ 2364577446 InertSwStat 3 "N/A" 2 "ERROR" 1 "IMPACT_DETECTED" 0 "OK" ;
+VAL_ 2364577446 BattSocStat 15 "N/A" 14 "ERROR" 6 "Exceeds_High_Limit" 5 "High_Limit" 4 "Approaching_High_Limit" 3 "Exceeds_Low_Limit" 2 "Low_Limit" 1 "Approaching_Low_Limit" 0 "OK" ;
+VAL_ 2364577446 BattCntctrPcStat 3 "N/A" 2 "ERROR" 1 "CLOSED" 0 "OPEN" ;
+VAL_ 2364577446 BattCntctrPos 3 "N/A" 2 "ERROR" 1 "CLOSED" 0 "OPEN" ;
+VAL_ 2364577446 HvIsoStatPassive 15 "N/A" 14 "ERROR" 6 "TEST_INHIBITED" 5 "COMPLETE_FAULT" 4 "COMPLETE_MARGINAL" 3 "COMPLETE_OK" 2 "IN_PROCESS" 1 "PENDING" 0 "NOT_ENABLED" ;
+VAL_ 2364577446 OpStat 15 "N/A" 14 "ERROR" 6 "Disabled_Internal" 5 "Disabled_External" 4 "Power_Down_Emerg" 3 "Power_Down_Normal" 2 "Operational" 1 "Init_Complete" 0 "Init" ;
+VAL_ 2364577446 BattCntctrNeg 3 "N/A" 2 "ERROR" 1 "CLOSED" 0 "OPEN" ;
+VAL_ 2364577446 HvilStat 3 "N/A" 2 "ERROR" 1 "HVIL Open" 0 "HVIL Closed" ;
+VAL_ 2364577446 BattCntctrStat 3 "N/A" 2 "ERROR" 1 "CLOSED" 0 "OPEN" ;
+VAL_ 2364577446 CellBalActive 3 "N/A" 2 "ERROR" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2364577446 CellBalStat 3 "N/A" 2 "ERROR" 1 "UNBALANCED" 0 "OK" ;
+VAL_ 2364577446 BattDiscWarn 15 "N/A" 14 "ERROR" 13 "UNKNOWN" 7 "BATT_CURRENT" 6 "CELL_VOLT_HIGH" 5 "CELL_VOLT_LOW" 4 "MODULE_VOLT_HIGH" 3 "MODULE_VOLT_LOW" 2 "BATT_VOLT_HIGH" 1 "BATT_VOLT_LOW" 0 "OK" ;
+VAL_ 2364577446 BattEnblStat 15 "N/A" 14 "ERROR" 4 "Precharge Failed" 3 "Disconnection In Progress" 2 "Connection In Progress" 1 "Connected" 0 "Disconnected" ;
+VAL_ 2364577446 HvIsoStatActive 15 "N/A" 14 "ERROR" 6 "TEST_INHIBITED" 5 "COMPLETE_FAULT" 4 "COMPLETE_MARGINAL" 3 "COMPLETE_OK" 2 "IN_PROCESS" 1 "PENDING" 0 "NOT_ENABLED" ;
+VAL_ 2364607398 ThrmlEventDetect 3 "N/A" 2 "ERROR" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2364576422 CellTmprDeltaStat 3 "N/A" 2 "ERROR" 1 "LEVEL_1" 0 "OK" ;
+VAL_ 2364576166 CellVoltDeltaStat 15 "N/A" 14 "ERROR" 4 "LEVEL_4" 3 "LEVEL_3" 2 "LEVEL_2" 1 "LEVEL_1" 0 "OK" ;
+VAL_ 2350622457 ThrmlMgmtRq 3 "N/A" 2 "Reserved" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2350622457 PwrDownCmd 3 "N/A" 2 "TRUE-EMERG" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2350622457 HvResistLowRq 3 "N/A" 2 "Reserved" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2350622457 HvResistHighRq 3 "N/A" 2 "Reserved" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2350622457 HvIsoPassiveRq 3 "N/A" 2 "Inhibit" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2350622457 HvIsoActiveRq 3 "N/A" 2 "Inhibit" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2350622457 EnblIntChrgrRq 3 "N/A" 2 "Reserved" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2350622457 CellBalRq 3 "N/A" 2 "Reserved" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2350622457 EnblConsent 3 "N/A" 2 "ERROR" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2350622457 EnblRq 3 "N/A" 2 "TRUE-EMERG" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2365512102 AUX_08 3 "N/A" 2 "ERROR" 1 "ON" 0 "OFF" ;
+VAL_ 2365512102 AUX_07 3 "N/A" 2 "ERROR" 1 "ON" 0 "OFF" ;
+VAL_ 2365512102 AUX_06 3 "N/A" 2 "ERROR" 1 "ON" 0 "OFF" ;
+VAL_ 2365512102 AUX_05 3 "N/A" 2 "ERROR" 1 "ON" 0 "OFF" ;
+VAL_ 2365512102 AUX_04_LPR 3 "N/A" 2 "ERROR" 1 "ON" 0 "OFF" ;
+VAL_ 2365512102 AUX_03 3 "N/A" 2 "ERROR" 1 "ON" 0 "OFF" ;
+VAL_ 2365512102 AUX_02 3 "N/A" 2 "ERROR" 1 "ON" 0 "OFF" ;
+VAL_ 2365512102 AUX_01_HPR 3 "N/A" 2 "ERROR" 1 "ON" 0 "OFF" ;
+VAL_ 2364552947 LmtDschrg_Volt 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552947 LmtDschrg_Tmpr 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552947 LmtDschrg_Tbd 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552947 LmtDschrg_Soc 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552947 LmtDschrg_Diag 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552947 LmtDschrg_Curr 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552947 LmtChrg_Volt 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552947 LmtChrg_Tmpr 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552947 LmtChrg_Tbd 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552947 LmtChrg_Soc 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552947 LmtChrg_Diag 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2364552947 LmtChrg_Curr 3 "N/A" 2 "ERROR" 1 "LIMIT" 0 "OK" ;
+VAL_ 2566850803 STATUS_Runmode_F3 12 "ENUM_MAX" 11 "FW_UPDATE" 10 "ON_BUS" 9 "LEAVE_SLOW" 8 "LEAVE" 7 "JOIN_FAIL" 6 "JOIN" 5 "IDLE_DLY" 4 "IDLE" 3 "AWAKE" 2 "BOOT" 1 "SLEEP" 0 "UNINITIALIZED" ;
+VAL_ 2350642169 ThrmlMgmtRq 3 "N/A" 2 "Reserved" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2350642169 PwrDownCmd 3 "N/A" 2 "TRUE-EMERG" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2350642169 HvResistLowRq 3 "N/A" 2 "Reserved" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2350642169 HvResistHighRq 3 "N/A" 2 "Reserved" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2350642169 HvIsoPassiveRq 3 "N/A" 2 "Inhibit" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2350642169 HvIsoActiveRq 3 "N/A" 2 "Inhibit" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2350642169 EnblIntChrgrRq 3 "N/A" 2 "Reserved" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2350642169 CellBalRq 3 "N/A" 2 "Reserved" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2350642169 EnblConsent 3 "N/A" 2 "ERROR" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2350642169 EnblRq 3 "N/A" 2 "TRUE-EMERG" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2364577523 IntChrgrStat 3 "N/A" 2 "ERROR" 1 "ON" 0 "OFF" ;
+VAL_ 2364577523 InertSwStat 3 "N/A" 2 "ERROR" 1 "IMPACT_DETECTED" 0 "OK" ;
+VAL_ 2364577523 BattSocStat 15 "N/A" 14 "ERROR" 6 "Exceeds_High_Limit" 5 "High_Limit" 4 "Approaching_High_Limit" 3 "Exceeds_Low_Limit" 2 "Low_Limit" 1 "Approaching_Low_Limit" 0 "OK" ;
+VAL_ 2364577523 BattCntctrPcStat 3 "N/A" 2 "ERROR" 1 "CLOSED" 0 "OPEN" ;
+VAL_ 2364577523 BattCntctrPos 3 "N/A" 2 "ERROR" 1 "CLOSED" 0 "OPEN" ;
+VAL_ 2364577523 HvIsoStatPassive 15 "N/A" 14 "ERROR" 6 "TEST_INHIBITED" 5 "COMPLETE_FAULT" 4 "COMPLETE_MARGINAL" 3 "COMPLETE_OK" 2 "IN_PROCESS" 1 "PENDING" 0 "NOT_ENABLED" ;
+VAL_ 2364577523 OpStat 15 "N/A" 14 "ERROR" 6 "Disabled_Internal" 5 "Disabled_External" 4 "Power_Down_Emerg" 3 "Power_Down_Normal" 2 "Operational" 1 "Init_Complete" 0 "Init" ;
+VAL_ 2364577523 BattCntctrNeg 3 "N/A" 2 "ERROR" 1 "CLOSED" 0 "OPEN" ;
+VAL_ 2364577523 HvilStat 3 "N/A" 2 "ERROR" 1 "HVIL Open" 0 "HVIL Closed" ;
+VAL_ 2364577523 BattCntctrStat 3 "N/A" 2 "ERROR" 1 "CLOSED" 0 "OPEN" ;
+VAL_ 2364577523 CellBalActive 3 "N/A" 2 "ERROR" 1 "TRUE" 0 "FALSE" ;
+VAL_ 2364577523 CellBalStat 3 "N/A" 2 "ERROR" 1 "UNBALANCED" 0 "OK" ;
+VAL_ 2364577523 BattDiscWarn 15 "N/A" 14 "ERROR" 13 "UNKNOWN" 7 "BATT_CURRENT" 6 "CELL_VOLT_HIGH" 5 "CELL_VOLT_LOW" 4 "MODULE_VOLT_HIGH" 3 "MODULE_VOLT_LOW" 2 "BATT_VOLT_HIGH" 1 "BATT_VOLT_LOW" 0 "OK" ;
+VAL_ 2364577523 BattEnblStat 15 "N/A" 14 "ERROR" 4 "Precharge Failed" 3 "Disconnection In Progress" 2 "Connection In Progress" 1 "Connected" 0 "Disconnected" ;
+VAL_ 2364577523 HvIsoStatActive 15 "N/A" 14 "ERROR" 6 "TEST_INHIBITED" 5 "COMPLETE_FAULT" 4 "COMPLETE_MARGINAL" 3 "COMPLETE_OK" 2 "IN_PROCESS" 1 "PENDING" 0 "NOT_ENABLED" ;
+VAL_ 2364607475 ThrmlEventDetect 3 "N/A" 2 "ERROR" 1 "TRUE" 0 "FALSE" ;
+VAL_ 521 TargetVehSpd_mps 2047 "SNA" 2046 "Fault" ;
+VAL_ 521 AebSrc 15 "FCM + LIDAR + Thermal + LRR" 14 "Thermal + LIDAR + LRR" 13 "FCM + Thermal + LRR" 12 "Thermal + LRR" 11 "FCM + LIDAR + LRR" 10 "LIDAR + LRR" 9 "FCM + LRR" 8 "LRR" 7 "FCM + LIDAR + Thermal" 6 "LIDAR + Thermal" 5 "FCM + Thermal" 4 "Thermal" 3 "FCM + LIDAR" 2 "LIDAR" 1 "FCM" 0 "No AEB Event" ;
+VAL_ 521 Aeb_Active 1 "AEB event is Active" 0 "No AEB event active" ;
+VAL_ 521 ArbVehSpd_mps_Valid 1 "Valid" 0 "Invalid" ;
+VAL_ 521 ArbVehSpd_mps 2047 "SNA" 2046 "Fault" ;
+VAL_ 103 E_CAN_mWhdCtrl2 3 "STORED" 2 "SAFETY" 1 "ACTIVE" 0 "OK" ;
+VAL_ 103 E_CAN_mWhdCtrl 3 "STORED" 2 "SAFETY" 1 "ACTIVE" 0 "OK" ;
+VAL_ 18 MtrMode 2 "REVERSE" 1 "BOOST" 0 "NORMAL" ;
+VAL_ 18 Debug 1 "DEBUG" 0 "NORMAL" ;
+VAL_ 18 Boot 0 "NORMAL" ;
+VAL_ 18 SpdSlewLmt 255 "No_Limit" ;
+VAL_ 18 TrqSlewLmt 255 "No_Limit" ;
+VAL_ 18 EnblCmd 1 "True" 0 "False" ;
+VAL_ 18 CtrlMode 2 "Speed_Mode" 1 "Torque_Mode" 0 "Disable" ;
+VAL_ 660 RightEndStopValue 0 "SNA" ;
+VAL_ 660 LeftEndStopValue 0 "SNA" ;
+VAL_ 660 MsgCntr 21 "Fault" ;
+VAL_ 1681 SwVerStat 1 "Released" 0 "Development" ;
+VAL_ 1680 SwVerStat 1 "Released" 0 "Development" ;
+VAL_ 523 Z_Accel_Filt 32768 "SNA" 32767 "Fault" ;
+VAL_ 523 Y_Accel_Filt 32768 "SNA" 32767 "Fault" ;
+VAL_ 523 X_Accel_Filt 32768 "SNA" 32767 "Fault" ;
+VAL_ 524 Z_Angular_Rate_Filt 32768 "SNA" 32767 "Fault" ;
+VAL_ 524 Y_Angular_Rate_Filt 32768 "SNA" 32767 "Fault" ;
+VAL_ 524 X_Angular_Rate_Filt 32768 "SNA" 32767 "Fault" ;
+VAL_ 769 GearRq_AVAS 3 "Fwd" 1 "Rvrs" 0 "Park" 2 "Invalid" ;
+VAL_ 518 Y_Angular_Rate 32768 "SNA" 32767 "Fault" ;
+VAL_ 518 X_Angular_Rate 32768 "SNA" 32767 "Fault" ;
+VAL_ 518 Z_Angular_Rate 32768 "SNA" 32767 "Fault" ;
+VAL_ 517 Z_Accel 32768 "SNA" 32767 "Fault" ;
+VAL_ 517 Y_Accel 32768 "SNA" 32767 "Fault" ;
+VAL_ 517 X_Accel 32768 "SNA" 32767 "Fault" ;
+VAL_ 122 AutoBrkEngd 1 "Automatic Braking Engaged" 0 "Not Engaged" ;
+VAL_ 122 Flt_mVehState2 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 122 Flt_mWhdStat 3 "Stored" 2 "Invalid" 1 "Active" 0 "OK" ;
+VAL_ 122 EbcmControllerID 1 "Ebcm2L" 0 "Ebcm1U" ;
+VAL_ 122 Flt_mVcuImuLinAccel 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 122 Flt_mVcuImuAngVel 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 122 Flt_mWhdCtrl 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 122 Flt_ElWhlSpdR 1 "Fault" 0 "OK" ;
+VAL_ 122 Flt_ElWhlSpdFR 1 "Fault" 0 "OK" ;
+VAL_ 122 Flt_ElWhlSpdFL 1 "Fault" 0 "OK" ;
+VAL_ 122 VehMvmt 3 "SNA" 2 "Unknown" 1 "Moving" 0 "Stationary" ;
+VAL_ 122 Flt_12vMtr 1 "Fault" 0 "OK" ;
+VAL_ 122 Flt_12vCtrl 1 "Fault" 0 "OK" ;
+VAL_ 122 WakeStat 1 "True" 0 "False" ;
+VAL_ 122 Flt_mVehState 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 122 EbcmShtdwnRdy 1 "True" 0 "False" ;
+VAL_ 122 EbcmRdy 1 "True" 0 "False" ;
+VAL_ 122 Flt_mBrkCtrl 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 122 Flt_MtrTmpr 1 "Fault" 0 "OK" ;
+VAL_ 122 BrkFluidLevSns_EBCM2 3 "Sensor Failure" 2 "Fluid Level Low" 1 "Fluid Level OK" 0 "NA / Not Equipped" ;
+VAL_ 115 ToShtdwn 4 "True" 3 "Pend_20s" 2 "Pend_10s" 1 "Pend_1s" 0 "False" ;
+VAL_ 115 HoldStat 3 "PlusControl" 2 "Release" 1 "Controlled" 0 "No_Hold_Requested" ;
+VAL_ 125 AutoBrkEngd 1 "Automatic Braking Engaged" 0 "Not Engaged" ;
+VAL_ 125 Flt_mVehState2 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 125 Flt_mWhdStat 3 "Stored" 2 "Invalid" 1 "Active" 0 "OK" ;
+VAL_ 125 EbcmControllerID 1 "Ebcm2L" 0 "Ebcm1U" ;
+VAL_ 125 Flt_mVcuImuLinAccel 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 125 Flt_mWhdCtrl 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 125 Flt_mVcuImuAngVel 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 125 Flt_12vMtr 1 "Fault" 0 "OK" ;
+VAL_ 125 Flt_12vCtrl 1 "Fault" 0 "OK" ;
+VAL_ 125 WakeStat 1 "True" 0 "False" ;
+VAL_ 125 Flt_mVehState 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 125 EbcmShtdwnRdy 1 "True" 0 "False" ;
+VAL_ 125 EbcmRdy 1 "True" 0 "False" ;
+VAL_ 125 Flt_mBrkCtrl 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 125 Flt_MtrTmpr 1 "Fault" 0 "OK" ;
+VAL_ 125 BrkFluidLevSns_EBCM1 3 "Sensor Failure" 2 "Fluid Level Low" 1 "Fluid Level OK" 0 "NA / Not Equipped" ;
+VAL_ 125 Flt_CanWhlSpdR 1 "Fault" 0 "OK" ;
+VAL_ 125 Flt_CanWhlSpdFR 1 "Fault" 0 "OK" ;
+VAL_ 125 Flt_CanWhlSpdFL 1 "Fault" 0 "OK" ;
+VAL_ 1968 Advics_Diag2 16448 "RL" 4112 "RR" 1028 "FL" 257 "FR" ;
+VAL_ 1968 Advics_Diag1 87040261 "Valve_Cmd" 37421824 "Snsr_Clear" 34619392 "Mode_Test" 34603264 "Mode_Normal" 18087936 "DTCs_Clear" 18022400 "DTCs_Read" ;
+VAL_ 2364576499 CellTmprDeltaStat 3 "N/A" 2 "ERROR" 1 "LEVEL_1" 0 "OK" ;
+VAL_ 2364576243 CellVoltDeltaStat 15 "N/A" 14 "ERROR" 4 "LEVEL_4" 3 "LEVEL_3" 2 "LEVEL_2" 1 "LEVEL_1" 0 "OK" ;
+VAL_ 2365512179 AUX_08 3 "N/A" 2 "ERROR" 1 "ON" 0 "OFF" ;
+VAL_ 2365512179 AUX_07 3 "N/A" 2 "ERROR" 1 "ON" 0 "OFF" ;
+VAL_ 2365512179 AUX_06 3 "N/A" 2 "ERROR" 1 "ON" 0 "OFF" ;
+VAL_ 2365512179 AUX_05 3 "N/A" 2 "ERROR" 1 "ON" 0 "OFF" ;
+VAL_ 2365512179 AUX_04_LPR 3 "N/A" 2 "ERROR" 1 "ON" 0 "OFF" ;
+VAL_ 2365512179 AUX_03 3 "N/A" 2 "ERROR" 1 "ON" 0 "OFF" ;
+VAL_ 2365512179 AUX_02 3 "N/A" 2 "ERROR" 1 "ON" 0 "OFF" ;
+VAL_ 2365512179 AUX_01_HPR 3 "N/A" 2 "ERROR" 1 "ON" 0 "OFF" ;
+VAL_ 1633 MobilityInhibitCode 12 "Flt_IMU" 11 "Flt_SPDSNS" 10 "LoC_ADCU" 9 "LoC_TO" 8 "Flt_AVAS" 7 "Flt_LRR" 15 "Allowed" 14 "CargoHold" 13 "SwVerMismatch" 6 "Flt_SBW" 5 "Flt_EBCM" 4 "Flt_WHD" 3 "Flt_12V" 2 "Flt_48V" 1 "ActiveEstop" ;
+VAL_ 2365450241 VscMode 11 "Pause" 10 "Menu" 9 "OK" 4 "Local" 1 "Searching" ;
+VAL_ 2365450241 VscEstop 0 "OK" 1 "Estop" ;
+VAL_ 2365450241 CtrlMode 2 "Auton" 1 "Shared" 0 "User" ;
+VAL_ 2365450496 ConfigId 99 "DisplayMode" 83 "Pause_FreeFall" 82 "Pause_Orient" 81 "PwrOff_Inactive" 80 "Pause_Inactive" 12 "Vibrate_Both" 11 "Vibrate_Right" 10 "Vibrate_Left" 9 "Magna_9" 8 "Magna_8" 7 "Magna_7" 6 "Magna_6" 5 "Magna_5" 4 "Magna_4" 3 "Magna_3" 2 "Magna_2" 1 "Magna_1" ;
+VAL_ 2365446452 RightZ_Pos 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365446452 RightZ_Ntrl 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365446452 RightZ_Neg 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365446196 RightY_Pos 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365446196 RightY_Ntrl 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365446196 RightY_Neg 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365446196 RightX_Pos 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365446196 RightX_Ntrl 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365446196 RightX_Neg 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365446196 Btn_4 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365446196 Btn_3 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365446196 Btn_2 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365446196 Btn_1 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365445939 LeftZ_Pos 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365445939 LeftZ_Ntrl 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365445939 LeftZ_Neg 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365445683 LeftY_Pos 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365445683 LeftY_Ntrl 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365445683 LeftY_Neg 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365445683 LeftX_Pos 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365445683 LeftX_Ntrl 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365445683 LeftX_Neg 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365445683 Btn_Up 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365445683 Btn_Right 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365445683 Btn_Left 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2365445683 Btn_Dwn 3 "SNA" 2 "Fault" 1 "Set" 0 "Not Set" ;
+VAL_ 2 VehAccelEbcm 32768 "SNA" 32767 "Fault" ;
+VAL_ 2 StopLightRq 1 "True" 0 "False" ;
+VAL_ 2 TrqSlewRq 3 "None" 2 "10 Nm/10ms" 1 "5 Nm/10ms" 0 "1 Nm/10ms" ;
+VAL_ 2 RegBrkTrqRq 255 "SNA" 254 "Fault" ;
+VAL_ 2 TrqLmtMtrRq 255 "SNA" 254 "Fault" ;
+VAL_ 129 WhlSlipR 32767 "SNA" ;
+VAL_ 129 WhlSlipFR 32767 "SNA" ;
+VAL_ 129 WhlSlipFL 32767 "SNA" ;
+VAL_ 124 WhlCntR 4095 "SNA" 4094 "Fault" ;
+VAL_ 124 WhlCntFR 4095 "SNA" 4094 "Fault" ;
+VAL_ 124 WhlCntFL 4095 "SNA" 4094 "Fault" ;
+VAL_ 127 WhlSpdR 2047 "SNA" 2046 "Fault" ;
+VAL_ 127 WhlSpdFR 2047 "SNA" 2046 "Fault" ;
+VAL_ 127 WhlSpdFL 2047 "SNA" 2046 "Fault" ;
+VAL_ 1969 Advics_Diag2 16448 "RL" 4112 "RR" 1028 "FL" 257 "FR" ;
+VAL_ 1969 Advics_Diag1 87040261 "Valve_Cmd" 37421824 "Snsr_Clear" 34619392 "Mode_Test" 34603264 "Mode_Normal" 18087936 "DTCs_Clear" 18022400 "DTCs_Read" ;
+VAL_ 1296 AudioVoice 60 "12vBattLow.wav" 83 "VehEstop.wav" 82 "VehCrash.wav" 81 "Bay2Closing.wav" 80 "Bay1Closing.wav" 61 "48vBattLow.wav" 40 "ThankYou.wav" 21 "CargoTmpr2.wav" 20 "CargoTmpr1.wav" 11 "KeypadLocked.wav" 10 "CodeIncorrect.wav" 6 "VehPreTrip.wav" 5 "VehRdy.wav" 4 "VehVendor.wav" 3 "VehCust.wav" 2 "VehShtdwn.wav" 1 "VehInit.wav" 0 "None" ;
+VAL_ 1296 AudioMp3 99 "ThatsAmore" 98 "CrazyTrain" 97 "ChildrenOfSanchez" 32 "Advert_C" 31 "Advert_B" 30 "Advert_A" 11 "PedAlert_Reverse" 10 "PedAlert_Forward" 2 "Unpause" 1 "Pause" 0 "Stop" ;
+VAL_ 1296 KeypadO 1 "True" 0 "False" ;
+VAL_ 1296 PadLight 1 "True" 0 "False" ;
+VAL_ 1296 PadCodeState 4 "Lockout" 3 "Invalid" 2 "OK" 1 "In Process" 0 "N/A" ;
+VAL_ 1296 KeypadC 1 "True" 0 "False" ;
+VAL_ 1296 PadActive 1 "True" 0 "False" ;
+VAL_ 1296 Keypad4 1 "True" 0 "False" ;
+VAL_ 1296 Keypad3 1 "True" 0 "False" ;
+VAL_ 1296 Keypad2 1 "True" 0 "False" ;
+VAL_ 1296 Keypad1 1 "True" 0 "False" ;
+VAL_ 770 VcuStateShtdwn 15 "Shutdown_Complete" 14 "Discharge_48Vbus" 13 "Disable_ESS" 12 "<reserved>" 11 "Disable_48V" 10 "Disable_DCDC" 9 "<reserved>" 8 "Disable_EBCM" 7 "Disable_ADCU" 6 "Disable_SBW" 5 "Disable_AVAS" 4 "Disable_12V_Safety" 3 "Disable_WHD" 2 "Cargo_Check" 1 "EPB_Check" 0 "N/A" ;
+VAL_ 770 VcuStateInit 15 "<reserved>" 14 "<reserved>" 13 "<reserved>" 12 "Init_Complete" 11 "Init_WHD" 10 "Enbl_12V_Safety" 9 "Init_AVAS" 8 "Init_SBW" 7 "Init_ADCU" 6 "Engage_EPB" 5 "Init_EBCM" 4 "Init_DCDC" 3 "48V_Ready" 2 "Init_ESS" 1 "Init_VCU" 0 "N/A" ;
+VAL_ 770 AdcuShtdwnRq 1 "True" 0 "False" ;
+VAL_ 770 EstopTest 6 "Fail - SafeCircuit" 7 "N/A" 5 "Fail - OK" 4 "Fail - ESTOP" 3 "Pass" 2 "Pending - OK" 1 "Pending - ESTOP" 0 "Start Test" ;
+VAL_ 770 EbcmShtdwnRq 1 "True" 0 "False" ;
+VAL_ 768 Flt_EpbOpenCircuit 1 "Fault" 0 "No Fault." ;
+VAL_ 768 Flt_EpbMtrCurrent 1 "Fault" 0 "No Fault." ;
+VAL_ 768 Flt_EpbIC 1 "Fault" 0 "No Fault." ;
+VAL_ 768 Flt_EpbGndShort 1 "Fault" 0 "No Fault." ;
+VAL_ 768 Flt_EpbBattShort 1 "Fault" 0 "No Fault." ;
+VAL_ 768 Flt_Epb 1 "Fault" 0 "No Fault." ;
+VAL_ 768 EpbStat 8 "SNA" 7 "Unknown" 6 "Releasing" 5 "Applying" 4 "Fully Released" 3 "Incomplete" 2 "Released" 1 "Applied" 0 "Init" ;
+VAL_ 516 Flt_InvalidGearRq 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_LocEpb 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 516 Flt_LocTo 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 516 Flt_LocBe 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 516 Flt_12vSys 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_WriteEeprom 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_ReadEeprom 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_BrkSafeSys 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_SafeCircuit 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_MstrSwitch 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_CntctrStat 3 "Unknown" 2 "Stuck Close" 1 "Stuck Open" 0 "OK" ;
+VAL_ 516 Flt_BrkPrsr 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_WhdEnbl 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_SbwEnbl 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_SafeSteer 3 "General" 2 "Response" 1 "Command" 0 "OK" ;
+VAL_ 516 Flt_SafeProp 3 "General" 2 "Response" 1 "Command" 0 "OK" ;
+VAL_ 516 Flt_SafeExtLight 3 "General" 2 "Response" 1 "Command" 0 "OK" ;
+VAL_ 516 Flt_EpbSys 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_DcdcEnbl 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_48Volt 2 "Low" 1 "High" 0 "OK" ;
+VAL_ 516 Flt_12Volt 2 "Low" 1 "High" 0 "OK" ;
+VAL_ 516 Flt_LocWhd 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 516 Flt_LocTc 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 516 Flt_LocSbw 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 516 Flt_LocAVAS 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 516 Flt_LocVsc 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 516 Flt_LocEss 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 516 Flt_LocEbcm2 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 516 Flt_LocEbcm1 3 "Stored" 2 "Safety" 1 "Active" 0 "OK" ;
+VAL_ 516 Flt_LocLrr 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_KeypadLight 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_KeypadC 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_Keypad4 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_LocFcmCan 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_ImuRst 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_ImuSns 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_Bay2Pwr12v 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_Bay2MtrPos 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_Bay2Mtr 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_Bay2BeltSns 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_Bay1Pwr12v 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_Bay1MtrPos 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_Bay1Mtr 1 "Fault" 0 "OK" ;
+VAL_ 516 Flt_Bay1BeltSns 1 "Fault" 0 "OK" ;
+VAL_ 514 SBW_RtEndStopReached 1 "True" 0 "False" ;
+VAL_ 514 SBW_LfEndStopReached 1 "True" 0 "False" ;
+VAL_ 514 EstopDetected 1 "ESTOP" 0 "OK" ;
+VAL_ 514 Tether_Connected 1 "Connected" 0 "Disconnected" ;
+VAL_ 514 VehParkRq 1 "Park Request" 0 "No Request" ;
+VAL_ 514 ArbVehSpdValid 1 "Valid" 0 "Invalid" ;
+VAL_ 514 ArbVehSpd 2047 "SNA" 2046 "Fault" ;
+VAL_ 514 GearRq 3 "Fwd" 1 "Rvrs" 0 "Park" 2 "Invalid" ;
+VAL_ 514 GearChangeParkAllow 1 "Allowed" 0 "Not Allowed" ;
+VAL_ 514 TO_Allowed 1 "Allowed" 0 "Not Allowed" ;
+VAL_ 514 LOS_Allowed 1 "Allowed" 0 "Not Allowed" ;
+VAL_ 514 AD_Allowed 1 "Allowed" 0 "Not Allowed" ;
+VAL_ 514 GearChangeDrvRevAllow 1 "Allowed" 0 "Not Allowed" ;
+VAL_ 514 GearAct 3 "Fwd" 2 "Ntrl" 1 "Rvrs" 0 "Park" ;
+VAL_ 514 CrashSns 1 "True" 0 "False" ;
+VAL_ 514 VcuEstopSns 1 "Estop" 0 "OK" ;
+VAL_ 514 VehState 15 "Sleep" 13 "PreTripTest" 12 "Service" 11 "Crash" 10 "Shutdown" 9 "AEB" 8 "TO_Ctrl" 7 "Los_Ctrl" 6 "AD_Ctrl" 5 "Delivery_Mode" 4 "Vendor_Ops" 3 "Standby" 2 "System_Init" 1 "Wakeup" 0 "NA" ;
+VAL_ 1632 WakeHoldStat 3 "N/A" 2 "ShutdownRq" 1 "WakeHold" 0 "Undetermined" ;
+VAL_ 1632 EcuModingStat 7 "EcuSleep" 6 "EcuShutdown" 5 "EcuReady" 4 "EcuFailedInit" 3 "EcuInit" 2 "WakeSourceDet" 1 "EcuWake" 0 "None" ;
+VAL_ 1632 EcuWakeSource 7 "VBatt" 6 "FLASH" 5 "ETH_LIN" 4 "CAN" 3 "CGM_CAN" 2 "CGM_KL15" 1 "Momentary Switch" 0 "Pending" ;
+VAL_ 1632 Hso16Status 4 "OPEN LOAD" 2 "SHORTED" 1 "OVERCURRENT" 0 "NO FAULT" ;
+VAL_ 1632 RaptorWakeSource 113 "ETH+LIN2+CAN5+WAKE_IN" 112 "ETH+LIN2+CAN5" 97 "ETH+LIN2+WAKE_IN" 96 "ETH+LIN2" 81 "ETH+CAN5+WAKE_IN" 80 "ETH+CAN5" 65 "ETH+WAKE_IN" 64 "ETH" 49 "LIN2+CAN5+WAKE_IN" 48 "LIN2+CAN5" 33 "LIN2+WAKE_IN" 32 "LIN2" 17 "CAN5+WAKE_IN" 16 "CAN5" 1 "WAKE_INPUT" 0 "None" ;
+VAL_ 2634009292 Git_SHA8 122 "z" 121 "y" 120 "x" 119 "w" 118 "v" 117 "u" 116 "t" 115 "s" 114 "r" 113 "q" 112 "p" 111 "o" 110 "n" 109 "m" 108 "l" 107 "k" 106 "j" 105 "i" 104 "h" 103 "g" 102 "f" 101 "e" 100 "d" 99 "c" 98 "b" 97 "a" 95 "_" 90 "Z" 89 "Y" 88 "X" 87 "W" 86 "V" 85 "U" 84 "T" 83 "S" 82 "R" 81 "Q" 80 "P" 79 "O" 78 "N" 77 "M" 76 "L" 75 "K" 74 "J" 73 "I" 72 "H" 71 "G" 70 "F" 69 "E" 68 "D" 67 "C" 66 "B" 65 "A" 57 "9" 56 "8" 55 "7" 54 "6" 53 "5" 52 "4" 51 "3" 50 "2" 49 "1" 48 "0" ;
+VAL_ 2634009292 Git_SHA7 122 "z" 121 "y" 120 "x" 119 "w" 118 "v" 117 "u" 116 "t" 115 "s" 114 "r" 113 "q" 112 "p" 111 "o" 110 "n" 109 "m" 108 "l" 107 "k" 106 "j" 105 "i" 104 "h" 103 "g" 102 "f" 101 "e" 100 "d" 99 "c" 98 "b" 97 "a" 95 "_" 90 "Z" 89 "Y" 88 "X" 87 "W" 86 "V" 85 "U" 84 "T" 83 "S" 82 "R" 81 "Q" 80 "P" 79 "O" 78 "N" 77 "M" 76 "L" 75 "K" 74 "J" 73 "I" 72 "H" 71 "G" 70 "F" 69 "E" 68 "D" 67 "C" 66 "B" 65 "A" 57 "9" 56 "8" 55 "7" 54 "6" 53 "5" 52 "4" 51 "3" 50 "2" 49 "1" 48 "0" ;
+VAL_ 2634009292 Git_SHA6 122 "z" 121 "y" 120 "x" 119 "w" 118 "v" 117 "u" 116 "t" 115 "s" 114 "r" 113 "q" 112 "p" 111 "o" 110 "n" 109 "m" 108 "l" 107 "k" 106 "j" 105 "i" 104 "h" 103 "g" 102 "f" 101 "e" 100 "d" 99 "c" 98 "b" 97 "a" 95 "_" 90 "Z" 89 "Y" 88 "X" 87 "W" 86 "V" 85 "U" 84 "T" 83 "S" 82 "R" 81 "Q" 80 "P" 79 "O" 78 "N" 77 "M" 76 "L" 75 "K" 74 "J" 73 "I" 72 "H" 71 "G" 70 "F" 69 "E" 68 "D" 67 "C" 66 "B" 65 "A" 57 "9" 56 "8" 55 "7" 54 "6" 53 "5" 52 "4" 51 "3" 50 "2" 49 "1" 48 "0" ;
+VAL_ 2634009292 Git_SHA5 122 "z" 121 "y" 120 "x" 119 "w" 118 "v" 117 "u" 116 "t" 115 "s" 114 "r" 113 "q" 112 "p" 111 "o" 110 "n" 109 "m" 108 "l" 107 "k" 106 "j" 105 "i" 104 "h" 103 "g" 102 "f" 101 "e" 100 "d" 99 "c" 98 "b" 97 "a" 95 "_" 90 "Z" 89 "Y" 88 "X" 87 "W" 86 "V" 85 "U" 84 "T" 83 "S" 82 "R" 81 "Q" 80 "P" 79 "O" 78 "N" 77 "M" 76 "L" 75 "K" 74 "J" 73 "I" 72 "H" 71 "G" 70 "F" 69 "E" 68 "D" 67 "C" 66 "B" 65 "A" 57 "9" 56 "8" 55 "7" 54 "6" 53 "5" 52 "4" 51 "3" 50 "2" 49 "1" 48 "0" ;
+VAL_ 2634009292 Git_SHA4 122 "z" 121 "y" 120 "x" 119 "w" 118 "v" 117 "u" 116 "t" 115 "s" 114 "r" 113 "q" 112 "p" 111 "o" 110 "n" 109 "m" 108 "l" 107 "k" 106 "j" 105 "i" 104 "h" 103 "g" 102 "f" 101 "e" 100 "d" 99 "c" 98 "b" 97 "a" 95 "_" 90 "Z" 89 "Y" 88 "X" 87 "W" 86 "V" 85 "U" 84 "T" 83 "S" 82 "R" 81 "Q" 80 "P" 79 "O" 78 "N" 77 "M" 76 "L" 75 "K" 74 "J" 73 "I" 72 "H" 71 "G" 70 "F" 69 "E" 68 "D" 67 "C" 66 "B" 65 "A" 57 "9" 56 "8" 55 "7" 54 "6" 53 "5" 52 "4" 51 "3" 50 "2" 49 "1" 48 "0" ;
+VAL_ 2634009292 Git_SHA3 122 "z" 121 "y" 120 "x" 119 "w" 118 "v" 117 "u" 116 "t" 115 "s" 114 "r" 113 "q" 112 "p" 111 "o" 110 "n" 109 "m" 108 "l" 107 "k" 106 "j" 105 "i" 104 "h" 103 "g" 102 "f" 101 "e" 100 "d" 99 "c" 98 "b" 97 "a" 95 "_" 90 "Z" 89 "Y" 88 "X" 87 "W" 86 "V" 85 "U" 84 "T" 83 "S" 82 "R" 81 "Q" 80 "P" 79 "O" 78 "N" 77 "M" 76 "L" 75 "K" 74 "J" 73 "I" 72 "H" 71 "G" 70 "F" 69 "E" 68 "D" 67 "C" 66 "B" 65 "A" 57 "9" 56 "8" 55 "7" 54 "6" 53 "5" 52 "4" 51 "3" 50 "2" 49 "1" 48 "0" ;
+VAL_ 2634009292 Git_SHA2 122 "z" 121 "y" 120 "x" 119 "w" 118 "v" 117 "u" 116 "t" 115 "s" 114 "r" 113 "q" 112 "p" 111 "o" 110 "n" 109 "m" 108 "l" 107 "k" 106 "j" 105 "i" 104 "h" 103 "g" 102 "f" 101 "e" 100 "d" 99 "c" 98 "b" 97 "a" 95 "_" 90 "Z" 89 "Y" 88 "X" 87 "W" 86 "V" 85 "U" 84 "T" 83 "S" 82 "R" 81 "Q" 80 "P" 79 "O" 78 "N" 77 "M" 76 "L" 75 "K" 74 "J" 73 "I" 72 "H" 71 "G" 70 "F" 69 "E" 68 "D" 67 "C" 66 "B" 65 "A" 57 "9" 56 "8" 55 "7" 54 "6" 53 "5" 52 "4" 51 "3" 50 "2" 49 "1" 48 "0" ;
+VAL_ 2634009292 Git_SHA1 122 "z" 121 "y" 120 "x" 119 "w" 118 "v" 117 "u" 116 "t" 115 "s" 114 "r" 113 "q" 112 "p" 111 "o" 110 "n" 109 "m" 108 "l" 107 "k" 106 "j" 105 "i" 104 "h" 103 "g" 102 "f" 101 "e" 100 "d" 99 "c" 98 "b" 97 "a" 95 "_" 90 "Z" 89 "Y" 88 "X" 87 "W" 86 "V" 85 "U" 84 "T" 83 "S" 82 "R" 81 "Q" 80 "P" 79 "O" 78 "N" 77 "M" 76 "L" 75 "K" 74 "J" 73 "I" 72 "H" 71 "G" 70 "F" 69 "E" 68 "D" 67 "C" 66 "B" 65 "A" 57 "9" 56 "8" 55 "7" 54 "6" 53 "5" 52 "4" 51 "3" 50 "2" 49 "1" 48 "0" ;
+VAL_ 2634005196 VehId_Char8 32 " " 122 "z" 121 "y" 120 "x" 119 "w" 118 "v" 117 "u" 116 "t" 115 "s" 114 "r" 113 "q" 112 "p" 111 "o" 110 "n" 109 "m" 108 "l" 107 "k" 106 "j" 105 "i" 104 "h" 103 "g" 102 "f" 101 "e" 100 "d" 99 "c" 98 "b" 97 "a" 95 "_" 90 "Z" 89 "Y" 88 "X" 87 "W" 86 "V" 85 "U" 84 "T" 83 "S" 82 "R" 81 "Q" 80 "P" 79 "O" 78 "N" 77 "M" 76 "L" 75 "K" 74 "J" 73 "I" 72 "H" 71 "G" 70 "F" 69 "E" 68 "D" 67 "C" 66 "B" 65 "A" 57 "9" 56 "8" 55 "7" 54 "6" 53 "5" 52 "4" 51 "3" 50 "2" 49 "1" 48 "0" ;
+VAL_ 2634005196 VehId_Char7 32 " " 122 "z" 121 "y" 120 "x" 119 "w" 118 "v" 117 "u" 116 "t" 115 "s" 114 "r" 113 "q" 112 "p" 111 "o" 110 "n" 109 "m" 108 "l" 107 "k" 106 "j" 105 "i" 104 "h" 103 "g" 102 "f" 101 "e" 100 "d" 99 "c" 98 "b" 97 "a" 95 "_" 90 "Z" 89 "Y" 88 "X" 87 "W" 86 "V" 85 "U" 84 "T" 83 "S" 82 "R" 81 "Q" 80 "P" 79 "O" 78 "N" 77 "M" 76 "L" 75 "K" 74 "J" 73 "I" 72 "H" 71 "G" 70 "F" 69 "E" 68 "D" 67 "C" 66 "B" 65 "A" 57 "9" 56 "8" 55 "7" 54 "6" 53 "5" 52 "4" 51 "3" 50 "2" 49 "1" 48 "0" ;
+VAL_ 2634005196 VehId_Char6 32 " " 122 "z" 121 "y" 120 "x" 119 "w" 118 "v" 117 "u" 116 "t" 115 "s" 114 "r" 113 "q" 112 "p" 111 "o" 110 "n" 109 "m" 108 "l" 107 "k" 106 "j" 105 "i" 104 "h" 103 "g" 102 "f" 101 "e" 100 "d" 99 "c" 98 "b" 97 "a" 95 "_" 90 "Z" 89 "Y" 88 "X" 87 "W" 86 "V" 85 "U" 84 "T" 83 "S" 82 "R" 81 "Q" 80 "P" 79 "O" 78 "N" 77 "M" 76 "L" 75 "K" 74 "J" 73 "I" 72 "H" 71 "G" 70 "F" 69 "E" 68 "D" 67 "C" 66 "B" 65 "A" 57 "9" 56 "8" 55 "7" 54 "6" 53 "5" 52 "4" 51 "3" 50 "2" 49 "1" 48 "0" ;
+VAL_ 2634005196 VehId_Char5 32 " " 122 "z" 121 "y" 120 "x" 119 "w" 118 "v" 117 "u" 116 "t" 115 "s" 114 "r" 113 "q" 112 "p" 111 "o" 110 "n" 109 "m" 108 "l" 107 "k" 106 "j" 105 "i" 104 "h" 103 "g" 102 "f" 101 "e" 100 "d" 99 "c" 98 "b" 97 "a" 95 "_" 90 "Z" 89 "Y" 88 "X" 87 "W" 86 "V" 85 "U" 84 "T" 83 "S" 82 "R" 81 "Q" 80 "P" 79 "O" 78 "N" 77 "M" 76 "L" 75 "K" 74 "J" 73 "I" 72 "H" 71 "G" 70 "F" 69 "E" 68 "D" 67 "C" 66 "B" 65 "A" 57 "9" 56 "8" 55 "7" 54 "6" 53 "5" 52 "4" 51 "3" 50 "2" 49 "1" 48 "0" ;
+VAL_ 2634005196 VehId_Char4 32 " " 122 "z" 121 "y" 120 "x" 119 "w" 118 "v" 117 "u" 116 "t" 115 "s" 114 "r" 113 "q" 112 "p" 111 "o" 110 "n" 109 "m" 108 "l" 107 "k" 106 "j" 105 "i" 104 "h" 103 "g" 102 "f" 101 "e" 100 "d" 99 "c" 98 "b" 97 "a" 95 "_" 90 "Z" 89 "Y" 88 "X" 87 "W" 86 "V" 85 "U" 84 "T" 83 "S" 82 "R" 81 "Q" 80 "P" 79 "O" 78 "N" 77 "M" 76 "L" 75 "K" 74 "J" 73 "I" 72 "H" 71 "G" 70 "F" 69 "E" 68 "D" 67 "C" 66 "B" 65 "A" 57 "9" 56 "8" 55 "7" 54 "6" 53 "5" 52 "4" 51 "3" 50 "2" 49 "1" 48 "0" ;
+VAL_ 2634005196 VehId_Char3 32 " " 122 "z" 121 "y" 120 "x" 119 "w" 118 "v" 117 "u" 116 "t" 115 "s" 114 "r" 113 "q" 112 "p" 111 "o" 110 "n" 109 "m" 108 "l" 107 "k" 106 "j" 105 "i" 104 "h" 103 "g" 102 "f" 101 "e" 100 "d" 99 "c" 98 "b" 97 "a" 95 "_" 90 "Z" 89 "Y" 88 "X" 87 "W" 86 "V" 85 "U" 84 "T" 83 "S" 82 "R" 81 "Q" 80 "P" 79 "O" 78 "N" 77 "M" 76 "L" 75 "K" 74 "J" 73 "I" 72 "H" 71 "G" 70 "F" 69 "E" 68 "D" 67 "C" 66 "B" 65 "A" 57 "9" 56 "8" 55 "7" 54 "6" 53 "5" 52 "4" 51 "3" 50 "2" 49 "1" 48 "0" ;
+VAL_ 2634005196 VehId_Char2 32 " " 122 "z" 121 "y" 120 "x" 119 "w" 118 "v" 117 "u" 116 "t" 115 "s" 114 "r" 113 "q" 112 "p" 111 "o" 110 "n" 109 "m" 108 "l" 107 "k" 106 "j" 105 "i" 104 "h" 103 "g" 102 "f" 101 "e" 100 "d" 99 "c" 98 "b" 97 "a" 95 "_" 90 "Z" 89 "Y" 88 "X" 87 "W" 86 "V" 85 "U" 84 "T" 83 "S" 82 "R" 81 "Q" 80 "P" 79 "O" 78 "N" 77 "M" 76 "L" 75 "K" 74 "J" 73 "I" 72 "H" 71 "G" 70 "F" 69 "E" 68 "D" 67 "C" 66 "B" 65 "A" 57 "9" 56 "8" 55 "7" 54 "6" 53 "5" 52 "4" 51 "3" 50 "2" 49 "1" 48 "0" ;
+VAL_ 2634005196 VehId_Char1 32 " " 122 "z" 121 "y" 120 "x" 119 "w" 118 "v" 117 "u" 116 "t" 115 "s" 114 "r" 113 "q" 112 "p" 111 "o" 110 "n" 109 "m" 108 "l" 107 "k" 106 "j" 105 "i" 104 "h" 103 "g" 102 "f" 101 "e" 100 "d" 99 "c" 98 "b" 97 "a" 95 "_" 90 "Z" 89 "Y" 88 "X" 87 "W" 86 "V" 85 "U" 84 "T" 83 "S" 82 "R" 81 "Q" 80 "P" 79 "O" 78 "N" 77 "M" 76 "L" 75 "K" 74 "J" 73 "I" 72 "H" 71 "G" 70 "F" 69 "E" 68 "D" 67 "C" 66 "B" 65 "A" 57 "9" 56 "8" 55 "7" 54 "6" 53 "5" 52 "4" 51 "3" 50 "2" 49 "1" 48 "0" ;
+VAL_ 2634009804 SwStat 1 "Released" 0 "Development" ;
+VAL_ 666 MsgCntr 21 "Fault" ;
+VAL_ 666 CtrlMode 5 "Angle - Gain 5" 4 "Angle - Gain 4" 3 "Angle - Gain 3" 2 "Angle - Gain 2" 1 "Duty Cycle" 0 "Local" ;
+VAL_ 658 ProtectActive 1 "True" 0 "False" ;
+VAL_ 658 RemModeActive 1 "True" 0 "False" ;
+VAL_ 658 RightStopLmt 1 "True" 0 "False" ;
+VAL_ 658 OverTemp 1 "True" 0 "False" ;
+VAL_ 658 LeftStopLmt 1 "True" 0 "False" ;
+VAL_ 658 RS232Mode 1 "False" 0 "True" ;
+VAL_ 658 MtrAdjust 3 "SNA" 2 "CCW" 1 "CW" 0 "Idle" ;
+VAL_ 658 HostMode 1 "False" 0 "True" ;
+VAL_ 658 FaultLight 1 "Fault" 0 "OK" ;
+VAL_ 658 FltCode 0 "OK" 111 "Internal Error" 110 "Flt_OverTmpr" 109 "Flt_OverCurr" 108 "Flt_ClutchCurrHigh" 107 "Flt_ClutchOpen" 106 "Flt_MtrCurrHigh" 105 "Flt_MtrCurrLow" 104 "Flt_MtrPwrHigh" 103 "Flt_CurrSnsr" 102 "Flt_TrqSnsr" 101 "Flt_TrqSnsrOpen" 100 "Flt_UnderVolt" ;
+VAL_ 659 MsgCntr 21 "Fault" ;
+VAL_ 123 EbdActv 1 "EBD Active" 0 "EBD not active" ;
+VAL_ 123 EscAvail 2 "Level_2" 1 "Level_1" 0 "Not Avail" ;
+VAL_ 123 TcsAvail 1 "Available" 0 "Not Avail" ;
+VAL_ 123 AbsAvail 1 "Available" 0 "Not Avail" ;
+VAL_ 123 TcsActv 1 "True" 0 "False" ;
+VAL_ 123 EscActv 1 "True" 0 "False" ;
+VAL_ 123 AebRdy 1 "True" 0 "False" ;
+VAL_ 123 AbsActv 1 "True" 0 "False" ;
+VAL_ 123 VehSpdEbcm 2047 "SNA" 2046 "Fault" ;
+VAL_ 123 ToShtdwn 4 "True" 3 "Pend_20s" 2 "Pend_10s" 1 "Pend_1s" 0 "False" ;
+VAL_ 123 HoldStat 3 "PlusControl" 2 "Release" 1 "Controlled" 0 "No_Hold_Requested" ;
+VAL_ 116 EpbCalCmd 1 "Start EPB Calibration" 0 "Normal Operation" ;
+VAL_ 116 EbcmMaintModeRq 1 "True" 0 "False" ;
+VAL_ 116 DsblTCS 1 "Disable TCS" 0 "Enable TCS" ;
+VAL_ 116 EbcmShtdwnRq 1 "True" 0 "False" ;
+VAL_ 116 EPBCmd 3 "Fully Release" 2 "Disengage" 1 "Engage" 0 "Idle" ;
+VAL_ 116 BrkTrqRq 65535 "VehSafeTest" ;
+SIG_GROUP_ 104 mWhdWarn 1 : MsgCntr W_TORQUE_LIMIT W_MOTOR_OVERSPEED W_FLYING_START W_CPU_FAULT W_CAN_SEND_ERROR W_CAN_OVERFLOW W_INV06_FAULT W_INV05_FAULT W_INV04_FAULT W_INV03_FAULT W_INV02_FAULT W_INV01_FAULT W_UNDERVOLTAGE W_OVERVOLTAGE W_INV06_OVERCURRENT W_INV05_OVERCURRENT W_INV04_OVERCURRENT W_INV03_OVERCURRENT W_INV02_OVERCURRENT W_INV01_OVERCURRENT W_DCLINK_COMM W_WINDING_TEMP W_DCLINK_TEMP W_CPU_TEMP W_INV06_TEMP W_INV05_TEMP W_INV04_TEMP W_INV03_TEMP W_INV02_TEMP W_INV01_TEMP W_POSSENSOR W_TEMP_SENSOR W_MOTOR_STALLED;
+SIG_GROUP_ 102 mWhdStat3 1 : WhdCurr_Ph2C WhdCurr_Ph2B WhdCurr_Ph2A WhdCurr_Ph1C WhdCurr_Ph1B WhdCurr_Ph1A WhdAngle;
+SIG_GROUP_ 101 mWhdStat2 1 : WhdShtdwnRdy WhdRdy MsgCntr TrqLmt_Volt HwWakeStat WhdState LvVolt TrqLmt_InvTmpr TrqLmt_Pwr TrqLmt_SpdSlew TrqLmt_TrqSlew InvTmpr MtrTmpr TrqAvailRegen TrqLmt_MtrSpd TrqLmt_MtrTmpr TrqLmt_Design TrqAvailMtr;
+SIG_GROUP_ 100 mWhdStat 1 : MsgCntr MsgCrc TrqEnblStat HwEnblStat MtrSpd MtrTrqEst MvCurrEst MvVolt;
+SIG_GROUP_ 19 mWhdCtrl2 1 : WhdShtdwnRq MsgCrc TrqLmtRegen TrqLmtMtr MsgCntr ClearFltRq VoltLmtMin VoltLmtMax CurrLmtRegen CurrLmtMtr;
+SIG_GROUP_ 773 mEpbStat_EpbStat 1 : Flt_StallEngaged SwStat SwRev SwMin SwMaj Flt_EpbOpenCircuit Flt_EpbMtrCurrent Flt_EpbIC Flt_EpbGndShort Flt_EpbBattShort Flt_StallDisengaged Flt_mBrkCtrl EpbStat Flt_Epb MsgCntr EPB_Current MsgCrc;
+SIG_GROUP_ 656 mSbwStat 1 : TrqSnsIn_1C TrqSnsIn InvTmpr SwitchStat LvVolt MtrCurr MtrDcStat MtrTrqEst;
+SIG_GROUP_ 667 mSbwCtrl_Allied 1 : EstopReq CommandVariable2 CommandVariable1 CommandMode MsgCrc MsgCntr ClearFaults;
+SIG_GROUP_ 664 mSbwPosition 1 : RawPosition RightStopLmt MsgCrc MsgCntr LeftStopLmt Position;
+SIG_GROUP_ 663 mSbwFaults 1 : Flt_VehicleSpd Flt_RotEnc FLT_Temp Warn_Temp Flt_TrqLinearity Flt_TrqRange Flt_ErrorCurrent FltBattLow Flt_mSbwCtrl Flt_BlockData Flt_BootCnt Flt_MfgCRC Flt_CfgCRC Flt_BattHigh Flt_AppCRC Flt_SASRng Flt_DrvWtch Flt_DrvSPI Flt_GateDrv Flt_RotEncVar Flt_RotEncBits Flt_EEPROM MsgCrc MsgCntr;
+SIG_GROUP_ 2566819238 VEP2_BMS2 1 : MvVoltAux;
+SIG_GROUP_ 2566850726 STATUS_BMS2 1 : STATUS_Runmode_F3;
+SIG_GROUP_ 2365559974 mCurrAvailPeak_BMS2 1 : CurrAvailChrgPeak CurrAvailDschrgPeak;
+SIG_GROUP_ 2364552870 HVESSS2_BMS2 1 : LmtDschrg_Volt LmtDschrg_Tmpr LmtDschrg_Tbd LmtDschrg_Soc LmtDschrg_Diag LmtDschrg_Curr LmtChrg_Volt LmtChrg_Tmpr LmtChrg_Tbd LmtChrg_Soc LmtChrg_Diag LmtChrg_Curr;
+SIG_GROUP_ 2364577446 HVESSS1_BMS2 1 : MsgCrc MsgCntr IntChrgrStat InertSwStat BattSocStat BattCntctrPcStat BattCntctrPos HvIsoStatPassive OpStat BattRdyCount BattCntctrNeg HvilStat BattCntctrStat CellBalActive CellBalStat BattDiscWarn BattEnblStat HvIsoStatActive;
+SIG_GROUP_ 2364607398 HVESSD9_BMS2 1 : ThrmlEventDetect CellTmprMinIdCell CellTmprMaxIdCell CellTmprMinIdMod CellTmprMaxIdMod;
+SIG_GROUP_ 2364607142 HVESSD8_BMS2 1 : CellVoltMinIdCell CellVoltMaxIdCell CellVoltMinIdMod CellVoltMaxIdMod CellVoltAvg;
+SIG_GROUP_ 2364580006 HVESSD7_BMS2 1 : ChrgVoltMax EnrgyAvailDschrg EnrgyAvailChrg;
+SIG_GROUP_ 2364577190 HVESSD6_BMS2 1 : BattTmpr ElecTmpr MvVoltBus;
+SIG_GROUP_ 2364576934 HVESSD5_BMS2 1 : CurrAvailChrg CellSocMin CellSocMax CurrAvailDschrg;
+SIG_GROUP_ 2364576678 HVESSD4_BMS2 1 : CapacAvailDschrg CapacAvailChrg CellBalCount;
+SIG_GROUP_ 2364576422 HVESSD3_BMS2 1 : CellTmprDeltaStat CellTmprMin CellTmprMax CellTmprAvg;
+SIG_GROUP_ 2364576166 HVESSD2_BMS2 1 : CellVoltDeltaStat BattSocFast CellVoltMin CellVoltMax;
+SIG_GROUP_ 2364607654 HVESSD10_BMS2 1 : HvIsoResistPassive HvIsoResistActive CellSocMinIdMod CellSocMinIdCell CellSocMaxIdMod CellSocMaxIdCell;
+SIG_GROUP_ 2364575910 HVESSD1_BMS2 1 : PwrAvailChrg PwrAvailDischrg MvCurrBatt MvVoltBatt;
+SIG_GROUP_ 2350622457 mHVESSC1_BMS2 1 : ThrmlMgmtRq PwrDownCmd HvResistLowRq HvResistHighRq HvIsoPassiveRq HvIsoActiveRq EnblIntChrgrRq CellBalRq EnblConsent MsgCrc MsgCntr EnblRq;
+SIG_GROUP_ 2365512102 AUXIO_BMS2 1 : AUX_08 AUX_07 AUX_06 AUX_05 AUX_04_LPR AUX_03 AUX_02 AUX_01_HPR;
+SIG_GROUP_ 2364552947 HVESSS2 1 : LmtDschrg_Volt LmtDschrg_Tmpr LmtDschrg_Tbd LmtDschrg_Soc LmtDschrg_Diag LmtDschrg_Curr LmtChrg_Volt LmtChrg_Tmpr LmtChrg_Tbd LmtChrg_Soc LmtChrg_Diag LmtChrg_Curr;
+SIG_GROUP_ 2566819315 VEP2 1 : MvVoltAux;
+SIG_GROUP_ 2364607731 HVESSD10 1 : HvIsoResistPassive HvIsoResistActive CellSocMinIdMod CellSocMinIdCell CellSocMaxIdMod CellSocMaxIdCell;
+SIG_GROUP_ 2566850803 STATUS 1 : STATUS_Runmode_F3;
+SIG_GROUP_ 2350642169 mHVESSC1 1 : ThrmlMgmtRq PwrDownCmd HvResistLowRq HvResistHighRq HvIsoPassiveRq HvIsoActiveRq EnblIntChrgrRq CellBalRq EnblConsent MsgCrc MsgCntr EnblRq;
+SIG_GROUP_ 2364577523 HVESSS1 1 : MsgCrc MsgCntr IntChrgrStat InertSwStat BattSocStat HvIsoStatPassive BattCntctrPos BattCntctrPcStat OpStat BattRdyCount BattCntctrNeg HvilStat BattCntctrStat CellBalActive CellBalStat BattDiscWarn BattEnblStat HvIsoStatActive;
+SIG_GROUP_ 2364607475 HVESSD9 1 : ThrmlEventDetect CellTmprMinIdCell CellTmprMaxIdCell CellTmprMinIdMod CellTmprMaxIdMod;
+SIG_GROUP_ 2364607219 HVESSD8 1 : CellVoltMinIdCell CellVoltMaxIdCell CellVoltMinIdMod CellVoltMaxIdMod CellVoltAvg;
+SIG_GROUP_ 2364580083 HVESSD7 1 : ChrgVoltMax EnrgyAvailDschrg EnrgyAvailChrg;
+SIG_GROUP_ 2364577267 HVESSD6 1 : BattTmpr ElecTmpr MvVoltBus;
+SIG_GROUP_ 2364577011 HVESSD5 1 : CurrAvailChrg CellSocMin CellSocMax CurrAvailDschrg;
+SIG_GROUP_ 2364576755 HVESSD4 1 : CapacAvailDschrg CapacAvailChrg CellBalCount;
+SIG_GROUP_ 521 mVehState3 1 : TargetVehSpd_mps ROI AebSrc Aeb_Active MsgCrc MsgCntr ArbVehSpd_mps_Valid ArbVehSpd_mps;
+SIG_GROUP_ 520 mVehState2 1 : maxAccelAvail ActGndWhlAng maxDecelAvail MsgCntr MsgCrc maxSpeedAllowed;
+SIG_GROUP_ 103 mWhdFaults 1 : SwVerMin SwVerMaj E_INV07_OVERCURRENT MsgCntr E_ENCODER E_CAN_mWhdCtrl2 E_CAN_mWhdCtrl E_INV07_TEMP E_INV08_OVERCURRENT E_INV08_FAULT E_INV07_FAULT E_INV08_TEMP E_INV02_TEMP E_CAN_SAME_ID E_CPU_TEMP E_CPU_FAULT E_CAN_OVERFLOW E_INIT_ERROR E_CAN_TIMEOUT E_CAN_SEND_ERR E_HALL_SECTOR E_INV02_OVERCURRENT E_DCLINK_TEMP E_INV01_TEMP E_DCLINK_COMM E_HALL_SEQUENCE E_INV01_FAULT E_HW_ENABLE E_INV01_OVERCURRENT E_INV03_TEMP E_INV03_OVERCURRENT E_INV02_FAULT E_INV03_FAULT E_INV04_FAULT E_UNDERVOLTAGE E_INV05_FAULT E_INV04_OVERCURRENT E_TEMP_SENSOR E_ZERO_POSITION E_WINDING_TEMP E_INV05_OVERCURRENT E_READING_TIMEOUT E_OVERVOLTAGE E_MOTOR_OVERSPEED E_INV06_OVERCURRENT E_MOTOR_STALLED E_INV06_FAULT E_INV04_TEMP E_INV05_TEMP E_INV06_TEMP E_INVALID_SETTINGS E_POSSENSOR;
+SIG_GROUP_ 18 mWhdCtrl 1 : MtrMode Debug Boot SpdSlewLmt TrqSlewLmt EnblCmd SpdCmd TrqCmd CtrlMode MsgCrc MsgCntr;
+SIG_GROUP_ 257 mWhdMotorBoot 1 : Motor_reserved;
+SIG_GROUP_ 660 mSbwSys_Allied 1 : RightEndStopValue ProgOffset LeftEndStopValue MsgCrc MsgCntr SwVerRev SwVerMin SwVerMaj;
+SIG_GROUP_ 1681 mEbcm2L_SwVer 1 : SwVerStat SwVerRev SwVerMin SwVerMaj;
+SIG_GROUP_ 1680 mEbcm1U_SwVer 1 : SwVerStat SwVerRev SwVerMin SwVerMaj;
+SIG_GROUP_ 525 mVcuGyroAngle 1 : Tilt Pitch GyroXAng GyroYAng;
+SIG_GROUP_ 7 mEbcm2L_BrkTrqEst 1 : MsgCrc MsgCntr BrkTrqEstR BrkTrqEstFR BrkTrqEstFL;
+SIG_GROUP_ 523 mVcuImuLinAccel_Filt 1 : Z_Accel_Filt Y_Accel_Filt X_Accel_Filt MsgCrc MsgCntr;
+SIG_GROUP_ 524 mVcuImuAngVel_Filt 1 : Z_Angular_Rate_Filt Y_Angular_Rate_Filt X_Angular_Rate_Filt MsgCrc MsgCntr;
+SIG_GROUP_ 132 mEbcm2L_diagMsg 1 : Advics_Data7 Advics_Data6 Advics_Data5 Advics_Data4 Advics_Data3 Advics_Data2 Advics_Data1 Advics_Data0;
+SIG_GROUP_ 131 mEbcm1U_diagMsg 1 : Advics_Data7 Advics_Data6 Advics_Data5 Advics_Data4 Advics_Data3 Advics_Data2 Advics_Data1 Advics_Data0;
+SIG_GROUP_ 2684354559 mWhdMotor_discover 1 : Discovery;
+SIG_GROUP_ 256 mWhdGFTBoot 1 : GFT_reserved;
+SIG_GROUP_ 128 mEbcm2L_BrkPress 1 : PrsrRearWCP PrsrFrontWCP MsgCrc MsgCntr PrsrMstrCylValid PrsrMstCyl;
+SIG_GROUP_ 769 mAVASCmd 1 : MsgCrc MsgCntr VehSpdAVAS GearRq_AVAS AVAS_TestMode;
+SIG_GROUP_ 518 mVcuImuAngVel 1 : MsgCrc MsgCntr Y_Angular_Rate X_Angular_Rate Z_Angular_Rate;
+SIG_GROUP_ 517 mVcuImuLinAccel 1 : MsgCrc MsgCntr Z_Accel Y_Accel X_Accel;
+SIG_GROUP_ 122 mEbcm2L_Stat 1 : AutoBrkEngd Flt_mVehState2 Flt_mWhdStat EbcmControllerID Flt_mVcuImuLinAccel Flt_mVcuImuAngVel Flt_mWhdCtrl Flt_ElWhlSpdR Flt_ElWhlSpdFR Flt_ElWhlSpdFL VehMvmt Flt_12vMtr Flt_12vCtrl WakeStat Flt_mVehState EbcmShtdwnRdy EbcmRdy Flt_mBrkCtrl MsgCntr MsgCrc Flt_Hold Flt_Critical MtrTmprEst Warn_MtrTmpr Flt_MtrTmpr BrkFluidLevSns_EBCM2;
+SIG_GROUP_ 115 mEbcm1U_Stat2 1 : ToShtdwn HoldStat MsgCntr MsgCrc LvVolt MtrCurrEst;
+SIG_GROUP_ 125 mEbcm1U_Stat 1 : AutoBrkEngd Flt_mVehState2 Flt_mWhdStat EbcmControllerID Flt_mVcuImuLinAccel Flt_mWhdCtrl Flt_mVcuImuAngVel Flt_12vMtr Flt_12vCtrl WakeStat Flt_mVehState EbcmShtdwnRdy EbcmRdy Flt_mBrkCtrl MsgCntr MsgCrc Flt_Hold Flt_Critical MtrTmprEst Warn_MtrTmpr Flt_MtrTmpr BrkFluidLevSns_EBCM1 Flt_CanWhlSpdR Flt_CanWhlSpdFR Flt_CanWhlSpdFL;
+SIG_GROUP_ 1968 mDiagRq_EBCM2L 1 : Advics_Diag2 Advics_Diag1;
+SIG_GROUP_ 1638 VcuTask1msStat 1 : CpuUtilizationValid MaxUtilizationValid MaxExecTimeValid CpuUtilization MaxUtilization MaxExecTime;
+SIG_GROUP_ 2364576499 HVESSD3 1 : CellTmprDeltaStat CellTmprMin CellTmprMax CellTmprAvg;
+SIG_GROUP_ 2364576243 HVESSD2 1 : CellVoltDeltaStat BattSocFast CellVoltMin CellVoltMax;
+SIG_GROUP_ 2364575987 HVESSD1 1 : MvVoltBatt PwrAvailChrg PwrAvailDischrg MvCurrBatt;
+SIG_GROUP_ 2365512179 AUXIO1 1 : AUX_08 AUX_07 AUX_06 AUX_05 AUX_04_LPR AUX_03 AUX_02 AUX_01_HPR;
+SIG_GROUP_ 2365560051 mCurrAvailPeak 1 : CurrAvailChrgPeak CurrAvailDschrgPeak;
+SIG_GROUP_ 1633 VehDiagPort 1 : MobilityInhibitCode;
+SIG_GROUP_ 2365450241 mVscStat 1 : VscMode VscEstop CtrlMode;
+SIG_GROUP_ 2365450496 mUserValue 1 : ConfigId ConfigValue;
+SIG_GROUP_ 2365446452 mRightJoyStat2 1 : RightZ_Value RightZ_Pos RightZ_Ntrl RightZ_Neg;
+SIG_GROUP_ 2365446196 mRightJoyStat 1 : RightY_Value RightY_Pos RightY_Ntrl RightY_Neg RightX_Value RightX_Pos RightX_Ntrl RightX_Neg Btn_4 Btn_3 Btn_2 Btn_1;
+SIG_GROUP_ 2365445939 mLeftJoyStat2 1 : LeftZ_Value LeftZ_Pos LeftZ_Ntrl LeftZ_Neg;
+SIG_GROUP_ 2365445683 mLeftJoyStat 1 : LeftY_Value LeftY_Pos LeftY_Ntrl LeftY_Neg LeftX_Value LeftX_Pos LeftX_Ntrl LeftX_Neg Btn_Up Btn_Right Btn_Left Btn_Dwn;
+SIG_GROUP_ 2 mEbcm2L_TrqLmts 1 : MsgCrc MsgCntr VehAccelEbcm StopLightRq TrqSlewRq RegBrkTrqRq TrqLmtMtrRq;
+SIG_GROUP_ 129 mEbcm2L_WhlSlip 1 : MsgCrc MsgCntr WhlSlipR WhlSlipFR WhlSlipFL;
+SIG_GROUP_ 124 mEbcm2L_WhlCnt 1 : WhlCntR WhlCntFR WhlCntFL;
+SIG_GROUP_ 127 mEbcm2L_WhlSpd 1 : MsgCrc MsgCntr WhlSpdR WhlSpdFR WhlSpdFL;
+SIG_GROUP_ 1969 mDiagRq_EBCM1U 1 : Advics_Diag2 Advics_Diag1;
+SIG_GROUP_ 1296 mHmiPadStat 1 : VolVoice VolMp3 AudioVoice AudioMp3 KeypadO PadLight PadCodeState KeypadC PadActive Keypad4 Keypad3 Keypad2 Keypad1;
+SIG_GROUP_ 770 mVcuSys 1 : VcuStateShtdwn VcuStateInit MtrTrqLmtDecel MtrTrqLmtAccel AdcuShtdwnRq EstopTest EbcmShtdwnRq MsgCrc MsgCntr;
+SIG_GROUP_ 768 mEbcm2L_EpbStat 1 : Flt_EpbOpenCircuit Flt_EpbMtrCurrent Flt_EpbIC Flt_EpbGndShort Flt_EpbBattShort Flt_Epb MsgCntr EpbStat EPB_Current MsgCrc;
+SIG_GROUP_ 516 mVcuFaults 1 : Flt_LocTo Flt_Bay2Pwr12v Flt_WriteEeprom Flt_ImuSns Flt_LocFcmCan Flt_LocBe Flt_ImuRst Flt_LocEbcm1 Flt_12vSys Flt_Keypad4 Flt_LocVsc Flt_LocAdcu Flt_LocLrr Flt_KeypadC Flt_Bay1BeltSns Flt_Bay1Mtr Flt_Bay1MtrPos Flt_Bay2Mtr Flt_Bay2MtrPos Flt_Bay1Pwr12v Flt_Bay2BeltSns Flt_KeypadLight Flt_BrkSafeSys Flt_LocEbcm2 Flt_SafeCircuit Flt_LocEss Flt_MstrSwitch Flt_LocAVAS Flt_EpbSys Flt_SafeExtLight Flt_SafeProp Flt_WhdEnbl Flt_CntctrStat Flt_BrkPrsr Flt_SbwEnbl Flt_LocSbw Flt_48Volt Flt_12Volt Flt_LocTc Flt_LocWhd Flt_DcdcEnbl Flt_SafeSteer Flt_ReadEeprom Flt_LocEpb Flt_InvalidGearRq;
+SIG_GROUP_ 514 mVehState 1 : SBW_RtEndStopReached SBW_LfEndStopReached Invld_GearRq EstopDetected Tether_Connected VehParkRq ArbVehSpdValid ArbVehSpd GearRq GearChangeParkAllow TO_Allowed LOS_Allowed AD_Allowed GearChangeDrvRevAllow GearAct MsgCrc MsgCntr VehDte LvVolt CrashSns VcuEstopSns VehState;
+SIG_GROUP_ 268 mAVAS_Stat 1 : MsgCrc AVAS_LoC AVAS_E2E_Fault MsgCntr HwMin HwMaj SwMin SwMaj;
+SIG_GROUP_ 1632 mVcuEcuStat 1 : IdleTmr FlashChk LinChk EthChk CanChk MomSwInRaw MprdEnCmd MomSwPress RaptorWakeSource Hso16Status Hso16WakeHoldOutCmd NvmOk SnsrPwrOk DrvpOk VcuLvOk EcuWakeSource EcuModingStat WakeHoldStat;
+SIG_GROUP_ 2365450752 mUserText 1 : UserTextString6 UserTextString5 UserTextString4 UserTextString3 UserTextString2 UserTextString1 UserTextStringSeg UserTextStringKey;
+SIG_GROUP_ 2634009292 mVcuGitSHA 1 : Git_SHA8 Git_SHA7 Git_SHA6 Git_SHA5 Git_SHA4 Git_SHA3 Git_SHA2 Git_SHA1;
+SIG_GROUP_ 2634005196 mVcuVehID 1 : VehId_Char8 VehId_Char7 VehId_Char6 VehId_Char5 VehId_Char4 VehId_Char3 VehId_Char2 VehId_Char1;
+SIG_GROUP_ 2634009804 mVcuSwVer 1 : SwStat SwRev SwMin SwMaj;
+SIG_GROUP_ 666 mSbwCtrl 1 : MsgCrc MsgCntr CtrlMode MtrDcCmd AngleCmd;
+SIG_GROUP_ 658 mSbwStat2 1 : SteerAngle8b ProtectActive RemModeActive RightStopLmt OverTemp LeftStopLmt RS232Mode MtrAdjust HostMode FaultLight FltCode SelectedMap SteerAngle;
+SIG_GROUP_ 659 mSbwStat_Allied 1 : MotorTemp MsgCrc MsgCntr BoardTemp LvVolt MtrCurr;
+SIG_GROUP_ 130 mEbcm1U_BrkPress2 1 : PrsrRearWCP PrsrFrontWCP PrsrEstMstrCylValid MsgCrc MsgCntr PrsrEstMstCyl;
+SIG_GROUP_ 126 mEbcm2L_BrkPress2 1 : MsgCrc MsgCntr PrsrEstRR PrsrEstRL PrsrEstFR PrsrEstFL;
+SIG_GROUP_ 123 mEbcm2L_Stat2 1 : EbdActv MsgCrc EscAvail TcsAvail AbsAvail TcsActv EscActv AebRdy AbsActv VehSpdEbcm ToShtdwn HoldStat MsgCntr LvVolt MtrCurrEst;
+SIG_GROUP_ 116 mBrkCtrl 1 : EpbCalCmd EbcmMaintModeRq RegBrkAvail ClearFltRq DsblTCS EbcmShtdwnRq BrkEnbl_EBCM2L EPBCmd BrkEnbl_EBCM1U BrkTrqRq MsgCrc MsgCntr HoldRq;
+

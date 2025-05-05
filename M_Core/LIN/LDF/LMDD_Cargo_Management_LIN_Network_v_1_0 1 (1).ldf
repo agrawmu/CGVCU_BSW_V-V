@@ -1,0 +1,1139 @@
+/****************************************************************************/
+
+/*                                                                          */
+
+/* Description: LIN Description file created using Vector's LIN File Editor */
+
+/* Created:     04.16.2024                                                  */
+
+/* Author:      Carlos Onofre                                               */
+
+/* Version:     1.0                                                         */
+
+/* Project:     LMDD LIN CARGO NETWORK                                      */
+
+/*                                                                          */
+
+/****************************************************************************/
+
+LIN_description_file;
+LIN_protocol_version = "J2602_1_1.0";
+LIN_language_version = "J2602_3_1.0";
+LIN_speed = 19.23 kbps;
+
+Nodes {
+  Master: LDFMasterNode, 10 ms, 0.1 ms, 48 bits, 40 %;
+  Slaves: CargoBay1_PWE1, CargoBay2_PWE2, CMS_KeyPd_LIN ;
+}
+
+Signals {
+  AutostpAtv_PWE1: 1, 0, LDFMasterNode, CargoBay1_PWE1 ;
+  AutostpAtv_PWE2: 1, 0, LDFMasterNode, CargoBay2_PWE2 ;
+  HallEffctPulsPrsntLF: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  HallEffctPulsPrsntRF: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  InhbWndSwOp_PWE1: 1, 0, LDFMasterNode, CargoBay1_PWE1 ;
+  InhbWndSwOp_PWE2: 1, 0, LDFMasterNode, CargoBay2_PWE2 ;
+  CmbdDrHndlActvLF_PWE1: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  DrAjrSigLF_PWE1Cmd: 1, 0, LDFMasterNode, CargoBay1_PWE1 ;
+  DrAjrSigLF_PWE1Rsp: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  DrLckStatIndLF_PWE1: 1, 0, LDFMasterNode, CargoBay1_PWE1 ;
+  DrvrCmndWndMtnCtlLF_PWE1: 3, 0, LDFMasterNode, CargoBay1_PWE1 ;
+  ExpUpAllwdLF_PWE1: 1, 0, LDFMasterNode, CargoBay1_PWE1 ;
+  IdxCtlActvLF_PWE1Cmd: 1, 0, LDFMasterNode, CargoBay1_PWE1 ;
+  IdxCtlActvLF_PWE1Rsp: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  LoclCmndWndCtlLF_PWE1: 3, 0, CargoBay1_PWE1, LDFMasterNode ;
+  WndPstnStsLF_PWE1: 3, 0, CargoBay1_PWE1, LDFMasterNode ;
+  ObstclDtdLF: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  PsngrWndLckoutLF_PWE1: 1, 0, LDFMasterNode, CargoBay1_PWE1 ;
+  WndSwArbdMtnCtlLF_PWE1: 3, 0, CargoBay1_PWE1, LDFMasterNode ;
+  VehCmndWndMtnCtlLF_PWE1: 3, 0, LDFMasterNode, CargoBay1_PWE1 ;
+  WndDnCmdLF_PWE1: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  WndNormzLF_PWE1: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  WndUpCmdLF_PWE1: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  MtrDnLF_PWE1: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  MtrDnRF_PWE2: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  MtrUpLF_PWE1: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  MtrUpRF_PWE2: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  OutsdAirTempZn_PWE1: 3, 0, LDFMasterNode, CargoBay1_PWE1 ;
+  OutsdAirTempZn_PWE2: 3, 0, LDFMasterNode, CargoBay2_PWE2 ;
+  PWE01APINFO0_12: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  PWE01APINFO1_12: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  PWE01APINFO2_12: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  PWE01APINFO3_12: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  PWE01APINFO4_12: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  PWE01J2602Error_12: 3, 0, CargoBay1_PWE1, LDFMasterNode ;
+  PWE02APINFO0_19: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  PWE02APINFO1_19: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  PWE02APINFO2_19: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  PWE02APINFO3_19: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  PWE02APINFO4_19: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  PWE02J2602Error_19: 3, 0, CargoBay2_PWE2, LDFMasterNode ;
+  CmbdDrHndlActvRF_PWE2: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  DrAjrSigRF_PWE2Cmd: 1, 0, LDFMasterNode, CargoBay2_PWE2 ;
+  DrAjrSigRF_PWE2Rsp: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  DrLckStatIndRF_PWE2: 1, 0, LDFMasterNode, CargoBay2_PWE2 ;
+  DrvrCmndWndMtnCtlRF_PWE2: 3, 0, LDFMasterNode, CargoBay2_PWE2 ;
+  ExpUpAllwdRF_PWE2: 1, 0, LDFMasterNode, CargoBay2_PWE2 ;
+  IdxCtlActvRF_PWE2Cmd: 1, 0, LDFMasterNode, CargoBay2_PWE2 ;
+  IdxCtlActvRF_PWE2Rsp: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  LoclCmndWndCtlRF_PWE2: 3, 0, CargoBay2_PWE2, LDFMasterNode ;
+  WndPstnStsRF_PWE2: 3, 0, CargoBay2_PWE2, LDFMasterNode ;
+  ObstclDtdRF: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  PsngrWndLckoutRF_PWE2: 1, 0, LDFMasterNode, CargoBay2_PWE2 ;
+  WndSwArbdMtnCtlRF_PWE2: 3, 0, CargoBay2_PWE2, LDFMasterNode ;
+  VehCmndWndMtnCtlRF_PWE2: 3, 0, LDFMasterNode, CargoBay2_PWE2 ;
+  WndDnCmdRF_PWE2: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  WndNormzRF_PWE2: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  WndUpCmdRF_PWE2: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  SnsSysFltActvLF_PWE1: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  SnsSysFltActvRF_PWE2: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  UnfltWndCfClsVisFbkRqLF: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  UnfltWndCfClsVisFbkRqRF: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  UnfltWndUnscflCfClsFbkHnRqLF: 2, 0, CargoBay1_PWE1, LDFMasterNode ;
+  UnfltWndUnscflCfClsFbkHnRqRF: 2, 0, CargoBay2_PWE2, LDFMasterNode ;
+  VehSpdZn_PWE1: 3, 0, LDFMasterNode, CargoBay1_PWE1 ;
+  VehSpdZn_PWE2: 3, 0, LDFMasterNode, CargoBay2_PWE2 ;
+  WndHiEffrtActvLF_PWE1: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  WndHiEffrtActvRF_PWE2: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  WndMtrRlyFltActvLF_PWE1: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  WndMtrRlyFltActvRF_PWE2: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  WndMtrRvrsActvLF: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  WndMtrRvrsActvRF: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  WndMtrThrmlPrtctnActvLF_PWE1: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  WndMtrThrmlPrtctnActvRF_PWE2: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  WndAndSnrfObsDtEnbld_PWE1: 1, 0, LDFMasterNode, CargoBay1_PWE1 ;
+  WndAndSnrfObsDtEnbld_PWE2: 1, 0, LDFMasterNode, CargoBay2_PWE2 ;
+  WndAndSnrfOpEnbld_PWE1: 1, 1, LDFMasterNode, CargoBay1_PWE1 ;
+  WndAndSnrfOpEnbld_PWE2: 1, 1, LDFMasterNode, CargoBay2_PWE2 ;
+  WndUndrVltgActvLF_PWE1: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  WndUndrVltgActvRF_PWE2: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  WndSuprUpMtnConfLF_PWE1: 1, 0, LDFMasterNode, CargoBay1_PWE1 ;
+  WndSuprUpMtnConfRF_PWE2: 1, 0, LDFMasterNode, CargoBay2_PWE2 ;
+  WndNormzDsbld_PWE1: 1, 0, LDFMasterNode, CargoBay1_PWE1 ;
+  WndNormzDsbld_PWE2: 1, 0, LDFMasterNode, CargoBay2_PWE2 ;
+  PWE01CfgCmptbltyErrActv: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  PWE01PrtNumRdbk: 32, {0, 0, 0, 0}, CargoBay1_PWE1, LDFMasterNode ;
+  PWE02CfgCmptbltyErrActv: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  PWE02PrtNumRdbk: 32, {0, 0, 0, 0}, CargoBay2_PWE2, LDFMasterNode ;
+  CurrRadioAMFreq_PWE1: 11, 0, LDFMasterNode, CargoBay1_PWE1 ;
+  CurrRadioAMFreq_PWE2: 11, 0, LDFMasterNode, CargoBay2_PWE2 ;
+  PWE01APINFO0_13: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  PWE01APINFO1_13: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  PWE01APINFO2_13: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  PWE01APINFO3_13: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  PWE01APINFO4_13: 1, 0, CargoBay1_PWE1, LDFMasterNode ;
+  PWE01J2602Err_13: 3, 0, CargoBay1_PWE1, LDFMasterNode ;
+  PWE01CalDatPrtNumRdbk: 32, {0, 0, 0, 0}, CargoBay1_PWE1, LDFMasterNode ;
+  PWE02APINFO0_1B: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  PWE02APINFO1_1B: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  PWE02APINFO2_1B: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  PWE02APINFO3_1B: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  PWE02APINFO4_1B: 1, 0, CargoBay2_PWE2, LDFMasterNode ;
+  PWE02J2602Err_1B: 3, 0, CargoBay2_PWE2, LDFMasterNode ;
+  PWE02CalDatPrtNumRdbk: 32, {0, 0, 0, 0}, CargoBay2_PWE2, LDFMasterNode ;
+  KeyPdARC: 2, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  KeyPdAPINFO2: 1, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  KeyPdAPINFO4: 1, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  KeyPdJ2602Error: 3, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  KeyPdBckltSts: 2, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  KeyPdLoclSwActv: 2, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  KeyPdKey1Sts: 2, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  KeyPdKey2Sts: 2, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  KeyPdKey3Sts: 2, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  KeyPdKey4Sts: 2, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  KeyPdKeyOpnSts: 2, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  KeyPdKeyClsSts: 2, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  KeyPdBckltFltSts: 1, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  KeyPdKey1FltSts: 3, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  KeyPdKey2FltSts: 3, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  KeyPdKey3FltSts: 3, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  KeyPdKey4FltSts: 3, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  KeyPdKeyOpnFltSts: 3, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  KeyPdKeyClsFltSts: 3, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  KeyPdBkltIntstyCalRsp: 1, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  KeyPdKeyMatTimeCalRsp: 1, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  KeyPdKeyStckTimeOutCalRsp: 1, 0, CMS_KeyPd_LIN, LDFMasterNode ;
+  CmsKeypdBkltcmd: 1, 0, LDFMasterNode, CMS_KeyPd_LIN ;
+  CmsKeyPdBkltIntstyCal: 8, 0, LDFMasterNode, CMS_KeyPd_LIN ;
+  CmsKeyPdKeyMatTimeCal: 8, 0, LDFMasterNode, CMS_KeyPd_LIN ;
+  CmsKeyPdKeyStckTimeOutCal: 5, 0, LDFMasterNode, CMS_KeyPd_LIN ;
+}
+
+Diagnostic_signals {
+  MasterReqB0: 8, 0 ;
+  MasterReqB1: 8, 0 ;
+  MasterReqB2: 8, 0 ;
+  MasterReqB3: 8, 0 ;
+  MasterReqB4: 8, 0 ;
+  MasterReqB5: 8, 0 ;
+  MasterReqB6: 8, 0 ;
+  MasterReqB7: 8, 0 ;
+  SlaveRespB0: 8, 0 ;
+  SlaveRespB1: 8, 0 ;
+  SlaveRespB2: 8, 0 ;
+  SlaveRespB3: 8, 0 ;
+  SlaveRespB4: 8, 0 ;
+  SlaveRespB5: 8, 0 ;
+  SlaveRespB6: 8, 0 ;
+  SlaveRespB7: 8, 0 ;
+}
+
+
+
+Frames {
+  BCM_LIN3_PWE1_Cmd_MSG: 16, LDFMasterNode, 3 {
+    InhbWndSwOp_PWE1, 0 ;
+    PsngrWndLckoutLF_PWE1, 1 ;
+    DrLckStatIndLF_PWE1, 3 ;
+    WndAndSnrfOpEnbld_PWE1, 4 ;
+    WndAndSnrfObsDtEnbld_PWE1, 5 ;
+    AutostpAtv_PWE1, 6 ;
+    DrAjrSigLF_PWE1Cmd, 7 ;
+    VehCmndWndMtnCtlLF_PWE1, 8 ;
+    IdxCtlActvLF_PWE1Cmd, 11 ;
+    DrvrCmndWndMtnCtlLF_PWE1, 12 ;
+    ExpUpAllwdLF_PWE1, 15 ;
+    OutsdAirTempZn_PWE1, 16 ;
+    VehSpdZn_PWE1, 19 ;
+    WndSuprUpMtnConfLF_PWE1, 2 ;
+    WndNormzDsbld_PWE1, 22 ;
+  }
+  BCM_LIN3_PWE1_Rsp_MSG: 17, CargoBay1_PWE1, 3 {
+    PWE01APINFO0_12, 0 ;
+    PWE01APINFO1_12, 1 ;
+    PWE01APINFO2_12, 2 ;
+    PWE01APINFO3_12, 3 ;
+    PWE01APINFO4_12, 4 ;
+    PWE01J2602Error_12, 5 ;
+    DrAjrSigLF_PWE1Rsp, 8 ;
+    WndNormzLF_PWE1, 9 ;
+    UnfltWndCfClsVisFbkRqLF, 10 ;
+    UnfltWndUnscflCfClsFbkHnRqLF, 11 ;
+    WndPstnStsLF_PWE1, 13 ;
+    WndMtrRlyFltActvLF_PWE1, 17 ;
+    SnsSysFltActvLF_PWE1, 18 ;
+    WndMtrThrmlPrtctnActvLF_PWE1, 19 ;
+    WndHiEffrtActvLF_PWE1, 20 ;
+    WndUndrVltgActvLF_PWE1, 21 ;
+    WndMtrRvrsActvLF, 22 ;
+    PWE01CfgCmptbltyErrActv, 16 ;
+  }
+  BCM_LIN3_PWE1_ServiceDataRsp_MSG: 18, CargoBay1_PWE1, 8 {
+    PWE01APINFO0_12, 0 ;
+    PWE01APINFO1_12, 1 ;
+    PWE01APINFO2_12, 2 ;
+    PWE01APINFO3_12, 3 ;
+    PWE01APINFO4_12, 4 ;
+    PWE01J2602Error_12, 5 ;
+    LoclCmndWndCtlLF_PWE1, 40 ;
+    CmbdDrHndlActvLF_PWE1, 43 ;
+    WndSwArbdMtnCtlLF_PWE1, 44 ;
+    ObstclDtdLF, 47 ;
+    IdxCtlActvLF_PWE1Rsp, 48 ;
+    WndUpCmdLF_PWE1, 49 ;
+    WndDnCmdLF_PWE1, 50 ;
+    MtrUpLF_PWE1, 51 ;
+    MtrDnLF_PWE1, 52 ;
+    HallEffctPulsPrsntLF, 54 ;
+    PWE01PrtNumRdbk, 8 ;
+  }
+  BCM_LIN3_PWE2_Cmd_MSG: 24, LDFMasterNode, 3 {
+    InhbWndSwOp_PWE2, 0 ;
+    PsngrWndLckoutRF_PWE2, 1 ;
+    DrLckStatIndRF_PWE2, 3 ;
+    WndAndSnrfOpEnbld_PWE2, 4 ;
+    WndAndSnrfObsDtEnbld_PWE2, 5 ;
+    AutostpAtv_PWE2, 6 ;
+    DrAjrSigRF_PWE2Cmd, 7 ;
+    VehCmndWndMtnCtlRF_PWE2, 8 ;
+    IdxCtlActvRF_PWE2Cmd, 11 ;
+    DrvrCmndWndMtnCtlRF_PWE2, 12 ;
+    ExpUpAllwdRF_PWE2, 15 ;
+    OutsdAirTempZn_PWE2, 16 ;
+    VehSpdZn_PWE2, 19 ;
+    WndSuprUpMtnConfRF_PWE2, 2 ;
+    WndNormzDsbld_PWE2, 22 ;
+  }
+  BCM_LIN3_PWE2_Rsp_MSG: 25, CargoBay2_PWE2, 3 {
+    PWE02APINFO0_19, 0 ;
+    PWE02APINFO1_19, 1 ;
+    PWE02APINFO2_19, 2 ;
+    PWE02APINFO3_19, 3 ;
+    PWE02APINFO4_19, 4 ;
+    PWE02J2602Error_19, 5 ;
+    DrAjrSigRF_PWE2Rsp, 8 ;
+    WndNormzRF_PWE2, 9 ;
+    UnfltWndCfClsVisFbkRqRF, 10 ;
+    UnfltWndUnscflCfClsFbkHnRqRF, 11 ;
+    WndPstnStsRF_PWE2, 13 ;
+    WndMtrRlyFltActvRF_PWE2, 17 ;
+    SnsSysFltActvRF_PWE2, 18 ;
+    WndMtrThrmlPrtctnActvRF_PWE2, 19 ;
+    WndHiEffrtActvRF_PWE2, 20 ;
+    WndUndrVltgActvRF_PWE2, 21 ;
+    WndMtrRvrsActvRF, 22 ;
+    PWE02CfgCmptbltyErrActv, 16 ;
+  }
+  BCM_LIN3_PWE2_ServiceDataRsp_MSG: 26, CargoBay2_PWE2, 8 {
+    PWE02APINFO0_19, 0 ;
+    PWE02APINFO1_19, 1 ;
+    PWE02APINFO2_19, 2 ;
+    PWE02APINFO3_19, 3 ;
+    PWE02APINFO4_19, 4 ;
+    PWE02J2602Error_19, 5 ;
+    LoclCmndWndCtlRF_PWE2, 40 ;
+    CmbdDrHndlActvRF_PWE2, 43 ;
+    WndSwArbdMtnCtlRF_PWE2, 44 ;
+    ObstclDtdRF, 47 ;
+    IdxCtlActvRF_PWE2Rsp, 48 ;
+    WndUpCmdRF_PWE2, 49 ;
+    WndDnCmdRF_PWE2, 50 ;
+    MtrUpRF_PWE2, 51 ;
+    MtrDnRF_PWE2, 52 ;
+    HallEffctPulsPrsntRF, 54 ;
+    PWE02PrtNumRdbk, 8 ;
+  }
+  BCM_LIN3_PWE1_Cmd2_MSG: 20, LDFMasterNode, 3 {
+    CurrRadioAMFreq_PWE1, 0 ;
+  }
+  BCM_LIN3_PWE2_Cmd2_MSG: 28, LDFMasterNode, 3 {
+    CurrRadioAMFreq_PWE2, 0 ;
+  }
+  BCM_LIN3_PWE1CalPNRsp_MSG: 19, CargoBay1_PWE1, 5 {
+    PWE01APINFO0_13, 0 ;
+    PWE01APINFO1_13, 1 ;
+    PWE01APINFO2_13, 2 ;
+    PWE01APINFO3_13, 3 ;
+    PWE01APINFO4_13, 4 ;
+    PWE01J2602Err_13, 5 ;
+    PWE01CalDatPrtNumRdbk, 8 ;
+  }
+  BCM_LIN3_PWE2CalPNRsp_MSG: 27, CargoBay2_PWE2, 5 {
+    PWE02APINFO0_1B, 0 ;
+    PWE02APINFO1_1B, 1 ;
+    PWE02APINFO2_1B, 2 ;
+    PWE02APINFO3_1B, 3 ;
+    PWE02APINFO4_1B, 4 ;
+    PWE02J2602Err_1B, 5 ;
+    PWE02CalDatPrtNumRdbk, 8 ;
+  }
+  VCU_LIN10_KeyPd_RSP_MSG: 1, CMS_KeyPd_LIN, 6 {
+    KeyPdARC, 0 ;
+    KeyPdAPINFO2, 2 ;
+    KeyPdAPINFO4, 4 ;
+    KeyPdJ2602Error, 5 ;
+    KeyPdBckltSts, 8 ;
+    KeyPdLoclSwActv, 10 ;
+    KeyPdKey1Sts, 12 ;
+    KeyPdKey2Sts, 14 ;
+    KeyPdKey3Sts, 16 ;
+    KeyPdKey4Sts, 18 ;
+    KeyPdKeyOpnSts, 20 ;
+    KeyPdKeyClsSts, 22 ;
+    KeyPdBckltFltSts, 24 ;
+    KeyPdKey1FltSts, 25 ;
+    KeyPdKey2FltSts, 28 ;
+    KeyPdKey3FltSts, 31 ;
+    KeyPdKey4FltSts, 34 ;
+    KeyPdKeyOpnFltSts, 37 ;
+    KeyPdKeyClsFltSts, 40 ;
+  }
+  VCU_LIN10_KeyPd_RSP_CAL: 3, CMS_KeyPd_LIN, 1 {
+    KeyPdBkltIntstyCalRsp, 0 ;
+    KeyPdKeyMatTimeCalRsp, 1 ;
+    KeyPdKeyStckTimeOutCalRsp, 2 ;
+  }
+  VCU_LIN10_KEYPD_CMD_MSG: 0, LDFMasterNode, 1 {
+    CmsKeypdBkltcmd, 0 ;
+  }
+  VCU_LIN10_KEYPAD_CAL_MSG: 2, LDFMasterNode, 3 {
+    CmsKeyPdBkltIntstyCal, 0 ;
+    CmsKeyPdKeyMatTimeCal, 8 ;
+    CmsKeyPdKeyStckTimeOutCal, 16 ;
+  }
+}
+
+
+
+Diagnostic_frames {
+  MasterReq: 0x3c {
+    MasterReqB0, 0 ;
+    MasterReqB1, 8 ;
+    MasterReqB2, 16 ;
+    MasterReqB3, 24 ;
+    MasterReqB4, 32 ;
+    MasterReqB5, 40 ;
+    MasterReqB6, 48 ;
+    MasterReqB7, 56 ;
+  }
+  SlaveResp: 0x3d {
+    SlaveRespB0, 0 ;
+    SlaveRespB1, 8 ;
+    SlaveRespB2, 16 ;
+    SlaveRespB3, 24 ;
+    SlaveRespB4, 32 ;
+    SlaveRespB5, 40 ;
+    SlaveRespB6, 48 ;
+    SlaveRespB7, 56 ;
+  }
+}
+
+Node_attributes {
+  CargoBay1_PWE1{
+    LIN_protocol = "J2602_1_1.0" ;
+    configured_NAD = 0x64 ;
+    product_id = 0x4, 0x5, 6 ;
+    response_error = PWE01J2602Error_12 ;
+    P2_min = 0 ms ;
+    ST_min = 0 ms ;
+    configurable_frames {
+      BCM_LIN3_PWE1_Cmd_MSG = 0x10 ;
+      BCM_LIN3_PWE1_Rsp_MSG = 0x11 ;
+      BCM_LIN3_PWE1_ServiceDataRsp_MSG = 0x12 ;
+      BCM_LIN3_PWE1CalPNRsp_MSG = 0x13 ;
+      BCM_LIN3_PWE1_Cmd2_MSG = 0x14 ;
+    }
+    response_tolerance = 0 % ;
+    wakeup_time = 100 ms;
+    poweron_time = 100 ms;
+  }
+  CargoBay2_PWE2{
+    LIN_protocol = "J2602_1_1.0" ;
+    configured_NAD = 0x66 ;
+    product_id = 0x4, 0x5, 6 ;
+    response_error = PWE02J2602Error_19 ;
+    P2_min = 0 ms ;
+    ST_min = 0 ms ;
+    configurable_frames {
+      BCM_LIN3_PWE2_Cmd_MSG = 0x18 ;
+      BCM_LIN3_PWE2_Rsp_MSG = 0x19 ;
+      BCM_LIN3_PWE2_ServiceDataRsp_MSG = 0x1A ;
+      BCM_LIN3_PWE2CalPNRsp_MSG = 0x1B ;
+      BCM_LIN3_PWE2_Cmd2_MSG = 0x1C ;
+    }
+    response_tolerance = 0 % ;
+    wakeup_time = 100 ms;
+    poweron_time = 100 ms;
+  }
+  CMS_KeyPd_LIN{
+    LIN_protocol = "J2602_1_1.0" ;
+    configured_NAD = 0x60 ;
+    product_id = 0x0, 0x0, 255 ;
+    response_error = KeyPdJ2602Error ;
+    P2_min = 0 ms ;
+    ST_min = 0 ms ;
+    configurable_frames {
+	  VCU_LIN10_KEYPD_CMD_MSG = 0x0 ;
+      VCU_LIN10_KeyPd_RSP_MSG = 0x1 ;
+      VCU_LIN10_KEYPAD_CAL_MSG = 0x2 ;
+	  VCU_LIN10_KeyPd_RSP_CAL = 0x3 ;
+    }
+    response_tolerance = 40 % ;
+    wakeup_time = 100 ms;
+    poweron_time = 100 ms;
+  }
+}
+
+Schedule_tables {
+ FX_Normal {
+    VCU_LIN10_KEYPD_CMD_MSG delay 10 ms ;
+    VCU_LIN10_KeyPd_RSP_MSG delay 10 ms ;
+    BCM_LIN3_PWE1_Cmd_MSG delay 20 ms ;
+    BCM_LIN3_PWE1_Cmd2_MSG delay 20 ms ;
+    BCM_LIN3_PWE1_Rsp_MSG delay 20 ms ;
+    BCM_LIN3_PWE1_ServiceDataRsp_MSG delay 20 ms ;
+    BCM_LIN3_PWE1CalPNRsp_MSG delay 20 ms ;
+    BCM_LIN3_PWE2_Cmd_MSG delay 20 ms ;
+    BCM_LIN3_PWE2_Cmd2_MSG delay 20 ms ;
+    BCM_LIN3_PWE2_Rsp_MSG delay 20 ms ;
+    BCM_LIN3_PWE2_ServiceDataRsp_MSG delay 20 ms ;
+    BCM_LIN3_PWE2CalPNRsp_MSG delay 20 ms ;
+  }
+ MasterDiagnostics {
+    MasterReq delay 10 ms ;
+    SlaveResp delay 10 ms ;
+  }
+ MasterDiagnostics_Request_3C {
+    MasterReq delay 10 ms ;
+    MasterReq delay 10 ms ;
+    MasterReq delay 10 ms ;
+    MasterReq delay 10 ms ;
+    MasterReq delay 10 ms ;
+    MasterReq delay 10 ms ;
+    MasterReq delay 10 ms ;
+    MasterReq delay 10 ms ;
+    MasterReq delay 10 ms ;
+  }
+ MasterDiagnostics_Request_3D {
+    SlaveResp delay 10 ms ;
+  }
+ Key_Pad_Cal {
+    VCU_LIN10_KEYPAD_CAL_MSG delay 10 ms ;
+    VCU_LIN10_KeyPd_RSP_CAL delay 10 ms ;
+  }
+}
+
+
+Signal_encoding_types {
+  AutostpAtv_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  AutostpAtv_CompuMethod_1 {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  CurrRadioAMFreq_PWE1_Encoding {
+    physical_value, 0, 2047, 1, 0 ;
+  }
+  CurrRadioAMFreq_PWE2_Encoding {
+    physical_value, 0, 2047, 1, 0 ;
+  }
+  HallEffctPlsPresLF_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  HallEffctPlsPresRF_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  InhbtCstSwOp_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  InhbtCstSwOp_CompuMethod_1 {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  LFCmbdDrHndlActStat_CompuMethod {
+    logical_value, 0, "INACTIVE" ;
+    logical_value, 1, "ACTIVE" ;
+  }
+  LFDrAjrSig_6C_3_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  LFDrAjrSig_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  LFDrLckStatInd_CompuMethod {
+    logical_value, 0, "LOCKED" ;
+    logical_value, 1, "UNLOCKED" ;
+  }
+  LFDrvCmndMtnCtrl_CompuMethod {
+    logical_value, 0, "No Request" ;
+    logical_value, 1, "Supervised Down" ;
+    logical_value, 2, "Express Down" ;
+    logical_value, 3, "Supervised Up" ;
+    logical_value, 4, "Express Up" ;
+    logical_value, 5, "Express Shorted" ;
+  }
+  LFExpUpAllwd_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  LFIndxCntrlAtv_6C_3_CompuMethod {
+    logical_value, 0, "Return from index" ;
+    logical_value, 1, "Move to Index" ;
+  }
+  LFIndxCntrlAtv_CompuMethod {
+    logical_value, 0, "Return from index" ;
+    logical_value, 1, "Move to Index" ;
+  }
+  LFLclCmndMtnCtrl_6C_3_CompuMethod {
+    logical_value, 0, "No Request" ;
+    logical_value, 1, "Supervised Down" ;
+    logical_value, 2, "Express Down" ;
+    logical_value, 3, "Supervised Up" ;
+    logical_value, 4, "Express Up" ;
+    logical_value, 5, "Express Shorted" ;
+  }
+  LFLclWndPosStat_6C_3_CompuMethod {
+    logical_value, 0, "Denormalized" ;
+    logical_value, 1, "Fully Closed" ;
+    logical_value, 2, "Less Than Position A" ;
+    logical_value, 3, "Position A" ;
+    logical_value, 4, "Greater Than A but less than Position C" ;
+    logical_value, 5, "Position C" ;
+    logical_value, 6, "Greater than Position C but less than Fully open" ;
+    logical_value, 7, "Fully Open" ;
+  }
+  LFObstclDtctd_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  LFPasWndLO_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  LFSwArbMtnCtrl_6C_3_CompuMethod {
+    logical_value, 0, "No Request" ;
+    logical_value, 1, "Supervised Down" ;
+    logical_value, 2, "Express Down" ;
+    logical_value, 3, "Supervised Up" ;
+    logical_value, 4, "Express Up" ;
+  }
+  LFVehCmndWndCtrl_CompuMethod {
+    logical_value, 0, "No Request" ;
+    logical_value, 1, "Supervised Down" ;
+    logical_value, 2, "Express Down" ;
+    logical_value, 3, "Supervised Up" ;
+    logical_value, 4, "Express Up" ;
+    logical_value, 5, "Stop Motion" ;
+  }
+  LFWndDwnCmd_6C_3_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  LFWndNormStat_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  LFWndUpCmd_6C_3_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  MtrDwnLF_6C_3_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  MtrDwnRF_6D_3_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  MtrUpLF_6C_3_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  MtrUpRF_6D_3_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  OtsAirTmpCrValAuth_CompuMethod {
+    physical_value, 0, 7, 1, 0, "count " ;
+  }
+  OtsAirTmpCrValAuth_CompuMethod_1 {
+    physical_value, 0, 7, 1, 0, "count " ;
+  }
+  PWE01APINFO0_13_Encoding {
+    logical_value, 0, "No Communication Continue Requested" ;
+    logical_value, 1, "Communication Continue Requested" ;
+  }
+  PWE01APINFO0_CompuMethod {
+    logical_value, 0, "No Communication Continue Requested" ;
+    logical_value, 1, "Communication Continue Requested" ;
+  }
+  PWE01APINFO1_13_Encoding {
+    logical_value, 0, "No Diagnostic Information" ;
+    logical_value, 1, "Diagnostic Information" ;
+  }
+  PWE01APINFO1_CompuMethod {
+    logical_value, 0, "No Diagnostic Information" ;
+    logical_value, 1, "Diagnostic Information" ;
+  }
+  PWE01APINFO2_13_Encoding {
+    logical_value, 0, "No Application Reset Occurred" ;
+    logical_value, 1, "Application Reset Occurred" ;
+  }
+  PWE01APINFO2_CompuMethod {
+    logical_value, 0, "No Reset" ;
+    logical_value, 1, "Reset" ;
+  }
+  PWE01APINFO3_13_Encoding {
+    logical_value, 0, "Application Configuration Status OK" ;
+    logical_value, 1, "Application Configuration Status not OK" ;
+  }
+  PWE01APINFO3_CompuMethod {
+    logical_value, 0, "Configured" ;
+    logical_value, 1, "Unconfigured" ;
+  }
+  PWE01APINFO4_13_Encoding {
+    logical_value, 0, "No Application Fault Detected" ;
+    logical_value, 1, "Application Fault Detected" ;
+  }
+  PWE01APINFO4_CompuMethod {
+    logical_value, 0, "No Hardware or Software error" ;
+    logical_value, 1, "Hardware or Software error" ;
+  }
+  PWE01CalDatPrtNumRdbk_Encoding {
+    physical_value, 0, 0, 1, 0 ;
+  }
+  PWE01CfgCmptbltyErrActv_Encoding {
+    physical_value, 0, 0, 1, 0 ;
+  }
+  PWE01J2602Err_13_Encoding {
+    logical_value, 0, "No Detected" ;
+    logical_value, 1, "FaultReset" ;
+    logical_value, 2, "Reserved" ;
+    logical_value, 3, "Reserved" ;
+    logical_value, 4, "Tx Bit ErrorChecksum" ;
+    logical_value, 5, "ErrorByte Field" ;
+    logical_value, 6, "Framing ErrorID" ;
+    logical_value, 7, "Parity Error" ;
+  }
+  PWE01J2602Error_CompuMethod {
+    logical_value, 0, "No Detected Fault" ;
+    logical_value, 1, "Reset" ;
+    logical_value, 2, "Reserved" ;
+    logical_value, 3, "Reserved" ;
+    logical_value, 4, "Tx Bit Error" ;
+    logical_value, 5, "Checksum Error" ;
+    logical_value, 6, "Byte Field Framing Error" ;
+    logical_value, 7, "ID Parity Error" ;
+  }
+  PWE01PrtNumRdbk_Encoding {
+    physical_value, 0, 0, 1, 0 ;
+  }
+  PWE02APINFO0_1B_Encoding {
+    logical_value, 0, "New Value Description" ;
+    logical_value, 1, "New Value Description" ;
+  }
+  PWE02APINFO0_CompuMethod {
+    logical_value, 0, "No Communication Continue Requested" ;
+    logical_value, 1, "Communication Continue Requested" ;
+  }
+  PWE02APINFO1_1B_Encoding {
+    logical_value, 0, "New Value Description" ;
+    logical_value, 1, "New Value Description" ;
+  }
+  PWE02APINFO1_CompuMethod {
+    logical_value, 0, "No Diagnostic Information" ;
+    logical_value, 1, "Diagnostic Information" ;
+  }
+  PWE02APINFO2_1B_Encoding {
+    logical_value, 0, "New Value Description" ;
+    logical_value, 1, "New Value Description" ;
+  }
+  PWE02APINFO2_CompuMethod {
+    logical_value, 0, "No Reset" ;
+    logical_value, 1, "Reset" ;
+  }
+  PWE02APINFO3_1B_Encoding {
+    logical_value, 0, "New Value Description" ;
+    logical_value, 1, "New Value Description" ;
+  }
+  PWE02APINFO3_CompuMethod {
+    logical_value, 0, "Configured" ;
+    logical_value, 1, "Unconfigured" ;
+  }
+  PWE02APINFO4_1B_Encoding {
+    logical_value, 0, "New Value Description" ;
+    logical_value, 1, "New Value Description" ;
+  }
+  PWE02APINFO4_CompuMethod {
+    logical_value, 0, "No Hardware or Software error" ;
+    logical_value, 1, "Hardware or Software error" ;
+  }
+  PWE02CalDatPrtNumRdbk_Encoding {
+    physical_value, 0, 0, 1, 0 ;
+  }
+  PWE02CfgCmptbltyErrActv_Encoding {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  PWE02J2602Err_1B_Encoding {
+    logical_value, 0, "New Value Description" ;
+    logical_value, 1, "New Value Description" ;
+    logical_value, 2, "New Value Description" ;
+    logical_value, 3, "New Value Description" ;
+    logical_value, 4, "New Value Description" ;
+    logical_value, 5, "New Value Description" ;
+    logical_value, 6, "New Value Description" ;
+    logical_value, 7, "New Value Description" ;
+  }
+  PWE02J2602Error_CompuMethod {
+    logical_value, 0, "No Detected Fault" ;
+    logical_value, 1, "Reset" ;
+    logical_value, 2, "Reserved" ;
+    logical_value, 3, "Reserved" ;
+    logical_value, 4, "Tx Bit Error" ;
+    logical_value, 5, "Checksum Error" ;
+    logical_value, 6, "Byte Field Framing Error" ;
+    logical_value, 7, "ID Parity Error" ;
+  }
+  PWE02PrtNumRdbk_Encoding {
+    physical_value, 0, 0, 1, 0 ;
+  }
+  RFCmbdDrHndlActStat_CompuMethod {
+    logical_value, 0, "INACTIVE" ;
+    logical_value, 1, "ACTIVE" ;
+  }
+  RFDrAjrSig_6D_3_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  RFDrAjrSig_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  RFDrLckStatInd_CompuMethod {
+    logical_value, 0, "LOCKED" ;
+    logical_value, 1, "UNLOCKED" ;
+  }
+  RFDrvCmndMtnCtrl_CompuMethod {
+    logical_value, 0, "No Request" ;
+    logical_value, 1, "Supervised Down" ;
+    logical_value, 2, "Express Down" ;
+    logical_value, 3, "Supervised Up" ;
+    logical_value, 4, "Express Up" ;
+    logical_value, 5, "Express Shorted" ;
+  }
+  RFExpUpAllwd_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  RFIndxCntrlAtv_6D_3_CompuMethod {
+    logical_value, 0, "Return from index" ;
+    logical_value, 1, "Move to Index" ;
+  }
+  RFIndxCntrlAtv_CompuMethod {
+    logical_value, 0, "Return from index" ;
+    logical_value, 1, "Move to Index" ;
+  }
+  RFLclCmndMtnCtrl_6D_3_CompuMethod {
+    logical_value, 0, "No Request" ;
+    logical_value, 1, "Supervised Down" ;
+    logical_value, 2, "Express Down" ;
+    logical_value, 3, "Supervised Up" ;
+    logical_value, 4, "Express Up" ;
+    logical_value, 5, "Express Shorted" ;
+  }
+  RFLclWndPosStat_6D_3_CompuMethod {
+    logical_value, 0, "Denormalized" ;
+    logical_value, 1, "Fully Closed" ;
+    logical_value, 2, "Less Than Position A" ;
+    logical_value, 3, "Position A" ;
+    logical_value, 4, "Greater Than A but less than Position C" ;
+    logical_value, 5, "Position C" ;
+    logical_value, 6, "Greater than Position C but less than Fully open" ;
+    logical_value, 7, "Fully Open" ;
+  }
+  RFObstclDtctd_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  RFPasWndLO_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  RFSwArbMtnCtrl_6D_3_CompuMethod {
+    logical_value, 0, "No Request" ;
+    logical_value, 1, "Supervised Down" ;
+    logical_value, 2, "Express Down" ;
+    logical_value, 3, "Supervised Up" ;
+    logical_value, 4, "Express Up" ;
+  }
+  RFVehCmndWndCtrl_CompuMethod {
+    logical_value, 0, "No Request" ;
+    logical_value, 1, "Supervised Down" ;
+    logical_value, 2, "Express Down" ;
+    logical_value, 3, "Supervised Up" ;
+    logical_value, 4, "Express Up" ;
+    logical_value, 5, "Stop Motion" ;
+  }
+  RFWndDwnCmd_6D_3_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  RFWndNormStat_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  RFWndUpCmd_6D_3_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  SnsSysFltAtvLF_6C_3_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  SnsSysFltAtvRF_6D_3_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  UnfltCmftClVsFdkRqLF_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  UnfltCmftClVsFdkRqRF_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  UnfltWndUnscflCmftClsFdkRqLF_CompuMethod {
+    logical_value, 0, "NO_ACTION" ;
+    logical_value, 1, "ACTIVE" ;
+    logical_value, 2, "CANCEL_HORN" ;
+  }
+  UnfltWndUnscflCmftClsFdkRqRF_CompuMethod {
+    logical_value, 0, "NO_ACTION" ;
+    logical_value, 1, "ACTIVE" ;
+    logical_value, 2, "CANCEL_HORN" ;
+  }
+  VhSpdAvgWnds_CompuMethod {
+    physical_value, 0, 7, 1, 0, "count" ;
+  }
+  VhSpdAvgWnds_CompuMethod_1 {
+    physical_value, 0, 7, 1, 0, "count" ;
+  }
+  WndHghEffrtAtvLF_6C_3_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  WndHghEffrtAtvRF_6D_3_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  WndMtrRelFltAtvLF_6C_3_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  WndMtrRelFltAtvRF_6D_3_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  WndMtrRevAtvLF_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  WndMtrRevAtvRF_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  WndMtrThPrAtvLF_6C_3_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  WndMtrThPrAtvRF_6D_3_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  WndNormzDsbld_PWE1_Encoding {
+    physical_value, 0, 0, 1, 0 ;
+  }
+  WndNormzDsbld_PWE2_Encoding {
+    physical_value, 0, 0, 1, 0 ;
+  }
+  WndObsDetEnbld_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  WndObsDetEnbld_CompuMethod_1 {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  WndOpEnbld_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  WndOpEnbld_CompuMethod_1 {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  WndSuprUpMtnConfLF_PWE1_Encoding {
+    physical_value, 0, 0, 1, 0 ;
+  }
+  WndSuprUpMtnConfRF_PWE2_Encoding {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  WndUndrVltgAtvLF_6C_3_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  WndUndrVltgAtvRF_6D_3_CompuMethod {
+    logical_value, 0, "FALSE" ;
+    logical_value, 1, "TRUE" ;
+  }
+  KeyPdARC_Encoding {
+    physical_value, 0, 3, 1, 0 ;
+  }
+  KeyPdAPINFO2_Encoding {
+    logical_value, 0, "No App Reset Ocurred" ;
+    logical_value, 1, "App Reset Ocurred" ;
+  }
+  KeyPdAPINFO4_Encoding {
+    logical_value, 0, "No HW/SW error" ;
+    logical_value, 1, "HW or SW Error Present" ;
+  }
+  KeyPdJ2602Error_Encoding {
+    logical_value, 0, "No Fault Detected" ;
+    logical_value, 1, "Reset" ;
+    logical_value, 2, "Reserved" ;
+    logical_value, 3, "Reserved" ;
+    logical_value, 4, "TX Bit Error" ;
+    logical_value, 5, "Checksum Error" ;
+    logical_value, 6, "Byte Field Framming Error" ;
+    logical_value, 7, "ID Parity Error" ;
+  }
+  KeyPdBckltSts_Encoding {
+    logical_value, 0, "off" ;
+    logical_value, 1, "On" ;
+    logical_value, 2, "Reserved" ;
+    logical_value, 3, "SNA" ;
+  }
+  KeyPdLoclSwActv_Encoding {
+    logical_value, 0, "False" ;
+    logical_value, 1, "True" ;
+    logical_value, 2, "Reserved" ;
+    logical_value, 3, "SNA" ;
+  }
+  Unpressed_Pressed_SNA {
+    logical_value, 0, "Unpressed" ;
+    logical_value, 1, "Pressed" ;
+    logical_value, 2, "Reserved" ;
+    logical_value, 3, "SNA" ;
+  }
+  KeyPdBckltFltSts_Encoding {
+    logical_value, 0, "No Fault" ;
+    logical_value, 1, "Fault Present" ;
+  }
+  Key_Fault_Encoding {
+    logical_value, 0, "No Fault" ;
+    logical_value, 1, "Short to Ground" ;
+    logical_value, 2, "Short to Battery or Open" ;
+    logical_value, 3, "Deadband" ;
+    logical_value, 4, "Stuck" ;
+    logical_value, 5, "Reserved" ;
+    logical_value, 6, "Reserved" ;
+    logical_value, 7, "Reserved" ;
+  }
+  Par_Accepted_Not_Accepted {
+    logical_value, 0, "Parameter Not Accepted" ;
+    logical_value, 1, "Parameter Accepted" ;
+  }
+  CmsKeypdBkltcmd_Encoding {
+    logical_value, 0, "Backlight OFF" ;
+    logical_value, 1, "Backlight ON" ;
+  }
+  CmsKeyPdBkltIntstyCal_Encoding {
+    physical_value, 0, 255, 1, 0 ;
+  }
+  CmsKeyPdKeyMatTimeCal_Encoding {
+    physical_value, 0, 255, 1, 0 ;
+  }
+  CmsKeyPdKeyStckTimeOutCal_Encoding {
+    physical_value, 0, 31, 1, 0 ;
+  }
+}
+
+Signal_representation {
+  AutostpAtv_CompuMethod: AutostpAtv_PWE1 ;
+  AutostpAtv_CompuMethod_1: AutostpAtv_PWE2 ;
+  CmsKeyPdBkltIntstyCal_Encoding: CmsKeyPdBkltIntstyCal ;
+  CmsKeyPdKeyMatTimeCal_Encoding: CmsKeyPdKeyMatTimeCal ;
+  CmsKeyPdKeyStckTimeOutCal_Encoding: CmsKeyPdKeyStckTimeOutCal ;
+  CmsKeypdBkltcmd_Encoding: CmsKeypdBkltcmd ;
+  CurrRadioAMFreq_PWE1_Encoding: CurrRadioAMFreq_PWE1 ;
+  CurrRadioAMFreq_PWE2_Encoding: CurrRadioAMFreq_PWE2 ;
+  HallEffctPlsPresLF_CompuMethod: HallEffctPulsPrsntLF ;
+  HallEffctPlsPresRF_CompuMethod: HallEffctPulsPrsntRF ;
+  InhbtCstSwOp_CompuMethod: InhbWndSwOp_PWE1 ;
+  InhbtCstSwOp_CompuMethod_1: InhbWndSwOp_PWE2 ;
+  KeyPdAPINFO2_Encoding: KeyPdAPINFO2 ;
+  KeyPdAPINFO4_Encoding: KeyPdAPINFO4 ;
+  KeyPdARC_Encoding: KeyPdARC ;
+  KeyPdBckltFltSts_Encoding: KeyPdBckltFltSts ;
+  KeyPdBckltSts_Encoding: KeyPdBckltSts ;
+  KeyPdJ2602Error_Encoding: KeyPdJ2602Error ;
+  KeyPdLoclSwActv_Encoding: KeyPdLoclSwActv ;
+  Key_Fault_Encoding: KeyPdKey1FltSts, KeyPdKey2FltSts, KeyPdKey3FltSts, KeyPdKey4FltSts, KeyPdKeyOpnFltSts, KeyPdKeyClsFltSts ;
+  LFCmbdDrHndlActStat_CompuMethod: CmbdDrHndlActvLF_PWE1 ;
+  LFDrAjrSig_6C_3_CompuMethod: DrAjrSigLF_PWE1Rsp ;
+  LFDrAjrSig_CompuMethod: DrAjrSigLF_PWE1Cmd ;
+  LFDrLckStatInd_CompuMethod: DrLckStatIndLF_PWE1 ;
+  LFDrvCmndMtnCtrl_CompuMethod: DrvrCmndWndMtnCtlLF_PWE1 ;
+  LFExpUpAllwd_CompuMethod: ExpUpAllwdLF_PWE1 ;
+  LFIndxCntrlAtv_6C_3_CompuMethod: IdxCtlActvLF_PWE1Rsp ;
+  LFIndxCntrlAtv_CompuMethod: IdxCtlActvLF_PWE1Cmd ;
+  LFLclCmndMtnCtrl_6C_3_CompuMethod: LoclCmndWndCtlLF_PWE1 ;
+  LFLclWndPosStat_6C_3_CompuMethod: WndPstnStsLF_PWE1 ;
+  LFObstclDtctd_CompuMethod: ObstclDtdLF ;
+  LFPasWndLO_CompuMethod: PsngrWndLckoutLF_PWE1 ;
+  LFSwArbMtnCtrl_6C_3_CompuMethod: WndSwArbdMtnCtlLF_PWE1 ;
+  LFVehCmndWndCtrl_CompuMethod: VehCmndWndMtnCtlLF_PWE1 ;
+  LFWndDwnCmd_6C_3_CompuMethod: WndDnCmdLF_PWE1 ;
+  LFWndNormStat_CompuMethod: WndNormzLF_PWE1 ;
+  LFWndUpCmd_6C_3_CompuMethod: WndUpCmdLF_PWE1 ;
+  MtrDwnLF_6C_3_CompuMethod: MtrDnLF_PWE1 ;
+  MtrDwnRF_6D_3_CompuMethod: MtrDnRF_PWE2 ;
+  MtrUpLF_6C_3_CompuMethod: MtrUpLF_PWE1 ;
+  MtrUpRF_6D_3_CompuMethod: MtrUpRF_PWE2 ;
+  OtsAirTmpCrValAuth_CompuMethod: OutsdAirTempZn_PWE1 ;
+  OtsAirTmpCrValAuth_CompuMethod_1: OutsdAirTempZn_PWE2 ;
+  PWE01APINFO0_13_Encoding: PWE01APINFO0_13 ;
+  PWE01APINFO0_CompuMethod: PWE01APINFO0_12 ;
+  PWE01APINFO1_13_Encoding: PWE01APINFO1_13 ;
+  PWE01APINFO1_CompuMethod: PWE01APINFO1_12 ;
+  PWE01APINFO2_13_Encoding: PWE01APINFO2_13 ;
+  PWE01APINFO2_CompuMethod: PWE01APINFO2_12 ;
+  PWE01APINFO3_13_Encoding: PWE01APINFO3_13 ;
+  PWE01APINFO3_CompuMethod: PWE01APINFO3_12 ;
+  PWE01APINFO4_13_Encoding: PWE01APINFO4_13 ;
+  PWE01APINFO4_CompuMethod: PWE01APINFO4_12 ;
+  PWE01CalDatPrtNumRdbk_Encoding: PWE01CalDatPrtNumRdbk ;
+  PWE01CfgCmptbltyErrActv_Encoding: PWE01CfgCmptbltyErrActv ;
+  PWE01J2602Err_13_Encoding: PWE01J2602Err_13 ;
+  PWE01J2602Error_CompuMethod: PWE01J2602Error_12 ;
+  PWE01PrtNumRdbk_Encoding: PWE01PrtNumRdbk ;
+  PWE02APINFO0_1B_Encoding: PWE02APINFO0_1B ;
+  PWE02APINFO0_CompuMethod: PWE02APINFO0_19 ;
+  PWE02APINFO1_1B_Encoding: PWE02APINFO1_1B ;
+  PWE02APINFO1_CompuMethod: PWE02APINFO1_19 ;
+  PWE02APINFO2_1B_Encoding: PWE02APINFO2_1B ;
+  PWE02APINFO2_CompuMethod: PWE02APINFO2_19 ;
+  PWE02APINFO3_1B_Encoding: PWE02APINFO3_1B ;
+  PWE02APINFO3_CompuMethod: PWE02APINFO3_19 ;
+  PWE02APINFO4_1B_Encoding: PWE02APINFO4_1B ;
+  PWE02APINFO4_CompuMethod: PWE02APINFO4_19 ;
+  PWE02CalDatPrtNumRdbk_Encoding: PWE02CalDatPrtNumRdbk ;
+  PWE02CfgCmptbltyErrActv_Encoding: PWE02CfgCmptbltyErrActv ;
+  PWE02J2602Err_1B_Encoding: PWE02J2602Err_1B ;
+  PWE02J2602Error_CompuMethod: PWE02J2602Error_19 ;
+  PWE02PrtNumRdbk_Encoding: PWE02PrtNumRdbk ;
+  Par_Accepted_Not_Accepted: KeyPdBkltIntstyCalRsp, KeyPdKeyMatTimeCalRsp, KeyPdKeyStckTimeOutCalRsp ;
+  RFCmbdDrHndlActStat_CompuMethod: CmbdDrHndlActvRF_PWE2 ;
+  RFDrAjrSig_6D_3_CompuMethod: DrAjrSigRF_PWE2Rsp ;
+  RFDrAjrSig_CompuMethod: DrAjrSigRF_PWE2Cmd ;
+  RFDrLckStatInd_CompuMethod: DrLckStatIndRF_PWE2 ;
+  RFDrvCmndMtnCtrl_CompuMethod: DrvrCmndWndMtnCtlRF_PWE2 ;
+  RFExpUpAllwd_CompuMethod: ExpUpAllwdRF_PWE2 ;
+  RFIndxCntrlAtv_6D_3_CompuMethod: IdxCtlActvRF_PWE2Rsp ;
+  RFIndxCntrlAtv_CompuMethod: IdxCtlActvRF_PWE2Cmd ;
+  RFLclCmndMtnCtrl_6D_3_CompuMethod: LoclCmndWndCtlRF_PWE2 ;
+  RFLclWndPosStat_6D_3_CompuMethod: WndPstnStsRF_PWE2 ;
+  RFObstclDtctd_CompuMethod: ObstclDtdRF ;
+  RFPasWndLO_CompuMethod: PsngrWndLckoutRF_PWE2 ;
+  RFSwArbMtnCtrl_6D_3_CompuMethod: WndSwArbdMtnCtlRF_PWE2 ;
+  RFVehCmndWndCtrl_CompuMethod: VehCmndWndMtnCtlRF_PWE2 ;
+  RFWndDwnCmd_6D_3_CompuMethod: WndDnCmdRF_PWE2 ;
+  RFWndNormStat_CompuMethod: WndNormzRF_PWE2 ;
+  RFWndUpCmd_6D_3_CompuMethod: WndUpCmdRF_PWE2 ;
+  SnsSysFltAtvLF_6C_3_CompuMethod: SnsSysFltActvLF_PWE1 ;
+  SnsSysFltAtvRF_6D_3_CompuMethod: SnsSysFltActvRF_PWE2 ;
+  UnfltCmftClVsFdkRqLF_CompuMethod: UnfltWndCfClsVisFbkRqLF ;
+  UnfltCmftClVsFdkRqRF_CompuMethod: UnfltWndCfClsVisFbkRqRF ;
+  UnfltWndUnscflCmftClsFdkRqLF_CompuMethod: UnfltWndUnscflCfClsFbkHnRqLF ;
+  UnfltWndUnscflCmftClsFdkRqRF_CompuMethod: UnfltWndUnscflCfClsFbkHnRqRF ;
+  Unpressed_Pressed_SNA: KeyPdKey1Sts, KeyPdKey2Sts, KeyPdKey3Sts, KeyPdKey4Sts, KeyPdKeyOpnSts, KeyPdKeyClsSts ;
+  VhSpdAvgWnds_CompuMethod: VehSpdZn_PWE1 ;
+  VhSpdAvgWnds_CompuMethod_1: VehSpdZn_PWE2 ;
+  WndHghEffrtAtvLF_6C_3_CompuMethod: WndHiEffrtActvLF_PWE1 ;
+  WndHghEffrtAtvRF_6D_3_CompuMethod: WndHiEffrtActvRF_PWE2 ;
+  WndMtrRelFltAtvLF_6C_3_CompuMethod: WndMtrRlyFltActvLF_PWE1 ;
+  WndMtrRelFltAtvRF_6D_3_CompuMethod: WndMtrRlyFltActvRF_PWE2 ;
+  WndMtrRevAtvLF_CompuMethod: WndMtrRvrsActvLF ;
+  WndMtrRevAtvRF_CompuMethod: WndMtrRvrsActvRF ;
+  WndMtrThPrAtvLF_6C_3_CompuMethod: WndMtrThrmlPrtctnActvLF_PWE1 ;
+  WndMtrThPrAtvRF_6D_3_CompuMethod: WndMtrThrmlPrtctnActvRF_PWE2 ;
+  WndNormzDsbld_PWE1_Encoding: WndNormzDsbld_PWE1 ;
+  WndNormzDsbld_PWE2_Encoding: WndNormzDsbld_PWE2 ;
+  WndObsDetEnbld_CompuMethod: WndAndSnrfObsDtEnbld_PWE1 ;
+  WndObsDetEnbld_CompuMethod_1: WndAndSnrfObsDtEnbld_PWE2 ;
+  WndOpEnbld_CompuMethod: WndAndSnrfOpEnbld_PWE1 ;
+  WndOpEnbld_CompuMethod_1: WndAndSnrfOpEnbld_PWE2 ;
+  WndSuprUpMtnConfLF_PWE1_Encoding: WndSuprUpMtnConfLF_PWE1 ;
+  WndSuprUpMtnConfRF_PWE2_Encoding: WndSuprUpMtnConfRF_PWE2 ;
+  WndUndrVltgAtvLF_6C_3_CompuMethod: WndUndrVltgActvLF_PWE1 ;
+  WndUndrVltgAtvRF_6D_3_CompuMethod: WndUndrVltgActvRF_PWE2 ;
+}

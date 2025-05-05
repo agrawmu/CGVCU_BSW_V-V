@@ -1,0 +1,302 @@
+/*@!Encoding:1252*/
+includes
+{
+ 
+}
+
+variables
+{
+    char buffer[100];
+    int linSetDlc;
+    int checkId; 
+    char Polarian_ID[15];                   // Array to store the Polarion test case ID
+    long kTIMEOUT = 0;                      // General timeout value
+    const long WAIT_TIMEOUT = 1000;
+    long Cycle_time = 0;                    // Variable to store the cycle time
+    byte DLC_Value = 0;                     // Variable to store the Data Length Code (DLC) value 
+    byte flag = 0;                          // Flag for status tracking 
+    dword gCyccheckId;                      // Variable to store the cycle check ID    
+    dword time;
+    char time_buf[100];
+    dword TestgetMsgDLC;
+	
+   message VCU_LIN10_KEYPAD_CAL_MSG msg_0x2;
+   message VCU_LIN10_KEYPD_CMD_MSG msg_0x0;
+   message BCM_LIN3_PWE1_Cmd_MSG msg_0x10;
+   message BCM_LIN3_PWE1_Cmd2_MSG msg_0x14;
+   message BCM_LIN3_PWE2_Cmd_MSG msg_0x18;
+   message BCM_LIN3_PWE2_Cmd2_MSG msg_0x1C;
+
+   
+}
+
+void Maintest()
+{
+    // Set the report file name for logging the test results
+    TestReportFileName("LIN_Mater_REPORT");
+    TestModuleTitle("LIN_TX");
+	TestModuleDescription("Test Author: Chaithra\n");
+
+    getLocalTimeString(time_buf);
+    TestModuleDescription("Test Execution Date: ");
+    TestModuleDescription(time_buf);
+
+    TestModuleDescription("Test Cases to check the initial Values and DLC of the LIN ");
+	
+	
+    Tx_Msg_Sig_Init_VCU_LIN10_KEYPAD_CAL_MSG_0x2();
+    Tx_Msg_DLC_VCU_LIN10_KEYPAD_CAL_MSG_0x2();
+  
+    Tx_Msg_Sig_Init_VCU_LIN10_KEYPD_CMD_MSG_0x0();
+    Tx_Msg_DLC_VCU_LIN10_KEYPD_CMD_MSG_0x0();
+ 
+    Tx_Msg_Sig_Init_BCM_LIN3_PWE1_Cmd_MSG_0x10();
+    Tx_Msg_DLC_BCM_LIN3_PWE1_Cmd_MSG_0x10();
+  
+    Tx_Msg_Sig_Init_BCM_LIN3_PWE1_Cmd2_MSG_0x14();
+    Tx_Msg_DLC_BCM_LIN3_PWE1_Cmd2_MSG_0x14();
+  
+	Tx_Msg_Sig_Init_BCM_LIN3_PWE2_Cmd_MSG_0x18();
+    Tx_Msg_DLC_BCM_LIN3_PWE2_Cmd_MSG_0x18();
+ 
+    Tx_Msg_Sig_Init_BCM_LIN3_PWE2_Cmd2_MSG_0x1C();
+    Tx_Msg_DLC_BCM_LIN3_PWE2_Cmd2_MSG_0x1C();
+ 
+ 
+}
+
+on linFrame*
+{
+    if(this.msgchannel == 1)
+    {
+        @LIN_Communication_Test::DLC1[this.id] = this.dlc;
+    }
+}
+
+
+//Check initial values of individual signals within the message
+   testcase Tx_Msg_Sig_Init_VCU_LIN10_KEYPAD_CAL_MSG_0x2()
+{
+    char Description[100] = "To check the initial values of signals in the [VCU_LIN10_KEYPAD_CAL_MSG_0x2] message"; 
+    flag = 1;
+    snprintf(Polarian_ID, elCount(Polarian_ID), "TC1");
+    TestCaseTitle(Polarian_ID, "Tx_Msg_Sig_Init_VCU_LIN10_KEYPAD_CAL_MSG_0x2");
+    TestCaseDescription(Description);
+    signalintialvaluecheck(VCU_LIN10_KEYPAD_CAL_MSG, CmsKeyPdBkltIntstyCal, 0, "CmsKeyPdBkltIntstyCal");
+    signalintialvaluecheck(VCU_LIN10_KEYPAD_CAL_MSG, CmsKeyPdKeyMatTimeCal, 0, "CmsKeyPdKeyMatTimeCal");
+    signalintialvaluecheck(VCU_LIN10_KEYPAD_CAL_MSG, CmsKeyPdKeyStckTimeOutCal,0,"CmsKeyPdKeyStckTimeOutCal");
+   
+ }
+ 
+// Check the Data Length Code of the message
+testcase Tx_Msg_DLC_VCU_LIN10_KEYPAD_CAL_MSG_0x2() 
+{
+    char Description[100] = "To check the Data Length Code of the [VCU_LIN10_KEYPAD_CAL_MSG_0x2] message";
+    snprintf(Polarian_ID, elCount(Polarian_ID), "TC1");
+    TestCaseTitle(Polarian_ID, "Tx_Msg_DLC_VCU_LIN10_KEYPAD_CAL_MSG_0x2");
+    TestCaseDescription(Description);
+    DLC_Value = 3;
+    ChecktheDlcofMsg(0x2, DLC_Value, 1);
+} 
+
+// Check initial values of individual signals within the message
+testcase Tx_Msg_Sig_Init_VCU_LIN10_KEYPD_CMD_MSG_0x0()
+{
+    char Description[100] = "To check the initial values of signals in the [VCU_LIN10_KEYPD_CMD_MSG_0x0] message";
+    flag = 1;
+    snprintf(Polarian_ID, elCount(Polarian_ID), "TC1");
+    TestCaseTitle(Polarian_ID, "Tx_Msg_Sig_Init_VCU_LIN10_KEYPD_CMD_MSG_0x0");
+    TestCaseDescription(Description);
+    signalintialvaluecheck(VCU_LIN10_KEYPD_CMD_MSG,CmsKeypdBkltcmd,0,"CmsKeypdBkltcmd");
+    
+ }
+
+// Check the Data Length Code of the message
+testcase Tx_Msg_DLC_VCU_LIN10_KEYPD_CMD_MSG_0x0() 
+{
+    char Description[100] = "To check the Data Length Code of the [VCU_LIN10_KEYPD_CMD_MSG_0x0] message";
+    snprintf(Polarian_ID, elCount(Polarian_ID), "TC2");
+    TestCaseTitle(Polarian_ID, "Tx_Msg_DLC_VCU_LIN10_KEYPD_CMD_MSG_0x0");
+    TestCaseDescription(Description);
+    DLC_Value = 1;
+    ChecktheDlcofMsg(0x0, DLC_Value, 1);
+}
+
+
+// Check initial values of individual signals within the message
+testcase Tx_Msg_Sig_Init_BCM_LIN3_PWE1_Cmd_MSG_0x10()
+{
+    char Description[100] = "To check the initial values of signals in the [BCM_LIN3_PWE1_Cmd_MSG_0x10] message";
+    flag = 1;
+    snprintf(Polarian_ID, elCount(Polarian_ID), "TC4");
+    TestCaseTitle(Polarian_ID, "Tx_Msg_Sig_Init_BCM_LIN3_PWE1_Cmd_MSG_0x10");
+    TestCaseDescription(Description);
+
+   signalintialvaluecheck(BCM_LIN3_PWE1_Cmd_MSG, AutostpAtv_PWE1,0,"AutostpAtv_PWE1	   ");
+   signalintialvaluecheck(BCM_LIN3_PWE1_Cmd_MSG, DrAjrSigLF_PWE1Cmd,0,"DrAjrSigLF_PWE1Cmd	  ");
+   signalintialvaluecheck(BCM_LIN3_PWE1_Cmd_MSG,DrLckStatIndLF_PWE1,0,"DrLckStatIndLF_PWE1");
+   signalintialvaluecheck(BCM_LIN3_PWE1_Cmd_MSG,DrvrCmndWndMtnCtlLF_PWE1,0,"DrvrCmndWndMtnCtlLF_PWE1");
+   signalintialvaluecheck(BCM_LIN3_PWE1_Cmd_MSG,ExpUpAllwdLF_PWE1,0,"ExpUpAllwdLF_PWE1");
+   signalintialvaluecheck(BCM_LIN3_PWE1_Cmd_MSG,IdxCtlActvLF_PWE1Cmd,0,"IdxCtlActvLF_PWE1Cmd");
+   signalintialvaluecheck(BCM_LIN3_PWE1_Cmd_MSG,InhbWndSwOp_PWE1,0,"InhbWndSwOp_PWE1");
+   signalintialvaluecheck(BCM_LIN3_PWE1_Cmd_MSG,OutsdAirTempZn_PWE1	,0,"OutsdAirTempZn_PWE1");
+   signalintialvaluecheck(BCM_LIN3_PWE1_Cmd_MSG,PsngrWndLckoutLF_PWE1,0,"PsngrWndLckoutLF_PWE1");
+   signalintialvaluecheck(BCM_LIN3_PWE1_Cmd_MSG,VehCmndWndMtnCtlLF_PWE1	,0,"VehCmndWndMtnCtlLF_PWE1");
+   signalintialvaluecheck(BCM_LIN3_PWE1_Cmd_MSG,VehSpdZn_PWE1,0,"VehSpdZn_PWE1");
+   signalintialvaluecheck(BCM_LIN3_PWE1_Cmd_MSG,WndAndSnrfObsDtEnbld_PWE1,0,"WndAndSnrfObsDtEnbld_PWE1");
+   signalintialvaluecheck(BCM_LIN3_PWE1_Cmd_MSG,WndAndSnrfOpEnbld_PWE1,1,"WndAndSnrfOpEnbld_PWE1");
+   signalintialvaluecheck(BCM_LIN3_PWE1_Cmd_MSG,WndNormzDsbld_PWE1,0,"WndNormzDsbld_PWE1");
+   signalintialvaluecheck(BCM_LIN3_PWE1_Cmd_MSG,WndSuprUpMtnConfLF_PWE1,0,"WndSuprUpMtnConfLF_PWE1");
+  
+ }
+
+// Check the Data Length Code of the message
+testcase Tx_Msg_DLC_BCM_LIN3_PWE1_Cmd_MSG_0x10() 
+{
+    char Description[100] = "To check the Data Length Code of the [BCM_LIN3_PWE1_Cmd_MSG_0x10] message";
+    snprintf(Polarian_ID, elCount(Polarian_ID), "TC5");
+    TestCaseTitle(Polarian_ID, "Tx_Msg_DLC_BCM_LIN3_PWE1_Cmd_MSG_0x10");
+    TestCaseDescription(Description);
+    DLC_Value = 3;
+    ChecktheDlcofMsg(0x10, DLC_Value, 1);
+}
+
+
+// Check initial values of individual signals within the message
+testcase Tx_Msg_Sig_Init_BCM_LIN3_PWE1_Cmd2_MSG_0x14()
+{
+    char Description[100] = "To check the initial values of signals in the [BCM_LIN3_PWE1_Cmd2_MSG_0x14] message";
+    flag = 1;
+    snprintf(Polarian_ID, elCount(Polarian_ID), "TC7");
+    TestCaseTitle(Polarian_ID, "Tx_Msg_Sig_Init_BCM_LIN3_PWE1_Cmd2_MSG_0x14");
+    TestCaseDescription(Description);
+    signalintialvaluecheck(BCM_LIN3_PWE1_Cmd2_MSG,CurrRadioAMFreq_PWE1,0,"CurrRadioAMFreq_PWE1");
+   
+}
+
+// Check the Data Length Code of the message
+testcase Tx_Msg_DLC_BCM_LIN3_PWE1_Cmd2_MSG_0x14() 
+{
+    char Description[100] = "To check the Data Length Code of the [BCM_LIN3_PWE1_Cmd2_MSG_0x14] message";
+    snprintf(Polarian_ID, elCount(Polarian_ID), "TC8");
+    TestCaseTitle(Polarian_ID, "Tx_Msg_DLC_BCM_LIN3_PWE1_Cmd2_MSG_0x14");
+    TestCaseDescription(Description);
+    DLC_Value = 3;
+    ChecktheDlcofMsg(0x14, DLC_Value, 1);
+}
+
+// Check initial values of individual signals within the message
+testcase Tx_Msg_Sig_Init_BCM_LIN3_PWE2_Cmd_MSG_0x18()
+{
+    char Description[100] = "To check the initial values of signals in the [BCM_LIN3_PWE2_Cmd_MSG_0x18] message";
+    flag = 1;
+    snprintf(Polarian_ID, elCount(Polarian_ID), "TC10");
+    TestCaseTitle(Polarian_ID, "Tx_Msg_Sig_Init_BCM_LIN3_PWE2_Cmd_MSG_0x18");
+    TestCaseDescription(Description);
+    signalintialvaluecheck(VCU_LIN10_KEYPD_CMD_MSG,InhbWndSwOp_PWE2,0,"InhbWndSwOp_PWE2");
+    signalintialvaluecheck(VCU_LIN10_KEYPD_CMD_MSG,PsngrWndLckoutRF_PWE2,0,"PsngrWndLckoutRF_PWE2");
+    signalintialvaluecheck(VCU_LIN10_KEYPD_CMD_MSG,DrLckStatIndRF_PWE2,0,"DrLckStatIndRF_PWE2");
+    signalintialvaluecheck(VCU_LIN10_KEYPD_CMD_MSG,WndAndSnrfOpEnbld_PWE2,1,"WndAndSnrfOpEnbld_PWE2");
+    signalintialvaluecheck(VCU_LIN10_KEYPD_CMD_MSG,WndAndSnrfObsDtEnbld_PWE2,0,"WndAndSnrfObsDtEnbld_PWE2");
+    signalintialvaluecheck(VCU_LIN10_KEYPD_CMD_MSG,AutostpAtv_PWE2,0,"AutostpAtv_PWE2");
+    signalintialvaluecheck(VCU_LIN10_KEYPD_CMD_MSG,DrAjrSigRF_PWE2Cmd,0,"DrAjrSigRF_PWE2Cmd");
+    signalintialvaluecheck(VCU_LIN10_KEYPD_CMD_MSG,VehCmndWndMtnCtlRF_PWE2,0,"VehCmndWndMtnCtlRF_PWE2");
+    signalintialvaluecheck(VCU_LIN10_KEYPD_CMD_MSG,IdxCtlActvRF_PWE2Cmd,0,"IdxCtlActvRF_PWE2Cmd");
+    signalintialvaluecheck(VCU_LIN10_KEYPD_CMD_MSG,DrvrCmndWndMtnCtlRF_PWE2,0,"DrvrCmndWndMtnCtlRF_PWE2");
+    signalintialvaluecheck(VCU_LIN10_KEYPD_CMD_MSG,ExpUpAllwdRF_PWE2,0,"ExpUpAllwdRF_PWE2");
+    signalintialvaluecheck(VCU_LIN10_KEYPD_CMD_MSG,OutsdAirTempZn_PWE2,0,"OutsdAirTempZn_PWE2");
+    signalintialvaluecheck(VCU_LIN10_KEYPD_CMD_MSG,VehSpdZn_PWE2,0,"VehSpdZn_PWE2");
+    signalintialvaluecheck(VCU_LIN10_KEYPD_CMD_MSG,WndSuprUpMtnConfRF_PWE2,0,"WndSuprUpMtnConfRF_PWE2");
+    signalintialvaluecheck(VCU_LIN10_KEYPD_CMD_MSG,WndNormzDsbld_PWE2,0,"WndNormzDsbld_PWE2");
+  
+}
+
+// Check the Data Length Code of the message
+testcase Tx_Msg_DLC_BCM_LIN3_PWE2_Cmd_MSG_0x18() 
+{
+    char Description[100] = "To check the Data Length Code of the [BCM_LIN3_PWE2_Cmd_MSG_0x18] message";
+    snprintf(Polarian_ID, elCount(Polarian_ID), "TC11");
+    TestCaseTitle(Polarian_ID, "Tx_Msg_DLC_BCM_LIN3_PWE2_Cmd_MSG_0x18");
+    TestCaseDescription(Description);
+    DLC_Value = 3;
+    ChecktheDlcofMsg(0x18, DLC_Value, 1);
+}
+
+// Check initial values of individual signals within the message
+testcase Tx_Msg_Sig_Init_BCM_LIN3_PWE2_Cmd2_MSG_0x1C()
+{
+    char Description[100] = "To check the initial values of signals in the [BCM_LIN3_PWE2_Cmd2_MSG_0x1C] message";
+    flag = 1;
+    snprintf(Polarian_ID, elCount(Polarian_ID), "TC13");
+    TestCaseTitle(Polarian_ID, "Tx_Msg_Sig_Init_BCM_LIN3_PWE2_Cmd2_MSG_0x1C");
+    TestCaseDescription(Description);
+    signalintialvaluecheck(BCM_LIN3_PWE2_Cmd2_MSG,CurrRadioAMFreq_PWE2,0,"CurrRadioAMFreq_PWE2");
+    
+  
+ }
+
+// Check the Data Length Code of the message
+testcase Tx_Msg_DLC_BCM_LIN3_PWE2_Cmd2_MSG_0x1C() 
+{
+    char Description[100] = "To check the Data Length Code of the [BCM_LIN3_PWE2_Cmd2_MSG_0x1C] message";
+    snprintf(Polarian_ID, elCount(Polarian_ID), "TC14");
+    TestCaseTitle(Polarian_ID, "Tx_Msg_DLC_BCM_LIN3_PWE2_Cmd2_MSG_0x1C");
+    TestCaseDescription(Description);
+    DLC_Value = 3;
+    ChecktheDlcofMsg(0x1C, DLC_Value, 1);
+}
+
+
+// Initial value check function
+void signalintialvaluecheck(dbMsg *msg, signal *sig, float default_value, char signalname[])
+{
+   char buffer[1000];                                                   // Variable to store the actual signal value from the message trace
+    float signal_value;                                                  // Retrieve the current value of the specified signal
+    signal_value = getSignal(sig); 
+
+    if (testWaitForMessage(msg, WAIT_TIMEOUT) == 1)
+    {
+        if (flag == 1)
+        {
+            testStepBegin(Polarian_ID, "Test Case Started");
+            flag = 0;
+        }
+
+        if (default_value == signal_value)
+        {
+            snprintf(buffer, elCount(buffer), "Default value of signal %s in DBC %f and the actual value %f got in trace are same", signalname, default_value, signal_value);
+            testStepPass("", buffer);
+        }
+        else
+        {
+            snprintf(buffer, elCount(buffer), "Default value in signal %s DBC %f and the actual value %f got in trace are not same", signalname, default_value, signal_value);
+            testStepFail("", buffer);
+        }
+    }
+    else
+    {
+        snprintf(buffer, elCount(buffer), "LIN message is not found");
+        testStepFail("", buffer);
+    }
+}
+
+// DLC checking function
+void ChecktheDlcofMsg(int id, int ExpectedDLC, int channel)
+{
+    if (channel == 1)
+    {
+        checkId = @LIN_Communication_Test::DLC1[id];
+    }
+
+    if (ExpectedDLC == checkId)
+    {
+        snprintf(buffer, elCount(buffer), "DLC Value of Message & Expected DLC Value: %x & %x is as expected", ExpectedDLC, checkId);
+        testStepPass("", buffer);
+    }
+    else
+    {
+        snprintf(buffer, elCount(buffer), "DLC Value of Message & Expected DLC Value: %x & %x is not expected", ExpectedDLC, checkId);
+        testStepFail("", buffer);
+    }
+}
+
