@@ -12,7 +12,7 @@ canoe_app = win32com.client.Dispatch("CANoe.Application")
 wait(5)
 
 # Step 3: Open CANoe configuration
-cfg_path = r'D:\Jenkins\workspace\CGVCU_BSW_Mcore\M_Core\UDS\UDS_Configuration.cfg'
+cfg_path = r'D:\Jenkins\workspace\CGVCU_BSW_M_core_V_and_V\M_Core\UDS\UDS_Configuration.cfg'
 print(f"Opening configuration: {cfg_path}")
 canoe_app.Open(cfg_path)
 wait(10)
