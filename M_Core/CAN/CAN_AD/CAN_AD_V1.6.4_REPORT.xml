@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<testmodule starttime="2025-05-05 17:39:45" timestamp="   3.263365" verdicts="2_basic" measurementid="2803b5cd-9bb5-49fd-8885-acd3180607c3">
+  <testcase starttime="2025-05-05 17:39:45" timestamp="   3.263365">
+    <teststep timestamp="   3.274912" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=123 (0x7B) Elapsed time=11.5463ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.274912" level="0" type="user" ident="CGMN-12361" result="na">Test Case Started</teststep>
+    <teststep timestamp="   3.274912" level="0" type="user" ident="" result="pass"> Default value of signal AbsActv in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   3.287980" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=123 (0x7B) Elapsed time=13.0683ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.287980" level="0" type="user" ident="" result="pass"> Default value of signal AbsAvail in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   3.300092" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=123 (0x7B) Elapsed time=12.1123ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.300092" level="0" type="user" ident="" result="pass"> Default value of signal AebRdy in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   3.313187" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=123 (0x7B) Elapsed time=13.0943ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.313187" level="0" type="user" ident="" result="pass"> Default value of signal EbdActv in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   3.325375" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=123 (0x7B) Elapsed time=12.1883ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.325375" level="0" type="user" ident="" result="pass"> Default value of signal EscActv in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   3.338407" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=123 (0x7B) Elapsed time=13.0323ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.338407" level="0" type="user" ident="" result="pass"> Default value of signal EscAvail in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   3.350537" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=123 (0x7B) Elapsed time=12.1303ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.350537" level="0" type="user" ident="" result="pass"> Default value of signal HoldStat in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   3.363614" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=123 (0x7B) Elapsed time=13.0763ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.363614" level="0" type="user" ident="" result="pass"> Default value of signal LvVolt in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   3.375770" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=123 (0x7B) Elapsed time=12.1563ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.375770" level="0" type="user" ident="" result="pass"> Default value of signal MsgCntr in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   3.388876" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=123 (0x7B) Elapsed time=13.1063ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.388876" level="0" type="user" ident="" result="pass"> Default value of signal MsgCrc in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   3.400967" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=123 (0x7B) Elapsed time=12.0903ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.400967" level="0" type="user" ident="" result="pass"> Default value of signal MtrCurrEst in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   3.414043" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=123 (0x7B) Elapsed time=13.0763ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.414043" level="0" type="user" ident="" result="pass"> Default value of signal TcsActv in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   3.426191" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=123 (0x7B) Elapsed time=12.1483ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.426191" level="0" type="user" ident="" result="pass"> Default value of signal TcsAvail in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   3.439262" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=123 (0x7B) Elapsed time=13.0703ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.439262" level="0" type="user" ident="" result="pass"> Default value of signal ToShtdwn in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   3.451438" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=123 (0x7B) Elapsed time=12.1763ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.451438" level="0" type="user" ident="" result="pass"> Default value of signal VehSpdEbcm in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <verdict time="2025-05-05 17:39:45" timestamp="   3.263365" endtime="2025-05-05 17:39:46" endtimestamp="   3.451438" result="pass" />
+    <title>Tx_Msg_Sig_Init_mEbcm2L_Stat2_0x7B</title>
+    <ident>CGMN-12361</ident>
+    <description>To check the initial values of signals in the [mEbcm2L_Stat2_0x7B] message </description>
+  </testcase>
+  <testcase starttime="2025-05-05 17:39:46" timestamp="   3.451438">
+    <teststep timestamp="   3.465498" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=123 (0x7B) Elapsed time=14.0603ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.451438" level="0" type="user" ident="CGMN-12363" result="na">Test Case Started</teststep>
+    <teststep timestamp="   3.465498" level="0" type="user" ident="" result="pass">DLC Value of Message &amp; Expected DLC Value: 8 &amp; 8 is as expected</teststep>
+    <verdict time="2025-05-05 17:39:46" timestamp="   3.451438" endtime="2025-05-05 17:39:46" endtimestamp="   3.465498" result="pass" />
+    <title>Tx_Msg_DLC_mEbcm2L_Stat2_0x7B</title>
+    <ident>CGMN-12363</ident>
+    <description>To check the Data Length Code of the [mEbcm2L_Stat2_0x7B] message </description>
+  </testcase>
+  <testcase starttime="2025-05-05 17:39:46" timestamp="   3.465498">
+    <teststep timestamp="   3.585498" level="1" type="auto" ident="Resume reason" result="na">Elapsed time=120ms (max=120ms)</teststep>
+    <teststep timestamp="   3.591553" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=123 (0x7B) Elapsed time=6.05511ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.465498" level="0" type="user" ident="CGMN-12362" result="na">Test Case Started</teststep>
+    <teststep timestamp="   3.591553" level="0" type="user" ident="" result="fail">Periodicity of messages is not expected</teststep>
+    <teststep timestamp="   3.591553" level="0" type="user" ident="" result="na">Average Cycle Time: 12ms</teststep>
+    <teststep timestamp="   3.591553" level="0" type="user" ident="" result="na">Minimum Cycle Time: 11ms</teststep>
+    <teststep timestamp="   3.591553" level="0" type="user" ident="" result="na">Maximum Cycle Time: 14ms</teststep>
+    <teststep timestamp="   3.591553" level="0" type="user" ident="" result="na">Actual Cycle Time: 12ms</teststep>
+    <verdict time="2025-05-05 17:39:46" timestamp="   3.591553" endtime="2025-05-05 17:39:46" endtimestamp="   3.591553" result="fail" />
+    <title>Tx_Msg_Periodicity_mEbcm2L_Stat2_0x7B</title>
+    <ident>CGMN-12362</ident>
+    <description>To check the Periodicity of the [mEbcm2L_Stat2_0x7B] message </description>
+  </testcase>
+  <testcase starttime="2025-05-05 17:39:46" timestamp="   3.591553">
+    <teststep timestamp="   3.591825" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=124 (0x7C) Elapsed time=0.272ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.591825" level="0" type="user" ident="CGMN-12378" result="na">Test Case Started</teststep>
+    <teststep timestamp="   3.591825" level="0" type="user" ident="" result="pass"> Default value of signal WhlCntFL in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   3.604796" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=124 (0x7C) Elapsed time=12.9703ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.604796" level="0" type="user" ident="" result="pass"> Default value of signal WhlCntFR in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   3.616030" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=124 (0x7C) Elapsed time=11.2343ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.616030" level="0" type="user" ident="" result="pass"> Default value of signal WhlCntR in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <verdict time="2025-05-05 17:39:46" timestamp="   3.591553" endtime="2025-05-05 17:39:46" endtimestamp="   3.616030" result="pass" />
+    <title>Tx_Msg_Sig_Init_mEbcm2L_WhlCnt_0x7C</title>
+    <ident>CGMN-12378</ident>
+    <description>To check the initial values of signals in the [mEbcm2L_WhlCnt_0x7C] message </description>
+  </testcase>
+  <testcase starttime="2025-05-05 17:39:46" timestamp="   3.616030">
+    <teststep timestamp="   3.628178" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=124 (0x7C) Elapsed time=12.1483ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.616030" level="0" type="user" ident="CGMN-12377" result="na">Test Case Started</teststep>
+    <teststep timestamp="   3.628178" level="0" type="user" ident="" result="pass">DLC Value of Message &amp; Expected DLC Value: 8 &amp; 8 is as expected</teststep>
+    <verdict time="2025-05-05 17:39:46" timestamp="   3.616030" endtime="2025-05-05 17:39:46" endtimestamp="   3.628178" result="pass" />
+    <title>Tx_Msg_DLC_mEbcm2L_WhlCnt_0x7C</title>
+    <ident>CGMN-12377</ident>
+    <description>To check the Data Length Code of the [mEbcm2L_WhlCnt_0x7C] message </description>
+  </testcase>
+  <testcase starttime="2025-05-05 17:39:46" timestamp="   3.628178">
+    <teststep timestamp="   3.748178" level="1" type="auto" ident="Resume reason" result="na">Elapsed time=120ms (max=120ms)</teststep>
+    <teststep timestamp="   3.754221" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=124 (0x7C) Elapsed time=6.04311ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.628178" level="0" type="user" ident="CGMN-12375" result="na">Test Case Started</teststep>
+    <teststep timestamp="   3.754221" level="0" type="user" ident="" result="fail">Periodicity of messages is not expected</teststep>
+    <teststep timestamp="   3.754221" level="0" type="user" ident="" result="na">Average Cycle Time: 12ms</teststep>
+    <teststep timestamp="   3.754221" level="0" type="user" ident="" result="na">Minimum Cycle Time: 12ms</teststep>
+    <teststep timestamp="   3.754221" level="0" type="user" ident="" result="na">Maximum Cycle Time: 13ms</teststep>
+    <teststep timestamp="   3.754221" level="0" type="user" ident="" result="na">Actual Cycle Time: 12ms</teststep>
+    <verdict time="2025-05-05 17:39:46" timestamp="   3.754221" endtime="2025-05-05 17:39:46" endtimestamp="   3.754221" result="fail" />
+    <title>Tx_Msg_Periodicity_mEbcm2L_WhlCnt_0x7C</title>
+    <ident>CGMN-12375</ident>
+    <description>To check the Periodicity of the [mEbcm2L_WhlCnt_0x7C] message </description>
+  </testcase>
+  <testcase starttime="2025-05-05 17:39:46" timestamp="   3.754221">
+    <teststep timestamp="   3.754755" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=129 (0x81) Elapsed time=0.534015ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.754755" level="0" type="user" ident="CGMN-12376" result="na">Test Case Started</teststep>
+    <teststep timestamp="   3.754755" level="0" type="user" ident="" result="pass"> Default value of signal MsgCntr in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   3.780006" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=129 (0x81) Elapsed time=25.2506ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.780006" level="0" type="user" ident="" result="pass"> Default value of signal MsgCrc in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   3.805189" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=129 (0x81) Elapsed time=25.1826ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.805189" level="0" type="user" ident="" result="pass"> Default value of signal WhlCntFL in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   3.830517" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=129 (0x81) Elapsed time=25.3286ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.830517" level="0" type="user" ident="" result="pass"> Default value of signal WhlCntFR in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   3.855610" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=129 (0x81) Elapsed time=25.0926ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.855610" level="0" type="user" ident="" result="pass"> Default value of signal WhlCntR in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <verdict time="2025-05-05 17:39:46" timestamp="   3.754221" endtime="2025-05-05 17:39:46" endtimestamp="   3.855610" result="pass" />
+    <title>Tx_Msg_Sig_Init_mEbcm2L_WhlSlip_0x81</title>
+    <ident>CGMN-12376</ident>
+    <description>To check the initial values of signals in the [mEbcm2L_WhlSlip_0x81] message </description>
+  </testcase>
+  <testcase starttime="2025-05-05 17:39:46" timestamp="   3.855610">
+    <teststep timestamp="   3.880869" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=129 (0x81) Elapsed time=25.2586ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.855610" level="0" type="user" ident="CGMN-12380" result="na">Test Case Started</teststep>
+    <teststep timestamp="   3.880869" level="0" type="user" ident="" result="pass">DLC Value of Message &amp; Expected DLC Value: 8 &amp; 8 is as expected</teststep>
+    <verdict time="2025-05-05 17:39:46" timestamp="   3.855610" endtime="2025-05-05 17:39:46" endtimestamp="   3.880869" result="pass" />
+    <title>Tx_Msg_DLC_mEbcm2L_WhlSlip_0x81</title>
+    <ident>CGMN-12380</ident>
+    <description>To check the Data Length Code of the [mEbcm2L_WhlSlip_0x81] message </description>
+  </testcase>
+  <testcase starttime="2025-05-05 17:39:46" timestamp="   3.880869">
+    <teststep timestamp="   4.120869" level="1" type="auto" ident="Resume reason" result="na">Elapsed time=240ms (max=240ms)</teststep>
+    <teststep timestamp="   4.132999" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=129 (0x81) Elapsed time=12.1302ms (max=11000ms)</teststep>
+    <teststep timestamp="   3.880869" level="0" type="user" ident="CGMN-12379" result="na">Test Case Started</teststep>
+    <teststep timestamp="   4.132999" level="0" type="user" ident="" result="fail">Periodicity of messages is not expected</teststep>
+    <teststep timestamp="   4.132999" level="0" type="user" ident="" result="na">Average Cycle Time: 25ms</teststep>
+    <teststep timestamp="   4.132999" level="0" type="user" ident="" result="na">Minimum Cycle Time: 25ms</teststep>
+    <teststep timestamp="   4.132999" level="0" type="user" ident="" result="na">Maximum Cycle Time: 26ms</teststep>
+    <teststep timestamp="   4.132999" level="0" type="user" ident="" result="na">Actual Cycle Time: 24ms</teststep>
+    <verdict time="2025-05-05 17:39:46" timestamp="   4.132999" endtime="2025-05-05 17:39:46" endtimestamp="   4.132999" result="fail" />
+    <title>Tx_Msg_Periodicity_mEbcm2L_WhlSlip_0x81</title>
+    <ident>CGMN-12379</ident>
+    <description>To check the Periodicity of the [mEbcm2L_WhlSlip_0x81] message </description>
+  </testcase>
+  <testcase starttime="2025-05-05 17:39:46" timestamp="   4.132999">
+    <teststep timestamp="   4.145863" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=127 (0x7F) Elapsed time=12.8643ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.145863" level="0" type="user" ident="CGMN-12394" result="na">Test Case Started</teststep>
+    <teststep timestamp="   4.145863" level="0" type="user" ident="" result="pass"> Default value of signal MsgCntr in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   4.157923" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=127 (0x7F) Elapsed time=12.0603ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.157923" level="0" type="user" ident="" result="pass"> Default value of signal MsgCrc in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   4.171014" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=127 (0x7F) Elapsed time=13.0903ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.171014" level="0" type="user" ident="" result="pass"> Default value of signal WhlSpdFL in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   4.183172" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=127 (0x7F) Elapsed time=12.1583ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.183172" level="0" type="user" ident="" result="pass"> Default value of signal WhlSpdFR in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   4.196238" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=127 (0x7F) Elapsed time=13.0663ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.196238" level="0" type="user" ident="" result="pass"> Default value of signal WhlSpdR in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <verdict time="2025-05-05 17:39:46" timestamp="   4.132999" endtime="2025-05-05 17:39:46" endtimestamp="   4.196238" result="pass" />
+    <title>Tx_Msg_Sig_Init_mEbcm2L_WhlSpd_0x7F</title>
+    <ident>CGMN-12394</ident>
+    <description>To check the initial values of signals in the [mEbcm2L_WhlSpd_0x7F] message </description>
+  </testcase>
+  <testcase starttime="2025-05-05 17:39:46" timestamp="   4.196238">
+    <teststep timestamp="   4.208415" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=127 (0x7F) Elapsed time=12.1763ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.196238" level="0" type="user" ident="CGMN-12393" result="na">Test Case Started</teststep>
+    <teststep timestamp="   4.208415" level="0" type="user" ident="" result="pass">DLC Value of Message &amp; Expected DLC Value: 8 &amp; 8 is as expected</teststep>
+    <verdict time="2025-05-05 17:39:46" timestamp="   4.196238" endtime="2025-05-05 17:39:46" endtimestamp="   4.208415" result="pass" />
+    <title>Tx_Msg_DLC_mEbcm2L_WhlSpd_0x7F</title>
+    <ident>CGMN-12393</ident>
+    <description>To check the Data Length Code of the [mEbcm2L_WhlSpd_0x7F] message </description>
+  </testcase>
+  <testcase starttime="2025-05-05 17:39:46" timestamp="   4.208415">
+    <teststep timestamp="   4.328415" level="1" type="auto" ident="Resume reason" result="na">Elapsed time=120ms (max=120ms)</teststep>
+    <teststep timestamp="   4.334538" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=127 (0x7F) Elapsed time=6.12312ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.208415" level="0" type="user" ident="CGMN-12391" result="na">Test Case Started</teststep>
+    <teststep timestamp="   4.334538" level="0" type="user" ident="" result="fail">Periodicity of messages is not expected</teststep>
+    <teststep timestamp="   4.334538" level="0" type="user" ident="" result="na">Average Cycle Time: 12ms</teststep>
+    <teststep timestamp="   4.334538" level="0" type="user" ident="" result="na">Minimum Cycle Time: 11ms</teststep>
+    <teststep timestamp="   4.334538" level="0" type="user" ident="" result="na">Maximum Cycle Time: 13ms</teststep>
+    <teststep timestamp="   4.334538" level="0" type="user" ident="" result="na">Actual Cycle Time: 12ms</teststep>
+    <verdict time="2025-05-05 17:39:47" timestamp="   4.334538" endtime="2025-05-05 17:39:47" endtimestamp="   4.334538" result="fail" />
+    <title>Tx_Msg_Periodicity_mEbcm2L_WhlSpd_0x7F</title>
+    <ident>CGMN-12391</ident>
+    <description>To check the Periodicity of the [mEbcm2L_WhlSpd_0x7F] message </description>
+  </testcase>
+  <testcase starttime="2025-05-05 17:39:47" timestamp="   4.334538">
+    <teststep timestamp="   4.335330" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=512 (0x200) Elapsed time=0.792015ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.335330" level="0" type="user" ident="CGMN-12392" result="na">Test Case Started</teststep>
+    <teststep timestamp="   4.335330" level="0" type="user" ident="" result="pass"> Default value of signal HornStat in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   4.355086" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=512 (0x200) Elapsed time=19.7565ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.355086" level="0" type="user" ident="" result="pass"> Default value of signal LightChmslStat in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   4.376259" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=512 (0x200) Elapsed time=21.1725ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.376259" level="0" type="user" ident="" result="pass"> Default value of signal LightDRLStat in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   4.398605" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=512 (0x200) Elapsed time=22.3465ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.398605" level="0" type="user" ident="" result="pass"> Default value of signal LightHighStat in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   4.418622" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=512 (0x200) Elapsed time=20.0165ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.418622" level="0" type="user" ident="" result="pass"> Default value of signal LightLow_TailStat in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   4.439808" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=512 (0x200) Elapsed time=21.1865ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.439808" level="0" type="user" ident="" result="pass"> Default value of signal LightRevStat in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   4.461355" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=512 (0x200) Elapsed time=21.5465ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.461355" level="0" type="user" ident="" result="pass"> Default value of signal LightStopStat in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   4.481151" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=512 (0x200) Elapsed time=19.7965ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.481151" level="0" type="user" ident="" result="pass"> Default value of signal LightTurnFrontLStat in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   4.502358" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=512 (0x200) Elapsed time=21.2065ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.502358" level="0" type="user" ident="" result="pass"> Default value of signal LightTurnFrontRStat in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   4.524598" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=512 (0x200) Elapsed time=22.2405ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.524598" level="0" type="user" ident="" result="pass"> Default value of signal LightTurnRearLStat in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   4.544701" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=512 (0x200) Elapsed time=20.1025ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.544701" level="0" type="user" ident="" result="pass"> Default value of signal LightTurnRearRStat in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   4.565917" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=512 (0x200) Elapsed time=21.2165ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.565917" level="0" type="user" ident="" result="pass"> Default value of signal MsgCntr in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <verdict time="2025-05-05 17:39:47" timestamp="   4.334538" endtime="2025-05-05 17:39:47" endtimestamp="   4.565917" result="pass" />
+    <title>Tx_Msg_Sig_Init_mExtLightStat_0x200</title>
+    <ident>CGMN-12392</ident>
+    <description>To check the initial values of signals in the [mExtLightStat_0x200] message </description>
+  </testcase>
+  <testcase starttime="2025-05-05 17:39:47" timestamp="   4.565917">
+    <teststep timestamp="   4.587472" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=512 (0x200) Elapsed time=21.5545ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.565917" level="0" type="user" ident="CGMN-12396" result="na">Test Case Started</teststep>
+    <teststep timestamp="   4.587472" level="0" type="user" ident="" result="pass">DLC Value of Message &amp; Expected DLC Value: 8 &amp; 8 is as expected</teststep>
+    <verdict time="2025-05-05 17:39:47" timestamp="   4.565917" endtime="2025-05-05 17:39:47" endtimestamp="   4.587472" result="pass" />
+    <title>Tx_Msg_DLC_mExtLightStat_0x200</title>
+    <ident>CGMN-12396</ident>
+    <description>To check the Data Length Code of the [mExtLightStat_0x200] message </description>
+  </testcase>
+  <testcase starttime="2025-05-05 17:39:47" timestamp="   4.587472">
+    <teststep timestamp="   4.787472" level="1" type="auto" ident="Resume reason" result="na">Elapsed time=200ms (max=200ms)</teststep>
+    <teststep timestamp="   4.796849" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=512 (0x200) Elapsed time=9.37717ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.587472" level="0" type="user" ident="CGMN-12646" result="na">Test Case Started</teststep>
+    <teststep timestamp="   4.796849" level="0" type="user" ident="" result="fail">Periodicity of messages is not expected</teststep>
+    <teststep timestamp="   4.796849" level="0" type="user" ident="" result="na">Average Cycle Time: 21ms</teststep>
+    <teststep timestamp="   4.796849" level="0" type="user" ident="" result="na">Minimum Cycle Time: 19ms</teststep>
+    <teststep timestamp="   4.796849" level="0" type="user" ident="" result="na">Maximum Cycle Time: 22ms</teststep>
+    <teststep timestamp="   4.796849" level="0" type="user" ident="" result="na">Actual Cycle Time: 20ms</teststep>
+    <verdict time="2025-05-05 17:39:47" timestamp="   4.796849" endtime="2025-05-05 17:39:47" endtimestamp="   4.796849" result="fail" />
+    <title>Tx_Msg_Periodicity_mExtLightStat_0x200</title>
+    <ident>CGMN-12646</ident>
+    <description>To check the Periodicity of the [mExtLightStat_0x200] message </description>
+  </testcase>
+  <testcase starttime="2025-05-05 17:39:47" timestamp="   4.796849">
+    <teststep timestamp="   4.814062" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=217962035x (0xCFDD633x) Elapsed time=17.2124ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.814062" level="0" type="user" ident="CGMN-12410" result="na">Test Case Started</teststep>
+    <teststep timestamp="   4.814062" level="0" type="user" ident="" result="pass"> Default value of signal Btn_Dwn in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   4.878891" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=217962035x (0xCFDD633x) Elapsed time=64.8296ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.878891" level="0" type="user" ident="" result="pass"> Default value of signal Btn_Left in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   4.945771" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=217962035x (0xCFDD633x) Elapsed time=66.8796ms (max=11000ms)</teststep>
+    <teststep timestamp="   4.945771" level="0" type="user" ident="" result="pass"> Default value of signal Btn_Right in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   5.008988" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=217962035x (0xCFDD633x) Elapsed time=63.2176ms (max=11000ms)</teststep>
+    <teststep timestamp="   5.008988" level="0" type="user" ident="" result="pass"> Default value of signal Btn_Up in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   5.074504" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=217962035x (0xCFDD633x) Elapsed time=65.5156ms (max=11000ms)</teststep>
+    <teststep timestamp="   5.074504" level="0" type="user" ident="" result="pass"> Default value of signal LeftX_Neg in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   5.139060" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=217962035x (0xCFDD633x) Elapsed time=64.5556ms (max=11000ms)</teststep>
+    <teststep timestamp="   5.139060" level="0" type="user" ident="" result="pass"> Default value of signal LeftX_Ntrl in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   5.205123" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=217962035x (0xCFDD633x) Elapsed time=66.0636ms (max=11000ms)</teststep>
+    <teststep timestamp="   5.205123" level="0" type="user" ident="" result="pass"> Default value of signal LeftX_Pos in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   5.270999" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=217962035x (0xCFDD633x) Elapsed time=65.8756ms (max=11000ms)</teststep>
+    <teststep timestamp="   5.270999" level="0" type="user" ident="" result="pass"> Default value of signal LeftX_Value in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   5.334720" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=217962035x (0xCFDD633x) Elapsed time=63.7216ms (max=11000ms)</teststep>
+    <teststep timestamp="   5.334720" level="0" type="user" ident="" result="pass"> Default value of signal LeftY_Neg in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   5.400294" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=217962035x (0xCFDD633x) Elapsed time=65.5736ms (max=11000ms)</teststep>
+    <teststep timestamp="   5.400294" level="0" type="user" ident="" result="pass"> Default value of signal LeftY_Ntrl in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   5.464832" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=217962035x (0xCFDD633x) Elapsed time=64.5376ms (max=11000ms)</teststep>
+    <teststep timestamp="   5.464832" level="0" type="user" ident="" result="pass"> Default value of signal LeftY_Pos in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <teststep timestamp="   5.530387" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=217962035x (0xCFDD633x) Elapsed time=65.5556ms (max=11000ms)</teststep>
+    <teststep timestamp="   5.530387" level="0" type="user" ident="" result="pass"> Default value of signal LeftY_Value in DBC 0.000000 and the actual value 0.000000 got in trace are same</teststep>
+    <verdict time="2025-05-05 17:39:47" timestamp="   4.796849" endtime="2025-05-05 17:39:48" endtimestamp="   5.530387" result="pass" />
+    <title>Tx_Msg_Sig_Init_mLeftJoyStat_0xCFDD633</title>
+    <ident>CGMN-12410</ident>
+    <description>To check the initial values of signals in the [mLeftJoyStat_0xCFDD633] message </description>
+  </testcase>
+  <testcase starttime="2025-05-05 17:39:48" timestamp="   5.530387">
+    <teststep timestamp="   5.597429" level="1" type="auto" ident="Resume reason" result="na">Resumed on message id=217962035x (0xCFDD633x) Elapsed time=67.0417ms (max=11000ms)</teststep>
+    <teststep timestamp="   5.530387" level="0" type="user" ident="CGMN-12409" result="na">Test Case Started</teststep>
+    <teststep timestamp="   5.597429" level="0" type="user" ident="" result="pass">DLC Value of Message &amp; Expected DLC Value: 8 &amp; 8 is as expected</teststep>
+    <verdict time="2025-05-05 17:39:48" timestamp="   5.530387" endtime="2025-05-05 17:39:48" endtimestamp="   5.597429" result="pass" />
+    <title>Tx_Msg_DLC_mLeftJoyStat_0xCFDD633</title>
+    <ident>CGMN-12409</ident>
+    <description>To check the Data Length Code of the [mLeftJoyStat_0xCFDD633] message </description>
+  </testcase>
+  <testcase starttime="2025-05-05 17:39:48" timestamp="   5.597429">
+    <!-- Measurement stop forced. Test is incomplete! -->
+    <verdict time="2025-05-05 17:39:48" timestamp="   5.758184" endtime="2025-05-05 17:39:48" endtimestamp="   5.758184" result="fail" />
+    <title>Tx_Msg_Periodicity_mLeftJoyStat_0xCFDD633</title>
+    <ident>CGMN-12401</ident>
+    <description>To check the Periodicity of the [mLeftJoyStat_0xCFDD633] message </description>
+    <extendedinfo type="html"><![CDATA[<b>Measurement stop forced. Test is incomplete!</b>]]></extendedinfo>
+  </testcase>
+  <verdict time="2025-05-05 17:39:46" timestamp="   3.591553" endtime="2025-05-05 17:39:48" endtimestamp="   5.758184" result="fail" />
+  <title>CAN_AD_TX</title>
+  <description>Test Author: Chaithra\n Test Execution Date:  Mon May  5 17:39:45 2025 Test Cases to check the initial Values, DLC and Cycle time of the Tx CAN signals.\n</description>
+  <testlogfiles>
+  </testlogfiles>
+  <engineer>
+    <xinfo>
+      <name>Windows Login Name</name>
+      <description>Validation</description>
+    </xinfo>
+  </engineer>
+  <testsetup>
+    <xinfo>
+      <name>Version</name>
+      <description>CANoe.ISO11783.J1939.CANopen.CAN.LIN.MOST.FlexRay.J1587.Ethernet.Car2x.AFDX.A429.Scope.SmartCharging /pro 15.3.89 (SP3)</description>
+    </xinfo>
+    <xinfo>
+      <name>Configuration</name>
+      <description>D:\Jenkins\workspace\CGVCU_BSW_Mcore\M_Core\CAN\CAN_AD\CAN_AD_Configuration.cfg</description>
+    </xinfo>
+    <xinfo>
+      <name>Database CAN_AD_V1.6.4 on CAN</name>
+      <description>D:\Jenkins\workspace\CGVCU_BSW_Mcore\M_Core\CAN\CAN_AD\DBC\CAN_AD_V1.6.4.dbc (2024-12-30 11:23:00)</description>
+    </xinfo>
+    <xinfo>
+      <name>Test Module Name</name>
+      <description>Capl_Scrpit_AD</description>
+    </xinfo>
+    <xinfo>
+      <name>Test Module File</name>
+      <description>D:\Jenkins\workspace\CGVCU_BSW_Mcore\M_Core\CAN\CAN_AD\Capl_Scrpit_AD.can</description>
+    </xinfo>
+    <xinfo>
+      <name>Last modification of Test Module File</name>
+      <description>2025-04-02, 18:34:17</description>
+    </xinfo>
+    <xinfo>
+      <name>Windows Computer Name</name>
+      <description>IAST-BLR-VVD02</description>
+    </xinfo>
+    <xinfo>
+      <name>Nodelayer Module J1939TestServiceLibraryNL</name>
+      <description>J1939 Test Service Library for CANoe, Version 15.3.89.0, C:\Program Files\Vector CANoe 15\Exec32\J1939TestServiceLibraryNL.dll</description>
+    </xinfo>
+  </testsetup>
+  <hardware name="CAN Channel Interfaces" category="CategoryCANIF">
+    <xinfoset type="device">
+      <xinfoobject type="device">
+      <xinfo key="channel">
+        <name>Channel</name>
+        <description>1</description>
+      </xinfo>
+      <xinfo key="device">
+        <name>Device</name>
+        <description>VN1630</description>
+      </xinfo>
+      <xinfo key="serialnumber">
+        <name>Serial number</name>
+        <description>27283</description>
+      </xinfo>
+      <xinfo key="driverdllversion">
+        <name>Driver DLL version</name>
+        <description>20.30.16</description>
+      </xinfo>
+      <xinfo key="driverversion">
+        <name>Driver version</name>
+        <description>20.30.14</description>
+      </xinfo>
+      </xinfoobject>
+    </xinfoset>
+  </hardware>
+  <extendedinfo type="html"><![CDATA[<b>Measurement stop forced. Test is incomplete!</b>]]></extendedinfo>
+</testmodule>
+<!--footprint="5cf7feddbb74fe60ccf59c9bcae28858" version="1"-->
