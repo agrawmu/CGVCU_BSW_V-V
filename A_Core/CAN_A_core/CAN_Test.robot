@@ -15,9 +15,9 @@ Connect To Remote Machine
 *** Test Cases ***
 
 
-Test Case 1: Verify CAN Interface Initialization on A Core
+CGMN-XXXX: Verify CAN Interface Initialization on A Core
     [Documentation]    Verify that the CAN interface can be initialized correctly on A Core after the booting
-
+	Log    verifies from SWE.1 Requriment: XXXX
     # Check if the CAN interface 'can0' exists on the remote machine
     ${status_output}=    Execute Command    ip link show can0
     Should Contain    ${status_output}    can0    # Assert that 'can0' is listed in the output (i.e., the interface exists)
@@ -29,10 +29,10 @@ Test Case 1: Verify CAN Interface Initialization on A Core
 #    Should Not Contain    ${setup_output}    Error    # Ensure no errors appear when setting up the interface
 
     Log    Successfully initialized CAN interface with after booting
-
-Test Case 2: Verify that the CAN baud rate to 500kbps.
+	
+CGMN-22212: Verify that the CAN baud rate to 500kbps.
     [Documentation]    CGM Linux OS shall configure the CAN baud rate to 500kbps.
-
+	Log    verifies from SWE.1 Requriment: http://server02:81/polarion/#/project/CGM_NewMobility_Magna/workitem?id=CGMN-8690
     # Bring up the CAN interface with the expected bitrate
     Execute Command    ip link set can0 up type can bitrate 500000
     Sleep    1s  # Allow time for changes to take effect
@@ -47,9 +47,9 @@ Test Case 2: Verify that the CAN baud rate to 500kbps.
 
     Log    Successfully verified CAN baud rate of can0.
 
-Test Case 3: Verify that an invalid CAN baud rate of 2000kbps is not accepted by the CGM Linux OS.
+CGMN-22213: Verify that an invalid CAN baud rate of 2000kbps is not accepted by the CGM Linux OS.
     [Documentation]    CGM Linux OS shall not support the invalid CAN baud rate to 2000kbps.
-
+	Log    verifies from SWE.1 Requriment: http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-8690
     # Bring down the CAN interface before applying the invalid bitrate
     Execute Command    ip link set can0 down
 
@@ -66,9 +66,10 @@ Test Case 3: Verify that an invalid CAN baud rate of 2000kbps is not accepted by
 
     Log    Successfully verified that setting an invalid CAN baud rate of 2000kbps was not accepted.
 
-Test Case 4: Verify that the CGM Linux OS shall send the CAN frames along with its message id and CAN type.
-    [Documentation]  CGM shall support the CAN frames along with its message id and CAN type.
 
+CGMN-22208: Verify that the CGM Linux OS shall send the CAN frames along with its message id and CAN type.
+    [Documentation]  CGM shall support the CAN frames along with its message id and CAN type.
+	Log    verifies from SWE.1 Requriment: http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-8691
     # Bring up the CAN interface
     Execute Command  ip link set can0 down
     Execute Command  ip link set can0 up type can bitrate 500000 loopback on
@@ -92,6 +93,8 @@ Test Case 4: Verify that the CGM Linux OS shall send the CAN frames along with i
     Execute Command  rm -f /tmp/can_log.txt
 
     Log    Successfully transmitted CAN frames with message ID and CAN type.
+	
+	
 #Test Case 4: Verify the CAN A-Core communication through the command : cansend can0 613#112233445566778899aabbcceedd112211 cansend can0 613#112233445566778899aabbcceedd112211
 #    [Documentation]  Send the Transmission of same CAN command with 2 times in one line command 1.cansend can0 613#112233445566778899aabbcceedd112211 cansend can0 613#112233445566778899aabbcceedd112211
 #
@@ -117,8 +120,9 @@ Test Case 4: Verify that the CGM Linux OS shall send the CAN frames along with i
 #    Execute Command  pkill candump
 #    Execute Command  rm -f /tmp/can_log.txt
 
-Test Case 5: Verify that the CGM Linux OS shall send the CAN frames along with its invalid message id and CAN type.
+CGMN-22209: Verify that the CGM Linux OS shall send the CAN frames along with its invalid message id and CAN type.
     [Documentation]  CGM shall not support the invalid message id and CAN type.
+	Log    verifies from SWE.1 Requriment: http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-8691
     # Bring up the CAN interface
     Execute Command  ip link set can0 down
     Execute Command  ip link set can0 up type can bitrate 500000 loopback on
@@ -144,8 +148,9 @@ Test Case 5: Verify that the CGM Linux OS shall send the CAN frames along with i
     Log    Successfully verified messages should not be transmitted invalid CAN message IDs and CAN types.
 
 
-Test Case 6: Verify that the CAN A-Core communication through invalid CAN channel
+CGMN-22211: Verify that the CAN A-Core communication through invalid CAN channel
     [Documentation]  CGM shall not support the invalid CAN channel
+	Log    verifies from SWE.1 Requriment: http://server02:81/polarion/redirect/project/CGM_NewMobility_Magna/workitem?id=CGMN-8691
     # Bring up the CAN interface
     Execute Command  ip link set can0 down
     Execute Command  ip link set can0 up type can bitrate 500000 loopback on
@@ -216,9 +221,11 @@ Test Case 6: Verify that the CAN A-Core communication through invalid CAN channe
 #    Execute Command  pkill candump
 #    Execute Command  rm -f /tmp/can_log.txt
 
-Test Case 7: Verify that the CGM Linux OS shall send the CAN frames along with its message id and CAN type.
-    [Documentation]  CGM shall support the CAN frames along with its message id and CAN type.
 
+
+CGMN-XXXX: Verify that the CGM Linux OS shall send the CAN frames along with its message id and CAN type.
+    [Documentation]  CGM shall support the CAN frames along with its message id and CAN type.
+	Log    verifies from SWE.1 Requriment: 
     # Bring up the CAN interface
     Execute Command  ip link set can0 down
     Execute Command  ip link set can0 up type can bitrate 500000 loopback on

@@ -20,6 +20,7 @@ Connect To Remote Machine
     Login    ${USERNAME}
 
 *** Test Cases ***
+
 1 Test Case CGMN-17745: To verify that the GNSS Device is enabled
     [Documentation]    Verifying the GNSS0 and GNSS1 exist in /dev.
     ${output}=    Execute Command    ls /dev
