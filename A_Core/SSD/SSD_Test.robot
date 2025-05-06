@@ -467,7 +467,7 @@ CGMN-29661: Verify the functionality of the API that writes a file after removin
     Execute Command    umount /dev/nvme0n1 /mnt/ssd
     Log    SSD unmounted
 #    Log To Console    Remove ssd from the mother board and press enter
-    ${user_verification}=    Evaluate    input("Press enter ")
+#    ${user_verification}=    Evaluate    input("Press enter ")
     ${file_content}=    Execute Command    curl -X POST "http://localhost/ssd/write" -H "Content-Type: application/json" -d '{"path": "Validation.txt", "data": "Hello, World!"}'
     Log    ${file_content}
     Run Keyword And Continue On Failure    Should Contain    error
