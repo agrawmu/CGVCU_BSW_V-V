@@ -86,7 +86,7 @@ CGMN-29643: Verify the functionality of the API that writes a file in a new dire
     Log    Response from API (Create Directory): ${file_content}
     Should Contain    ${file_content}    "message":"Directory created successfully"
 
-    ${file_content}=    Execute Command    curl -X POST http://localhost/ssd/write -H "Content-Type: application/json" -d '{"path": "new_directory_SSD/Test.txt", "data": "Hello, how's your day!"}'
+    ${file_content}=    Execute Command    curl -X POST http://localhost/ssd/write -H "Content-Type: application/json" -d '{\"path"\: \"new_directory_SSD/Test.txt"\, \"data"\: \"Hello, how's your day!"\}'
     Log    Response from API (Write File): ${file_content}
     Should Contain    ${file_content}    "message":"File written successfully"
 
