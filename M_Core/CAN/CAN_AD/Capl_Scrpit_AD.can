@@ -1,0 +1,1551 @@
+/*@!Encoding:1252*/
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+   char Polarian_ID[15];                                                   //Array to store the Polarion test case ID
+   long kTIMEOUT = 0;                                                      //General timeout value
+   const long WAIT_TIMEOUT = 11000;
+   long Cycle_time = 0;                                                    //Variable to store the cycle time
+   byte DLC_Value = 0;                                                     // Variable to store the Data Length Code (DLC) value 
+   byte flag = 0;                                                          // Flag for status tracking 
+   dword gCyccheckId;                                                      //Variable to store the cycle check ID    
+   dword time;
+   char time_buf[100];
+  
+  
+  /*Declared the message names and corresponding message objects */
+   message mEbcm2L_Stat2 Msg_0x7B; 
+   message mEbcm2L_WhlCnt Msg_0x7C;
+   message mEbcm2L_WhlSlip Msg_0x81;
+   message mEbcm2L_WhlSpd Msg_0x7F;
+   message mExtLightStat Msg_0x200;
+   message mLeftJoyStat Msg_0xCFDD633;
+   message mLeftJoyStat2 Msg_0xCFDD733;
+   message mRightJoyStat Msg_0xCFDD834;
+   message mRightJoyStat2 Msg_0xCFDD934;
+   message mSbwCals Msg_0x29C;
+   message mSbwStat2 Msg_0x292;
+   message mSbwSys_Allied Msg_0x294;
+   message mTOStat Msg_0x120;
+   message mVcuFaults Msg_0x204;
+   message mVcuImuAngVel Msg_0x206;
+   message mVcuImuAngVel_Filt Msg_0x20C;
+   message mVcuImuLinAccel Msg_0x205;
+   message mVcuImuLinAccel_Filt Msg_0x20B;
+   message mVcuSys Msg_0x302;
+   message mVehCtrlTORq Msg_0x121;
+   message mVehOdo Msg_0x20A;
+   message mVehState Msg_0x202;
+   message mVehState2 Msg_0x208;
+   message mVehState3 Msg_0x209;
+   message mVscStat Msg_0xCFDE801;  
+  
+  // Variables of mEbcm2L_Stat2 0x7B Message: 12 ms 
+  const long kMIN_Cycle_Time_mEbcm2L_Stat2_0x7B = 11;                     
+  const long kMAX_Cycle_Time_mEbcm2L_Stat2_0x7B = 13; 
+  
+  // Variables of mEbcm2L_WhlCnt 0x7C Message: 12 ms
+  const long kMIN_Cycle_Time_mEbcm2L_WhlCnt_0x7C = 11;                     
+  const long kMAX_Cycle_Time_mEbcm2L_WhlCnt_0x7C = 13;
+  
+  // Variables of mEbcm2L_WhlSlip 0x81 Message: 24 ms
+  const long kMIN_Cycle_Time_mEbcm2L_WhlSlip_0x81 = 22;                     
+  const long kMAX_Cycle_Time_mEbcm2L_WhlSlip_0x81 = 26;
+  
+  // Variables of mEbcm2L_WhlSpd 0x7F Message: 12 ms
+  const long kMIN_Cycle_Time_mEbcm2L_WhlSpd_0x7F = 11;                     
+  const long kMAX_Cycle_Time_mEbcm2L_WhlSpd_0x7F = 13;
+  
+  // Variables of mExtLightStat 0x200 Message: 20 ms
+  const long kMIN_Cycle_Time_mExtLightStat_0x200 = 18;                     
+  const long kMAX_Cycle_Time_mExtLightStat_0x200 = 22;
+  
+  // Variables of mLeftJoyStat 0xCFDD633 Message: 62 ms
+  const long kMIN_Cycle_Time_mLeftJoyStat_0xCFDD633 = 56;                     
+  const long kMAX_Cycle_Time_mLeftJoyStat_0xCFDD633 = 68;
+  
+  // Variables of mLeftJoyStat2 0xCFDD733 Message: 62 ms
+  const long kMIN_Cycle_Time_mLeftJoyStat2_0xCFDD733 = 56;                     
+  const long kMAX_Cycle_Time_mLeftJoyStat2_0xCFDD733 = 68;
+  
+  // Variables of mRightJoyStat 0xCFDD834 Message: 62 ms
+  const long kMIN_Cycle_Time_mRightJoyStat_0xCFDD834 = 56;                     
+  const long kMAX_Cycle_Time_mRightJoyStat_0xCFDD834 = 68;
+  
+  // Variables of mRightJoyStat2 0xCFDD934 Message: 62 ms
+  const long kMIN_Cycle_Time_mRightJoyStat2_0xCFDD934 = 56;                     
+  const long kMAX_Cycle_Time_mRightJoyStat2_0xCFDD934 = 68;
+  
+  // Variables of mSbwCals 0x29C Message: 10000 ms
+  const long kMIN_Cycle_Time_mSbwCals_0x29C = 9000;                     
+  const long kMAX_Cycle_Time_mSbwCals_0x29C = 11000; 
+  
+  // Variables of mSbwStat2 0x292 Message: 10 ms
+  const long kMIN_Cycle_Time_mSbwStat2_0x292 = 9;                     
+  const long kMAX_Cycle_Time_mSbwStat2_0x292 = 11;
+  
+  // Variables of mSbwSys_Allied 0x294 Message: 10000 ms 
+  const long kMIN_Cycle_Time_mSbwSys_Allied_0x294 = 9000;                     
+  const long kMAX_Cycle_Time_mSbwSys_Allied_0x294 = 11000;
+  
+  // Variables of mTOStat 0x120 Message: 500 ms
+  const long kMIN_Cycle_Time_mTOStat_0x120 = 450;                     
+  const long kMAX_Cycle_Time_mTOStat_0x120 = 550;
+  
+  // Variables of mVcuFaults 0x204 Message: 100 ms
+  const long kMIN_Cycle_Time_mVcuFaults_0x204 = 90;                     
+  const long kMAX_Cycle_Time_mVcuFaults_0x204 = 110;
+  
+  // Variables of mVcuImuAngVel 0x206 Message: 10 ms
+  const long kMIN_Cycle_Time_mVcuImuAngVel_0x206 = 9;                     
+  const long kMAX_Cycle_Time_mVcuImuAngVel_0x206 = 11;
+  
+  // Variables of mVcuImuAngVel_Filt 0x20C Message: 100 ms
+  const long kMIN_Cycle_Time_mVcuImuAngVel_Filt_0x20C = 90;                     
+  const long kMAX_Cycle_Time_mVcuImuAngVel_Filt_0x20C = 110;
+  
+  // Variables of mVcuImuLinAccel 0x205 Message: 10 ms
+  const long kMIN_Cycle_Time_mVcuImuLinAccel_0x205 = 9;                     
+  const long kMAX_Cycle_Time_mVcuImuLinAccel_0x205 = 11;
+  
+  // Variables of mVcuImuLinAccel_Filt 0x20B Message: 100 ms
+  const long kMIN_Cycle_Time_mVcuImuLinAccel_Filt_0x20B = 90;                     
+  const long kMAX_Cycle_Time_mVcuImuLinAccel_Filt_0x20B = 110;
+  
+  // Variables of mVcuSys 0x302 Message: 50 ms
+  const long kMIN_Cycle_Time_mVcuSys_0x302 = 45;                     
+  const long kMAX_Cycle_Time_mVcuSys_0x302 = 55;
+  
+  // Variables of mVehCtrlTORq 0x121 Message: 20 ms
+  const long kMIN_Cycle_Time_mVehCtrlTORq_0x121 = 18;                     
+  const long kMAX_Cycle_Time_mVehCtrlTORq_0x121 = 22;    
+  
+  // Variables of mVehOdo 0x20A Message: 100 ms
+  const long kMIN_Cycle_Time_mVehOdo_0x20A = 90;                     
+  const long kMAX_Cycle_Time_mVehOdo_0x20A = 110;
+  
+  // Variables of mVehState 0x202 Message: 50 ms
+  const long kMIN_Cycle_Time_mVehState_0x202 = 45;                     
+  const long kMAX_Cycle_Time_mVehState_0x202 = 55;
+  
+  // Variables of mVehState2 0x208 Message: 20 ms
+  const long kMIN_Cycle_Time_mVehState2_0x208 = 18;                     
+  const long kMAX_Cycle_Time_mVehState2_0x208 = 22;
+  
+  // Variables of mVehState3 0x209 Message: 50 ms
+  const long kMIN_Cycle_Time_mVehState3_0x209 = 45;                  
+  const long kMAX_Cycle_Time_mVehState3_0x209 = 55;    
+  
+ // Variables of mVscStat 0xCFDE801 Message: 100 ms
+  const long kMIN_Cycle_Time_mVscStat_0xCFDE801 = 90;                     
+  const long kMAX_Cycle_Time_mVscStat_0xCFDE801 = 110;
+  
+}
+
+void Maintest()
+{
+  /* Set the report file name for logging the test results */
+  TestReportFileName("CAN_AD_V1.6.4_REPORT");                               // Set the report file name for logging the test results                                 
+  TestModuleTitle("CAN_AD_TX");                                         //Set the report file name for logging the test results
+  TestModuleDescription("Test Author: Chaithra\n");                     //Set the Author name
+  
+  getLocalTimeString(time_buf);                                         // Calls the function `getLocalTimeString` to get the current local time and store it in `time_buf`.
+  TestModuleDescription("Test Execution Date: ");
+  TestModuleDescription(time_buf);                                      //Set the title of the test module
+  
+  TestModuleDescription("Test Cases to check the initial Values, DLC and Cycle time of the Tx CAN signals.\n");      //Provide a brief description of the test module's purpose 
+  @TestAutomation::TestDone = 0;
+  Tx_Msg_Sig_Init_mEbcm2L_Stat2_0x7B();                                                                           //Execute individual test cases sequentially for Initial value DLC and Periodicity                         
+  Tx_Msg_DLC_mEbcm2L_Stat2_0x7B();
+  Tx_Msg_Periodicity_mEbcm2L_Stat2_0x7B();
+  
+  Tx_Msg_Sig_Init_mEbcm2L_WhlCnt_0x7C();
+  Tx_Msg_DLC_mEbcm2L_WhlCnt_0x7C();
+  Tx_Msg_Periodicity_mEbcm2L_WhlCnt_0x7C();
+  
+  Tx_Msg_Sig_Init_mEbcm2L_WhlSlip_0x81();
+  Tx_Msg_DLC_mEbcm2L_WhlSlip_0x81();
+  Tx_Msg_Periodicity_mEbcm2L_WhlSlip_0x81();
+
+  Tx_Msg_Sig_Init_mEbcm2L_WhlSpd_0x7F();
+  Tx_Msg_DLC_mEbcm2L_WhlSpd_0x7F();
+  Tx_Msg_Periodicity_mEbcm2L_WhlSpd_0x7F();
+  
+  Tx_Msg_Sig_Init_mExtLightStat_0x200();
+  Tx_Msg_DLC_mExtLightStat_0x200();
+  Tx_Msg_Periodicity_mExtLightStat_0x200();
+
+  Tx_Msg_Sig_Init_mLeftJoyStat_0xCFDD633();
+  Tx_Msg_DLC_mLeftJoyStat_0xCFDD633();
+  Tx_Msg_Periodicity_mLeftJoyStat_0xCFDD633();
+
+  Tx_Msg_Sig_Init_mLeftJoyStat2_0xCFDD733();
+  Tx_Msg_DLC_mLeftJoyStat2_0xCFDD733();
+  Tx_Msg_Periodicity_mLeftJoyStat2_0xCFDD733();
+
+  Tx_Msg_Sig_Init_mRightJoyStat_0xCFDD834();
+  Tx_Msg_DLC_mRightJoyStat_0xCFDD834();
+  Tx_Msg_Periodicity_mRightJoyStat_0xCFDD834();
+
+  Tx_Msg_Sig_Init_mRightJoyStat2_0xCFDD934();
+  Tx_Msg_DLC_mRightJoyStat2_0xCFDD934();
+  Tx_Msg_Periodicity_mRightJoyStat2_0xCFDD934();
+  
+  Tx_Msg_Sig_Init_mSbwCals_0x29C();
+  Tx_Msg_DLC_mSbwCals_0x29C();
+  Tx_Msg_Periodicity_mSbwCals_0x29C();
+  
+  Tx_Msg_Sig_Init_mSbwStat2_0x292();
+  Tx_Msg_DLC_mSbwStat2_0x292();
+  Tx_Msg_Periodicity_mSbwStat2_0x292();
+  
+  Tx_Msg_Sig_Init_mSbwSys_Allied_0x294();
+  Tx_Msg_DLC_mSbwSys_Allied_0x294();
+  Tx_Msg_Periodicity_mSbwSys_Allied_0x294();
+  
+  Tx_Msg_Sig_Init_mTOStat_0x120();
+  Tx_Msg_DLC_mTOStat_0x120();
+  Tx_Msg_Periodicity_mTOStat_0x120();
+
+  Tx_Msg_Sig_Init_mVcuFaults_0x204();
+  Tx_Msg_DLC_mVcuFaults_0x204();
+  Tx_Msg_Periodicity_mVcuFaults_0x204();
+
+  Tx_Msg_Sig_Init_mVcuImuAngVel_0x206();
+  Tx_Msg_DLC_mVcuImuAngVel_0x206();
+  Tx_Msg_Periodicity_mVcuImuAngVel_0x206();
+
+  Tx_Msg_Sig_Init_mVcuImuAngVel_Filt_0x20C();
+  Tx_Msg_DLC_mVcuImuAngVel_Filt_0x20C();
+  Tx_Msg_Periodicity_mVcuImuAngVel_Filt_0x20C();
+
+  Tx_Msg_Sig_Init_mVcuImuLinAccel_0x205();
+  Tx_Msg_DLC_mVcuImuLinAccel_0x205();
+  Tx_Msg_Periodicity_mVcuImuLinAccel_0x205();
+
+  Tx_Msg_Sig_Init_mVcuImuLinAccel_Filt_0x20B();
+  Tx_Msg_DLC_mVcuImuLinAccel_Filt_0x20B();
+  Tx_Msg_Periodicity_mVcuImuLinAccel_Filt_0x20B();
+
+  Tx_Msg_Sig_Init_mVcuSys_0x302();
+  Tx_Msg_DLC_mVcuSys_0x302();
+  Tx_Msg_Periodicity_mVcuSys_0x302();
+  
+  Tx_Msg_Sig_Init_mVehCtrlTORq_0x121();
+  Tx_Msg_DLC_mVehCtrlTORq_0x121();
+  Tx_Msg_Periodicity_mVehCtrlTORq_0x121();
+  
+  Tx_Msg_Sig_Init_mVehOdo_0x20A();
+  Tx_Msg_DLC_mVehOdo_0x20A();
+  Tx_Msg_Periodicity_mVehOdo_0x20A();
+
+  Tx_Msg_Sig_Init_mVehState_0x202();
+  Tx_Msg_DLC_mVehState_0x202();
+  Tx_Msg_Periodicity_mVehState_0x202();
+
+  Tx_Msg_Sig_Init_mVehState2_0x208();
+  Tx_Msg_DLC_mVehState2_0x208();
+  Tx_Msg_Periodicity_mVehState2_0x208();
+ 
+  Tx_Msg_Sig_Init_mVehState3_0x209();
+  Tx_Msg_DLC_mVehState3_0x209();
+  Tx_Msg_Periodicity_mVehState3_0x209();
+  
+  Tx_Msg_Sig_Init_mVscStat_0xCFDE801();
+  Tx_Msg_DLC_mVscStat_0xCFDE801();
+  Tx_Msg_Periodicity_mVscStat_0xCFDE801();
+  @TestAutomation::TestDone = 1;
+ }
+
+/*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mEbcm2L_Stat2_0x7B()
+{
+  char Description[100] = "To check the initial values of signals in the [mEbcm2L_Stat2_0x7B] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12361");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mEbcm2L_Stat2_0x7B" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mEbcm2L_Stat2,AbsActv,0,"AbsActv");
+  signalintialvaluecheck(mEbcm2L_Stat2,AbsAvail,0,"AbsAvail");
+  signalintialvaluecheck(mEbcm2L_Stat2,AebRdy,0,"AebRdy");
+  signalintialvaluecheck(mEbcm2L_Stat2,EbdActv,0,"EbdActv");
+  signalintialvaluecheck(mEbcm2L_Stat2,EscActv,0,"EscActv");
+  signalintialvaluecheck(mEbcm2L_Stat2,EscAvail,0,"EscAvail");
+  signalintialvaluecheck(mEbcm2L_Stat2,HoldStat,0,"HoldStat");
+  signalintialvaluecheck(mEbcm2L_Stat2,LvVolt,0,"LvVolt");
+  signalintialvaluecheck(mEbcm2L_Stat2,MsgCntr,0,"MsgCntr");
+  signalintialvaluecheck(mEbcm2L_Stat2,MsgCrc,0,"MsgCrc");
+  signalintialvaluecheck(mEbcm2L_Stat2,MtrCurrEst,0,"MtrCurrEst");
+  signalintialvaluecheck(mEbcm2L_Stat2,TcsActv,0,"TcsActv");
+  signalintialvaluecheck(mEbcm2L_Stat2,TcsAvail,0,"TcsAvail");
+  signalintialvaluecheck(mEbcm2L_Stat2,ToShtdwn,0,"ToShtdwn");
+  signalintialvaluecheck(mEbcm2L_Stat2,VehSpdEbcm,0,"VehSpdEbcm");
+}
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mEbcm2L_Stat2_0x7B() 
+{
+  char Description[100] = "To check the Data Length Code of the [mEbcm2L_Stat2_0x7B] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12363");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mEbcm2L_Stat2_0x7B");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mEbcm2L_Stat2, Msg_0x7B);
+}
+/*Check the Periodicity of the message */
+
+testcase Tx_Msg_Periodicity_mEbcm2L_Stat2_0x7B()
+{
+  char Description[100] = "To check the Periodicity of the [mEbcm2L_Stat2_0x7B] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 12;
+  kTIMEOUT = 120;
+  CycMinCycleTime = kMIN_Cycle_Time_mEbcm2L_Stat2_0x7B;
+  CycMaxCycleTime = kMAX_Cycle_Time_mEbcm2L_Stat2_0x7B;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12362");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mEbcm2L_Stat2_0x7B");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mEbcm2L_Stat2, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mEbcm2L_Stat2,CycMinCycleTime, CycMaxCycleTime);  
+}
+
+/*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mEbcm2L_WhlCnt_0x7C()
+{
+  char Description[100] = "To check the initial values of signals in the [mEbcm2L_WhlCnt_0x7C] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12378");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mEbcm2L_WhlCnt_0x7C" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mEbcm2L_WhlCnt,WhlCntFL,0,"WhlCntFL");
+  signalintialvaluecheck(mEbcm2L_WhlCnt,WhlCntFR,0,"WhlCntFR");
+  signalintialvaluecheck(mEbcm2L_WhlCnt,WhlCntR,0,"WhlCntR");;
+ }
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mEbcm2L_WhlCnt_0x7C() 
+{
+  char Description[100] = "To check the Data Length Code of the [mEbcm2L_WhlCnt_0x7C] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12377");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mEbcm2L_WhlCnt_0x7C");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mEbcm2L_WhlCnt, Msg_0x7C);
+}
+
+/*Check the Periodicity of the message */
+
+testcase Tx_Msg_Periodicity_mEbcm2L_WhlCnt_0x7C()
+{
+  char Description[100] = "To check the Periodicity of the [mEbcm2L_WhlCnt_0x7C] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 12;
+  kTIMEOUT = 120;
+  CycMinCycleTime = kMIN_Cycle_Time_mEbcm2L_WhlCnt_0x7C;
+  CycMaxCycleTime = kMAX_Cycle_Time_mEbcm2L_WhlCnt_0x7C;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12375");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mEbcm2L_WhlCnt_0x7C");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mEbcm2L_WhlCnt, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mEbcm2L_WhlCnt,CycMinCycleTime, CycMaxCycleTime);  
+}
+  
+ /*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mEbcm2L_WhlSlip_0x81()
+{
+  char Description[100] = "To check the initial values of signals in the [mEbcm2L_WhlSlip_0x81] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12376");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mEbcm2L_WhlSlip_0x81" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mEbcm2L_WhlSlip,MsgCntr,0,"MsgCntr");
+  signalintialvaluecheck(mEbcm2L_WhlSlip,MsgCrc,0,"MsgCrc");
+  signalintialvaluecheck(mEbcm2L_WhlSlip,WhlCntFL,0,"WhlCntFL");
+  signalintialvaluecheck(mEbcm2L_WhlSlip,WhlCntFR,0,"WhlCntFR");
+  signalintialvaluecheck(mEbcm2L_WhlSlip,WhlCntR,0,"WhlCntR");
+ }
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mEbcm2L_WhlSlip_0x81() 
+{
+  char Description[100] = "To check the Data Length Code of the [mEbcm2L_WhlSlip_0x81] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12380");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mEbcm2L_WhlSlip_0x81");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mEbcm2L_WhlSlip, Msg_0x81);
+}
+
+/*Check the Periodicity of the message */
+testcase Tx_Msg_Periodicity_mEbcm2L_WhlSlip_0x81()
+{
+  char Description[100] = "To check the Periodicity of the [mEbcm2L_WhlSlip_0x81] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 24;
+  kTIMEOUT = 240;
+  CycMinCycleTime = kMIN_Cycle_Time_mEbcm2L_WhlSlip_0x81;
+  CycMaxCycleTime = kMAX_Cycle_Time_mEbcm2L_WhlSlip_0x81;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12379");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mEbcm2L_WhlSlip_0x81");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mEbcm2L_WhlSlip, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mEbcm2L_WhlSlip,CycMinCycleTime, CycMaxCycleTime);  
+}
+
+/*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mEbcm2L_WhlSpd_0x7F()
+{
+  char Description[100] = "To check the initial values of signals in the [mEbcm2L_WhlSpd_0x7F] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12394");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mEbcm2L_WhlSpd_0x7F" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mEbcm2L_WhlSpd,MsgCntr,0,"MsgCntr");
+  signalintialvaluecheck(mEbcm2L_WhlSpd,MsgCrc,0,"MsgCrc");
+  signalintialvaluecheck(mEbcm2L_WhlSpd,WhlSpdFL,0,"WhlSpdFL");
+  signalintialvaluecheck(mEbcm2L_WhlSpd,WhlSpdFR,0,"WhlSpdFR");
+  signalintialvaluecheck(mEbcm2L_WhlSpd,WhlSpdR,0,"WhlSpdR");
+ }
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mEbcm2L_WhlSpd_0x7F() 
+{
+  char Description[100] = "To check the Data Length Code of the [mEbcm2L_WhlSpd_0x7F] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12393");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mEbcm2L_WhlSpd_0x7F");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mEbcm2L_WhlSpd, Msg_0x7C);
+}
+
+/*Check the Periodicity of the message */
+
+testcase Tx_Msg_Periodicity_mEbcm2L_WhlSpd_0x7F()
+{
+  char Description[100] = "To check the Periodicity of the [mEbcm2L_WhlSpd_0x7F] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 12;
+  kTIMEOUT = 120;
+  CycMinCycleTime = kMIN_Cycle_Time_mEbcm2L_WhlSpd_0x7F;
+  CycMaxCycleTime = kMAX_Cycle_Time_mEbcm2L_WhlSpd_0x7F;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12391");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mEbcm2L_WhlSpd_0x7F");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mEbcm2L_WhlSpd, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mEbcm2L_WhlSpd,CycMinCycleTime, CycMaxCycleTime);  
+}
+
+/*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mExtLightStat_0x200()
+{
+  char Description[100] = "To check the initial values of signals in the [mExtLightStat_0x200] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12392");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mExtLightStat_0x200" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mExtLightStat,HornStat,0,"HornStat");
+  signalintialvaluecheck(mExtLightStat,LightChmslStat,0,"LightChmslStat");
+  signalintialvaluecheck(mExtLightStat,LightDRLStat,0,"LightDRLStat");
+  signalintialvaluecheck(mExtLightStat,LightHighStat,0,"LightHighStat");
+  signalintialvaluecheck(mExtLightStat,LightLow_TailStat,0,"LightLow_TailStat");
+  signalintialvaluecheck(mExtLightStat,LightRevStat,0,"LightRevStat");
+  signalintialvaluecheck(mExtLightStat,LightStopStat,0,"LightStopStat");
+  signalintialvaluecheck(mExtLightStat,LightTurnFrontLStat,0,"LightTurnFrontLStat");
+  signalintialvaluecheck(mExtLightStat,LightTurnFrontRStat,0,"LightTurnFrontRStat");
+  signalintialvaluecheck(mExtLightStat,LightTurnRearLStat,0,"LightTurnRearLStat");
+  signalintialvaluecheck(mExtLightStat,LightTurnRearRStat,0,"LightTurnRearRStat");
+  signalintialvaluecheck(mExtLightStat,MsgCntr,0,"MsgCntr");
+ }
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mExtLightStat_0x200() 
+{
+  char Description[100] = "To check the Data Length Code of the [mExtLightStat_0x200] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12396");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mExtLightStat_0x200");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mExtLightStat, Msg_0x200);
+}
+
+//Check the Periodicity of the message 
+testcase Tx_Msg_Periodicity_mExtLightStat_0x200()
+{
+  char Description[100] = "To check the Periodicity of the [mExtLightStat_0x200] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 20; 
+  kTIMEOUT = 200;
+  CycMinCycleTime = kMIN_Cycle_Time_mExtLightStat_0x200;
+  CycMaxCycleTime = kMAX_Cycle_Time_mExtLightStat_0x200;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12646");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mExtLightStat_0x200");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mExtLightStat, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mExtLightStat,CycMinCycleTime, CycMaxCycleTime);  
+}
+
+/*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mLeftJoyStat_0xCFDD633()
+{
+  char Description[100] = "To check the initial values of signals in the [mLeftJoyStat_0xCFDD633] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12410");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mLeftJoyStat_0xCFDD633" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mLeftJoyStat,Btn_Dwn,0,"Btn_Dwn");
+  signalintialvaluecheck(mLeftJoyStat,Btn_Left,0,"Btn_Left");
+  signalintialvaluecheck(mLeftJoyStat,Btn_Right,0,"Btn_Right");
+  signalintialvaluecheck(mLeftJoyStat,Btn_Up,0,"Btn_Up");
+  signalintialvaluecheck(mLeftJoyStat,LeftX_Neg,0,"LeftX_Neg");
+  signalintialvaluecheck(mLeftJoyStat,LeftX_Ntrl,0,"LeftX_Ntrl");
+  signalintialvaluecheck(mLeftJoyStat,LeftX_Pos,0,"LeftX_Pos");
+  signalintialvaluecheck(mLeftJoyStat,LeftX_Value,0,"LeftX_Value");
+  signalintialvaluecheck(mLeftJoyStat,LeftY_Neg,0,"LeftY_Neg");
+  signalintialvaluecheck(mLeftJoyStat,LeftY_Ntrl,0,"LeftY_Ntrl");
+  signalintialvaluecheck(mLeftJoyStat,LeftY_Pos,0,"LeftY_Pos");
+  signalintialvaluecheck(mLeftJoyStat,LeftY_Value,0,"LeftY_Value"); 
+ }
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mLeftJoyStat_0xCFDD633() 
+{
+  char Description[100] = "To check the Data Length Code of the [mLeftJoyStat_0xCFDD633] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12409");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mLeftJoyStat_0xCFDD633");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mLeftJoyStat, Msg_0xCFDD633);
+}
+
+/*Check the Periodicity of the message */
+testcase Tx_Msg_Periodicity_mLeftJoyStat_0xCFDD633()
+{
+  char Description[100] = "To check the Periodicity of the [mLeftJoyStat_0xCFDD633] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 62; 
+  kTIMEOUT =620;
+  CycMinCycleTime = kMIN_Cycle_Time_mLeftJoyStat_0xCFDD633;
+  CycMaxCycleTime = kMAX_Cycle_Time_mLeftJoyStat_0xCFDD633;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12401");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mLeftJoyStat_0xCFDD633");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mLeftJoyStat,CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mLeftJoyStat,CycMinCycleTime, CycMaxCycleTime);  
+}
+
+/*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mLeftJoyStat2_0xCFDD733()
+{
+  char Description[100] = "To check the initial values of signals in the [mLeftJoyStat2_0xCFDD733] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12405");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mLeftJoyStat2_0xCFDD733" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mLeftJoyStat2,LeftZ_Neg,0,"LeftZ_Neg");
+  signalintialvaluecheck(mLeftJoyStat2,LeftZ_Ntrl,0,"LeftZ_Ntrl");
+  signalintialvaluecheck(mLeftJoyStat2,LeftZ_Pos,0,"LeftZ_Pos");
+  signalintialvaluecheck(mLeftJoyStat2,LeftZ_Value,0,"LeftZ_Value");
+ }
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mLeftJoyStat2_0xCFDD733() 
+{
+  char Description[100] = "To check the Data Length Code of the [mLeftJoyStat2_0xCFDD733] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12412");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mLeftJoyStat2_0xCFDD733");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mLeftJoyStat2, Msg_0xCFDD733);
+}
+
+/*Check the Periodicity of the message */
+testcase Tx_Msg_Periodicity_mLeftJoyStat2_0xCFDD733()
+{
+  char Description[100] = "To check the Periodicity of the [mLeftJoyStat2_0xCFDD733] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 62;
+  kTIMEOUT =620;
+  CycMinCycleTime = kMIN_Cycle_Time_mLeftJoyStat2_0xCFDD733;
+  CycMaxCycleTime = kMAX_Cycle_Time_mLeftJoyStat2_0xCFDD733;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12411");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mLeftJoyStat2_0xCFDD733");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mLeftJoyStat2, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mLeftJoyStat2,CycMinCycleTime, CycMaxCycleTime);  
+}
+  
+/*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mRightJoyStat_0xCFDD834()
+{
+  char Description[100] = "To check the initial values of signals in the [mRightJoyStat_0xCFDD834] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12408");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mRightJoyStat_0xCFDD834" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mRightJoyStat,Btn_1,0,"Btn_1");
+  signalintialvaluecheck(mRightJoyStat,Btn_2,0,"Btn_2");
+  signalintialvaluecheck(mRightJoyStat,Btn_3,0,"Btn_3");
+  signalintialvaluecheck(mRightJoyStat,Btn_4,0,"Btn_4");
+  signalintialvaluecheck(mRightJoyStat,RightX_Neg,0,"RightX_Neg");
+  signalintialvaluecheck(mRightJoyStat,RightX_Ntrl,0,"RightX_Ntrl");
+  signalintialvaluecheck(mRightJoyStat,RightX_Pos,0,"RightX_Pos");
+  signalintialvaluecheck(mRightJoyStat,RightX_Value,0,"RightX_Value");
+  signalintialvaluecheck(mRightJoyStat,RightY_Neg,0,"RightY_Neg");
+  signalintialvaluecheck(mRightJoyStat,RightY_Ntrl,0,"RightY_Ntrl");
+  signalintialvaluecheck(mRightJoyStat,RightY_Pos,0,"RightY_Pos");
+  signalintialvaluecheck(mRightJoyStat,RightY_Value,0,"RightY_Value");
+ }
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mRightJoyStat_0xCFDD834() 
+{
+  char Description[100] = "To check the Data Length Code of the [mRightJoyStat_0xCFDD834] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12407");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mRightJoyStat_0xCFDD834");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mRightJoyStat, Msg_0xCFDD834);
+}
+
+/*Check the Periodicity of the message */
+testcase Tx_Msg_Periodicity_mRightJoyStat_0xCFDD834()
+{
+  char Description[100] = "To check the Periodicity of the [mRightJoyStat_0xCFDD834] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 62; 
+  kTIMEOUT =620;
+  CycMinCycleTime = kMIN_Cycle_Time_mRightJoyStat_0xCFDD834;
+  CycMaxCycleTime = kMAX_Cycle_Time_mRightJoyStat_0xCFDD834;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12406");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mRightJoyStat_0xCFDD834");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mRightJoyStat, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mRightJoyStat,CycMinCycleTime, CycMaxCycleTime);  
+}
+  
+/*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mRightJoyStat2_0xCFDD934()
+{
+  char Description[100] = "To check the initial values of signals in the [mRightJoyStat2_0xCFDD934] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12402");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mRightJoyStat2_0xCFDD934" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mRightJoyStat2,RightZ_Neg,0,"RightZ_Neg");
+  signalintialvaluecheck(mRightJoyStat2,RightZ_Ntrl,0,"RightZ_Ntrl");
+  signalintialvaluecheck(mRightJoyStat2,RightZ_Pos,0,"RightZ_Pos");
+  signalintialvaluecheck(mRightJoyStat2,RightZ_Value,0,"RightZ_Value");
+ }
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mRightJoyStat2_0xCFDD934() 
+{
+  char Description[100] = "To check the Data Length Code of the [mRightJoyStat2_0xCFDD934] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12403");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mRightJoyStat2_0xCFDD934");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mRightJoyStat2, Msg_0xCFDD934);
+}
+
+/*Check the Periodicity of the message */
+testcase Tx_Msg_Periodicity_mRightJoyStat2_0xCFDD934()
+{
+  char Description[100] = "To check the Periodicity of the [mRightJoyStat2_0xCFDD934] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 62; 
+  kTIMEOUT =620;
+  CycMinCycleTime = kMIN_Cycle_Time_mRightJoyStat2_0xCFDD934;
+  CycMaxCycleTime = kMAX_Cycle_Time_mRightJoyStat2_0xCFDD934;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12404");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mRightJoyStat2_0xCFDD934");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mRightJoyStat2, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mRightJoyStat2,CycMinCycleTime, CycMaxCycleTime);  
+}  
+
+ /*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mSbwCals_0x29C()
+{
+  char Description[100] = "To check the initial values of signals in the [mSbwCals_0x29C] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-29549");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mSbwCals_0x29C" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mSbwCals,CenterBit,0,"CenterBit");
+  signalintialvaluecheck(mSbwCals,LeftEndStopVal,0,"LeftEndStopVal");
+  signalintialvaluecheck(mSbwCals,MsgCntr,0,"MsgCntr");
+  signalintialvaluecheck(mSbwCals,MsgCrc,0,"MsgCrc");
+  signalintialvaluecheck(mSbwCals,RightEndStopVal,0,"RightEndStopVal");
+ }
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mSbwCals_0x29C() 
+{
+  char Description[100] = "To check the Data Length Code of the [mSbwCals_0x29C] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-29548");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mSbwCals_0x29C");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mSbwCals, Msg_0x29C);
+}
+
+/*Check the Periodicity of the message */
+testcase Tx_Msg_Periodicity_mSbwCals_0x29C()
+{
+  char Description[100] = "To check the Periodicity of the [mSbwCals_0x29C] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 10000; 
+  kTIMEOUT =100000;
+  CycMinCycleTime = kMIN_Cycle_Time_mSbwCals_0x29C;
+  CycMaxCycleTime = kMAX_Cycle_Time_mSbwCals_0x29C;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-29547");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mSbwCals_0x29C");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mSbwCals, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mSbwCals,CycMinCycleTime, CycMaxCycleTime);  
+  
+}
+
+/*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mSbwStat2_0x292()
+{
+  char Description[100] = "To check the initial values of signals in the [mSbwStat2_0x292] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12437");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mSbwStat2_0x292" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mSbwStat2,FaultLight,0,"FaultLight");
+  signalintialvaluecheck(mSbwStat2,FltCode,0,"FltCode");
+  signalintialvaluecheck(mSbwStat2,HostMode,0,"HostMode");
+  signalintialvaluecheck(mSbwStat2,LeftStopLmt,0,"LeftStopLmt");
+  signalintialvaluecheck(mSbwStat2,MtrAdjust,0,"MtrAdjust");
+  signalintialvaluecheck(mSbwStat2,OverTemp,0,"OverTemp");
+  signalintialvaluecheck(mSbwStat2,ProtectActive,0,"ProtectActive");
+  signalintialvaluecheck(mSbwStat2,RemModeActive,0,"RemModeActive");
+  signalintialvaluecheck(mSbwStat2,RightStopLmt,0,"RightStopLmt");
+  signalintialvaluecheck(mSbwStat2,RS232Mode,0,"RS232Mode");
+  signalintialvaluecheck(mSbwStat2,SelectedMap,0,"SelectedMap");
+  signalintialvaluecheck(mSbwStat2,SteerAngle,0,"SteerAngle");
+  signalintialvaluecheck(mSbwStat2,SteerAngle8b,0,"SteerAngle8b");
+ }
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mSbwStat2_0x292() 
+{
+  char Description[100] = "To check the Data Length Code of the [mSbwStat2_0x292] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12436");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mSbwStat2_0x292");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mSbwStat2, Msg_0x292);
+}
+
+/*Check the Periodicity of the message */
+testcase Tx_Msg_Periodicity_mSbwStat2_0x292()
+{
+  char Description[100] = "To check the Periodicity of the [mSbwStat2_0x292] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 10;
+  kTIMEOUT =100;
+  CycMinCycleTime = kMIN_Cycle_Time_mSbwStat2_0x292;
+  CycMaxCycleTime = kMAX_Cycle_Time_mSbwStat2_0x292;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12442");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mSbwStat2_0x292");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mSbwStat2, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mSbwStat2,CycMinCycleTime, CycMaxCycleTime);  
+}
+  
+/*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mSbwSys_Allied_0x294()
+{
+  char Description[100] = "To check the initial values of signals in the [mSbwSys_Allied_0x294] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-29552");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mSbwSys_Allied_0x294" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mSbwSys_Allied,LeftEndStopValue,0,"LeftEndStopValue");
+  signalintialvaluecheck(mSbwSys_Allied,MsgCntr,0,"MsgCntr");
+  signalintialvaluecheck(mSbwSys_Allied,MsgCrc,0,"MsgCrc");
+  signalintialvaluecheck(mSbwSys_Allied,ProgOffset,0,"ProgOffset");
+  signalintialvaluecheck(mSbwSys_Allied,RightEndStopValue,0,"RightEndStopValue");
+  signalintialvaluecheck(mSbwSys_Allied,SwVerMaj,0,"SwVerMaj");
+  signalintialvaluecheck(mSbwSys_Allied,SwVerMin,0,"SwVerMin");
+  signalintialvaluecheck(mSbwSys_Allied,SwVerRev,0,"SwVerRev");
+  
+ }
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mSbwSys_Allied_0x294() 
+{
+  char Description[100] = "To check the Data Length Code of the [mSbwSys_Allied_0x294] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-29551");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mSbwSys_Allied_0x294");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mSbwSys_Allied, Msg_0x294);
+}
+
+/*Check the Periodicity of the message */
+testcase Tx_Msg_Periodicity_mSbwSys_Allied_0x294()
+{
+  char Description[100] = "To check the Periodicity of the [mSbwSys_Allied_0x294] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 10000;
+  kTIMEOUT =100000;
+  CycMinCycleTime = kMIN_Cycle_Time_mSbwSys_Allied_0x294;
+  CycMaxCycleTime = kMAX_Cycle_Time_mSbwSys_Allied_0x294;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-29550");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mSbwSys_Allied_0x294");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mSbwSys_Allied, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mSbwSys_Allied,CycMinCycleTime, CycMaxCycleTime);  
+}
+    
+/*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mTOStat_0x120()
+{
+  char Description[100] = "To check the initial values of signals in the [mTOStat_0x120] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12432");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mTOStat_0x120" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mTOStat,MsgCntr,0,"MsgCntr");
+  signalintialvaluecheck(mTOStat,MsgCrc,0,"MsgCrc");
+  signalintialvaluecheck(mTOStat,TO_cmd_veh_mode,0,"TO_cmd_veh_mode");
+  signalintialvaluecheck(mTOStat,TO_ConnectionStat,0,"TO_ConnectionStat");
+  signalintialvaluecheck(mTOStat,TO_dlg_resp_code,3,"TO_dlg_resp_code");
+  signalintialvaluecheck(mTOStat,TO_dlg_resp_id,0,"TO_dlg_resp_id");
+  signalintialvaluecheck(mTOStat,VehDirCmd,0,"VehDirCmd");
+  
+ }
+ 
+ /*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mTOStat_0x120() 
+{
+  char Description[100] = "To check the Data Length Code of the [mTOStat_0x120] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12440");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mTOStat_0x120");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mTOStat, Msg_0x120);
+}
+
+/*Check the Periodicity of the message */
+testcase Tx_Msg_Periodicity_mTOStat_0x120()
+{
+  char Description[100] = "To check the Periodicity of the [mTOStat_0x120] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 500; 
+  kTIMEOUT =5000;
+  CycMinCycleTime = kMIN_Cycle_Time_mTOStat_0x120;
+  CycMaxCycleTime = kMAX_Cycle_Time_mTOStat_0x120;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12438");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mTOStat_0x120");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mTOStat,CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mTOStat,CycMinCycleTime, CycMaxCycleTime);  
+}
+  
+/*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mVcuFaults_0x204()
+{
+  char Description[100] = "To check the initial values of signals in the [mVcuFaults_0x204] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12435");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mVcuFaults_0x204" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mVcuFaults,Flt_12Volt,0,"Flt_12Volt");
+  signalintialvaluecheck(mVcuFaults,Flt_12vSys,0,"Flt_12vSys");
+  signalintialvaluecheck(mVcuFaults,Flt_48Volt,0,"Flt_48Volt");
+  signalintialvaluecheck(mVcuFaults,Flt_Bay1BeltSns,0,"Flt_Bay1BeltSns");
+  signalintialvaluecheck(mVcuFaults,Flt_Bay1Mtr,0,"Flt_Bay1Mtr");
+  signalintialvaluecheck(mVcuFaults,Flt_Bay1MtrPos,0,"Flt_Bay1MtrPos");
+  signalintialvaluecheck(mVcuFaults,Flt_Bay1Pwr12v,0,"Flt_Bay1Pwr12v");
+  signalintialvaluecheck(mVcuFaults,Flt_Bay2BeltSns,0,"Flt_Bay2BeltSns");
+  signalintialvaluecheck(mVcuFaults,Flt_Bay2Mtr,0,"Flt_Bay2Mtr");
+  signalintialvaluecheck(mVcuFaults,Flt_Bay2MtrPos,0,"Flt_Bay2MtrPos");
+  signalintialvaluecheck(mVcuFaults,Flt_Bay2Pwr12v,0,"Flt_Bay2Pwr12v");
+  signalintialvaluecheck(mVcuFaults,Flt_BrkPrsr,0,"Flt_BrkPrsr");
+  signalintialvaluecheck(mVcuFaults,Flt_BrkSafeSys,0,"Flt_BrkSafeSys");
+  signalintialvaluecheck(mVcuFaults,Flt_CntctrStat,0,"Flt_CntctrStat");
+  signalintialvaluecheck(mVcuFaults,Flt_DcdcEnbl,0,"Flt_DcdcEnbl");
+  signalintialvaluecheck(mVcuFaults,Flt_EpbSys,0,"Flt_EpbSys");
+  signalintialvaluecheck(mVcuFaults,Flt_ImuRst,0,"Flt_ImuRst");
+  signalintialvaluecheck(mVcuFaults,Flt_ImuSns,0,"Flt_ImuSns");
+  signalintialvaluecheck(mVcuFaults,Flt_InvalidGearRq,0,"Flt_InvalidGearRq");
+  signalintialvaluecheck(mVcuFaults,Flt_Keypad4,0,"Flt_Keypad4");
+  signalintialvaluecheck(mVcuFaults,Flt_KeypadC,0,"Flt_KeypadC");
+  signalintialvaluecheck(mVcuFaults,Flt_KeypadLight,0,"Flt_KeypadLight");
+  signalintialvaluecheck(mVcuFaults,Flt_LocAdcu,0,"Flt_LocAdcu");
+  signalintialvaluecheck(mVcuFaults,Flt_LocAVAS,0,"Flt_LocAVAS");
+  signalintialvaluecheck(mVcuFaults,Flt_LocBe,0,"Flt_LocBe");
+  signalintialvaluecheck(mVcuFaults,Flt_LocEbcm1,0,"Flt_LocEbcm1");
+  signalintialvaluecheck(mVcuFaults,Flt_LocEbcm2,0,"Flt_LocEbcm2");
+  signalintialvaluecheck(mVcuFaults,Flt_LocEpb,0,"Flt_LocEpb");
+  signalintialvaluecheck(mVcuFaults,Flt_LocEss,0,"Flt_LocEss");
+  signalintialvaluecheck(mVcuFaults,Flt_LocFcmCan,0,"Flt_LocFcmCan");
+  signalintialvaluecheck(mVcuFaults,Flt_LocLrr,0,"Flt_LocLrr");
+  signalintialvaluecheck(mVcuFaults,Flt_LocSbw,0,"Flt_LocSbw");
+  signalintialvaluecheck(mVcuFaults,Flt_LocTc,0,"Flt_LocTc");
+  signalintialvaluecheck(mVcuFaults,Flt_LocTo,0,"Flt_LocTo");
+  signalintialvaluecheck(mVcuFaults,Flt_LocVsc,0,"Flt_LocVsc");
+  signalintialvaluecheck(mVcuFaults,Flt_LocWhd,0,"Flt_LocWhd");
+  signalintialvaluecheck(mVcuFaults,Flt_MstrSwitch,0,"Flt_MstrSwitch");
+  signalintialvaluecheck(mVcuFaults,Flt_ReadEeprom,0,"Flt_ReadEeprom");
+  signalintialvaluecheck(mVcuFaults,Flt_SafeCircuit,0,"Flt_SafeCircuit");
+  signalintialvaluecheck(mVcuFaults,Flt_SafeExtLight,0,"Flt_SafeExtLight");
+  signalintialvaluecheck(mVcuFaults,Flt_SafeProp,0,"Flt_SafeProp");
+  signalintialvaluecheck(mVcuFaults,Flt_SafeSteer,0,"Flt_SafeSteer");
+  signalintialvaluecheck(mVcuFaults,Flt_SbwEnbl,0,"Flt_SbwEnbl");
+  signalintialvaluecheck(mVcuFaults,Flt_WhdEnbl,0,"Flt_WhdEnbl");
+  signalintialvaluecheck(mVcuFaults,Flt_WriteEeprom,0,"Flt_WriteEeprom"); 
+
+}
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mVcuFaults_0x204() 
+{
+  char Description[100] = "To check the Data Length Code of the [mVcuFaults_0x204] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12434");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mVcuFaults_0x204");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mVcuFaults, Msg_0x204);
+}
+
+/*Check the Periodicity of the message */
+testcase Tx_Msg_Periodicity_mVcuFaults_0x204()
+{
+  char Description[100] = "To check the Periodicity of the [mVcuFaults_0x204] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 100; 
+  kTIMEOUT =1000;
+  CycMinCycleTime = kMIN_Cycle_Time_mVcuFaults_0x204;
+  CycMaxCycleTime = kMAX_Cycle_Time_mVcuFaults_0x204;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12433");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mVcuFaults_0x204");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mVcuFaults, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mVcuFaults,CycMinCycleTime, CycMaxCycleTime);  
+}
+
+/*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mVcuImuAngVel_0x206()
+{
+  char Description[100] = "To check the initial values of signals in the [mVcuImuAngVel_0x206] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12450");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mVcuImuAngVel_0x206" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mVcuImuAngVel,MsgCntr,0,"MsgCntr");
+  signalintialvaluecheck(mVcuImuAngVel,MsgCrc,0,"MsgCrc");
+  signalintialvaluecheck(mVcuImuAngVel,X_Angular_Rate,0,"X_Angular_Rate");
+  signalintialvaluecheck(mVcuImuAngVel,Y_Angular_Rate,0,"Y_Angular_Rate");
+  signalintialvaluecheck(mVcuImuAngVel,Z_Angular_Rate,0,"Z_Angular_Rate"); 
+}
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mVcuImuAngVel_0x206() 
+{
+  char Description[100] = "To check the Data Length Code of the [mVcuImuAngVel_0x206] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12452");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mVcuImuAngVel_0x206");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mVcuImuAngVel, Msg_0x206);
+}
+
+/*Check the Periodicity of the message */
+testcase Tx_Msg_Periodicity_mVcuImuAngVel_0x206()
+{
+  char Description[100] = "To check the Periodicity of the [mVcuImuAngVel_0x206] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 10; 
+  kTIMEOUT =100;
+  CycMinCycleTime = kMIN_Cycle_Time_mVcuImuAngVel_0x206;
+  CycMaxCycleTime = kMAX_Cycle_Time_mVcuImuAngVel_0x206;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12454");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mVcuImuAngVel_0x206");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mVcuImuAngVel, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mVcuImuAngVel,CycMinCycleTime, CycMaxCycleTime);  
+}
+
+/*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mVcuImuAngVel_Filt_0x20C()
+{
+  char Description[100] = "To check the initial values of signals in the [mVcuImuAngVel_Filt_0x20C] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12445");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mVcuImuAngVel_Filt_0x20C" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mVcuImuAngVel_Filt,MsgCntr,0,"MsgCntr");
+  signalintialvaluecheck(mVcuImuAngVel_Filt,MsgCrc,0,"MsgCrc");
+  signalintialvaluecheck(mVcuImuAngVel_Filt,X_Angular_Rate_Filt,0,"X_Angular_Rate_Filt");
+  signalintialvaluecheck(mVcuImuAngVel_Filt,Y_Angular_Rate_Filt,0,"Y_Angular_Rate_Filt");
+  signalintialvaluecheck(mVcuImuAngVel_Filt,Z_Angular_Rate_Filt,0,"Z_Angular_Rate_Filt"); 
+ }
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mVcuImuAngVel_Filt_0x20C() 
+{
+  char Description[100] = "To check the Data Length Code of the [mVcuImuAngVel_Filt_0x20C] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12446");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mVcuImuAngVel_Filt_0x20C");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mVcuImuAngVel_Filt, Msg_0x20C);
+}
+
+/*Check the Periodicity of the message */
+testcase Tx_Msg_Periodicity_mVcuImuAngVel_Filt_0x20C()
+{
+  char Description[100] = "To check the Periodicity of the [mVcuImuAngVel_Filt_0x20C] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 100; 
+  kTIMEOUT =1000;
+  CycMinCycleTime = kMIN_Cycle_Time_mVcuImuAngVel_Filt_0x20C;
+  CycMaxCycleTime = kMAX_Cycle_Time_mVcuImuAngVel_Filt_0x20C;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12448");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mVcuImuAngVel_Filt_0x20C");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mVcuImuAngVel_Filt,CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mVcuImuAngVel_Filt,CycMinCycleTime, CycMaxCycleTime);  
+}
+
+/*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mVcuImuLinAccel_0x205()
+{
+  char Description[100] = "To check the initial values of signals in the [mVcuImuLinAccel_0x205] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12458");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mVcuImuLinAccel_0x205" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mVcuImuLinAccel,MsgCntr,0,"MsgCntr");
+  signalintialvaluecheck(mVcuImuLinAccel,MsgCrc,0,"MsgCrc");
+  signalintialvaluecheck(mVcuImuLinAccel,X_Accel,0,"X_Accel");
+  signalintialvaluecheck(mVcuImuLinAccel,Y_Accel,0,"Y_Accel");
+  signalintialvaluecheck(mVcuImuLinAccel,Z_Accel,0,"Z_Accel");
+}
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mVcuImuLinAccel_0x205() 
+{
+  char Description[100] = "To check the Data Length Code of the [mVcuImuLinAccel_0x205] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12459");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mVcuImuLinAccel_0x205");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mVcuImuLinAccel, Msg_0x205);
+}
+
+/*Check the Periodicity of the message */
+
+testcase Tx_Msg_Periodicity_mVcuImuLinAccel_0x205()
+{
+  char Description[100] = "To check the Periodicity of the [mVcuImuLinAccel_0x205] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 10; 
+  kTIMEOUT =100;
+  CycMinCycleTime = kMIN_Cycle_Time_mVcuImuLinAccel_0x205;
+  CycMaxCycleTime = kMAX_Cycle_Time_mVcuImuLinAccel_0x205;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12444");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mVcuImuLinAccel_0x205");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mVcuImuLinAccel, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mVcuImuLinAccel, CycMinCycleTime, CycMaxCycleTime);  
+}
+
+/*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mVcuImuLinAccel_Filt_0x20B()
+{
+  char Description[100] = "To check the initial values of signals in the [mVcuImuLinAccel_Filt_0x20B] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12430");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mVcuImuLinAccel_Filt_0x20B" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mVcuImuLinAccel_Filt,MsgCntr,0,"MsgCntr");
+  signalintialvaluecheck(mVcuImuLinAccel_Filt,MsgCrc,0,"MsgCrc");
+  signalintialvaluecheck(mVcuImuLinAccel_Filt,X_Accel_Filt,0,"X_Accel_Filt");
+  signalintialvaluecheck(mVcuImuLinAccel_Filt,Y_Accel_Filt,0,"Y_Accel_Filt");
+  signalintialvaluecheck(mVcuImuLinAccel_Filt,Z_Accel_Filt,0,"Z_Accel_Filt");
+ }
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mVcuImuLinAccel_Filt_0x20B() 
+{
+  char Description[100] = "To check the Data Length Code of the [mVcuImuLinAccel_Filt_0x20B] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12431");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mVcuImuLinAccel_Filt_0x20B");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mVcuImuLinAccel_Filt, Msg_0x20B);
+}
+
+/*Check the Periodicity of the message */
+testcase Tx_Msg_Periodicity_mVcuImuLinAccel_Filt_0x20B()
+{
+  char Description[100] = "To check the Periodicity of the [mVcuImuLinAccel_Filt_0x20B] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 100; 
+  kTIMEOUT =1000;
+  CycMinCycleTime = kMIN_Cycle_Time_mVcuImuLinAccel_Filt_0x20B;
+  CycMaxCycleTime = kMAX_Cycle_Time_mVcuImuLinAccel_Filt_0x20B;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12457");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mVcuImuLinAccel_Filt_0x20B");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mVcuImuLinAccel_Filt, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mVcuImuLinAccel_Filt, CycMinCycleTime, CycMaxCycleTime);  
+}
+
+/*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mVcuSys_0x302()
+{
+  char Description[100] = "To check the initial values of signals in the [mVcuSys_0x302] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12427");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mVcuSys_0x302" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mVcuSys,AdcuShtdwnRq,0,"AdcuShtdwnRq");
+  signalintialvaluecheck(mVcuSys,EbcmShtdwnRq,0,"EbcmShtdwnRq");
+  signalintialvaluecheck(mVcuSys,EstopTest,0,"EstopTest");
+  signalintialvaluecheck(mVcuSys,MsgCntr,0,"MsgCntr");
+  signalintialvaluecheck(mVcuSys,MsgCrc,0,"MsgCrc");
+  signalintialvaluecheck(mVcuSys,MtrTrqLmtAccel,0,"MtrTrqLmtAccel");
+  signalintialvaluecheck(mVcuSys,MtrTrqLmtDecel,0,"MtrTrqLmtDecel");
+  signalintialvaluecheck(mVcuSys,VcuStateInit,0,"VcuStateInit");
+  signalintialvaluecheck(mVcuSys,VcuStateShtdwn,0,"VcuStateShtdwn");
+}
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mVcuSys_0x302() 
+{
+  char Description[100] = "To check the Data Length Code of the [mVcuSys_0x302] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12460");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mVcuSys_0x302");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mVcuSys, Msg_0x302);
+}
+
+/*Check the Periodicity of the message */
+testcase Tx_Msg_Periodicity_mVcuSys_0x302()
+{
+  char Description[100] = "To check the Periodicity of the [mVcuSys_0x302] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 50; 
+  kTIMEOUT =500;
+  CycMinCycleTime = kMIN_Cycle_Time_mVcuSys_0x302;
+  CycMaxCycleTime = kMAX_Cycle_Time_mVcuSys_0x302;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12429");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mVcuSys_0x302");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mVcuSys, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mVcuSys,CycMinCycleTime, CycMaxCycleTime);  
+}
+
+/*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mVehCtrlTORq_0x121()
+{
+  char Description[100] = "To check the initial values of signals in the [mVehCtrlTORq_0x121] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-29555");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mVehCtrlTORq_0x121" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mVehCtrlTORq,MsgCntr,0,"MsgCntr");
+  signalintialvaluecheck(mVehCtrlTORq,MsgCrc,0,"MsgCrc");
+  signalintialvaluecheck(mVehCtrlTORq,TO_Accel_Cmd,0,"TO_Accel_Cmd");
+  signalintialvaluecheck(mVehCtrlTORq,TO_EstopRq,0,"TO_EstopRq");
+  signalintialvaluecheck(mVehCtrlTORq,TO_Steer_Cmd,0,"TO_Steer_Cmd");
+  
+}
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mVehCtrlTORq_0x121() 
+{
+  char Description[100] = "To check the Data Length Code of the [mVehCtrlTORq_0x121] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-29554");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mVehCtrlTORq_0x121");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mVehCtrlTORq, Msg_0x121);
+}
+
+/*Check the Periodicity of the message */
+testcase Tx_Msg_Periodicity_mVehCtrlTORq_0x121()
+{
+  char Description[100] = "To check the Periodicity of the [mVehCtrlTORq_0x121] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 20; 
+  kTIMEOUT =200;
+  CycMinCycleTime = kMIN_Cycle_Time_mVehCtrlTORq_0x121;
+  CycMaxCycleTime = kMAX_Cycle_Time_mVehCtrlTORq_0x121;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-29553");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mVehCtrlTORq_0x121");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mVehCtrlTORq, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mVehCtrlTORq,CycMinCycleTime, CycMaxCycleTime);  
+}
+
+/*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mVehOdo_0x20A()
+{
+  char Description[100] = "To check the initial values of signals in the [mVehOdo_0x20A] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12424");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mVehOdo_0x20A" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mVehOdo,BackendTripMeter,0,"BackendTripMeter");
+  signalintialvaluecheck(mVehOdo,VcuTripMeter,0,"VcuTripMeter");
+  signalintialvaluecheck(mVehOdo,VehOdo,0,"VehOdo");
+ }
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mVehOdo_0x20A() 
+{
+  char Description[100] = "To check the Data Length Code of the [mVehOdo_0x20A] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12425");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mVehOdo_0x20A");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mVehOdo, Msg_0x20A);
+}
+
+/*Check the Periodicity of the message */
+testcase Tx_Msg_Periodicity_mVehOdo_0x20A()
+{
+  char Description[100] = "To check the Periodicity of the [mVehOdo_0x20A] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 100; 
+  kTIMEOUT =1000;
+  CycMinCycleTime = kMIN_Cycle_Time_mVehOdo_0x20A;
+  CycMaxCycleTime = kMAX_Cycle_Time_mVehOdo_0x20A;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12426");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mVehOdo_0x20A");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mVehOdo, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mVehOdo,CycMinCycleTime, CycMaxCycleTime);  
+}
+
+/*Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mVehState_0x202()
+{
+  char Description[100] = "To check the initial values of signals in the [mVehState_0x202] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12443");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mVehState_0x202" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mVehState,AD_Allowed,0,"AD_Allowed");
+  signalintialvaluecheck(mVehState,ArbVehSpd,0,"ArbVehSpd");
+  signalintialvaluecheck(mVehState,ArbVehSpdValid,0,"ArbVehSpdValid");
+  signalintialvaluecheck(mVehState,CrashSns,0,"CrashSns");
+  signalintialvaluecheck(mVehState,EstopDetected,0,"EstopDetected");
+  signalintialvaluecheck(mVehState,GearAct,0,"GearAct");
+  signalintialvaluecheck(mVehState,GearChangeDrvRevAllow,0,"GearChangeDrvRevAllow");
+  signalintialvaluecheck(mVehState,GearChangeParkAllow,0,"GearChangeParkAllow");
+  signalintialvaluecheck(mVehState,GearRq,0,"GearRq");
+  signalintialvaluecheck(mVehState,Invld_GearRq,0,"Invld_GearRq");
+  signalintialvaluecheck(mVehState,LOS_Allowed,0,"LOS_Allowed");
+  signalintialvaluecheck(mVehState,LvVolt,0,"LvVolt");
+  signalintialvaluecheck(mVehState,MsgCntr,0,"MsgCntr");
+  signalintialvaluecheck(mVehState,MsgCrc,0,"MsgCrc");
+  signalintialvaluecheck(mVehState,SBW_LfEndStopReached,0,"SBW_LfEndStopReached");
+  signalintialvaluecheck(mVehState,SBW_RtEndStopReached,0,"SBW_RtEndStopReached");
+  signalintialvaluecheck(mVehState,Tether_Connected,0,"Tether_Connected");
+  signalintialvaluecheck(mVehState,TO_Allowed,0,"TO_Allowed");
+  signalintialvaluecheck(mVehState,VcuEstopSns,0,"VcuEstopSns");
+  signalintialvaluecheck(mVehState,VehDte,0,"VehDte");
+  signalintialvaluecheck(mVehState,VehParkRq,0,"VehParkRq");
+  signalintialvaluecheck(mVehState,VehState,0,"VehState"); 
+}
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mVehState_0x202() 
+{
+  char Description[100] = "To check the Data Length Code of the [mVehState_0x202] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12439");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mVehState_0x202");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mVehState, Msg_0x202);
+}
+
+/*Check the Periodicity of the message */
+testcase Tx_Msg_Periodicity_mVehState_0x202()
+{
+  char Description[100] = "To check the Periodicity of the [mVehState_0x202] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 50; 
+  kTIMEOUT =500;
+  CycMinCycleTime = kMIN_Cycle_Time_mVehState_0x202;
+  CycMaxCycleTime = kMAX_Cycle_Time_mVehState_0x202;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12461");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mVehState_0x202");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mVehState, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mVehState, CycMinCycleTime, CycMaxCycleTime);  
+}
+
+/* Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mVehState2_0x208()
+{
+  char Description[100] = "To check the initial values of signals in the [mVehState2_0x208] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12453");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mVehState2_0x208" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mVehState2,ActGndWhlAng,0,"ActGndWhlAng");
+  signalintialvaluecheck(mVehState2,maxAccelAvail,0,"maxAccelAvail");
+  signalintialvaluecheck(mVehState2,maxDecelAvail,0,"maxDecelAvail");
+  signalintialvaluecheck(mVehState2,maxSpeedAllowed,0,"maxSpeedAllowed");
+  signalintialvaluecheck(mVehState2,MsgCntr,0,"MsgCntr");
+  signalintialvaluecheck(mVehState2,MsgCrc,0,"MsgCrc");
+ }
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mVehState2_0x208() 
+{
+  char Description[100] = "To check the Data Length Code of the [mVehState2_0x208] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12455");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mVehState2_0x208");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mVehState2, Msg_0x208);
+}
+
+/*Check the Periodicity of the message */
+testcase Tx_Msg_Periodicity_mVehState2_0x208()
+{
+  char Description[100] = "To check the Periodicity of the [mVehState2_0x208] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 20;
+  kTIMEOUT =200;
+  CycMinCycleTime = kMIN_Cycle_Time_mVehState2_0x208;
+  CycMaxCycleTime = kMAX_Cycle_Time_mVehState2_0x208;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12456");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mVehState2_0x208");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mVehState2,CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mVehState2,CycMinCycleTime, CycMaxCycleTime);  
+}
+
+
+/* Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mVehState3_0x209()
+{
+  char Description[100] = "To check the initial values of signals in the [mVehState3_0x209] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-29558");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mVehState3_0x209" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mVehState3,Aeb_Active,0,"Aeb_Active");
+  signalintialvaluecheck(mVehState3,AebSrc,0,"AebSrc");
+  signalintialvaluecheck(mVehState3,ArbVehSpd_mps,0,"ArbVehSpd_mps");
+  signalintialvaluecheck(mVehState3,ArbVehSpd_mps_Valid,0,"ArbVehSpd_mps_Valid");
+  signalintialvaluecheck(mVehState3,MsgCntr,0,"MsgCntr");
+  signalintialvaluecheck(mVehState3,MsgCrc,0,"MsgCrc");
+  signalintialvaluecheck(mVehState3,ROI,0,"ROI");
+  signalintialvaluecheck(mVehState3,TargetVehSpd_mps,0,"TargetVehSpd_mps");
+ }
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mVehState3_0x209() 
+{
+  char Description[100] = "To check the Data Length Code of the [mVehState3_0x209] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-29557");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mVehState3_0x209");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mVehState3, Msg_0x209);
+}
+
+/*Check the Periodicity of the message */
+testcase Tx_Msg_Periodicity_mVehState3_0x209()
+{
+  char Description[100] = "To check the Periodicity of the [mVehState3_0x209] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 50;
+  kTIMEOUT =500;
+  CycMinCycleTime = kMIN_Cycle_Time_mVehState3_0x209;
+  CycMaxCycleTime = kMAX_Cycle_Time_mVehState3_0x209;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-29556");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mVehState3_0x209");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mVehState3,CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mVehState3,CycMinCycleTime, CycMaxCycleTime);  
+}
+
+/* Check initial values of individual signals within the message */
+testcase Tx_Msg_Sig_Init_mVscStat_0xCFDE801()
+{
+  char Description[100] = "To check the initial values of signals in the [mVscStat_0xCFDE801] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12447");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_mVscStat_0xCFDE801" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(mVscStat,CtrlMode,0,"CtrlMode");
+  signalintialvaluecheck(mVscStat,VscEstop,0,"VscEstop");
+  signalintialvaluecheck(mVscStat,VscMode,0,"VscMode");
+ }
+ 
+/*Check the Data Lengh Code of the message */
+testcase Tx_Msg_DLC_mVscStat_0xCFDE801() 
+{
+  char Description[100] = "To check the Data Length Code of the [mVscStat_0xCFDE801] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12449");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_mVscStat_0xCFDE801");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(mVscStat, Msg_0xCFDE801);
+}
+
+/*Check the Periodicity of the message */
+testcase Tx_Msg_Periodicity_mVscStat_0xCFDE801()
+{
+  char Description[100] = "To check the Periodicity of the [mVscStat_0xCFDE801] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 100; 
+  kTIMEOUT =1000;
+  CycMinCycleTime = kMIN_Cycle_Time_mVscStat_0xCFDE801;
+  CycMaxCycleTime = kMAX_Cycle_Time_mVscStat_0xCFDE801;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12451");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_mVscStat_0xCFDE801");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(mVscStat, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(mVscStat,CycMinCycleTime, CycMaxCycleTime);  
+}
+
+//Initial value check function
+/*
+signal- message signal name
+default_value- signal initial value
+signalname[]- message signal name
+
+*/
+signalintialvaluecheck(dbMsg *msg, signal *sig,float default_value,char signalname[])
+{
+    char buffer[1000];                                                   // Variable to store the actual signal value from the message trace
+    float signal_value;                                                  // Retrieve the current value of the specified signal
+    signal_value = getSignal(sig);                                       // Check if this is the first signal being validated in the current test case
+  //testWaitForMessage  
+  if(testWaitForMessage(msg,WAIT_TIMEOUT) == 1)
+    {
+      if (flag == 1)
+      {
+        testStepBegin(Polarian_ID,"Test Case Started");                     // Log the beginning of the test step with the associated Polarion ID
+        flag = 0;                                                           // Reset the flag to ensure this step isn't logged repeatedly
+      }
+      if(default_value==signal_value)                                       // Compare the retrieved signal value with the expected default value
+      {
+        snprintf(buffer, elCount(buffer), " Default value of signal %s in DBC %f and the actual value %f got in trace are same", signalname,default_value,signal_value); // Format and store the success message in the buffer
+        testStepPass("", buffer);                                           // Log the test step as passed
+      }
+      else
+      {
+        snprintf(buffer, elCount(buffer), " Default value in signal %s DBC %f and the actual value %f got in trace are not same ", signalname,default_value,signal_value); // Format and store the failure message in the buffer
+        testStepFail("", buffer);                                           // Log the test step as failed
+      }
+    }
+  else
+    {
+      snprintf(buffer, elCount(buffer), "CAN message is not found");   // Format and store the failure message in the buffer
+      testStepFail("", buffer);  // Log the test step as failed
+    }
+}
+
+//DLC check function
+/*
+msg- message name
+msg_instance- declared corresponding message object in variable
+*/
+
+Check_DLC(dbMsg *msg,message *msg_instance)
+{
+  char buffer[100];                                                       // Buffer to store the formatted test result messages
+  testStepBegin(Polarian_ID,"Test Case Started");                         // Log the start of the test step with the associated Polarion ID
+  if(testWaitForMessage(msg,WAIT_TIMEOUT) == 1)                           // Wait for the message within the specified timeout period
+  {                                                                       // 1 indicates the message was received
+    if(DLC_Value == canGetDataLength(msg_instance))                       // Check if the DLC value matches the expected value
+    {
+      snprintf(buffer, elCount(buffer), "DLC Value of Message & Expected DLC Value: %x & %x is as expected", canGetDataLength(msg_instance), DLC_Value);    // Format and store the success message in the buffer
+      testStepPass("", buffer);                                           // Log the test step as passed
+    }
+    else
+    {
+      snprintf(buffer, elCount(buffer), "DLC Value of Message & Expected DLC Value: %x & %x is not expected", canGetDataLength(msg_instance), DLC_Value);   // Format and store the failure message in the buffer
+      testStepFail("", buffer);                                           // Log the test step as failed
+    }
+  }
+  else
+  {
+      snprintf(buffer, elCount(buffer), "CAN message is not found");   // Format and store the failure message in the buffer
+      testStepFail("", buffer);  // Log the test step as failed
+  }
+}
+
+//Cycle time check function
+/*
+aCycMinCycleTime- minimum cycle time
+bCycMaxCycleTime- maximum cycle time
+*/
+
+CheckMsg(dbMsg *msg, float aCycMinCycleTime, float bCycMaxCycleTime)
+{
+  long Avg, Min, Max;                                                        // Variables to store cycle time statistics
+  char buffer[100];
+  testStepBegin(Polarian_ID,"Test Case Started");                            // Log the beginning of the test step with the Polarion ID 
+  testWaitForTimeout(kTIMEOUT);                                              // Wait for the specified timeout to allow message 
+  
+  Avg = ChkQuery_StatProbeIntervalAvg(gCyccheckId);                          // Retrieve statistical data on message intervals
+  Min = ChkQuery_StatProbeIntervalMin(gCyccheckId);
+  Max = ChkQuery_StatProbeIntervalMax(gCyccheckId);
+  if(testWaitForMessage(msg,WAIT_TIMEOUT) == 1)                           // Wait for the message within the specified timeout period
+  {
+  if(ChkQuery_NumEvents (gCyccheckId) > 0)                                   // Check if any events were captured for the given message ID
+  {
+    snprintf(buffer, elCount(buffer), "Periodicity of messages is not expected");  // Log that the message periodicity is not as expected
+    testStepFail("", buffer);
+    
+    snprintf(buffer, elCount(buffer), "Average Cycle Time: %dms", Avg);            // Log the cycle time statistics
+    testStep("", buffer);
+    
+    snprintf(buffer, elCount(buffer), "Minimum Cycle Time: %dms", Min);
+    testStep("", buffer);
+    
+    snprintf(buffer, elCount(buffer), "Maximum Cycle Time: %dms", Max);
+    testStep("", buffer);
+    
+    snprintf(buffer, elCount(buffer), "Actual Cycle Time: %dms", Cycle_time);
+    testStep("", buffer);
+  }
+  else
+  {
+    snprintf(buffer, elCount(buffer), "Periodicity of messages is as expected");      // Log that the message periodicity is as expected
+    testStepPass("", buffer);
+    
+    snprintf(buffer, elCount(buffer), "Average Cycle Time: %dms", Avg);               // Log the cycle time statistics
+    testStep("", buffer);
+    
+    snprintf(buffer, elCount(buffer), "Minimum Cycle Time: %dms", Min);
+    testStep("", buffer);
+    
+    snprintf(buffer, elCount(buffer), "Maximum Cycle Time: %dms", Max);
+    testStep("", buffer);
+    
+    snprintf(buffer, elCount(buffer), "Actual Cycle Time: %dms", Cycle_time);
+    testStep("", buffer);
+  }
+  }
+  else
+  {
+      snprintf(buffer, elCount(buffer), "CAN message is not found");   // Format and store the failure message in the buffer
+      testStepFail("", buffer);  // Log the test step as failed
+  }
+}

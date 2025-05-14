@@ -1,0 +1,282 @@
+/*@!Encoding:1252*/
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+	
+   char Polarian_ID[15];                                                   //Array to store the Polarion test case ID
+   long kTIMEOUT = 0;                                                      //General timeout value
+   const long WAIT_TIMEOUT = 11000;
+   long Cycle_time = 0;                                                    //Variable to store the cycle time
+   byte DLC_Value = 0;                                                    // Variable to store the Data Length Code (DLC) value 
+   byte flag = 0;                                                         // Flag for status tracking 
+   dword gCyccheckId;                                                      //Variable to store the cycle check ID    
+   dword time;
+   char time_buf[100];
+
+  /*Declared the message names and corresponding message objects */
+  message CMD02 Msg_0x202;
+  message SYNC Msg_0x100;
+
+
+   
+  // Variables of CMD02 0x202 Message: 50ms 
+  const long kMIN_Cycle_Time_CMD02_0x202 = 45;                     
+  const long kMAX_Cycle_Time_CMD02_0x202 = 55; 
+  
+  // Variables of SYNC 0x100 Message: 50ms 
+  const long kMIN_Cycle_Time_SYNC_0x100 = 45;                     
+  const long kMAX_Cycle_Time_SYNC_0x100 = 55; 
+  
+ 
+  
+ }
+
+void Maintest()
+{
+                                                            
+  TestReportFileName("CAN_LRR_V2.0.1_REPORT");                                // Set the report file name for logging the test results                                 
+  TestModuleTitle("CAN_LRR_TX");                                             //Set the report file name for logging the test results
+  TestModuleDescription("Test Author: Chaithra \n");                       //Set the Author name
+  
+  getLocalTimeString(time_buf);                                          // Calls the function `getLocalTimeString` to get the current local time and store it in `time_buf`.
+  TestModuleDescription("Test Execution Date: ");
+  TestModuleDescription(time_buf);                                      //Set the title of the test module
+  
+  TestModuleDescription("Test Cases to check the initial Values, DLC and Cycle time of the Tx CAN signals.\n");      //Provide a brief description of the test module's purpose 
+  @TestAutomation::TestDone = 0;
+  Tx_Msg_Sig_Init_CMD02_0x202();                                   //Execute individual test cases sequentially for Initial value DLC and Periodicity                         
+  Tx_Msg_DLC_CMD02_0x202(); 
+  Tx_Msg_Periodicity_CMD02_0x202();
+
+  Tx_Msg_Sig_Init_SYNC_0x100();
+  Tx_Msg_DLC_SYNC_0x100();
+  Tx_Msg_Periodicity_SYNC_0x100();
+  @TestAutomation::TestDone = 1;
+}
+
+ //Check initial values of individual signals within the message 
+testcase Tx_Msg_Sig_Init_CMD02_0x202()
+{
+  char Description[100] = "To check the initial values of signals in the [CMD02_0x202] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12650");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_CMD02_0x202" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(CMD02,BumperLoc_s2,0,"BumperLoc_s2");
+  signalintialvaluecheck(CMD02,Cntr_s2,0,"Cntr_s2");
+  signalintialvaluecheck(CMD02,CRC8_s2,0,"CRC8_s2");
+  signalintialvaluecheck(CMD02,DataChan2_s2,0,"DataChan2_s2");
+  signalintialvaluecheck(CMD02,PageSel_s2,0,"PageSel_s2");
+  signalintialvaluecheck(CMD02,SensOrientation_s2,0,"SensOrientation_s2");
+  signalintialvaluecheck(CMD02,SensRotation_s2,0,"SensRotation_s2");
+  signalintialvaluecheck(CMD02,SensXLoc_s2,0,"SensXLoc_s2");
+  signalintialvaluecheck(CMD02,SensYLoc_s2,0,"SensYLoc_s2");
+ }
+ 
+//Check the Data Lengh Code of the message 
+testcase Tx_Msg_DLC_CMD02_0x202() 
+{
+  char Description[100] = "To check the Data Length Code of the [CMD02_0x202] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12649");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_CMD02_0x202");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(CMD02, Msg_0x202);
+}
+
+//Check the Periodicity of the message 
+testcase Tx_Msg_Periodicity_CMD02_0x202()
+{
+  char Description[100] = "To check the Periodicity of the [CMD02_0x202] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 50; 
+  kTIMEOUT = 500;
+  CycMinCycleTime = kMIN_Cycle_Time_CMD02_0x202;
+  CycMaxCycleTime = kMAX_Cycle_Time_CMD02_0x202;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12653");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_CMD02_0x202");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(CMD02, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(CMD02,CycMinCycleTime, CycMaxCycleTime);  
+}
+
+//Check initial values of individual signals within the message 
+testcase Tx_Msg_Sig_Init_SYNC_0x100()
+{
+  char Description[100] = "To check the initial values of signals in the [SYNC_0x100] message ";
+  flag = 1;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12645");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Sig_Init_SYNC_0x100" );
+  TestCaseDescription(Description);
+  signalintialvaluecheck(SYNC,mode_s1,0,"mode_s1");
+  signalintialvaluecheck(SYNC,mode_s2,0,"mode_s2");
+  signalintialvaluecheck(SYNC,mode_s3,0,"mode_s3");
+  signalintialvaluecheck(SYNC,mode_s4,0,"mode_s4"); 
+  signalintialvaluecheck(SYNC,Msg_Cntr_sync,0,"Msg_Cntr_sync");
+  signalintialvaluecheck(SYNC,PlatformType_sync,0,"PlatformType_sync");
+  signalintialvaluecheck(SYNC,ProtocolRev_sync,0,"ProtocolRev_sync");
+  signalintialvaluecheck(SYNC,Vehicle_Velo,0,"Vehicle_Velo");
+  signalintialvaluecheck(SYNC,Vehicle_Yaw,0,"Vehicle_Yaw");
+ }
+ 
+//Check the Data Lengh Code of the message 
+testcase Tx_Msg_DLC_SYNC_0x100() 
+{
+  char Description[100] = "To check the Data Length Code of the [SYNC_0x100] message ";
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12652");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_DLC_SYNC_0x100");
+  TestCaseDescription(Description);
+  DLC_Value = 8;
+  Check_DLC(SYNC, Msg_0x100);
+}
+
+//Check the Periodicity of the message 
+
+testcase Tx_Msg_Periodicity_SYNC_0x100()
+{
+  char Description[100] = "To check the Periodicity of the [SYNC_0x100] message ";
+  float CycMinCycleTime, CycMaxCycleTime;
+  Cycle_time = 50; 
+  kTIMEOUT = 500;
+  CycMinCycleTime = kMIN_Cycle_Time_SYNC_0x100;
+  CycMaxCycleTime = kMAX_Cycle_Time_SYNC_0x100;
+  snprintf(Polarian_ID, elCount(Polarian_ID), "CGMN-12651");
+  TestCaseTitle(Polarian_ID,"Tx_Msg_Periodicity_SYNC_0x100");
+  TestCaseDescription(Description);
+  gCyccheckId = ChkStart_MsgAbsCycleTimeViolation(SYNC, CycMinCycleTime, CycMaxCycleTime);
+  CheckMsg(SYNC,CycMinCycleTime, CycMaxCycleTime);  
+}
+
+
+//Initial value check function
+/*
+signal- message signal name
+default_value- signal initial value
+signalname[]- message signal name
+
+*/
+signalintialvaluecheck(dbMsg *msg, signal *sig,float default_value,char signalname[])
+{
+    char buffer[1000];                                                   // Variable to store the actual signal value from the message trace
+    float signal_value;                                                  // Retrieve the current value of the specified signal
+    signal_value = getSignal(sig);                                       // Check if this is the first signal being validated in the current test case
+   
+  if(testWaitForMessage(msg,WAIT_TIMEOUT) == 1)                          //testWaitForMessage 
+    {
+      if (flag == 1)
+      {
+        testStepBegin(Polarian_ID,"Test Case Started");                     // Log the beginning of the test step with the associated Polarion ID
+        flag = 0;                                                           // Reset the flag to ensure this step isn't logged repeatedly
+      }
+      if(default_value==signal_value)                                       // Compare the retrieved signal value with the expected default value
+      {
+        snprintf(buffer, elCount(buffer), " Default value of signal %s in DBC %f and the actual value %f got in trace are same", signalname,default_value,signal_value); // Format and store the success message in the buffer
+        testStepPass("", buffer);                                           // Log the test step as passed
+      }
+      else
+      {
+        snprintf(buffer, elCount(buffer), " Default value in signal %s DBC %f and the actual value %f got in trace are not same ", signalname,default_value,signal_value); // Format and store the failure message in the buffer
+        testStepFail("", buffer);                                           // Log the test step as failed
+      }
+      }
+      else
+      {
+      snprintf(buffer, elCount(buffer), "CAN message is not found");   // Format and store the failure message in the buffer
+      testStepFail("", buffer);  // Log the test step as failed
+    }
+}
+
+//DLC check function
+/*
+msg- message name
+msg_instance- declared corresponding message object in variable
+*/
+
+Check_DLC(dbMsg *msg,message *msg_instance)
+{
+  char buffer[100];                                                       // Buffer to store the formatted test result messages
+  testStepBegin(Polarian_ID,"Test Case Started");                         // Log the start of the test step with the associated Polarion ID
+  if(testWaitForMessage(msg,WAIT_TIMEOUT) == 1)                           // Wait for the message within the specified timeout period
+  {                                                                       // 1 indicates the message was received
+    if(DLC_Value == canGetDataLength(msg_instance))                       // Check if the DLC value matches the expected value
+    {
+      snprintf(buffer, elCount(buffer), "DLC Value of Message & Expected DLC Value: %x & %x is as expected", canGetDataLength(msg_instance), DLC_Value);    // Format and store the success message in the buffer
+      testStepPass("", buffer);                                           // Log the test step as passed
+    }
+    else
+    {
+      snprintf(buffer, elCount(buffer), "DLC Value of Message & Expected DLC Value: %x & %x is not expected", canGetDataLength(msg_instance), DLC_Value);   // Format and store the failure message in the buffer
+      testStepFail("", buffer);                                           // Log the test step as failed
+    }
+  }
+   else
+    {
+      snprintf(buffer, elCount(buffer), "CAN message is not found");   // Format and store the failure message in the buffer
+      testStepFail("", buffer);  // Log the test step as failed
+    }
+}
+
+//Cycle time check function
+/*
+aCycMinCycleTime- minimum cycle time
+bCycMaxCycleTime- maximum cycle time
+*/
+
+CheckMsg(dbMsg *msg, float aCycMinCycleTime, float bCycMaxCycleTime)
+{
+  long Avg, Min, Max;                                                        // Variables to store cycle time statistics
+  char buffer[100];
+  testStepBegin(Polarian_ID,"Test Case Started");                            // Log the beginning of the test step with the Polarion ID 
+  testWaitForTimeout(kTIMEOUT);                                              // Wait for the specified timeout to allow message 
+  
+  Avg = ChkQuery_StatProbeIntervalAvg(gCyccheckId);                          // Retrieve statistical data on message intervals
+  Min = ChkQuery_StatProbeIntervalMin(gCyccheckId);
+  Max = ChkQuery_StatProbeIntervalMax(gCyccheckId);
+  if(testWaitForMessage(msg,WAIT_TIMEOUT) == 1)                           // Wait for the message within the specified timeout period
+  {
+  if(ChkQuery_NumEvents (gCyccheckId) > 0)                                   // Check if any events were captured for the given message ID
+  {
+    snprintf(buffer, elCount(buffer), "Periodicity of messages is not expected");  // Log that the message periodicity is not as expected
+    testStepFail("", buffer);
+    
+    snprintf(buffer, elCount(buffer), "Average Cycle Time: %dms", Avg);            // Log the cycle time statistics
+    testStep("", buffer);
+    
+    snprintf(buffer, elCount(buffer), "Minimum Cycle Time: %dms", Min);
+    testStep("", buffer);
+    
+    snprintf(buffer, elCount(buffer), "Maximum Cycle Time: %dms", Max);
+    testStep("", buffer);
+    
+    snprintf(buffer, elCount(buffer), "Actual Cycle Time: %dms", Cycle_time);
+    testStep("", buffer);
+  }
+  else
+  {
+    snprintf(buffer, elCount(buffer), "Periodicity of messages is as expected");      // Log that the message periodicity is as expected
+    testStepPass("", buffer);
+    
+    snprintf(buffer, elCount(buffer), "Average Cycle Time: %dms", Avg);               // Log the cycle time statistics
+    testStep("", buffer);
+    
+    snprintf(buffer, elCount(buffer), "Minimum Cycle Time: %dms", Min);
+    testStep("", buffer);
+    
+    snprintf(buffer, elCount(buffer), "Maximum Cycle Time: %dms", Max);
+    testStep("", buffer);
+    
+    snprintf(buffer, elCount(buffer), "Actual Cycle Time: %dms", Cycle_time);
+    testStep("", buffer);
+  }
+  }
+  else
+  {
+      snprintf(buffer, elCount(buffer), "CAN message is not found");   // Format and store the failure message in the buffer
+      testStepFail("", buffer);  // Log the test step as failed
+  }
+}
