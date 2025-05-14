@@ -7,8 +7,6 @@ import subprocess, serial, time, os, sys, glob
 
 def run_cmd(cmd, err_msg):
 
-    # print(f">>> {' '.join(cmd)}")
-
     try:
 
         subprocess.run(cmd, check=True)
