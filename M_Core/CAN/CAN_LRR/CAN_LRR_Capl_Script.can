@@ -48,7 +48,7 @@ void Maintest()
   TestModuleDescription(time_buf);                                      //Set the title of the test module
   
   TestModuleDescription("Test Cases to check the initial Values, DLC and Cycle time of the Tx CAN signals.\n");      //Provide a brief description of the test module's purpose 
-  
+  @TestAutomation::TestDone = 0;
   Tx_Msg_Sig_Init_CMD02_0x202();                                   //Execute individual test cases sequentially for Initial value DLC and Periodicity                         
   Tx_Msg_DLC_CMD02_0x202(); 
   Tx_Msg_Periodicity_CMD02_0x202();
@@ -56,9 +56,7 @@ void Maintest()
   Tx_Msg_Sig_Init_SYNC_0x100();
   Tx_Msg_DLC_SYNC_0x100();
   Tx_Msg_Periodicity_SYNC_0x100();
-
-  
-  
+  @TestAutomation::TestDone = 1;
 }
 
  //Check initial values of individual signals within the message 

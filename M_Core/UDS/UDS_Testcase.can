@@ -66,7 +66,7 @@ void Maintest()
   UDS_TC3();
   UDS_TC4();
   UDS_TC5();
-  /*UDS_TC6();
+  UDS_TC6();
   UDS_TC7();
   UDS_TC8();
   UDS_TC9();
@@ -95,7 +95,7 @@ void Maintest()
   UDS_T32();
   UDS_T33();
   UDS_T34();
-  UDS_TC35();*/
+  UDS_TC35();
  @TestAutomation::TestDone = 1;
 }
 
