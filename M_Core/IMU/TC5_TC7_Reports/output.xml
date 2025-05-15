@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-05-15T11:17:50.615966" rpa="false" schemaversion="5">
+<suite id="s1" name="IMU" source="D:\Validation\Sobia\CGVCU_BSW_V-V\M_Core\IMU">
+<suite id="s1-s1" name="Imu Functional Validation" source="D:\Validation\Sobia\CGVCU_BSW_V-V\M_Core\IMU\imu_functional_validation.robot">
+<kw name="Open Canape And Load Imu Configuration" owner="imu_canape_interface" type="SETUP">
+<status status="PASS" start="2025-05-15T11:17:50.816354" elapsed="14.360247"/>
+</kw>
+<test id="s1-s1-t1" name="CGMN-XXXX: Verify the CGVCU software shall configure the gyroscope’s full-scale value to ±250 DPS." line="12">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-15T11:18:05.179951" level="INFO">verifies from SWE.1 Requriment: XXXX</msg>
+<arg>verifies from SWE.1 Requriment: XXXX</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-15T11:18:05.179402" elapsed="0.000769"/>
+</kw>
+<kw name="Read Xcp Variable" owner="imu_canape_interface">
+<msg time="2025-05-15T11:18:05.183839" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>gyroFsValue</arg>
+<status status="PASS" start="2025-05-15T11:18:05.181418" elapsed="0.002487"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-15T11:18:05.184650" level="INFO">Current gyroscope full-scale value: 0.0</msg>
+<arg>Current gyroscope full-scale value: ${value}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-15T11:18:05.184403" elapsed="0.000311"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T11:18:05.185324" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T11:18:05.185085" elapsed="0.000320"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-15T11:18:05.185779" level="INFO">Gyroscope full-scale value is correctly set to ±250 DPS (0).</msg>
+<arg>Gyroscope full-scale value is correctly set to ±250 DPS (0).</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-15T11:18:05.185673" elapsed="0.000148"/>
+</kw>
+<doc>Verify the CGVCU software shall configure the gyroscope’s full-scale value to ±250 DPS</doc>
+<status status="PASS" start="2025-05-15T11:18:05.177234" elapsed="0.008880"/>
+</test>
+<test id="s1-s1-t2" name="CGMN-XXXX: Verify the IMU chip device ID." line="26">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-15T11:18:05.186905" level="INFO">verifies from SWE.1 Requriment: XXXX</msg>
+<arg>verifies from SWE.1 Requriment: XXXX</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-15T11:18:05.186822" elapsed="0.000121"/>
+</kw>
+<kw name="Read Xcp Variable" owner="imu_canape_interface">
+<msg time="2025-05-15T11:18:05.188216" level="INFO">${value} = 250.0</msg>
+<var>${value}</var>
+<arg>Imu_DevId</arg>
+<status status="PASS" start="2025-05-15T11:18:05.187151" elapsed="0.001083"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-15T11:18:05.188448" level="INFO">IMU chip device ID: 250.0</msg>
+<arg>IMU chip device ID: ${value}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-15T11:18:05.188368" elapsed="0.000101"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T11:18:05.188669" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>250</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T11:18:05.188598" elapsed="0.000104"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-15T11:18:05.188873" level="INFO">IMU chip device ID is correctly read as 250</msg>
+<arg>IMU chip device ID is correctly read as 250</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-15T11:18:05.188823" elapsed="0.000075"/>
+</kw>
+<doc>Verify the IMU chip device ID.</doc>
+<status status="PASS" start="2025-05-15T11:18:05.186528" elapsed="0.002533"/>
+</test>
+<test id="s1-s1-t3" name="CGMN-XXXX: Verify the Calibration Accelerometer values from IMU chip." line="38">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-15T11:18:05.189550" level="INFO">verifies from SWE.1 Requriment: XXXX</msg>
+<arg>verifies from SWE.1 Requriment: XXXX</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-15T11:18:05.189499" elapsed="0.000074"/>
+</kw>
+<kw name="Read Xcp Variable" owner="imu_canape_interface">
+<msg time="2025-05-15T11:18:05.190610" level="INFO">${value_0} = -0.0062127686105668545</msg>
+<var>${value_0}</var>
+<arg>Accel_Calib._0_</arg>
+<status status="PASS" start="2025-05-15T11:18:05.189688" elapsed="0.000942"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-15T11:18:05.190847" level="INFO">current value of the Calibration Accelerometer 'x' values: -0.0062127686105668545</msg>
+<arg>current value of the Calibration Accelerometer 'x' values: ${value_0}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-15T11:18:05.190766" elapsed="0.000106"/>
+</kw>
+<kw name="Read Xcp Variable" owner="imu_canape_interface">
+<msg time="2025-05-15T11:18:05.192008" level="INFO">${value_1} = -0.22401978075504303</msg>
+<var>${value_1}</var>
+<arg>Accel_Calib._1_</arg>
+<status status="PASS" start="2025-05-15T11:18:05.191040" elapsed="0.000985"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-15T11:18:05.192418" level="INFO">current value of the Calibration Accelerometer 'y' values: -0.22401978075504303</msg>
+<arg>current value of the Calibration Accelerometer 'y' values: ${value_1}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-15T11:18:05.192323" elapsed="0.000128"/>
+</kw>
+<kw name="Read Xcp Variable" owner="imu_canape_interface">
+<msg time="2025-05-15T11:18:05.193808" level="INFO">${value_2} = 0.7748779058456421</msg>
+<var>${value_2}</var>
+<arg>Accel_Calib._2_</arg>
+<status status="PASS" start="2025-05-15T11:18:05.192609" elapsed="0.001221"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-15T11:18:05.194056" level="INFO">current value of the Calibration Accelerometer 'z' values: 0.7748779058456421</msg>
+<arg>current value of the Calibration Accelerometer 'z' values: ${value_2}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-15T11:18:05.193974" elapsed="0.000106"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${value_0} &lt;= ${tolerance}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-05-15T11:18:05.194203" elapsed="0.000172"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-15T11:18:05.194576" level="INFO">Calibration Accelerometer 'x' value read as -0.0062127686105668545. It matches the expected value (nearly equal to zero).</msg>
+<arg>Calibration Accelerometer 'x' value read as ${value_0}. It matches the expected value (nearly equal to zero).</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-15T11:18:05.194504" elapsed="0.000095"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${value_1} &lt;= ${tolerance}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-05-15T11:18:05.194766" elapsed="0.000150"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-15T11:18:05.195163" level="INFO">Calibration Accelerometer 'y' value read as -0.22401978075504303. It matches the expected value (nearly equal to zero).</msg>
+<arg>Calibration Accelerometer 'y' value read as ${value_1}. It matches the expected value (nearly equal to zero).</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-15T11:18:05.195082" elapsed="0.000124"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${value_2} - 1.0 &lt;= ${tolerance}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-05-15T11:18:05.195417" elapsed="0.000160"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-15T11:18:05.195796" level="INFO">Calibration Accelerometer 'z' value read as 0.7748779058456421. It matches the expected value (nearly equal to one).</msg>
+<arg>Calibration Accelerometer 'z' value read as ${value_2}. It matches the expected value (nearly equal to one).</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-15T11:18:05.195708" elapsed="0.000112"/>
+</kw>
+<doc>Verify the Calibration Accelerometer values from IMU chip.</doc>
+<status status="PASS" start="2025-05-15T11:18:05.189293" elapsed="0.006646"/>
+</test>
+<kw name="Close Canape" owner="imu_canape_interface" type="TEARDOWN">
+<status status="PASS" start="2025-05-15T11:18:05.196583" elapsed="5.326708"/>
+</kw>
+<status status="PASS" start="2025-05-15T11:17:50.635639" elapsed="19.887824"/>
+</suite>
+<status status="PASS" start="2025-05-15T11:17:50.617127" elapsed="19.909363"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="IMU" id="s1" pass="3" fail="0" skip="0">IMU</stat>
+<stat name="Imu Functional Validation" id="s1-s1" pass="3" fail="0" skip="0">IMU.Imu Functional Validation</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

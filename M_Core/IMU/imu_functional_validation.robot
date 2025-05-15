@@ -139,3 +139,43 @@ CGMN-XXXX: Verify the CGVCU software shall configure the accelerometer bandwidth
     # Validate if accelerometer bandwidth is 44.8 Hz
     Should Be Equal As Numbers    ${value}    5
     Log    accelerometer bandwidth is correctly read as (5 =>ACCEL_BW_10_2)
+
+CGMN-XXXX: Verify the IMU chip device ID.
+    [Documentation]    Verify the IMU chip device ID.
+    Log    verifies from SWE.1 Requriment: XXXX
+
+    # Read the IMU chip device ID.
+    ${value}=    Read XCP Variable    Imu_DevId
+    Log    IMU chip device ID: ${value}
+
+    # Validate if IMU chip device ID is 250
+    Should Be Equal As Numbers    ${value}    250
+    Log    IMU chip device ID is correctly read as 250
+
+CGMN-XXXX: Verify the Calibration Accelerometer values from IMU chip.
+    [Documentation]    Verify the Calibration Accelerometer values from IMU chip.
+    Log    verifies from SWE.1 Requriment: XXXX
+
+    # Read the current value of the Calibration Accelerometer 'x' values
+    ${value_0}=    Read XCP Variable    Accel_Calib._0_
+    Log    current value of the Calibration Accelerometer 'x' values: ${value_0}
+
+    # Read the current value of the Calibration Accelerometer 'y' values
+    ${value_1}=    Read XCP Variable    Accel_Calib._1_
+    Log    current value of the Calibration Accelerometer 'y' values: ${value_1}
+
+    # Read the current value of the Calibration Accelerometer 'z' values
+    ${value_2}=    Read XCP Variable    Accel_Calib._2_
+    Log    current value of the Calibration Accelerometer 'z' values: ${value_2}
+
+    # Validate if the Calibration Accelerometer 'x' value is nearly equal to zero
+    Should Be True    ${value_0} <= ${tolerance}
+    Log    Calibration Accelerometer 'x' value read as ${value_0}. It matches the expected value (nearly equal to zero).
+
+    # Validate if the Calibration Accelerometer 'y' value is nearly equal to zero
+    Should Be True    ${value_1} <= ${tolerance}
+    Log    Calibration Accelerometer 'y' value read as ${value_1}. It matches the expected value (nearly equal to zero).
+
+    # Validate if the Calibration Accelerometer 'z' value is nearly equal to one
+    Should Be True    ${value_2} - 1.0 <= ${tolerance}
+    Log    Calibration Accelerometer 'z' value read as ${value_2}. It matches the expected value (nearly equal to one).
