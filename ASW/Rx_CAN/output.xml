@@ -1,0 +1,3012 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-05-15T09:30:44.817598" rpa="false" schemaversion="5">
+<suite id="s1" name="CANoe" source="C:\Users\validation\Documents\PythonProject\CANoe">
+<suite id="s1-s1" name="Demo ASw" source="C:\Users\validation\Documents\PythonProject\CANoe\Demo_ASw">
+<suite id="s1-s1-s1" name="Test" source="C:\Users\validation\Documents\PythonProject\CANoe\Demo_ASw\Test.robot">
+<kw name="Setup" type="SETUP">
+<kw name="Open Canape And Load Imu Configuration" owner="Test">
+<status status="PASS" start="2025-05-15T09:30:45.021815" elapsed="14.177208"/>
+</kw>
+<kw name="Initialize Can" owner="Test">
+<msg time="2025-05-15T09:30:59.289350" level="INFO">CAN interface initialized!</msg>
+<arg>C:/Users/validation/Documents/PythonProject/CANoe/Demo_ASw/CAN_VM_v3.7.1.dbc</arg>
+<arg>3</arg>
+<arg>500000</arg>
+<doc>Initializes the CAN interface and loads the specified DBC file.
+Sets up the CAN bus using the Vector interface and bitrate,
+and loads the DBC file to enable message encoding and decoding.</doc>
+<status status="PASS" start="2025-05-15T09:30:59.199574" elapsed="0.089852"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-15T09:31:02.290066" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-15T09:30:59.289596" elapsed="3.000886"/>
+</kw>
+<status status="PASS" start="2025-05-15T09:30:45.021525" elapsed="17.269319"/>
+</kw>
+<test id="s1-s1-s1-t1" name="Send CAN signal values and validate them by reading AUXIO1_BMS2 through XCP value as 0" line="19">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-15T09:31:02.293081" level="INFO">${signals} = {'AUX_01_HPR': 0, 'AUX_02': 0, 'AUX_03': 0, 'AUX_04_LPR': 0, 'AUX_05': 0, 'AUX_06': 0, 'AUX_07': 0, 'AUX_08': 0}</msg>
+<var>${signals}</var>
+<arg>{"AUX_01_HPR": 0, "AUX_02": 0, "AUX_03": 0, "AUX_04_LPR": 0, "AUX_05": 0, "AUX_06": 0, "AUX_07": 0, "AUX_08": 0}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-15T09:31:02.292445" elapsed="0.000744"/>
+</kw>
+<kw name="Send Can Message" owner="Test">
+<msg time="2025-05-15T09:31:02.294549" level="INFO">Sent CAN message: AUXIO1_BMS2 with data: 0000000000000000</msg>
+<arg>AUXIO1_BMS2</arg>
+<arg>${signals}</arg>
+<doc>Encodes and sends a CAN message using cantools and python-can.</doc>
+<status status="PASS" start="2025-05-15T09:31:02.293926" elapsed="0.000709"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-15T09:31:03.295450" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-15T09:31:02.295040" elapsed="1.000719"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:03.300284" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_01_HPR</arg>
+<status status="PASS" start="2025-05-15T09:31:03.297020" elapsed="0.003354"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:03.301350" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:03.300976" elapsed="0.000512"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:03.303573" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_02</arg>
+<status status="PASS" start="2025-05-15T09:31:03.301942" elapsed="0.001697"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:03.304343" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:03.304084" elapsed="0.000347"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:03.306636" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_03</arg>
+<status status="PASS" start="2025-05-15T09:31:03.304772" elapsed="0.001902"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:03.307162" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:03.306987" elapsed="0.000245"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:03.308798" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_04_LPR</arg>
+<status status="PASS" start="2025-05-15T09:31:03.307617" elapsed="0.001212"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:03.309178" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:03.309055" elapsed="0.000171"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:03.310378" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_05</arg>
+<status status="PASS" start="2025-05-15T09:31:03.309436" elapsed="0.000965"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:03.310676" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:03.310578" elapsed="0.000140"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:03.311967" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_06</arg>
+<status status="PASS" start="2025-05-15T09:31:03.310886" elapsed="0.001101"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:03.312227" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:03.312139" elapsed="0.000124"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:03.313352" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_07</arg>
+<status status="PASS" start="2025-05-15T09:31:03.312402" elapsed="0.000966"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:03.313563" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:03.313493" elapsed="0.000096"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:03.314638" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_08</arg>
+<status status="PASS" start="2025-05-15T09:31:03.313755" elapsed="0.000906"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:03.315015" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:03.314905" elapsed="0.000151"/>
+</kw>
+<doc>Validate RX message handling and XCP variable read</doc>
+<status status="PASS" start="2025-05-15T09:31:02.291077" elapsed="1.024288"/>
+</test>
+<test id="s1-s1-s1-t2" name="Send CAN signal values and validate them by reading AUXIO1_BMS2 through XCP value as 1" line="54">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-15T09:31:03.316124" level="INFO">${signals} = {'AUX_01_HPR': 1, 'AUX_02': 1, 'AUX_03': 1, 'AUX_04_LPR': 1, 'AUX_05': 1, 'AUX_06': 1, 'AUX_07': 1, 'AUX_08': 1}</msg>
+<var>${signals}</var>
+<arg>{"AUX_01_HPR": 1, "AUX_02": 1, "AUX_03": 1, "AUX_04_LPR": 1, "AUX_05": 1, "AUX_06": 1, "AUX_07": 1, "AUX_08": 1}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-15T09:31:03.315952" elapsed="0.000191"/>
+</kw>
+<kw name="Send Can Message" owner="Test">
+<msg time="2025-05-15T09:31:03.316455" level="INFO">Sent CAN message: AUXIO1_BMS2 with data: 5555000000000000</msg>
+<arg>AUXIO1_BMS2</arg>
+<arg>${signals}</arg>
+<doc>Encodes and sends a CAN message using cantools and python-can.</doc>
+<status status="PASS" start="2025-05-15T09:31:03.316285" elapsed="0.000200"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-15T09:31:04.316949" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-15T09:31:03.316637" elapsed="1.000552"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:04.319895" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_01_HPR</arg>
+<status status="PASS" start="2025-05-15T09:31:04.318037" elapsed="0.001914"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:04.320767" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:04.320441" elapsed="0.000427"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:04.322379" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_02</arg>
+<status status="PASS" start="2025-05-15T09:31:04.321121" elapsed="0.001279"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:04.322673" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:04.322573" elapsed="0.000149"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:04.323962" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_03</arg>
+<status status="PASS" start="2025-05-15T09:31:04.322892" elapsed="0.001089"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:04.324203" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:04.324114" elapsed="0.000120"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:04.325364" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_04_LPR</arg>
+<status status="PASS" start="2025-05-15T09:31:04.324403" elapsed="0.000980"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:04.325580" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:04.325506" elapsed="0.000103"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:04.326551" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_05</arg>
+<status status="PASS" start="2025-05-15T09:31:04.325729" elapsed="0.000840"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:04.326782" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:04.326694" elapsed="0.000119"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:04.327750" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_06</arg>
+<status status="PASS" start="2025-05-15T09:31:04.326930" elapsed="0.000844"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:04.327964" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:04.327894" elapsed="0.000098"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:04.329202" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_07</arg>
+<status status="PASS" start="2025-05-15T09:31:04.328103" elapsed="0.001135"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:04.329476" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:04.329390" elapsed="0.000117"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:04.330548" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_08</arg>
+<status status="PASS" start="2025-05-15T09:31:04.329692" elapsed="0.000872"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:04.330795" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:04.330698" elapsed="0.000146"/>
+</kw>
+<doc>Validate RX message handling and XCP variable read</doc>
+<status status="PASS" start="2025-05-15T09:31:03.315632" elapsed="1.015394"/>
+</test>
+<test id="s1-s1-s1-t3" name="Send CAN signal values and validate them by reading AUXIO1_BMS2 through XCP value as 2" line="88">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-15T09:31:04.331680" level="INFO">${signals} = {'AUX_01_HPR': 2, 'AUX_02': 2, 'AUX_03': 2, 'AUX_04_LPR': 2, 'AUX_05': 2, 'AUX_06': 2, 'AUX_07': 2, 'AUX_08': 2}</msg>
+<var>${signals}</var>
+<arg>{"AUX_01_HPR": 2, "AUX_02": 2, "AUX_03": 2, "AUX_04_LPR": 2, "AUX_05": 2, "AUX_06": 2, "AUX_07": 2, "AUX_08": 2}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-15T09:31:04.331536" elapsed="0.000163"/>
+</kw>
+<kw name="Send Can Message" owner="Test">
+<msg time="2025-05-15T09:31:04.331990" level="INFO">Sent CAN message: AUXIO1_BMS2 with data: aaaa000000000000</msg>
+<arg>AUXIO1_BMS2</arg>
+<arg>${signals}</arg>
+<doc>Encodes and sends a CAN message using cantools and python-can.</doc>
+<status status="PASS" start="2025-05-15T09:31:04.331839" elapsed="0.000179"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-15T09:31:05.333368" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-15T09:31:04.332138" elapsed="1.001331"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:05.335010" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_01_HPR</arg>
+<status status="PASS" start="2025-05-15T09:31:05.333838" elapsed="0.001204"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:05.335434" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:05.335282" elapsed="0.000202"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:05.336798" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_02</arg>
+<status status="PASS" start="2025-05-15T09:31:05.335670" elapsed="0.001158"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:05.337164" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:05.337032" elapsed="0.000174"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:05.338358" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_03</arg>
+<status status="PASS" start="2025-05-15T09:31:05.337362" elapsed="0.001016"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:05.338610" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:05.338527" elapsed="0.000115"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:05.339753" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_04_LPR</arg>
+<status status="PASS" start="2025-05-15T09:31:05.338825" elapsed="0.000945"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:05.339988" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:05.339909" elapsed="0.000110"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:05.341148" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_05</arg>
+<status status="PASS" start="2025-05-15T09:31:05.340144" elapsed="0.001020"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:05.341369" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:05.341294" elapsed="0.000105"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:05.342338" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_06</arg>
+<status status="PASS" start="2025-05-15T09:31:05.341516" elapsed="0.000837"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:05.342551" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:05.342474" elapsed="0.000105"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:05.343643" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_07</arg>
+<status status="PASS" start="2025-05-15T09:31:05.342692" elapsed="0.000974"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:05.343957" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:05.343867" elapsed="0.000124"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:05.345162" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_08</arg>
+<status status="PASS" start="2025-05-15T09:31:05.344170" elapsed="0.001013"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:05.345420" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:05.345336" elapsed="0.000117"/>
+</kw>
+<doc>Validate RX message handling and XCP variable read</doc>
+<status status="PASS" start="2025-05-15T09:31:04.331305" elapsed="1.014277"/>
+</test>
+<test id="s1-s1-s1-t4" name="Send CAN signal values and validate them by reading HVESSS2_BMS2 through XCP value as 2" line="122">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-15T09:31:05.346292" level="INFO">${signals} = {'LmtChrg_Curr': 2, 'LmtChrg_Diag': 2, 'LmtChrg_Soc': 2, 'LmtChrg_Tbd': 2, 'LmtChrg_Tmpr': 2, 'LmtChrg_Volt': 2, 'LmtDschrg_Curr': 2, 'LmtDschrg_Diag': 2, 'LmtDschrg_Soc': 2, 'LmtDschrg_Tbd': 2, 'LmtD...</msg>
+<var>${signals}</var>
+<arg>{"LmtChrg_Curr": 2, "LmtChrg_Diag": 2, "LmtChrg_Soc": 2, "LmtChrg_Tbd": 2, "LmtChrg_Tmpr": 2, "LmtChrg_Volt": 2, "LmtDschrg_Curr": 2, "LmtDschrg_Diag": 2, "LmtDschrg_Soc": 2, "LmtDschrg_Tbd": 2, "LmtDschrg_Tmpr": 2, "LmtDschrg_Volt": 2,}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-15T09:31:05.346130" elapsed="0.000180"/>
+</kw>
+<kw name="Send Can Message" owner="Test">
+<msg time="2025-05-15T09:31:05.346609" level="INFO">Sent CAN message: HVESSS2_BMS2 with data: aa0a0000aa0a0000</msg>
+<arg>HVESSS2_BMS2</arg>
+<arg>${signals}</arg>
+<doc>Encodes and sends a CAN message using cantools and python-can.</doc>
+<status status="PASS" start="2025-05-15T09:31:05.346463" elapsed="0.000171"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-15T09:31:06.347418" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-15T09:31:05.346792" elapsed="1.000743"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:06.349181" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Curr</arg>
+<status status="PASS" start="2025-05-15T09:31:06.347854" elapsed="0.001359"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:06.349505" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:06.349394" elapsed="0.000149"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:06.350946" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Diag</arg>
+<status status="PASS" start="2025-05-15T09:31:06.349706" elapsed="0.001262"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:06.351249" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:06.351157" elapsed="0.000125"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:06.352531" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Soc</arg>
+<status status="PASS" start="2025-05-15T09:31:06.351432" elapsed="0.001121"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:06.352821" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:06.352718" elapsed="0.000154"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:06.354162" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Tbd</arg>
+<status status="PASS" start="2025-05-15T09:31:06.353117" elapsed="0.001069"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:06.354610" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:06.354487" elapsed="0.000164"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:06.355926" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Tmpr</arg>
+<status status="PASS" start="2025-05-15T09:31:06.354845" elapsed="0.001105"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:06.356199" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:06.356110" elapsed="0.000133"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:06.357326" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Volt</arg>
+<status status="PASS" start="2025-05-15T09:31:06.356382" elapsed="0.000962"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:06.357564" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:06.357486" elapsed="0.000119"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:06.358721" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Curr</arg>
+<status status="PASS" start="2025-05-15T09:31:06.357737" elapsed="0.001003"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:06.358959" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:06.358882" elapsed="0.000108"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:06.360114" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Diag</arg>
+<status status="PASS" start="2025-05-15T09:31:06.359177" elapsed="0.000954"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:06.360335" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:06.360263" elapsed="0.000101"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:06.361512" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Soc</arg>
+<status status="PASS" start="2025-05-15T09:31:06.360497" elapsed="0.001032"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:06.361729" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:06.361659" elapsed="0.000099"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:06.362940" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Tbd</arg>
+<status status="PASS" start="2025-05-15T09:31:06.361883" elapsed="0.001084"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:06.363210" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:06.363127" elapsed="0.000115"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:06.367524" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Tmpr</arg>
+<status status="PASS" start="2025-05-15T09:31:06.363373" elapsed="0.004169"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:06.367751" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:06.367675" elapsed="0.000107"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:06.368936" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Volt</arg>
+<status status="PASS" start="2025-05-15T09:31:06.367949" elapsed="0.001009"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:06.369209" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:06.369122" elapsed="0.000121"/>
+</kw>
+<doc>Validate RX message handling and XCP variable read</doc>
+<status status="PASS" start="2025-05-15T09:31:05.345892" elapsed="1.023487"/>
+</test>
+<test id="s1-s1-s1-t5" name="Send CAN signal values and validate them by reading HVESSS2_BMS2 through XCP value as 0" line="156">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-15T09:31:06.370528" level="INFO">${signals} = {'LmtChrg_Curr': 0, 'LmtChrg_Diag': 0, 'LmtChrg_Soc': 0, 'LmtChrg_Tbd': 0, 'LmtChrg_Tmpr': 0, 'LmtChrg_Volt': 0, 'LmtDschrg_Curr': 0, 'LmtDschrg_Diag': 0, 'LmtDschrg_Soc': 0, 'LmtDschrg_Tbd': 0, 'LmtD...</msg>
+<var>${signals}</var>
+<arg>{"LmtChrg_Curr": 0, "LmtChrg_Diag": 0, "LmtChrg_Soc": 0, "LmtChrg_Tbd": 0, "LmtChrg_Tmpr": 0, "LmtChrg_Volt": 0, "LmtDschrg_Curr": 0, "LmtDschrg_Diag": 0, "LmtDschrg_Soc": 0, "LmtDschrg_Tbd": 0, "LmtDschrg_Tmpr": 0, "LmtDschrg_Volt": 0,}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-15T09:31:06.370339" elapsed="0.000209"/>
+</kw>
+<kw name="Send Can Message" owner="Test">
+<msg time="2025-05-15T09:31:06.371008" level="INFO">Sent CAN message: HVESSS2_BMS2 with data: 0000000000000000</msg>
+<arg>HVESSS2_BMS2</arg>
+<arg>${signals}</arg>
+<doc>Encodes and sends a CAN message using cantools and python-can.</doc>
+<status status="PASS" start="2025-05-15T09:31:06.370828" elapsed="0.000208"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-15T09:31:07.371663" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-15T09:31:06.371214" elapsed="1.000816"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:07.375096" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Curr</arg>
+<status status="PASS" start="2025-05-15T09:31:07.372891" elapsed="0.002270"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:07.375925" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:07.375639" elapsed="0.000383"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:07.377801" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Diag</arg>
+<status status="PASS" start="2025-05-15T09:31:07.376356" elapsed="0.001492"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:07.378308" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:07.378140" elapsed="0.000230"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:07.379957" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Soc</arg>
+<status status="PASS" start="2025-05-15T09:31:07.378609" elapsed="0.001387"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:07.380310" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:07.380193" elapsed="0.000162"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:07.381759" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Tbd</arg>
+<status status="PASS" start="2025-05-15T09:31:07.380603" elapsed="0.001186"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:07.382081" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:07.381974" elapsed="0.000144"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:07.383515" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Tmpr</arg>
+<status status="PASS" start="2025-05-15T09:31:07.382277" elapsed="0.001258"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:07.383773" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:07.383687" elapsed="0.000120"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:07.384910" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Volt</arg>
+<status status="PASS" start="2025-05-15T09:31:07.383951" elapsed="0.000978"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:07.385158" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:07.385070" elapsed="0.000119"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:07.386307" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Curr</arg>
+<status status="PASS" start="2025-05-15T09:31:07.385317" elapsed="0.001007"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:07.386532" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:07.386452" elapsed="0.000112"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:07.387774" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Diag</arg>
+<status status="PASS" start="2025-05-15T09:31:07.386759" elapsed="0.001035"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:07.388035" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:07.387954" elapsed="0.000113"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:07.389116" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Soc</arg>
+<status status="PASS" start="2025-05-15T09:31:07.388184" elapsed="0.000950"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:07.389340" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:07.389265" elapsed="0.000104"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:07.390506" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Tbd</arg>
+<status status="PASS" start="2025-05-15T09:31:07.389497" elapsed="0.001027"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:07.390735" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:07.390652" elapsed="0.000112"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:07.391703" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Tmpr</arg>
+<status status="PASS" start="2025-05-15T09:31:07.390890" elapsed="0.000829"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:07.391908" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:07.391839" elapsed="0.000097"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:07.393098" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Volt</arg>
+<status status="PASS" start="2025-05-15T09:31:07.392140" elapsed="0.000974"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:07.393308" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:07.393232" elapsed="0.000104"/>
+</kw>
+<doc>Validate RX message handling and XCP variable read</doc>
+<status status="PASS" start="2025-05-15T09:31:06.369898" elapsed="1.023576"/>
+</test>
+<test id="s1-s1-s1-t6" name="Send CAN signal values and validate them by reading HVESSS2_BMS2 through XCP value as 1" line="189">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-15T09:31:07.394163" level="INFO">${signals} = {'LmtChrg_Curr': 1, 'LmtChrg_Diag': 1, 'LmtChrg_Soc': 1, 'LmtChrg_Tbd': 1, 'LmtChrg_Tmpr': 1, 'LmtChrg_Volt': 1, 'LmtDschrg_Curr': 1, 'LmtDschrg_Diag': 1, 'LmtDschrg_Soc': 1, 'LmtDschrg_Tbd': 1, 'LmtD...</msg>
+<var>${signals}</var>
+<arg>{"LmtChrg_Curr": 1, "LmtChrg_Diag": 1, "LmtChrg_Soc": 1, "LmtChrg_Tbd": 1, "LmtChrg_Tmpr": 1, "LmtChrg_Volt": 1, "LmtDschrg_Curr": 1, "LmtDschrg_Diag": 1, "LmtDschrg_Soc": 1, "LmtDschrg_Tbd": 1, "LmtDschrg_Tmpr": 1, "LmtDschrg_Volt": 1,}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-15T09:31:07.394011" elapsed="0.000168"/>
+</kw>
+<kw name="Send Can Message" owner="Test">
+<msg time="2025-05-15T09:31:07.394491" level="INFO">Sent CAN message: HVESSS2_BMS2 with data: 5505000055050000</msg>
+<arg>HVESSS2_BMS2</arg>
+<arg>${signals}</arg>
+<doc>Encodes and sends a CAN message using cantools and python-can.</doc>
+<status status="PASS" start="2025-05-15T09:31:07.394300" elapsed="0.000225"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-15T09:31:08.395127" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-15T09:31:07.394647" elapsed="1.000730"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:08.399195" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Curr</arg>
+<status status="PASS" start="2025-05-15T09:31:08.396221" elapsed="0.003093"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:08.400211" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:08.399890" elapsed="0.000419"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:08.402243" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Diag</arg>
+<status status="PASS" start="2025-05-15T09:31:08.400692" elapsed="0.001616"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:08.402894" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:08.402709" elapsed="0.000250"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:08.404329" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Soc</arg>
+<status status="PASS" start="2025-05-15T09:31:08.403206" elapsed="0.001156"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:08.404733" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:08.404587" elapsed="0.000211"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:08.406095" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Tbd</arg>
+<status status="PASS" start="2025-05-15T09:31:08.405066" elapsed="0.001053"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:08.406422" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:08.406298" elapsed="0.000184"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:08.407686" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Tmpr</arg>
+<status status="PASS" start="2025-05-15T09:31:08.406648" elapsed="0.001057"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:08.407938" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:08.407851" elapsed="0.000133"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:08.409076" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Volt</arg>
+<status status="PASS" start="2025-05-15T09:31:08.408125" elapsed="0.000969"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:08.409320" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:08.409233" elapsed="0.000121"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:08.410470" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Curr</arg>
+<status status="PASS" start="2025-05-15T09:31:08.409498" elapsed="0.000988"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:08.410681" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:08.410605" elapsed="0.000104"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:08.411892" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Diag</arg>
+<status status="PASS" start="2025-05-15T09:31:08.410877" elapsed="0.001036"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:08.412142" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:08.412058" elapsed="0.000116"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:08.413285" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Soc</arg>
+<status status="PASS" start="2025-05-15T09:31:08.412296" elapsed="0.001008"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:08.413600" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:08.413519" elapsed="0.000116"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:08.414686" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Tbd</arg>
+<status status="PASS" start="2025-05-15T09:31:08.413772" elapsed="0.000936"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:08.414941" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:08.414855" elapsed="0.000118"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:08.416082" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Tmpr</arg>
+<status status="PASS" start="2025-05-15T09:31:08.415115" elapsed="0.000985"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:08.416321" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:08.416235" elapsed="0.000117"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:08.417470" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Volt</arg>
+<status status="PASS" start="2025-05-15T09:31:08.416518" elapsed="0.000969"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:08.417697" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:08.417609" elapsed="0.000117"/>
+</kw>
+<doc>Validate RX message handling and XCP variable read</doc>
+<status status="PASS" start="2025-05-15T09:31:07.393789" elapsed="1.024062"/>
+</test>
+<test id="s1-s1-s1-t7" name="Send CAN signal values and validate them by reading HVESSS2_BMS2 through XCP value as 3" line="222">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-15T09:31:08.419148" level="INFO">${signals} = {'LmtChrg_Curr': 3, 'LmtChrg_Diag': 3, 'LmtChrg_Soc': 3, 'LmtChrg_Tbd': 3, 'LmtChrg_Tmpr': 3, 'LmtChrg_Volt': 3, 'LmtDschrg_Curr': 3, 'LmtDschrg_Diag': 3, 'LmtDschrg_Soc': 3, 'LmtDschrg_Tbd': 3, 'LmtD...</msg>
+<var>${signals}</var>
+<arg>{"LmtChrg_Curr": 3, "LmtChrg_Diag": 3, "LmtChrg_Soc": 3, "LmtChrg_Tbd": 3, "LmtChrg_Tmpr": 3, "LmtChrg_Volt": 3, "LmtDschrg_Curr": 3, "LmtDschrg_Diag": 3, "LmtDschrg_Soc": 3, "LmtDschrg_Tbd": 3, "LmtDschrg_Tmpr": 3, "LmtDschrg_Volt": 3,}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-15T09:31:08.418741" elapsed="0.000431"/>
+</kw>
+<kw name="Send Can Message" owner="Test">
+<msg time="2025-05-15T09:31:08.419529" level="INFO">Sent CAN message: HVESSS2_BMS2 with data: ff0f0000ff0f0000</msg>
+<arg>HVESSS2_BMS2</arg>
+<arg>${signals}</arg>
+<doc>Encodes and sends a CAN message using cantools and python-can.</doc>
+<status status="PASS" start="2025-05-15T09:31:08.419354" elapsed="0.000204"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-15T09:31:09.420380" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-15T09:31:08.419732" elapsed="1.001052"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:09.424100" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Curr</arg>
+<status status="PASS" start="2025-05-15T09:31:09.421645" elapsed="0.002540"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:09.425107" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:09.424837" elapsed="0.000358"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:09.426951" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Diag</arg>
+<status status="PASS" start="2025-05-15T09:31:09.425514" elapsed="0.001469"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:09.427336" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:09.427212" elapsed="0.000174"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:09.428712" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Soc</arg>
+<status status="PASS" start="2025-05-15T09:31:09.427576" elapsed="0.001158"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:09.429006" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:09.428894" elapsed="0.000152"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:09.430297" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Tbd</arg>
+<status status="PASS" start="2025-05-15T09:31:09.429223" elapsed="0.001096"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:09.430691" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:09.430529" elapsed="0.000204"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:09.431881" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Tmpr</arg>
+<status status="PASS" start="2025-05-15T09:31:09.430877" elapsed="0.001022"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:09.432168" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:09.432042" elapsed="0.000185"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:09.433714" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Volt</arg>
+<status status="PASS" start="2025-05-15T09:31:09.432460" elapsed="0.001283"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:09.434149" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:09.433973" elapsed="0.000273"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:09.435510" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Curr</arg>
+<status status="PASS" start="2025-05-15T09:31:09.434405" elapsed="0.001134"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:09.435864" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:09.435751" elapsed="0.000157"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:09.437293" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Diag</arg>
+<status status="PASS" start="2025-05-15T09:31:09.436160" elapsed="0.001153"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:09.437555" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:09.437461" elapsed="0.000127"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:09.438701" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Soc</arg>
+<status status="PASS" start="2025-05-15T09:31:09.437749" elapsed="0.000979"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:09.439071" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:09.438956" elapsed="0.000173"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:09.440537" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Tbd</arg>
+<status status="PASS" start="2025-05-15T09:31:09.439272" elapsed="0.001287"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:09.440929" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:09.440817" elapsed="0.000166"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:09.442404" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Tmpr</arg>
+<status status="PASS" start="2025-05-15T09:31:09.441115" elapsed="0.001313"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:09.442690" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:09.442594" elapsed="0.000130"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:09.443884" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Volt</arg>
+<status status="PASS" start="2025-05-15T09:31:09.442918" elapsed="0.000984"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:09.444125" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:09.444047" elapsed="0.000108"/>
+</kw>
+<doc>Validate RX message handling and XCP variable read</doc>
+<status status="PASS" start="2025-05-15T09:31:08.418339" elapsed="1.026151"/>
+</test>
+<test id="s1-s1-s1-t8" name="Send CAN signal values and validate them by reading HVESSS2_BMS2 through XCP value as 4" line="256">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-15T09:31:09.445603" level="INFO">${signals} = {'LmtChrg_Curr': 4, 'LmtChrg_Diag': 4, 'LmtChrg_Soc': 4, 'LmtChrg_Tbd': 4, 'LmtChrg_Tmpr': 4, 'LmtChrg_Volt': 4, 'LmtDschrg_Curr': 4, 'LmtDschrg_Diag': 4, 'LmtDschrg_Soc': 4, 'LmtDschrg_Tbd': 4, 'LmtD...</msg>
+<var>${signals}</var>
+<arg>{"LmtChrg_Curr": 4, "LmtChrg_Diag": 4, "LmtChrg_Soc": 4, "LmtChrg_Tbd": 4, "LmtChrg_Tmpr": 4, "LmtChrg_Volt": 4, "LmtDschrg_Curr": 4, "LmtDschrg_Diag": 4, "LmtDschrg_Soc": 4, "LmtDschrg_Tbd": 4, "LmtDschrg_Tmpr": 4, "LmtDschrg_Volt": 4,}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-15T09:31:09.445412" elapsed="0.000213"/>
+</kw>
+<kw name="Send Can Message" owner="Test">
+<msg time="2025-05-15T09:31:09.446014" level="INFO">Error sending message: Expected signal "LmtDschrg_Soc" value smaller than or equal to 3 in message "HVESSS2_BMS2", but got 4.</msg>
+<arg>HVESSS2_BMS2</arg>
+<arg>${signals}</arg>
+<doc>Encodes and sends a CAN message using cantools and python-can.</doc>
+<status status="PASS" start="2025-05-15T09:31:09.445900" elapsed="0.000139"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-15T09:31:10.446796" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-15T09:31:09.446180" elapsed="1.000850"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:10.529764" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Curr</arg>
+<status status="PASS" start="2025-05-15T09:31:10.448113" elapsed="0.081712"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:10.530504" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<msg time="2025-05-15T09:31:10.530671" level="FAIL">3.0 != 4.0</msg>
+<arg>${value}</arg>
+<arg>4</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="FAIL" start="2025-05-15T09:31:10.530263" elapsed="0.000584">3.0 != 4.0</status>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Diag</arg>
+<status status="NOT RUN" start="2025-05-15T09:31:10.531132" elapsed="0.000024"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${value}</arg>
+<arg>4</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="NOT RUN" start="2025-05-15T09:31:10.531376" elapsed="0.000025"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Soc</arg>
+<status status="NOT RUN" start="2025-05-15T09:31:10.531667" elapsed="0.000024"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${value}</arg>
+<arg>4</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="NOT RUN" start="2025-05-15T09:31:10.531884" elapsed="0.000019"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Tbd</arg>
+<status status="NOT RUN" start="2025-05-15T09:31:10.532127" elapsed="0.000015"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${value}</arg>
+<arg>4</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="NOT RUN" start="2025-05-15T09:31:10.532287" elapsed="0.000013"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Tmpr</arg>
+<status status="NOT RUN" start="2025-05-15T09:31:10.532494" elapsed="0.000024"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${value}</arg>
+<arg>4</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="NOT RUN" start="2025-05-15T09:31:10.532693" elapsed="0.000018"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtChrg_Volt</arg>
+<status status="NOT RUN" start="2025-05-15T09:31:10.532862" elapsed="0.000014"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${value}</arg>
+<arg>4</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="NOT RUN" start="2025-05-15T09:31:10.533008" elapsed="0.000012"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Curr</arg>
+<status status="NOT RUN" start="2025-05-15T09:31:10.533141" elapsed="0.000011"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${value}</arg>
+<arg>4</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="NOT RUN" start="2025-05-15T09:31:10.533273" elapsed="0.000012"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Diag</arg>
+<status status="NOT RUN" start="2025-05-15T09:31:10.533493" elapsed="0.000014"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${value}</arg>
+<arg>4</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="NOT RUN" start="2025-05-15T09:31:10.533638" elapsed="0.000013"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Soc</arg>
+<status status="NOT RUN" start="2025-05-15T09:31:10.533784" elapsed="0.000012"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${value}</arg>
+<arg>4</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="NOT RUN" start="2025-05-15T09:31:10.533907" elapsed="0.000012"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Tbd</arg>
+<status status="NOT RUN" start="2025-05-15T09:31:10.534029" elapsed="0.000010"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${value}</arg>
+<arg>4</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="NOT RUN" start="2025-05-15T09:31:10.534147" elapsed="0.000012"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Tmpr</arg>
+<status status="NOT RUN" start="2025-05-15T09:31:10.534297" elapsed="0.000013"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${value}</arg>
+<arg>4</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="NOT RUN" start="2025-05-15T09:31:10.534427" elapsed="0.000012"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<var>${value}</var>
+<arg>rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Volt</arg>
+<status status="NOT RUN" start="2025-05-15T09:31:10.534601" elapsed="0.000011"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${value}</arg>
+<arg>4</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="NOT RUN" start="2025-05-15T09:31:10.534724" elapsed="0.000010"/>
+</kw>
+<doc>Validate RX message handling and XCP variable read</doc>
+<status status="FAIL" start="2025-05-15T09:31:09.445008" elapsed="1.089911">3.0 != 4.0</status>
+</test>
+<test id="s1-s1-s1-t9" name="Send CAN signal values and validate them by reading mSbwFaults through XCP value as 3" line="292">
+<kw name="Initialize Can" owner="Test">
+<msg time="2025-05-15T09:31:10.535823" level="INFO">Initialization failed: [Errno 2] No such file or directory: 'C:/Users/validation/Documents/PythonProject/CANoe/Cantool/CAN_VM_v3.7.1.dbc'</msg>
+<arg>C:/Users/validation/Documents/PythonProject/CANoe/Cantool/CAN_VM_v3.7.1.dbc</arg>
+<arg>3</arg>
+<arg>500000</arg>
+<doc>Initializes the CAN interface and loads the specified DBC file.
+Sets up the CAN bus using the Vector interface and bitrate,
+and loads the DBC file to enable message encoding and decoding.</doc>
+<status status="PASS" start="2025-05-15T09:31:10.535584" elapsed="0.000269"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-15T09:31:10.536207" level="INFO">${signals} = {'Flt_AppCRC': 3, 'Flt_BattHigh': 3, 'Flt_BlockData': 3, 'Flt_BootCnt': 3, 'Flt_CfgCRC': 3, 'Flt_DrvSPI': 3, 'Flt_DrvWtch': 3, 'Flt_EEPROM': 3, 'Flt_ErrorCurrent': 3, 'Flt_GateDrv': 3, 'Flt_MfgCRC': 3...</msg>
+<var>${signals}</var>
+<arg>{"Flt_AppCRC": 3, "Flt_BattHigh": 3, "Flt_BlockData": 3, "Flt_BootCnt": 3, "Flt_CfgCRC": 3, "Flt_DrvSPI": 3, "Flt_DrvWtch": 3, "Flt_EEPROM": 3, "Flt_ErrorCurrent": 3, "Flt_GateDrv": 3, "Flt_MfgCRC": 3, "Flt_mSbwCtrl": 3, "Flt_RotEnc": 3, "Flt_RotEncBits": 3, "Flt_RotEncVar": 3, "Flt_SASRng": 3, "FLT_Temp": 3, "Flt_TrqLinearity": 3, "Flt_TrqRange": 3, "Flt_VehicleSpd": 3, "FltBattLow": 3, "MsgCntr": 3, "MsgCrc": 3, "Warn_Temp": 3,}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-15T09:31:10.536001" elapsed="0.000222"/>
+</kw>
+<kw name="Send Can Message" owner="Test">
+<msg time="2025-05-15T09:31:10.536532" level="INFO">Sent CAN message: mSbwFaults with data: ffffff3ff3ff0303</msg>
+<arg>mSbwFaults</arg>
+<arg>${signals}</arg>
+<doc>Encodes and sends a CAN message using cantools and python-can.</doc>
+<status status="PASS" start="2025-05-15T09:31:10.536347" elapsed="0.000210"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.537256" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-15T09:31:10.536682" elapsed="1.000846"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.541401" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.FLT_Temp</arg>
+<status status="PASS" start="2025-05-15T09:31:11.538738" elapsed="0.002802"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.542838" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.542368" elapsed="0.000615"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.545314" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.FltBattLow</arg>
+<status status="PASS" start="2025-05-15T09:31:11.543512" elapsed="0.001847"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.545923" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.545712" elapsed="0.000307"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.547681" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_AppCRC</arg>
+<status status="PASS" start="2025-05-15T09:31:11.546322" elapsed="0.001392"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.548335" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.548173" elapsed="0.000226"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.549854" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_BattHigh</arg>
+<status status="PASS" start="2025-05-15T09:31:11.548627" elapsed="0.001254"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.550245" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.550094" elapsed="0.000207"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.551635" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_BlockData</arg>
+<status status="PASS" start="2025-05-15T09:31:11.550517" elapsed="0.001142"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.551958" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.551854" elapsed="0.000146"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.556398" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_BootCnt</arg>
+<status status="PASS" start="2025-05-15T09:31:11.552170" elapsed="0.004250"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.556719" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.556559" elapsed="0.000207"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.558012" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_CfgCRC</arg>
+<status status="PASS" start="2025-05-15T09:31:11.556929" elapsed="0.001102"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.558289" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.558212" elapsed="0.000108"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.559387" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_DrvSPI</arg>
+<status status="PASS" start="2025-05-15T09:31:11.558450" elapsed="0.000954"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.559618" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.559534" elapsed="0.000114"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.560786" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_DrvWtch</arg>
+<status status="PASS" start="2025-05-15T09:31:11.559769" elapsed="0.001034"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.561002" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.560932" elapsed="0.000099"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.561980" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_EEPROM</arg>
+<status status="PASS" start="2025-05-15T09:31:11.561150" elapsed="0.000848"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.562191" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.562120" elapsed="0.000099"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.563612" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_ErrorCurrent</arg>
+<status status="PASS" start="2025-05-15T09:31:11.562331" elapsed="0.001301"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.563901" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.563821" elapsed="0.000110"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.565001" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_GateDrv</arg>
+<status status="PASS" start="2025-05-15T09:31:11.564052" elapsed="0.000965"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.565229" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.565156" elapsed="0.000103"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.566173" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_MfgCRC</arg>
+<status status="PASS" start="2025-05-15T09:31:11.565375" elapsed="0.000813"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.566386" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.566313" elapsed="0.000103"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.567401" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_RotEnc</arg>
+<status status="PASS" start="2025-05-15T09:31:11.566536" elapsed="0.000885"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.567654" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.567563" elapsed="0.000123"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.568777" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_RotEncBits</arg>
+<status status="PASS" start="2025-05-15T09:31:11.567829" elapsed="0.000964"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.569058" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.568988" elapsed="0.000098"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.570180" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_RotEncVar</arg>
+<status status="PASS" start="2025-05-15T09:31:11.569199" elapsed="0.000997"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.570386" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.570313" elapsed="0.000103"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.571375" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_SASRng</arg>
+<status status="PASS" start="2025-05-15T09:31:11.570535" elapsed="0.000864"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.571592" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.571517" elapsed="0.000160"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.572990" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_TrqLinearity</arg>
+<status status="PASS" start="2025-05-15T09:31:11.571973" elapsed="0.001036"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.573280" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.573165" elapsed="0.000167"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.574995" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_TrqRange</arg>
+<status status="PASS" start="2025-05-15T09:31:11.573469" elapsed="0.001547"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.575294" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.575202" elapsed="0.000124"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.576392" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_VehicleSpd</arg>
+<status status="PASS" start="2025-05-15T09:31:11.575447" elapsed="0.000964"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.576633" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.576548" elapsed="0.000116"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.577780" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_mSbwCtrl</arg>
+<status status="PASS" start="2025-05-15T09:31:11.576792" elapsed="0.001005"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.577996" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.577917" elapsed="0.000108"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.578976" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.MsgCntr</arg>
+<status status="PASS" start="2025-05-15T09:31:11.578139" elapsed="0.000852"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.579174" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.579107" elapsed="0.000095"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.580181" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.MsgCrc</arg>
+<status status="PASS" start="2025-05-15T09:31:11.579312" elapsed="0.000886"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.580435" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.580361" elapsed="0.000103"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:11.581377" level="INFO">${value} = 3.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Warn_Temp</arg>
+<status status="PASS" start="2025-05-15T09:31:11.580576" elapsed="0.000825"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.581587" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.581519" elapsed="0.000096"/>
+</kw>
+<doc>Validate RX message handling and XCP variable read</doc>
+<status status="PASS" start="2025-05-15T09:31:10.535324" elapsed="1.046414"/>
+</test>
+<test id="s1-s1-s1-t10" name="Send CAN signal values and validate them by reading mSbwFaults through XCP value as 2" line="374">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-15T09:31:11.582448" level="INFO">${signals} = {'Flt_AppCRC': 2, 'Flt_BattHigh': 2, 'Flt_BlockData': 2, 'Flt_BootCnt': 2, 'Flt_CfgCRC': 2, 'Flt_DrvSPI': 2, 'Flt_DrvWtch': 2, 'Flt_EEPROM': 2, 'Flt_ErrorCurrent': 2, 'Flt_GateDrv': 2, 'Flt_MfgCRC': 2...</msg>
+<var>${signals}</var>
+<arg>{"Flt_AppCRC": 2, "Flt_BattHigh": 2, "Flt_BlockData": 2, "Flt_BootCnt": 2, "Flt_CfgCRC": 2, "Flt_DrvSPI": 2, "Flt_DrvWtch": 2, "Flt_EEPROM": 2, "Flt_ErrorCurrent": 2, "Flt_GateDrv": 2, "Flt_MfgCRC": 2, "Flt_mSbwCtrl": 2, "Flt_RotEnc": 2, "Flt_RotEncBits": 2, "Flt_RotEncVar": 2, "Flt_SASRng": 2, "FLT_Temp": 2, "Flt_TrqLinearity": 2, "Flt_TrqRange": 2, "Flt_VehicleSpd": 2, "FltBattLow": 2, "MsgCntr": 2, "MsgCrc": 2, "Warn_Temp": 2,}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.582262" elapsed="0.000203"/>
+</kw>
+<kw name="Send Can Message" owner="Test">
+<msg time="2025-05-15T09:31:11.582775" level="INFO">Sent CAN message: mSbwFaults with data: aaaaaa2aa2aa0202</msg>
+<arg>mSbwFaults</arg>
+<arg>${signals}</arg>
+<doc>Encodes and sends a CAN message using cantools and python-can.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.582596" elapsed="0.000204"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.583566" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-15T09:31:11.582947" elapsed="1.000714"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.585244" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.FLT_Temp</arg>
+<status status="PASS" start="2025-05-15T09:31:12.583988" elapsed="0.001292"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.585574" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.585459" elapsed="0.000152"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.586800" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.FltBattLow</arg>
+<status status="PASS" start="2025-05-15T09:31:12.585783" elapsed="0.001039"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.587070" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.586981" elapsed="0.000122"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.591431" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_AppCRC</arg>
+<status status="PASS" start="2025-05-15T09:31:12.587270" elapsed="0.004186"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.591824" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.591686" elapsed="0.000191"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.593211" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_BattHigh</arg>
+<status status="PASS" start="2025-05-15T09:31:12.592139" elapsed="0.001097"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.593554" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.593452" elapsed="0.000138"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.594831" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_BlockData</arg>
+<status status="PASS" start="2025-05-15T09:31:12.593746" elapsed="0.001116"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.595155" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.595044" elapsed="0.000149"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.596400" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_BootCnt</arg>
+<status status="PASS" start="2025-05-15T09:31:12.595334" elapsed="0.001089"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.596680" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.596579" elapsed="0.000137"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.597791" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_CfgCRC</arg>
+<status status="PASS" start="2025-05-15T09:31:12.596871" elapsed="0.000939"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.598046" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.597952" elapsed="0.000126"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.599192" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_DrvSPI</arg>
+<status status="PASS" start="2025-05-15T09:31:12.598256" elapsed="0.000958"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.599464" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.599365" elapsed="0.000132"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.600629" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_DrvWtch</arg>
+<status status="PASS" start="2025-05-15T09:31:12.599652" elapsed="0.001006"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.601117" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.600982" elapsed="0.000181"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.602395" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_EEPROM</arg>
+<status status="PASS" start="2025-05-15T09:31:12.601310" elapsed="0.001104"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.602640" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.602554" elapsed="0.000117"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.604009" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_ErrorCurrent</arg>
+<status status="PASS" start="2025-05-15T09:31:12.602880" elapsed="0.001152"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.604274" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.604183" elapsed="0.000125"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.605584" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_GateDrv</arg>
+<status status="PASS" start="2025-05-15T09:31:12.604491" elapsed="0.001113"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.605843" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.605759" elapsed="0.000192"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.607274" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_MfgCRC</arg>
+<status status="PASS" start="2025-05-15T09:31:12.606087" elapsed="0.001211"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.607634" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.607525" elapsed="0.000148"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.608795" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_RotEnc</arg>
+<status status="PASS" start="2025-05-15T09:31:12.607830" elapsed="0.000985"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.609058" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.608963" elapsed="0.000129"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.610795" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_RotEncBits</arg>
+<status status="PASS" start="2025-05-15T09:31:12.609235" elapsed="0.001578"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.611070" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.610969" elapsed="0.000149"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.612457" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_RotEncVar</arg>
+<status status="PASS" start="2025-05-15T09:31:12.611339" elapsed="0.001150"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.612887" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.612723" elapsed="0.000241"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.614181" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_SASRng</arg>
+<status status="PASS" start="2025-05-15T09:31:12.613152" elapsed="0.001054"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.614497" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.614391" elapsed="0.000150"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.615825" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_TrqLinearity</arg>
+<status status="PASS" start="2025-05-15T09:31:12.614769" elapsed="0.001087"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.616184" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.616061" elapsed="0.000186"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.617809" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_TrqRange</arg>
+<status status="PASS" start="2025-05-15T09:31:12.616448" elapsed="0.001391"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.618186" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.618064" elapsed="0.000168"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.619580" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_VehicleSpd</arg>
+<status status="PASS" start="2025-05-15T09:31:12.618486" elapsed="0.001118"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.619882" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.619782" elapsed="0.000137"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.621176" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_mSbwCtrl</arg>
+<status status="PASS" start="2025-05-15T09:31:12.620063" elapsed="0.001134"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.621439" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.621358" elapsed="0.000112"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.622584" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.MsgCntr</arg>
+<status status="PASS" start="2025-05-15T09:31:12.621626" elapsed="0.000981"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.622866" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.622773" elapsed="0.000130"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.624189" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.MsgCrc</arg>
+<status status="PASS" start="2025-05-15T09:31:12.623069" elapsed="0.001145"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.624480" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.624383" elapsed="0.000144"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:12.625820" level="INFO">${value} = 2.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Warn_Temp</arg>
+<status status="PASS" start="2025-05-15T09:31:12.624795" elapsed="0.001064"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.626193" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.626075" elapsed="0.000267"/>
+</kw>
+<doc>Validate RX message handling and XCP variable read</doc>
+<status status="PASS" start="2025-05-15T09:31:11.582035" elapsed="1.044488"/>
+</test>
+<test id="s1-s1-s1-t11" name="Send CAN signal values and validate them by reading mSbwFaults through XCP value as 1" line="451">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-15T09:31:12.627452" level="INFO">${signals} = {'Flt_AppCRC': 1, 'Flt_BattHigh': 1, 'Flt_BlockData': 1, 'Flt_BootCnt': 1, 'Flt_CfgCRC': 1, 'Flt_DrvSPI': 1, 'Flt_DrvWtch': 1, 'Flt_EEPROM': 1, 'Flt_ErrorCurrent': 1, 'Flt_GateDrv': 1, 'Flt_MfgCRC': 1...</msg>
+<var>${signals}</var>
+<arg>{"Flt_AppCRC": 1, "Flt_BattHigh": 1, "Flt_BlockData": 1, "Flt_BootCnt": 1, "Flt_CfgCRC": 1, "Flt_DrvSPI": 1, "Flt_DrvWtch": 1, "Flt_EEPROM": 1, "Flt_ErrorCurrent": 1, "Flt_GateDrv": 1, "Flt_MfgCRC": 1, "Flt_mSbwCtrl": 1, "Flt_RotEnc": 1, "Flt_RotEncBits": 1, "Flt_RotEncVar": 1, "Flt_SASRng": 1, "FLT_Temp": 1, "Flt_TrqLinearity": 1, "Flt_TrqRange": 1, "Flt_VehicleSpd": 1, "FltBattLow": 1, "MsgCntr": 1, "MsgCrc": 1, "Warn_Temp": 1,}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.627228" elapsed="0.000244"/>
+</kw>
+<kw name="Send Can Message" owner="Test">
+<msg time="2025-05-15T09:31:12.627827" level="INFO">Sent CAN message: mSbwFaults with data: 5555551551550101</msg>
+<arg>mSbwFaults</arg>
+<arg>${signals}</arg>
+<doc>Encodes and sends a CAN message using cantools and python-can.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.627626" elapsed="0.000236"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.628468" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-15T09:31:12.628013" elapsed="1.000756"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.631831" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.FLT_Temp</arg>
+<status status="PASS" start="2025-05-15T09:31:13.629592" elapsed="0.002303"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.632560" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.632328" elapsed="0.000309"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.634201" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.FltBattLow</arg>
+<status status="PASS" start="2025-05-15T09:31:13.632990" elapsed="0.001242"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.634584" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.634446" elapsed="0.000183"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.635960" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_AppCRC</arg>
+<status status="PASS" start="2025-05-15T09:31:13.634894" elapsed="0.001085"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.636202" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.636119" elapsed="0.000113"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.637363" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_BattHigh</arg>
+<status status="PASS" start="2025-05-15T09:31:13.636409" elapsed="0.000972"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.637589" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.637511" elapsed="0.000118"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.638762" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_BlockData</arg>
+<status status="PASS" start="2025-05-15T09:31:13.637800" elapsed="0.000979"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.639011" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.638935" elapsed="0.000108"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.640159" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_BootCnt</arg>
+<status status="PASS" start="2025-05-15T09:31:13.639171" elapsed="0.001005"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.640389" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.640314" elapsed="0.000104"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.641551" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_CfgCRC</arg>
+<status status="PASS" start="2025-05-15T09:31:13.640537" elapsed="0.001038"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.641808" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.641726" elapsed="0.000115"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.642966" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_DrvSPI</arg>
+<status status="PASS" start="2025-05-15T09:31:13.642009" elapsed="0.000974"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.643181" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.643108" elapsed="0.000103"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.644360" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_DrvWtch</arg>
+<status status="PASS" start="2025-05-15T09:31:13.643330" elapsed="0.001048"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.644592" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.644517" elapsed="0.000105"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.645760" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_EEPROM</arg>
+<status status="PASS" start="2025-05-15T09:31:13.644849" elapsed="0.000928"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.645983" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.645911" elapsed="0.000099"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.647181" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_ErrorCurrent</arg>
+<status status="PASS" start="2025-05-15T09:31:13.646136" elapsed="0.001067"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.647435" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.647351" elapsed="0.000116"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.648759" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_GateDrv</arg>
+<status status="PASS" start="2025-05-15T09:31:13.647678" elapsed="0.001098"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.649016" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.648932" elapsed="0.000117"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.650155" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_MfgCRC</arg>
+<status status="PASS" start="2025-05-15T09:31:13.649209" elapsed="0.000964"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.650411" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.650334" elapsed="0.000108"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.651556" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_RotEnc</arg>
+<status status="PASS" start="2025-05-15T09:31:13.650592" elapsed="0.000987"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.651818" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.651732" elapsed="0.000117"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.652970" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_RotEncBits</arg>
+<status status="PASS" start="2025-05-15T09:31:13.651979" elapsed="0.001011"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.653192" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.653108" elapsed="0.000118"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.654562" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_RotEncVar</arg>
+<status status="PASS" start="2025-05-15T09:31:13.653356" elapsed="0.001226"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.654843" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.654753" elapsed="0.000122"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.655957" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_SASRng</arg>
+<status status="PASS" start="2025-05-15T09:31:13.655010" elapsed="0.000964"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.656194" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.656111" elapsed="0.000114"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.657364" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_TrqLinearity</arg>
+<status status="PASS" start="2025-05-15T09:31:13.656359" elapsed="0.001023"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.657625" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.657544" elapsed="0.000111"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.658766" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_TrqRange</arg>
+<status status="PASS" start="2025-05-15T09:31:13.657811" elapsed="0.000972"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.659023" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.658942" elapsed="0.000112"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.660151" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_VehicleSpd</arg>
+<status status="PASS" start="2025-05-15T09:31:13.659242" elapsed="0.000926"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.660372" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.660300" elapsed="0.000100"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.661553" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_mSbwCtrl</arg>
+<status status="PASS" start="2025-05-15T09:31:13.660532" elapsed="0.001037"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.661803" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.661726" elapsed="0.000108"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.662959" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.MsgCntr</arg>
+<status status="PASS" start="2025-05-15T09:31:13.662009" elapsed="0.000974"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.663303" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.663206" elapsed="0.000129"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.664560" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.MsgCrc</arg>
+<status status="PASS" start="2025-05-15T09:31:13.663478" elapsed="0.001108"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.664861" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.664774" elapsed="0.000119"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:13.666132" level="INFO">${value} = 1.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Warn_Temp</arg>
+<status status="PASS" start="2025-05-15T09:31:13.665086" elapsed="0.001063"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.666363" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.666287" elapsed="0.000105"/>
+</kw>
+<doc>Validate RX message handling and XCP variable read</doc>
+<status status="PASS" start="2025-05-15T09:31:12.626943" elapsed="1.039594"/>
+</test>
+<test id="s1-s1-s1-t12" name="Send CAN signal values and validate them by reading mSbwFaults through XCP value as 0" line="529">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-15T09:31:13.667326" level="INFO">${signals} = {'Flt_AppCRC': 0, 'Flt_BattHigh': 0, 'Flt_BlockData': 0, 'Flt_BootCnt': 0, 'Flt_CfgCRC': 0, 'Flt_DrvSPI': 0, 'Flt_DrvWtch': 0, 'Flt_EEPROM': 0, 'Flt_ErrorCurrent': 0, 'Flt_GateDrv': 0, 'Flt_MfgCRC': 0...</msg>
+<var>${signals}</var>
+<arg>{"Flt_AppCRC": 0, "Flt_BattHigh": 0, "Flt_BlockData": 0, "Flt_BootCnt": 0, "Flt_CfgCRC": 0, "Flt_DrvSPI": 0, "Flt_DrvWtch": 0, "Flt_EEPROM": 0, "Flt_ErrorCurrent": 0, "Flt_GateDrv": 0, "Flt_MfgCRC": 0, "Flt_mSbwCtrl": 0, "Flt_RotEnc": 0, "Flt_RotEncBits": 0, "Flt_RotEncVar": 0, "Flt_SASRng": 0, "FLT_Temp": 0, "Flt_TrqLinearity": 0, "Flt_TrqRange": 0, "Flt_VehicleSpd": 0, "FltBattLow": 0, "MsgCntr": 0, "MsgCrc": 0, "Warn_Temp": 0,}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.667126" elapsed="0.000217"/>
+</kw>
+<kw name="Send Can Message" owner="Test">
+<msg time="2025-05-15T09:31:13.667658" level="INFO">Sent CAN message: mSbwFaults with data: 0000000000000000</msg>
+<arg>mSbwFaults</arg>
+<arg>${signals}</arg>
+<doc>Encodes and sends a CAN message using cantools and python-can.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.667478" elapsed="0.000218"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.668228" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-15T09:31:13.667898" elapsed="1.000595"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.671057" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.FLT_Temp</arg>
+<status status="PASS" start="2025-05-15T09:31:14.669219" elapsed="0.001886"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.671641" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.671422" elapsed="0.000455"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.673362" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.FltBattLow</arg>
+<status status="PASS" start="2025-05-15T09:31:14.672160" elapsed="0.001226"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.673800" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.673657" elapsed="0.000186"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.675215" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_AppCRC</arg>
+<status status="PASS" start="2025-05-15T09:31:14.674016" elapsed="0.001220"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.675516" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.675404" elapsed="0.000153"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.676761" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_BattHigh</arg>
+<status status="PASS" start="2025-05-15T09:31:14.675788" elapsed="0.000994"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.677010" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.676915" elapsed="0.000135"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.678131" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_BlockData</arg>
+<status status="PASS" start="2025-05-15T09:31:14.677169" elapsed="0.000980"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.678356" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.678281" elapsed="0.000103"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.679527" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_BootCnt</arg>
+<status status="PASS" start="2025-05-15T09:31:14.678503" elapsed="0.001044"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.679778" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.679696" elapsed="0.000113"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.680919" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_CfgCRC</arg>
+<status status="PASS" start="2025-05-15T09:31:14.679937" elapsed="0.001038"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.681177" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.681104" elapsed="0.000101"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.682324" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_DrvSPI</arg>
+<status status="PASS" start="2025-05-15T09:31:14.681385" elapsed="0.000958"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.682550" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.682473" elapsed="0.000107"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.684322" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_DrvWtch</arg>
+<status status="PASS" start="2025-05-15T09:31:14.682727" elapsed="0.001612"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.684548" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.684475" elapsed="0.000109"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.685724" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_EEPROM</arg>
+<status status="PASS" start="2025-05-15T09:31:14.684731" elapsed="0.001011"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.685962" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.685880" elapsed="0.000112"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.687119" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_ErrorCurrent</arg>
+<status status="PASS" start="2025-05-15T09:31:14.686151" elapsed="0.000985"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.687340" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.687270" elapsed="0.000098"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.688520" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_GateDrv</arg>
+<status status="PASS" start="2025-05-15T09:31:14.687538" elapsed="0.000999"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.688765" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.688680" elapsed="0.000114"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.689925" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_MfgCRC</arg>
+<status status="PASS" start="2025-05-15T09:31:14.688922" elapsed="0.001021"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.690160" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.690083" elapsed="0.000110"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.691322" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_RotEnc</arg>
+<status status="PASS" start="2025-05-15T09:31:14.690327" elapsed="0.001011"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.691542" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.691470" elapsed="0.000100"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.692723" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_RotEncBits</arg>
+<status status="PASS" start="2025-05-15T09:31:14.691718" elapsed="0.001021"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.692941" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.692867" elapsed="0.000104"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.694822" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_RotEncVar</arg>
+<status status="PASS" start="2025-05-15T09:31:14.693158" elapsed="0.001695"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.695206" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.695108" elapsed="0.000135"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.696526" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_SASRng</arg>
+<status status="PASS" start="2025-05-15T09:31:14.695413" elapsed="0.001133"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.696813" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.696729" elapsed="0.000115"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.697928" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_TrqLinearity</arg>
+<status status="PASS" start="2025-05-15T09:31:14.696978" elapsed="0.000969"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.698163" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.698087" elapsed="0.000105"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.699323" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_TrqRange</arg>
+<status status="PASS" start="2025-05-15T09:31:14.698321" elapsed="0.001054"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.699585" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.699513" elapsed="0.000101"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.700729" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_VehicleSpd</arg>
+<status status="PASS" start="2025-05-15T09:31:14.699823" elapsed="0.000922"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.700960" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.700882" elapsed="0.000108"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.702121" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Flt_mSbwCtrl</arg>
+<status status="PASS" start="2025-05-15T09:31:14.701126" elapsed="0.001012"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.702342" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.702271" elapsed="0.000099"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.703522" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.MsgCntr</arg>
+<status status="PASS" start="2025-05-15T09:31:14.702501" elapsed="0.001037"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.703764" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.703682" elapsed="0.000114"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.705525" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.MsgCrc</arg>
+<status status="PASS" start="2025-05-15T09:31:14.703940" elapsed="0.001602"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.705768" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.705694" elapsed="0.000111"/>
+</kw>
+<kw name="Read Xcp Variable" owner="Test">
+<msg time="2025-05-15T09:31:14.707129" level="INFO">${value} = 0.0</msg>
+<var>${value}</var>
+<arg>rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Warn_Temp</arg>
+<status status="PASS" start="2025-05-15T09:31:14.706146" elapsed="0.001003"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-05-15T09:31:14.707440" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${value}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-05-15T09:31:14.707356" elapsed="0.000143"/>
+</kw>
+<doc>Validate RX message handling and XCP variable read</doc>
+<status status="PASS" start="2025-05-15T09:31:13.666902" elapsed="1.040743"/>
+</test>
+<kw name="Shutdown" type="TEARDOWN">
+<kw name="Shutdown Can" owner="Test">
+<status status="PASS" start="2025-05-15T09:31:14.708524" elapsed="0.000181"/>
+</kw>
+<kw name="Close Canape" owner="Test">
+<status status="PASS" start="2025-05-15T09:31:14.708764" elapsed="3.711213"/>
+</kw>
+<status status="PASS" start="2025-05-15T09:31:14.708366" elapsed="3.711727"/>
+</kw>
+<status status="FAIL" start="2025-05-15T09:30:44.840194" elapsed="33.579924"/>
+</suite>
+<status status="FAIL" start="2025-05-15T09:30:44.839108" elapsed="33.582039"/>
+</suite>
+<status status="FAIL" start="2025-05-15T09:30:44.818961" elapsed="33.602719"/>
+</suite>
+<statistics>
+<total>
+<stat pass="11" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="CANoe" id="s1" pass="11" fail="1" skip="0">CANoe</stat>
+<stat name="Demo ASw" id="s1-s1" pass="11" fail="1" skip="0">CANoe.Demo ASw</stat>
+<stat name="Test" id="s1-s1-s1" pass="11" fail="1" skip="0">CANoe.Demo ASw.Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
