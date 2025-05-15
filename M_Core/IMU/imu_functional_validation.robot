@@ -99,3 +99,43 @@ CGMN-XXXX: Verify the Gyroscope values from IMU chip, when board is in stationar
     # Validate if the Gyroscope 'z' value is nearly equal to one
     Should Be True    ${value_2} <= ${tolerance}
     Log    Gyroscope 'z' value read as ${value_2}. It matches the expected value (nearly equal to zero).
+
+CGMN-XXXX: Verify the Calibration Gyroscope values from IMU chip.
+    [Documentation]    Verify the Calibration Gyroscope values from IMU chip.
+    Log    verifies from SWE.1 Requriment: XXXX
+
+    # Read the current value of the Calibration Gyroscope 'x' values
+    ${value_0}=    Read XCP Variable    Gyro_Calib._0_
+    Log    current value of the Calibration Gyroscope 'x' values: ${value_0}
+
+    # Read the current value of the Calibration Gyroscope 'y' values
+    ${value_1}=    Read XCP Variable    Gyro_Calib._1_
+    Log    current value of the Calibration Gyroscope 'y' values: ${value_1}
+
+    # Read the current value of the Calibration Gyroscope 'z' values
+    ${value_2}=    Read XCP Variable    Gyro_Calib._2_
+    Log    current value of the Calibration Gyroscope 'z' values: ${value_2}
+
+    # Validate if the Calibration Gyroscope 'x' value is nearly equal to zero
+    Should Be True    ${value_0} <= ${tolerance}
+    Log    Calibration Gyroscope 'x' value read as ${value_0}. It matches the expected value (nearly equal to zero).
+
+    # Validate if the Calibration Gyroscope 'y' value is nearly equal to zero
+    Should Be True    ${value_1} <= ${tolerance}
+    Log    Calibration Gyroscope 'y' value read as ${value_1}. It matches the expected value (nearly equal to zero).
+
+    # Validate if the Calibration Gyroscope 'z' value is nearly equal to one
+    Should Be True    ${value_2} <= ${tolerance}
+    Log    Calibration Gyroscope 'z' value read as ${value_2}. It matches the expected value (nearly equal to zero).
+
+CGMN-XXXX: Verify the CGVCU software shall configure the accelerometer bandwidth to 44.8 Hz.
+    [Documentation]    Verify the CGVCU software shall configure the accelerometer bandwidth to 44.8 Hz.
+    Log    verifies from SWE.1 Requriment: XXXX
+
+    # Read the accelerometer bandwidth
+    ${value}=    Read XCP Variable    accelBwValue
+    Log    accelerometer bandwidth: ${value}
+
+    # Validate if accelerometer bandwidth is 44.8 Hz
+    Should Be Equal As Numbers    ${value}    5
+    Log    accelerometer bandwidth is correctly read as (5 =>ACCEL_BW_10_2)
