@@ -1,10 +1,11 @@
 # ==============================================================================
-# CANape XCP Interface for IMU Module
+# CANape XCP Interface for CAN Module Rx validation for ASW
 #
 # This script provides utility functions to:
 # - Open and close CANape with a specific IMU configuration
 # - Read and write calibration variables via XCP
 # - Send CAN messages using a DBC
+# 
 #
 # Dependencies: pycanape, pyautogui, cantools, python-can
 # ==============================================================================
@@ -24,21 +25,23 @@ logging.getLogger("pycanape").setLevel(logging.CRITICAL)
 db = None
 bus = None
 module = None
+
 canape_instance = None
 
 
 # Function: Open CANape and load the IMU configuration module
-def open_canape_and_load_imu_configuration():
+def open_canape_and_load_imu_configuration(project_path, module_name):
     global module, canape_instance
 
     # Initialize CANape and get module if not already done
     if module is None or canape_instance is None:
         try:
             canape_instance = pycanape.CANape(
-                project_path=r"D:\Validation\Vinayak\ASW Canope\ASW_RX_Configuration\ASW_RX",
+                project_path=project_path,
                 modal_mode=True,
             )
-            module = canape_instance.get_module_by_name("ASW_RX")
+
+            module = canape_instance.get_module_by_name(module_name)
         except Exception as e:
             raise RuntimeError(f"Failed to connect to CANape: {str(e)}")
 
