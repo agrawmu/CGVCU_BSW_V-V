@@ -731,6 +731,21 @@ Send HVESSD5_BMS2 with Signal Values and Verify by reading XCP Variable
     Send Can Message    HVESSD5_BMS2    ${signals}
     Sleep    1s
 
+Send HVESSD5_BMS1 with Signal Values and Verify by reading XCP Variable
+    [Documentation]    Validate RX message HVESSD5_BMS2 and XCP variable read
+    ${signals}=    Evaluate    {"CapacAvailDschrg": 0.1, "CapacAvailChrg": 9.9, "CellBalCount": 1000,}
+    Send Can Message    HVESSD5_BMS2    ${signals}
+    Sleep    1s
+
+    ${signals}=    Evaluate    {"CapacAvailDschrg": 100, "CapacAvailChrg": 440, "CellBalCount": 50000,}
+    Send Can Message    HVESSD5_BMS2    ${signals}
+    Sleep    1s
+    ${signals}=    Evaluate    {"CurrAvailDschrg": 0, "CurrAvailChrg": 109, "CellSocMin": 20, "CellSocMax": 20}
+    ${signals}=    Evaluate    {"CurrAvailDschrg": 90, "CurrAvailChrg": 800, "CellSocMin": 20, "CellSocMax": 20}
+
+    ${signals}=    Evaluate    {"CurrAvailDschrg": 180, "CurrAvailChrg": 80.8, "CellSocMin": 20, "CellSocMax": 20}
+    Send Can Message    HVESSD5_BMS2    ${signals}
+    Sleep    1s
 
 
 
