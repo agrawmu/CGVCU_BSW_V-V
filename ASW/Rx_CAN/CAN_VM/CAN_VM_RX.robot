@@ -682,6 +682,7 @@ Send HVESSD10_BMS2 with Signal Values and Verify by reading XCP Variable
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD10_BMS2_VDP_SG_HVES.HvIsoResistPassive
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    6200
 
+
 Send HVESSD3_BMS2 with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message HVESSD3_BMS2 and XCP variable read
     ${signals}=    Evaluate    {"CellTmprMax": 120, "CellTmprMin": 40, "CellTmprAvg": 0.5, "CellTmprDeltaStat": 0,}
@@ -830,8 +831,6 @@ Send HVESSD5_BMS2 with Signal Values and Verify by reading XCP Variable
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    99.9    precision=0.001
 
 
-
-
 Send HVESSD2_BMS2 with Signal Values and Verify by reading XCP Variable
 
     [Documentation]    Validate RX message HVESSD2_BMS2 and XCP variable read
@@ -883,3 +882,4 @@ Send HVESSD2_BMS2 with Signal Values and Verify by reading XCP Variable
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.CellVoltDeltaStat
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    4
+

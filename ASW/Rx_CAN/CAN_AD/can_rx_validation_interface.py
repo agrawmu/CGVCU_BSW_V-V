@@ -1,11 +1,10 @@
 # ==============================================================================
-# CANape XCP Interface for CAN Module Rx validation for ASW
+# CANape XCP Interface for IMU Module
 #
 # This script provides utility functions to:
 # - Open and close CANape with a specific IMU configuration
 # - Read and write calibration variables via XCP
 # - Send CAN messages using a DBC
-# 
 #
 # Dependencies: pycanape, pyautogui, cantools, python-can
 # ==============================================================================
@@ -30,18 +29,23 @@ canape_instance = None
 
 
 # Function: Open CANape and load the IMU configuration module
-def open_canape_and_load_imu_configuration(project_path, module_name):
+def open_canape_and_load_imu_configuration():
     global module, canape_instance
 
     # Initialize CANape and get module if not already done
     if module is None or canape_instance is None:
         try:
+            #CAN VM
+            # canape_instance = pycanape.CANape(
+            #     project_path=r"D:\Validation\Vinayak\ASW Canope\ASW_RX_Configuration\ASW_RX",
+            #     modal_mode=True,
+            # )
+            #CAN AD
             canape_instance = pycanape.CANape(
-                project_path=project_path,
+                project_path=r"D:\Validation\Vinayak\ASW\CAN_AD_Configuration\ASW_RX_CAN_AD",
                 modal_mode=True,
             )
-
-            module = canape_instance.get_module_by_name(module_name)
+            module = canape_instance.get_module_by_name("CAN_AD_RX")
         except Exception as e:
             raise RuntimeError(f"Failed to connect to CANape: {str(e)}")
 
@@ -128,5 +132,5 @@ def send_can_message(message_name, signal_values):
 
         print(f"Sent CAN message: {message_name} with data: {data.hex()}")
     except Exception as e:
-        print(f"Error sending message: {e}")
+        raise RuntimeError(f"Error sending message '{message_name}': {e}")
 
