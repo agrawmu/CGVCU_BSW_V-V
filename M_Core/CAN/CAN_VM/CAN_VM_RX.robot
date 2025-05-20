@@ -1084,6 +1084,7 @@ Shutdown
 
 12 Send CAN signal values and validate them by reading HVESSD9_BMS2 through XCP value
     [Documentation]    Validate RX message handling and XCP variable read
+     Log    Assigning Minimum Value to the signal
 
     ${signals}=    Evaluate    {"CellTmprMaxIdCell": 4, "CellTmprMaxIdMod": 2, "CellTmprMinIdCell": 7, "CellTmprMinIdMod": 9, "ThrmlEventDetect": 0}
     Send Can Message    HVESSD9_BMS2    ${signals}
@@ -1099,6 +1100,8 @@ Shutdown
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD9_BMS2_VDP_SG_HVESS.ThrmlEventDetect
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
 
+     Log    Assigning Middle Value to the signal
+
     ${signals}=    Evaluate    {"CellTmprMaxIdCell": 44, "CellTmprMaxIdMod": 22, "CellTmprMinIdCell": 56, "CellTmprMinIdMod": 99, "ThrmlEventDetect": 1}
     Send Can Message    HVESSD9_BMS2    ${signals}
     Sleep    1s
@@ -1112,6 +1115,8 @@ Shutdown
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    99
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD9_BMS2_VDP_SG_HVESS.ThrmlEventDetect
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+     Log    Assigning Maximum Value to the signal
 
     ${signals}=    Evaluate    {"CellTmprMaxIdCell": 199, "CellTmprMaxIdMod": 200, "CellTmprMinIdCell": 100, "CellTmprMinIdMod": 109, "ThrmlEventDetect": 2}
     Send Can Message    HVESSD9_BMS2    ${signals}
@@ -1130,6 +1135,8 @@ Shutdown
 13 Send CAN signal values and validate them by reading HVESSD8_BMS2 through XCP value
     [Documentation]    Validate RX message handling and XCP variable read
 
+     Log    Assigning Minimum Value to the signal
+
     ${signals}=    Evaluate    {"CellVoltMaxIdMod": 5, "CellVoltMaxIdCell": 10, "CellVoltMinIdMod": 3, "CellVoltMinIdCell": 1, "CellVoltAvg": 0}
     Send Can Message    HVESSD8_BMS2    ${signals}
     Sleep    1s
@@ -1144,6 +1151,8 @@ Shutdown
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD8_BMS2_VDP_SG_HVESS.CellVoltAvg
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
 
+     Log    Assigning Middle Value to the signal
+
     ${signals}=    Evaluate    {"CellVoltMaxIdMod": 50, "CellVoltMaxIdCell": 100, "CellVoltMinIdMod": 207, "CellVoltMinIdCell": 30, "CellVoltAvg": 13.5}
     Send Can Message    HVESSD8_BMS2    ${signals}
     Sleep    1s
@@ -1157,6 +1166,8 @@ Shutdown
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    30
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD8_BMS2_VDP_SG_HVESS.CellVoltAvg
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    13.5    precision=0.001
+
+     Log    Assigning Maximum Value to the signal
 
     ${signals}=    Evaluate    {"CellVoltMaxIdMod": 210, "CellVoltMaxIdCell": 200, "CellVoltMinIdMod": 90, "CellVoltMinIdCell": 80, "CellVoltAvg": 64}
     Send Can Message    HVESSD8_BMS2    ${signals}
@@ -1584,8 +1595,10 @@ Shutdown
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApWhdRx20_3.PP_SG_mWhdWarn_VDP_SG_mWhdWarn.MsgCntr
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
 
-17 Send CAN signal values and validate them by reading HVESSD6_BMS2 through XCP value
+Send CAN signal values and validate them by reading HVESSD6_BMS2 through XCP value
     [Documentation]    Validate RX message handling and XCP variable read
+
+     Log    Assigning Minimum Value to the signal
 
     ${signals}=    Evaluate    {"MvVoltBus": 0, "ElecTmpr": 100, "BattTmpr": 0, }
     Send Can Message    HVESSD6_BMS2    ${signals}
@@ -1593,9 +1606,11 @@ Shutdown
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD6_BMS2_VDP_SG_HVESS.MvVoltBus
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD6_BMS2_VDP_SG_HVESS.ElecTmpr
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    100
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    60
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD6_BMS2_VDP_SG_HVESS.BattTmpr
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -40
+
+     Log    Assigning Middle Value to the signal
 
     ${signals}=    Evaluate    {"MvVoltBus": 0, "ElecTmpr": 180, "BattTmpr": 40, }
     Send Can Message    HVESSD6_BMS2    ${signals}
@@ -1603,56 +1618,66 @@ Shutdown
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD6_BMS2_VDP_SG_HVESS.MvVoltBus
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD6_BMS2_VDP_SG_HVESS.ElecTmpr
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    180
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    140
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD6_BMS2_VDP_SG_HVESS.BattTmpr
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    40
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+     Log    Assigning Maximum Value to the signal
 
      ${signals}=    Evaluate    {"MvVoltBus": 3212.75, "ElecTmpr": 210, "BattTmpr": 200, }
     Send Can Message    HVESSD6_BMS2    ${signals}
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD6_BMS2_VDP_SG_HVESS.MvVoltBus
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3212.75  precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    160.6375  precision=0.001
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD6_BMS2_VDP_SG_HVESS.ElecTmpr
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    210
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    170
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD6_BMS2_VDP_SG_HVESS.BattTmpr
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    200
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}   160
 
-18 Send CAN signal values and validate them by reading HVESSD7_BMS2 through XCP value
+Send CAN signal values and validate them by reading HVESSD7_BMS2 through XCP value
     [Documentation]    Validate RX message handling and XCP variable read
+
+     Log    Assigning Minimum Value to the signal
 
     ${signals}=    Evaluate    {"EnrgyAvailDschrg": 10, "EnrgyAvailChrg": 1200, "ChrgVoltMax": 100.1, }
     Send Can Message    HVESSD7_BMS2    ${signals}
     Sleep    1s
      ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD7_BMS2_VDP_SG_HVESS.EnrgyAvailDschrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    10
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0.01  precision=0.001
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD7_BMS2_VDP_SG_HVESS.EnrgyAvailChrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1200
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1.2   precision=0.001
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD7_BMS2_VDP_SG_HVESS.ChrgVoltMax
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    100.1  precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    5.005  precision=0.001
+
+     Log    Assigning Middle Value to the signal
 
 
     ${signals}=    Evaluate    {"EnrgyAvailDschrg": 10000.1, "EnrgyAvailChrg": 14000, "ChrgVoltMax": 2300, }
     Send Can Message    HVESSD7_BMS2    ${signals}
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD7_BMS2_VDP_SG_HVESS.EnrgyAvailDschrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    10000.1  precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    10.0001  precision=0.001
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD7_BMS2_VDP_SG_HVESS.EnrgyAvailChrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    14000
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    14
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD7_BMS2_VDP_SG_HVESS.ChrgVoltMax
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2300
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    115
+
+     Log    Assigning Maximum Value to the signal
 
      ${signals}=    Evaluate    {"EnrgyAvailDschrg": 16000, "EnrgyAvailChrg": 98.8, "ChrgVoltMax": 3212.1, }
     Send Can Message    HVESSD7_BMS2   ${signals}
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD7_BMS2_VDP_SG_HVESS.EnrgyAvailDschrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    16000
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    16
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD7_BMS2_VDP_SG_HVESS.EnrgyAvailChrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    98.8 precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0.0988 precision=0.001
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_2.PP_SG_HVESSD7_BMS2_VDP_SG_HVESS.ChrgVoltMax
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3212.1  precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    160.605  precision=0.001
 
-19 Send CAN signal values and validate them by reading mEbcm1U_SwVer through XCP value
+Send CAN signal values and validate them by reading mEbcm1U_SwVer through XCP value
     [Documentation]    Validate RX message handling and XCP variable read
+
+     Log    Assigning Minimum Value to the signal
 
     ${signals}=    Evaluate    {"SwVerMin": 1, "SwVerMaj": 0, "SwVerStat": 0, "SwVerRev": 2}
     Send Can Message    mEbcm1U_SwVer    ${signals}
@@ -1666,6 +1691,8 @@ Shutdown
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm1URx10000.PP_SG_mEbcm1U_SwVer_VDP_SG_mEbc.SwVerRev
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
 
+     Log    Assigning Middle Value to the signal
+
   ${signals}=    Evaluate    {"SwVerMin": 3, "SwVerMaj": 7, "SwVerStat": 0, "SwVerRev": 6}
     Send Can Message    mEbcm1U_SwVer    ${signals}
     Sleep    1s
@@ -1678,7 +1705,7 @@ Shutdown
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm1URx10000.PP_SG_mEbcm1U_SwVer_VDP_SG_mEbc.SwVerRev
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    6
 
-
+    Log    Assigning Maximum Value to the signal
      ${signals}=    Evaluate    {"SwVerMin": 15, "SwVerMaj": 15, "SwVerStat": 1, "SwVerRev": 15}
     Send Can Message    mEbcm1U_SwVer    ${signals}
     Sleep    1s
@@ -1691,18 +1718,20 @@ Shutdown
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm1URx10000.PP_SG_mEbcm1U_SwVer_VDP_SG_mEbc.SwVerRev
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    15
 
-20 Send CAN signal values and validate them by reading mEbcm2L_BrkPress through XCP value
+Send CAN signal values and validate them by reading mEbcm2L_BrkPress through XCP value
     [Documentation]    Validate RX message handling and XCP variable read
+
+     Log    Assigning Minimum Value to the signal
 
     ${signals}=    Evaluate    {"PrsrMstCyl": -2, "PrsrFrontWCP": -327.68, "PrsrRearWCP": -2 "MsgCntr": 0, "PrsrMstrCylValid": 0, "MsgCrc": 0}
     Send Can Message    mEbcm2L_BrkPress    ${signals}
     Sleep    1s
      ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_BrkPress_VDP_SG_m.PrsrMstCyl
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -2
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -0.002
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_BrkPress_VDP_SG_m.PrsrFrontWCP
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -327.68   precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -3.2768   precision=0.001
     ${value}=    Read Xcp Variable   rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_BrkPress_VDP_SG_m.PrsrRearWCP
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -2
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -0.02
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_BrkPress2_VDP_SG_.MsgCntr
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_BrkPress_VDP_SG_m.PrsrMstrCylValid
@@ -1710,15 +1739,17 @@ Shutdown
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_BrkPress2_VDP_SG_.MsgCrc
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
 
+     Log    Assigning Middle Value to the signal
+
       ${signals}=    Evaluate    {"PrsrMstCyl": 8, "PrsrFrontWCP": 2, "PrsrRearWCP": 8 "MsgCntr": 5, "PrsrMstrCylValid": 0, "MsgCrc": 55}
     Send Can Message    mEbcm2L_BrkPress    ${signals}
     Sleep    1s
      ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_BrkPress_VDP_SG_m.PrsrMstCyl
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    8
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0.008
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_BrkPress_VDP_SG_m.PrsrFrontWCP
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0.02
     ${value}=    Read Xcp Variable   rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_BrkPress_VDP_SG_m.PrsrRearWCP
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0.08
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_BrkPress2_VDP_SG_.MsgCntr
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    5
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_BrkPress_VDP_SG_m.PrsrMstrCylValid
@@ -1726,16 +1757,17 @@ Shutdown
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_BrkPress2_VDP_SG_.MsgCrc
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    55
 
+     Log    Assigning Maximum Value to the signal
 
         ${signals}=    Evaluate    {"PrsrMstCyl": 32.767, "PrsrFrontWCP": 327.67, "PrsrRearWCP": 32.767 "MsgCntr": 15, "PrsrMstrCylValid": 1, "MsgCrc": 255}
     Send Can Message    mEbcm2L_BrkPress    ${signals}
     Sleep    1s
      ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_BrkPress_VDP_SG_m.PrsrMstCyl
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    32.767   precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0.032767   precision=0.001
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_BrkPress_VDP_SG_m.PrsrFrontWCP
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    327.67   precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3.2767   precision=0.001
     ${value}=    Read Xcp Variable   rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_BrkPress_VDP_SG_m.PrsrRearWCP
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    32.767   precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0.32767   precision=0.001
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_BrkPress2_VDP_SG_.MsgCntr
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    15
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_BrkPress_VDP_SG_m.PrsrMstrCylValid
@@ -1743,9 +1775,10 @@ Shutdown
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_BrkPress2_VDP_SG_.MsgCrc
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    255
 
-21 Send CAN signal values and validate them by reading mEbcm2L_WhlCnt through XCP value
+Send CAN signal values and validate them by reading mEbcm2L_WhlCnt through XCP value
     [Documentation]    Validate RX message handling and XCP variable read
 
+      Log    Assigning Minimum Value to the signal
     ${signals}=    Evaluate    {"WhlCntFL": 0, "WhlCntFR": 0, "WhlCntR": 0 }
     Send Can Message    mEbcm2L_WhlCnt    ${signals}
     Sleep    1s
@@ -1756,7 +1789,7 @@ Shutdown
     ${value}=    Read Xcp Variable   rtARID_DEF_CpApEbcm2LRx10_2.PP_SG_mEbcm2L_WhlCnt_VDP_SG_mEb.WhlCntR
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
 
-
+      Log    Assigning Middle Value to the signal
      ${signals}=    Evaluate    {"WhlCntFL": 4094, "WhlCntFR": 4094, "WhlCntR": 4094 }
     Send Can Message    mEbcm2L_WhlCnt    ${signals}
     Sleep    1s
@@ -1767,8 +1800,7 @@ Shutdown
     ${value}=    Read Xcp Variable   rtARID_DEF_CpApEbcm2LRx10_2.PP_SG_mEbcm2L_WhlCnt_VDP_SG_mEb.WhlCntR
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    4094
 
-
-
+      Log    Assigning Maximum Value to the signal
     ${signals}=    Evaluate    {"WhlCntFL": 4096, "WhlCntFR": 4096, "WhlCntR": 4096 }
     Send Can Message    mEbcm2L_WhlCnt    ${signals}
     Sleep    1s
@@ -1779,23 +1811,25 @@ Shutdown
     ${value}=    Read Xcp Variable   rtARID_DEF_CpApEbcm2LRx10_2.PP_SG_mEbcm2L_WhlCnt_VDP_SG_mEb.WhlCntR
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    4096
 
-22 Send CAN signal values and validate them by reading mEbcm2L_WhlSlip through XCP value
+Send CAN signal values and validate them by reading mEbcm2L_WhlSlip through XCP value
     [Documentation]    Validate RX message handling and XCP variable read
 
+     Log    Assigning Minimum Value to the signal
     ${signals}=    Evaluate    {"WhlSlipFL": -100, "WhlSlipFR": -100, "WhlSlipR": -100, "MsgCntr": 0, "MsgCrc": 0 }
     Send Can Message    mEbcm2L_WhlSlip    ${signals}
     Sleep    1s
      ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_WhlSlip_VDP_SG_mE.WhlSlipFL
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -100
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -1
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_WhlSlip_VDP_SG_mE.WhlSlipFR
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -100
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -1
     ${value}=    Read Xcp Variable   rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_WhlSlip_VDP_SG_mE.WhlSlipR
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -100
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -1
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_WhlSlip_VDP_SG_mE.MsgCntr
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
     ${value}=    Read Xcp Variable   rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_WhlSlip_VDP_SG_mE.MsgCrc
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
 
+     Log    Assigning Middle Value to the signal
     ${signals}=    Evaluate    {"WhlSlipFL": 0, "WhlSlipFR": 0, "WhlSlipR": 0, "MsgCntr": 7, "MsgCrc": 128 }
     Send Can Message    mEbcm2L_WhlSlip    ${signals}
     Sleep    1s
@@ -1810,64 +1844,65 @@ Shutdown
     ${value}=    Read Xcp Variable   rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_WhlSlip_VDP_SG_mE.MsgCrc
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    128
 
-
-
+     Log    Assigning Maximum Value to the signal
     ${signals}=    Evaluate    {"WhlSlipFL": 327.67, "WhlSlipFR": 327.67, "WhlSlipR": 327.67, "MsgCntr": 15, "MsgCrc": 255 }
     Send Can Message    mEbcm2L_WhlSlip    ${signals}
     Sleep    1s
      ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_WhlSlip_VDP_SG_mE.WhlSlipFL
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    327.67  precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3.2767  precision=0.001
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_WhlSlip_VDP_SG_mE.WhlSlipFR
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    327.67  precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3.2767  precision=0.001
     ${value}=    Read Xcp Variable   rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_WhlSlip_VDP_SG_mE.WhlSlipR
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    327.67  precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3.2767  precision=0.001
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_WhlSlip_VDP_SG_mE.MsgCntr
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    15
     ${value}=    Read Xcp Variable   rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_WhlSlip_VDP_SG_mE.MsgCrc
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    255
 
-23 Send CAN signal values and validate them by reading STATUS_BMS2 through XCP value
+Send CAN signal values and validate them by reading STATUS_BMS2 through XCP value
     [Documentation]    Validate RX message handling and XCP variable read
 
+     Log    Assigning Minimum Value to the signal
     ${signals}=    Evaluate    {"STATUS_Runmode_F3": 0,}
     Send Can Message    STATUS_BMS2    ${signals}
     Sleep    1s
      ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx10.PP_SG_STATUS_BMS2_VDP_SG_STATUS.STATUS_Runmode_F3
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
 
+    Log    Assigning Middle Value to the signal
    ${signals}=    Evaluate    {"STATUS_Runmode_F3": 2,}
     Send Can Message    STATUS_BMS2    ${signals}
     Sleep    1s
      ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx10.PP_SG_STATUS_BMS2_VDP_SG_STATUS.STATUS_Runmode_F3
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
 
-
-
+     Log    Assigning Maximum Value to the signal
     ${signals}=    Evaluate    {"STATUS_Runmode_F3": 4,}
     Send Can Message    STATUS_BMS2    ${signals}
     Sleep    1s
      ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx10.PP_SG_STATUS_BMS2_VDP_SG_STATUS.STATUS_Runmode_F3
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    4
 
-24 Send CAN signal values and validate them by reading VEP2_BMS2 through XCP value
+Send CAN signal values and validate them by reading VEP2_BMS2 through XCP value
     [Documentation]    Validate RX message handling and XCP variable read
 
+     Log    Assigning Minimum Value to the signal
     ${signals}=    Evaluate    {"MvVoltAux": 0,}
     Send Can Message    VEP2_BMS2   ${signals}
     Sleep    1s
      ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx1000.PP_SG_VEP2_BMS2_VDP_SG_VEP2_BMS.MvVoltAux
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
 
+     Log    Assigning Middle Value to the signal
    ${signals}=    Evaluate    {"MvVoltAux": 1510.5,}
     Send Can Message    VEP2_BMS2    ${signals}
     Sleep    1s
      ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx1000.PP_SG_VEP2_BMS2_VDP_SG_VEP2_BMS.MvVoltAux
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1510.5  precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    75.525 precision=0.001
 
-
-
+     Log    Assigning Maximum Value to the signal
     ${signals}=    Evaluate    {"MvVoltAux": 3212.75,}
     Send Can Message    VEP2_BMS2    ${signals}
     Sleep    1s
      ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx1000.PP_SG_VEP2_BMS2_VDP_SG_VEP2_BMS.MvVoltAux
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3212.75  precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    160.6375  precision=0.001
