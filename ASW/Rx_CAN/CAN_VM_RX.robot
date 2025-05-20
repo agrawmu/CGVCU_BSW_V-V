@@ -1156,7 +1156,7 @@ Send mWhdStat3 with Signal Values and Verify by reading XCP Variable
     Send Can Message    mWhdStat3    ${signals}
     Sleep   1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApWhdRx20_2.PP_SG_mWhdStat3_VDP_SG_mWhdStat.WhdAngle
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}	360
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}	720
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApWhdRx20_2.PP_SG_mWhdStat3_VDP_SG_mWhdStat.WhdCurr_Ph1A
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}   177
