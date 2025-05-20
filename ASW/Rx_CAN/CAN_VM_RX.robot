@@ -1121,8 +1121,6 @@ Send mEbcm1U_BrkPress2 with Signal Values and Verify by reading XCP Variable
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm1URx10.PP_SG_mEbcm1U_BrkPress2_VDP_SG_.MsgCrc
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    4
 
-Send mEbcm1U_BrkPress2 with Signal Values and Verify by reading XCP Variable
-    [Documentation]    Validate RX message mEbcm1U_BrkPress2 and XCP variable read
 
     Log    Assigning Mid Value to the signal
     ${signals}=    Evaluate    {"PrsrEstMstCyl": 32.767, "PrsrFrontWCP": 99, "PrsrRearWCP": 32.767, "MsgCntr": 99, "PrsrEstMstrCylValid": 1, "MsgCrc": 44,}
@@ -1142,9 +1140,6 @@ Send mEbcm1U_BrkPress2 with Signal Values and Verify by reading XCP Variable
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm1URx10.PP_SG_mEbcm1U_BrkPress2_VDP_SG_.MsgCrc
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    44
-
-Send mEbcm1U_BrkPress2 with Signal Values and Verify by reading XCP Variable
-    [Documentation]    Validate RX message mEbcm1U_BrkPress2 and XCP variable read
 
     Log    Assigning Maximum Value to the signal
     ${signals}=    Evaluate    {"PrsrEstMstCyl": 35, "PrsrFrontWCP": 327.67, "PrsrRearWCP": 35, "MsgCntr": 109, "PrsrEstMstrCylValid": 1, "MsgCrc": 199,}
@@ -1168,8 +1163,380 @@ Send mEbcm1U_BrkPress2 with Signal Values and Verify by reading XCP Variable
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm1URx10.PP_SG_mEbcm1U_BrkPress2_VDP_SG_.MsgCrc
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    199
 
+Send mRightJoyStat with Signal Values and Verify by reading XCP Variable
+    [Documentation]    Validate RX message mRightJoyStat and XCP variable read
+
+    Log    Assigning Minimum Value to the signal
+    ${signals}=    Evaluate    {"RightX_Ntrl": 0, "RightX_Neg": 0, "RightX_Pos": 0, "RightX_Value": 0, "RightY_Ntrl": 0, "RightY_Neg": 0, "RightY_Pos": 0, "RightY_Value": 0, "Btn_1": 0, "Btn_2": 0, "Btn_3": 0, "Btn_4": 0,}
+    Send Can Message    mRightJoyStat    ${signals}
+    Sleep    1s
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightX_Ntrl
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightX_Neg
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightX_Pos
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightX_Value
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightY_Ntrl
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightY_Neg
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightY_Pos
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightY_Value
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.Btn_1
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.Btn_2
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.Btn_3
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.Btn_4
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    [Documentation]    Validate RX message mRightJoyStat and XCP variable read
+
+    Log    Assigning Mid Value to the signal
+    ${signals}=    Evaluate    {"RightX_Ntrl": 1, "RightX_Neg": 1, "RightX_Pos": 1, "RightX_Value": 700, "RightY_Ntrl": 1, "RightY_Neg": 1, "RightY_Pos": 1, "RightY_Value": 700, "Btn_1": 1, "Btn_2": 1, "Btn_3": 1, "Btn_4": 1,}
+    Send Can Message    mRightJoyStat    ${signals}
+    Sleep    1s
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightX_Ntrl
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightX_Neg
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightX_Pos
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightX_Value
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    700
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightY_Ntrl
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightY_Neg
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightY_Pos
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightY_Value
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    700
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.Btn_1
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.Btn_2
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.Btn_3
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.Btn_4
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    [Documentation]    Validate RX message mRightJoyStat and XCP variable read
+
+    Log    Assigning Mid Value to the signal
+    ${signals}=    Evaluate    {"RightX_Ntrl": 2, "RightX_Neg": 2, "RightX_Pos": 2, "RightX_Value": 700, "RightY_Ntrl": 2, "RightY_Neg": 2, "RightY_Pos": 2, "RightY_Value": 700, "Btn_1": 2, "Btn_2": 2, "Btn_3": 2, "Btn_4": 2,}
+    Send Can Message    mRightJoyStat    ${signals}
+    Sleep    1s
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightX_Ntrl
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightX_Neg
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightX_Pos
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightY_Ntrl
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightY_Neg
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightY_Pos
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.Btn_1
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.Btn_2
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.Btn_3
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.Btn_4
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    [Documentation]    Validate RX message mRightJoyStat and XCP variable read
+
+    Log    Assigning Maximum Value to the signal
+    ${signals}=    Evaluate    {"RightX_Ntrl": 3, "RightX_Neg": 3, "RightX_Pos": 3, "RightX_Value": 1023, "RightY_Ntrl": 3, "RightY_Neg": 3, "RightY_Pos": 3, "RightY_Value": 1023, "Btn_1": 3, "Btn_2": 3, "Btn_3": 3, "Btn_4": 3,}
+    Send Can Message    mRightJoyStat    ${signals}
+    Sleep    1s
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightX_Ntrl
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightX_Neg
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightX_Pos
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightX_Value
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1023
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightY_Ntrl
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightY_Neg
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightY_Pos
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.RightY_Value
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1023
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.Btn_1
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.Btn_2
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.Btn_3
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat_VDP_SG_mRig.Btn_4
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3
+
+Send mEbcm2L_Stat with Signal Values and Verify by reading XCP Variable
+    [Documentation]    Validate RX message mEbcm2L_Stat and XCP variable read
+
+    Log    Assigning Minimum Value to the signal
+    ${signals}=    Evaluate    {"Flt_Critical": 0, "Flt_12vCtrl": 0, "Flt_12vMtr": 0, "Flt_Hold": 0, "Flt_MtrTmpr": 0, "Warn_MtrTmpr": 0, "Flt_mVculmuLinAccel": 0, "Flt_mBrkCtrl": 0, "Flt_mWhdCtrl": 0, "Flt_mVehState": 0, "Flt_mVculmuAngVel": 0, "BrkFluidLevSns_EBCM2": 0, "Flt_mWhdStat": 0, "Flt_ELWhlSpdR": 0, "AutoBrkEngd": 0, "Flt_ELWhlSpdFR": 0, "Flt_ELWhlSpdFL": 0, "EbcmControllerID": 0, "WakeStat": 0, "EbcmRdy": 0, "EbcmShdwnRdy": 0, "MtrTmprEst": 0, "MsgCntr": 0, "VehMvmt": 1, "Flt_mVehState2": 0, "MsgCrc": 0,}
+    Send Can Message    mEbcm2L_Stat    ${signals}
+    Sleep    1s
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_Critical
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_12vCtrl
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_12vMtr
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_Hold
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_MtrTmpr
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Warn_MtrTmpr
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_mVcuImuLinAccel
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_mBrkCtrl
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_mWhdCtrl
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_mVehState
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_mVcuImuAngVel
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.BrkFluidLevSns_EBCM2
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_mWhdStat
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_ElWhlSpdR
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.AutoBrkEngd
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_ElWhlSpdFR
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_ElWhlSpdFL
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.EbcmControllerID
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.WakeStat
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.EbcmRdy
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.EbcmShtdwnRdy
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.MtrTmprEst
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_Stat2_VDP_SG_mEbc.MsgCntr
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.VehMvmt
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_mVehState2
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_Stat2_VDP_SG_mEbc.MsgCrc
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
 
 
+    [Documentation]    Validate RX message mEbcm2L_Stat and XCP variable read
 
+    Log    Assigning Mid Value to the signal
+    ${signals}=    Evaluate    {"Flt_Critical": 0, "Flt_12vCtrl": 0, "Flt_12vMtr": 0, "Flt_Hold": 0, "Flt_MtrTmpr": 0, "Warn_MtrTmpr": 0, "Flt_mVculmuLinAccel": 1, "Flt_mBrkCtrl": 1, "Flt_mWhdCtrl": 1, "Flt_mVehState": 1, "Flt_mVculmuAngVel": 1, "BrkFluidLevSns_EBCM2": 1, "Flt_mWhdStat": 1, "Flt_ELWhlSpdR": 0, "AutoBrkEngd": 0, "Flt_ELWhlSpdFR": 0, "Flt_ELWhlSpdFL": 0, "EbcmControllerID": 0, "WakeStat": 0, "EbcmRdy": 0, "EbcmShdwnRdy": 0, "MtrTmprEst": 100, "MsgCntr": 128, "VehMvmt": 2, "Flt_mVehState2": 1, "MsgCrc": 128,}
+    Send Can Message    mEbcm2L_Stat    ${signals}
+    Sleep    1s
 
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_mVcuImuLinAccel
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
 
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_mBrkCtrl
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_mWhdCtrl
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_mVehState
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_mVcuImuAngVel
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.BrkFluidLevSns_EBCM2
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_mWhdStat
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.MtrTmprEst
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    100
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_Stat2_VDP_SG_mEbc.MsgCntr
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    128
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.VehMvmt
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_mVehState2
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_Stat2_VDP_SG_mEbc.MsgCrc
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    128
+
+    [Documentation]    Validate RX message mEbcm2L_Stat and XCP variable read
+
+    Log    Assigning Maximum Value to the signal
+    ${signals}=    Evaluate    {"Flt_Critical": 1, "Flt_12vCtrl": 1, "Flt_12vMtr": 1, "Flt_Hold": 1, "Flt_MtrTmpr": 1, "Warn_MtrTmpr": 1, "Flt_mVculmuLinAccel": 2, "Flt_mBrkCtrl": 2, "Flt_mWhdCtrl": 2, "Flt_mVehState": 2, "Flt_mVculmuAngVel": 2, "BrkFluidLevSns_EBCM2": 2, "Flt_mWhdStat": 2, "Flt_ELWhlSpdR": 1, "AutoBrkEngd": 1, "Flt_ELWhlSpdFR": 1, "Flt_ELWhlSpdFL": 1, "EbcmControllerID": 1, "WakeStat": 1, "EbcmRdy": 1, "EbcmShdwnRdy": 1, "MtrTmprEst": 200, "MsgCntr": 255, "VehMvmt": 3, "Flt_mVehState2": 2, "MsgCrc": 255,}
+    Send Can Message    mEbcm2L_Stat    ${signals}
+    Sleep    1s
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_Critical
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_12vCtrl
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_12vMtr
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_Hold
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_MtrTmpr
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Warn_MtrTmpr
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_mVcuImuLinAccel
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_mBrkCtrl
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_mWhdCtrl
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_mVehState
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_mVcuImuAngVel
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.BrkFluidLevSns_EBCM2
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_mWhdStat
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_ElWhlSpdR
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.AutoBrkEngd
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_ElWhlSpdFR
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_ElWhlSpdFL
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.EbcmControllerID
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.WakeStat
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.EbcmRdy
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.EbcmShtdwnRdy
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.MtrTmprEst
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    200
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_Stat2_VDP_SG_mEbc.MsgCntr
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    255
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.VehMvmt
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx20_2.PP_SG_mEbcm2L_Stat_VDP_SG_mEbcm.Flt_mVehState2
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_Stat2_VDP_SG_mEbc.MsgCrc
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    255
