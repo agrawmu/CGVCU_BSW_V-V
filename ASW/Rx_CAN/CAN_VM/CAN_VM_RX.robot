@@ -829,59 +829,6 @@ Send HVESSD2_BMS2 with Signal Values and Verify by reading XCP Variable
     Send Can Message    HVESSD2_BMS2    ${signals}
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.BattSocFast
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    40960    precision=0.001
-
-    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.CellVoltMax
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    5500    precision=0.001
-
-    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.CellVoltMin
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3700    precision=0.001
-
-    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.CellVoltDeltaStat
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
-
-    Log    Assiging Mid values
-    ${signals}=    Evaluate    {"BattSocFast": 55, "CellVoltMax": 37, "CellVoltMin": 40, "CellVoltDeltaStat": 1}
-    Send Can Message    HVESSD2_BMS2    ${signals}
-    Sleep    1s
-    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.BattSocFast
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    35200
-
-    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.CellVoltMax
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    37000
-
-    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.CellVoltMin
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    40000
-
-    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.CellVoltDeltaStat
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
-
-    Log    Assiging Maximum values
-    ${signals}=    Evaluate    {"BattSocFast": 90.9, "CellVoltMax": 58.8, "CellVoltMin": 62, "CellVoltDeltaStat": 4}
-    Send Can Message    HVESSD2_BMS2    ${signals}
-    Sleep    1s
-    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.BattSocFast
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    58176    precision=0.001
-
-    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.CellVoltMax
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    58800    precision=0.001
-
-    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.CellVoltMin
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    62000    precision=0.001
-
-    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.CellVoltDeltaStat
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    4
-
-
-Send HVESSD2_BMS2 with Signal Values and Verify by reading XCP Variable
-
-    [Documentation]    Validate RX message HVESSD2_BMS2 and XCP variable read
-
-    Log    Assiging minimum values
-    ${signals}=    Evaluate    {"BattSocFast": 0.1, "CellVoltMax": 5.5, "CellVoltMin": 3.7, "CellVoltDeltaStat": 0}
-    Send Can Message    HVESSD2_BMS2    ${signals}
-    Sleep    1s
-    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.BattSocFast
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0.1    precision=0.001
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.CellVoltMax
