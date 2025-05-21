@@ -1,11 +1,10 @@
 # ==============================================================================
-# CANape XCP Interface for CAN Module Rx validation for ASW
+# CANape XCP Interface for IMU Module
 #
 # This script provides utility functions to:
 # - Open and close CANape with a specific IMU configuration
 # - Read and write calibration variables via XCP
 # - Send CAN messages using a DBC
-# 
 #
 # Dependencies: pycanape, pyautogui, cantools, python-can
 # ==============================================================================
@@ -128,5 +127,5 @@ def send_can_message(message_name, signal_values):
 
         print(f"Sent CAN message: {message_name} with data: {data.hex()}")
     except Exception as e:
-        print(f"Error sending message: {e}")
+        raise RuntimeError(f"Error sending message '{message_name}': {e}")
 

@@ -1,5 +1,5 @@
 *** Settings ***
-Library    can_rx_validation_interface.py
+Library    ../can_rx_validation_interface.py
 Library    BuiltIn
 
 Suite Setup    Setup
@@ -109,8 +109,6 @@ Send AUXIO1_BMS2 with Signal Values and Verify by reading XCP Variable
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_AUXIO_BMS2_VDP_SG_AUXIO_B.AUX_08
     Should Be Equal As Numbers    ${value}    2
-
-
 
 Send HVESSS2_BMS2 with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message handling and XCP variable read
@@ -237,7 +235,6 @@ Send HVESSS2_BMS2 with Signal Values and Verify by reading XCP Variable
     Should Be Equal As Numbers    ${value}    3
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_3.PP_SG_HVESSS2_BMS2_VDP_SG_HVESS.LmtDschrg_Volt
     Should Be Equal As Numbers    ${value}    3
-
 
 Send mSbwFaults with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message handling and XCP variable read
@@ -548,7 +545,6 @@ Send mSbwFaults with Signal Values and Verify by reading XCP Variable
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApSbwRx100.PP_SG_mSbwFaults_VDP_SG_mSbwFau.Warn_Temp
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3
 
-
 Send HVESSD1_BMS2 with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message HVESSD1_BMS2 and XCP variable read
 
@@ -558,52 +554,50 @@ Send HVESSD1_BMS2 with Signal Values and Verify by reading XCP Variable
     Sleep    0.5s
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx20.PP_SG_HVESSD1_BMS2_VDP_SG_HVESS.PwrAvailDischrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    380.6    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    7612    precision=0.001
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx20.PP_SG_HVESSD1_BMS2_VDP_SG_HVESS.PwrAvailChrg
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx20.PP_SG_HVESSD1_BMS2_VDP_SG_HVESS.MvVoltBatt
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    100
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2000
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx20.PP_SG_HVESSD1_BMS2_VDP_SG_HVESS.MvCurrBatt
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    210.5    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    36210    precision=0.001
 
     Log    Assigning Mid Value to the signal
     ${signals}=    Evaluate    {"PwrAvailDischrg": 999, "PwrAvailChrg": 770.9, "MvVoltBatt": 550.8, "MvCurrBatt": 1000,}
     Send Can Message    HVESSD1_BMS2    ${signals}
     Sleep    0.5s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx20.PP_SG_HVESSD1_BMS2_VDP_SG_HVESS.PwrAvailDischrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    999
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    19980
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx20.PP_SG_HVESSD1_BMS2_VDP_SG_HVESS.PwrAvailChrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    770.9    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    15418    precision=0.001
 
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx20.PP_SG_HVESSD1_BMS2_VDP_SG_HVESS.MvVoltBatt
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    550.8    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    11016    precision=0.001
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx20.PP_SG_HVESSD1_BMS2_VDP_SG_HVESS.MvCurrBatt
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1000
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    52000
 
     Log    Assigning Maximum Value to the signal
     ${signals}=    Evaluate    {"PwrAvailDischrg": 3000.1, "PwrAvailChrg": 2200, "MvVoltBatt": 990, "MvCurrBatt": 1500.75,}
     Send Can Message    HVESSD1_BMS2    ${signals}
     Sleep    0.5s
 
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx20.PP_SG_HVESSD1_BMS2_VDP_SG_HVESS.PwrAvailDischrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3000.1    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    60002    precision=0.001
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx20.PP_SG_HVESSD1_BMS2_VDP_SG_HVESS.PwrAvailChrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2200
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    44000
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx20.PP_SG_HVESSD1_BMS2_VDP_SG_HVESS.MvVoltBatt
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    990
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    19800
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx20.PP_SG_HVESSD1_BMS2_VDP_SG_HVESS.MvCurrBatt
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1500.75    precision=0.001
-
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    62015    precision=0.001
 
 Send HVESSD10_BMS2 with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message HVESSD10_BMS2 and XCP variable read
@@ -630,7 +624,7 @@ Send HVESSD10_BMS2 with Signal Values and Verify by reading XCP Variable
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD10_BMS2_VDP_SG_HVES.HvIsoResistPassive
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2800
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    28000
 
     Log    Assigning mid Values to the signals
 
@@ -652,10 +646,10 @@ Send HVESSD10_BMS2 with Signal Values and Verify by reading XCP Variable
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    90
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD10_BMS2_VDP_SG_HVES.HvIsoResistActive
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1200
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    12000
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD10_BMS2_VDP_SG_HVES.HvIsoResistPassive
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3500
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    35000
 
     Log    Assigning maximum Values to the signals
 
@@ -677,10 +671,11 @@ Send HVESSD10_BMS2 with Signal Values and Verify by reading XCP Variable
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    112
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD10_BMS2_VDP_SG_HVES.HvIsoResistActive
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3400
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    34000
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD10_BMS2_VDP_SG_HVES.HvIsoResistPassive
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    6200
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    62000
+
 
 Send HVESSD3_BMS2 with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message HVESSD3_BMS2 and XCP variable read
@@ -688,13 +683,13 @@ Send HVESSD3_BMS2 with Signal Values and Verify by reading XCP Variable
     Send Can Message    HVESSD3_BMS2    ${signals}
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD3_BMS2_VDP_SG_HVESS.CellTmprMax
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    120
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    12576
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD3_BMS2_VDP_SG_HVESS.CellTmprMin
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    40
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1001.6    precision=0.001
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD3_BMS2_VDP_SG_HVESS.CellTmprAvg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0.5    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    875.2    precision=0.001
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD3_BMS2_VDP_SG_HVESS.CellTmprDeltaStat
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
@@ -702,13 +697,13 @@ Send HVESSD3_BMS2 with Signal Values and Verify by reading XCP Variable
     Send Can Message    HVESSD3_BMS2    ${signals}
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD3_BMS2_VDP_SG_HVESS.CellTmprMax
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    550
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    26336
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD3_BMS2_VDP_SG_HVESS.CellTmprMin
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    390.9    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    21244.8    precision=0.001
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD3_BMS2_VDP_SG_HVESS.CellTmprAvg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1003
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    40832
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD3_BMS2_VDP_SG_HVESS.CellTmprDeltaStat
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
@@ -717,13 +712,13 @@ Send HVESSD3_BMS2 with Signal Values and Verify by reading XCP Variable
     Sleep    1s
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD3_BMS2_VDP_SG_HVESS.CellTmprMax
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1700
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    63136
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD3_BMS2_VDP_SG_HVESS.CellTmprMin
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    280
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    17696
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD3_BMS2_VDP_SG_HVESS.CellTmprAvg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1600
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    59936
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD3_BMS2_VDP_SG_HVESS.CellTmprDeltaStat
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
@@ -735,36 +730,34 @@ Send HVESSD4_BMS2 with Signal Values and Verify by reading XCP Variable
     Send Can Message    HVESSD4_BMS2    ${signals}
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD4_BMS2_VDP_SG_HVESS.CapacAvailDschrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0.1    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    10    precision=0.001
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD4_BMS2_VDP_SG_HVESS.CapacAvailChrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    9.9    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    990    precision=0.001
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD4_BMS2_VDP_SG_HVESS.CellBalCount
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1000
-
 
     ${signals}=    Evaluate    {"CapacAvailDschrg": 100, "CapacAvailChrg": 440, "CellBalCount": 50000,}
     Send Can Message    HVESSD4_BMS2    ${signals}
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD4_BMS2_VDP_SG_HVESS.CapacAvailDschrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    100
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    10000
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD4_BMS2_VDP_SG_HVESS.CapacAvailChrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    440
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    44000
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD4_BMS2_VDP_SG_HVESS.CellBalCount
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    50000
-
 
     ${signals}=    Evaluate    {"CapacAvailDschrg": 642, "CapacAvailChrg": 620.5, "CellBalCount": 20,}
     Send Can Message    HVESSD4_BMS2    ${signals}
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD4_BMS2_VDP_SG_HVESS.CapacAvailDschrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    642
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    64200
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD4_BMS2_VDP_SG_HVESS.CapacAvailChrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    620.5    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    62050    precision=0.001
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD4_BMS2_VDP_SG_HVESS.CellBalCount
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    20
@@ -773,7 +766,6 @@ Send HVESSD4_BMS2 with Signal Values and Verify by reading XCP Variable
 Send HVESSD5_BMS2 with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message HVESSD5_BMS2 and XCP variable read
 
-    # --- First Message ---
     Log  Assigning Minimum value to the signals
 
     ${signals}=    Evaluate    {"CurrAvailDschrg": -1600, "CurrAvailChrg": 109, "CellSocMin": 0.5, "CellSocMax": 99}
@@ -781,34 +773,33 @@ Send HVESSD5_BMS2 with Signal Values and Verify by reading XCP Variable
     Sleep    1s
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD5_BMS2_VDP_SG_HVESS.CurrAvailDschrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -1600
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD5_BMS2_VDP_SG_HVESS.CurrAvailChrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    109
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    34180
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD5_BMS2_VDP_SG_HVESS.CellSocMin
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0.5    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    320    precision=0.001
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD5_BMS2_VDP_SG_HVESS.CellSocMax
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    99
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    63360
 
-# --- Midpoint Message ---
     Log    Assigning mid values to the signal
     ${signals}=    Evaluate    {"CurrAvailDschrg": -800, "CurrAvailChrg": 800, "CellSocMin": 25.0, "CellSocMax": 75.0}
     Send Can Message    HVESSD5_BMS2    ${signals}
     Sleep    1s
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD5_BMS2_VDP_SG_HVESS.CurrAvailDschrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -800    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    16000    precision=0.001
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD5_BMS2_VDP_SG_HVESS.CurrAvailChrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    800
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    48000
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD5_BMS2_VDP_SG_HVESS.CellSocMin
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    25.0    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0.0390625    precision=0.001
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD5_BMS2_VDP_SG_HVESS.CellSocMax
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    75.0    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    48000    precision=0.001
 
 
     # --- Max Message (at upper bound of CurrAvailDschrg) ---
@@ -821,15 +812,65 @@ Send HVESSD5_BMS2 with Signal Values and Verify by reading XCP Variable
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0    precision=0.001
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD5_BMS2_VDP_SG_HVESS.CurrAvailChrg
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1000
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    52000
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD5_BMS2_VDP_SG_HVESS.CellSocMin
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0.5    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    320    precision=0.001
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD5_BMS2_VDP_SG_HVESS.CellSocMax
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    99.9    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    63936    precision=0.001
 
+Send HVESSD2_BMS2 with Signal Values and Verify by reading XCP Variable
 
+    [Documentation]    Validate RX message HVESSD2_BMS2 and XCP variable read
+
+    Log    Assiging minimum values
+    ${signals}=    Evaluate    {"BattSocFast": 0.1, "CellVoltMax": 5.5, "CellVoltMin": 3.7, "CellVoltDeltaStat": 0}
+    Send Can Message    HVESSD2_BMS2    ${signals}
+    Sleep    1s
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.BattSocFast
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    40960    precision=0.001
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.CellVoltMax
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    5500    precision=0.001
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.CellVoltMin
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3700    precision=0.001
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.CellVoltDeltaStat
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    Log    Assiging Mid values
+    ${signals}=    Evaluate    {"BattSocFast": 55, "CellVoltMax": 37, "CellVoltMin": 40, "CellVoltDeltaStat": 1}
+    Send Can Message    HVESSD2_BMS2    ${signals}
+    Sleep    1s
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.BattSocFast
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    35200
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.CellVoltMax
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    37000
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.CellVoltMin
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    40000
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.CellVoltDeltaStat
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    Log    Assiging Maximum values
+    ${signals}=    Evaluate    {"BattSocFast": 90.9, "CellVoltMax": 58.8, "CellVoltMin": 62, "CellVoltDeltaStat": 4}
+    Send Can Message    HVESSD2_BMS2    ${signals}
+    Sleep    1s
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.BattSocFast
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    58176    precision=0.001
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.CellVoltMax
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    58800    precision=0.001
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.CellVoltMin
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    62000    precision=0.001
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApEssRx100_1.PP_SG_HVESSD2_BMS2_VDP_SG_HVESS.CellVoltDeltaStat
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    4
 
 
 Send HVESSD2_BMS2 with Signal Values and Verify by reading XCP Variable
