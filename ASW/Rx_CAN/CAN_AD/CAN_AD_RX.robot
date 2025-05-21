@@ -103,7 +103,6 @@ Send mAdcuStat with Signal Values and Verify by reading XCP Variable
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    210
 
 
-
 Send mAdcuSwVer with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message and XCP variable read
     # Evaluate the dictionary to convert string to native dict
@@ -137,9 +136,7 @@ Send mAdcuSwVer with Signal Values and Verify by reading XCP Variable
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx10000.PP_SG_mAdcuSwVer_VDP_SG_mAdcuSw.SwStat
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
 
-
     Log    Assigning maximum Value to the signal
-
     ${signals}=    Evaluate    {"SwMaj": 210, "SwMin": 110, "SwRev": 255, "SwStat": 1,}
 
     Send Can Message    mAdcuSwVer    ${signals}
@@ -174,11 +171,9 @@ Send mExtLightsADRq with Signal Values and Verify by reading XCP Variable
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx100.PP_SG_mExtLightsADRq_VDP_SG_mEx.LightHazardCmd
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
 
-
     Log    Assigning maximum Value to the signal
 
     ${signals}=    Evaluate    {"LightTurnCmdR": 1, "LightTurnCmdL": 1, "LightHighCmd": 1, "HornCmd": 1, "LightHazardCmd": 1,}
-
     Send Can Message    mExtLightsADRq    ${signals}
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx100.PP_SG_mExtLightsADRq_VDP_SG_mEx.LightTurnCmdR
@@ -301,4 +296,3 @@ Send mVehCtrlADRq with Signal Values and Verify by reading XCP Variable
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.MsgCrc
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    255
-
