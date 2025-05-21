@@ -34,7 +34,7 @@ Send mCgmHeartbeat with Signal Values and Verify by reading XCP Variable
 
     Log    Assigning Mid Value to the signal
     ${signals}=    Evaluate    {"seconds": -40, "nanoseconds": 0,}
-    Send Can Message    mCgmHeartbeat    ${signals}
+    Run Keyword And Continue On Failure     Send Can Message    mCgmHeartbeat    ${signals}
     Sleep    1s
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx500.PP_SG_mCgmHeartbeat_VDP_SG_mCgm.seconds
@@ -42,7 +42,7 @@ Send mCgmHeartbeat with Signal Values and Verify by reading XCP Variable
 
     Log    Assigning Mid Value to the signal
     ${signals}=    Evaluate    {"seconds": 60, "nanoseconds": 0,}
-    Send Can Message    mCgmHeartbeat    ${signals}
+    Run Keyword And Continue On Failure     Send Can Message    mCgmHeartbeat    ${signals}
     Sleep    1s
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx500.PP_SG_mCgmHeartbeat_VDP_SG_mCgm.seconds
@@ -50,7 +50,7 @@ Send mCgmHeartbeat with Signal Values and Verify by reading XCP Variable
 
     Log    Assigning Maximum Value to the signal
     ${signals}=    Evaluate    {"seconds": 100, "nanoseconds": 2294967295,}
-    Send Can Message    mCgmHeartbeat    ${signals}
+    Run Keyword And Continue On Failure     Send Can Message    mCgmHeartbeat    ${signals}
     Sleep    1s
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx500.PP_SG_mCgmHeartbeat_VDP_SG_mCgm.seconds
