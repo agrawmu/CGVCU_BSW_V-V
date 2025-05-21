@@ -174,3 +174,61 @@ Send mTOStat with Signal Values and Verify by reading XCP Variable
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx500_1.PP_SG_mTOStat_VDP_SG_mTOStat.MsgCrc
     Should Be Equal As Numbers    ${value}    56
+
+Send mCgmSwVer with Signal Values and Verify by reading XCP Variable
+    [Documentation]    Validate RX message handling and XCP variable read
+    # Evaluate the dictionary to convert string to native dict
+
+    Log    Assigning Minimum Value to the signal
+    ${signals}=    Evaluate    {"SwMaj": 0, "SwMin": 0, "SwRev": 0, "SwStat": 0,}
+
+    Send Can Message    mCgmSwVer    ${signals}
+    Sleep    1s
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx500.PP_SG_mCgmSwVer_VDP_SG_mCgmSwVe.SwMaj
+    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx500.PP_SG_mCgmSwVer_VDP_SG_mCgmSwVe.SwMin
+    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx500.PP_SG_mCgmSwVer_VDP_SG_mCgmSwVe.SwRev
+    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx500.PP_SG_mCgmSwVer_VDP_SG_mCgmSwVe.SwStat
+    Should Be Equal As Numbers    ${value}    0
+
+
+    Log    Assigning Mid Value to the signal
+    # Evaluate the dictionary to convert string to native dict
+    ${signals}=    Evaluate    {"SwMaj": 121, "SwMin": 75, "SwRev": 45, "SwStat": 0,}
+
+    Send Can Message    mCgmSwVer    ${signals}
+    Sleep    1s
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx500.PP_SG_mCgmSwVer_VDP_SG_mCgmSwVe.SwMaj
+    Should Be Equal As Numbers    ${value}    121
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx500.PP_SG_mCgmSwVer_VDP_SG_mCgmSwVe.SwMin
+    Should Be Equal As Numbers    ${value}    75
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx500.PP_SG_mCgmSwVer_VDP_SG_mCgmSwVe.SwRev
+    Should Be Equal As Numbers    ${value}    45
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx500.PP_SG_mCgmSwVer_VDP_SG_mCgmSwVe.SwStat
+    Should Be Equal As Numbers    ${value}    0
+
+    Log    Assigning Maximum Value to the signal
+    # Evaluate the dictionary to convert string to native dict
+    ${signals}=    Evaluate    {"SwMaj": 255, "SwMin": 255, "SwRev": 255, "SwStat": 1,}
+
+    Send Can Message    mCgmSwVer    ${signals}
+    Sleep    1s
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx500.PP_SG_mCgmSwVer_VDP_SG_mCgmSwVe.SwMaj
+    Should Be Equal As Numbers    ${value}    255
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx500.PP_SG_mCgmSwVer_VDP_SG_mCgmSwVe.SwMin
+    Should Be Equal As Numbers    ${value}    255
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx500.PP_SG_mCgmSwVer_VDP_SG_mCgmSwVe.SwRev
+    Should Be Equal As Numbers    ${value}    255
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx500.PP_SG_mCgmSwVer_VDP_SG_mCgmSwVe.SwStat
+    Should Be Equal As Numbers    ${value}    1
