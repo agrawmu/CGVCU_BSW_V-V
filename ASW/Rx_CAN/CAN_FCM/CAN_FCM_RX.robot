@@ -62,3 +62,225 @@ Send FCM_0x67D with Signal Values and Verify by reading XCP Variable
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx1000.PP_SG_FCM_0x67D_VDT_SG_FCM_0x67.FCM_SwVersS
     Should Be Equal As Numbers    ${value}    255
 
+Send FCM_NM_0x42E with Signal Values and Verify by reading XCP Variable
+    [Documentation]    Validate RX message FCM_NM_0x42E and XCP variable read
+
+    Log    Assigning Minimum Value to the signal
+    ${signals}=    Evaluate    {"FCM_SrcNodeID": 0, "FCM_CtrlBitVector_Bit0_RMR": 0, "FCM_CtrlBitVector_Bit1_Res": 0, "FCM_CtrlBitVector_Bit2_Res": 0, "FCM_CtrlBitVector_Bit3_NMCoord": 0, "FCM_CtrlBitVector_Bit4_ActWake": 0, "FCM_CtrlBitVector_Bit5_Res": 0, "FCM_CtrlBitVector_Bit6_PNI": 0, "FCM_CtrlBitVector_Bit7_Res": 0, "FCM_UsrData0": 0, "FCM_UsrData1_Bit0_IGN_WAKEUP": 0, "FCM_UsrData1_Bit1_RESET_WAKEUP": 0, "FCM_UsrData1_Bit2_NETWORK_WAKEUP": 0, "FCM_UsrData1_Bit3_ECUSPEC_WAKEUP": 0, "FCM_UsrData1_Bit4_NETWORK_AWAKE": 0, "FCM_UsrData1_Bit5_IGNITION_AWAKE": 0, "FCM_UsrData1_Bit6_DIAGN_AWAKE": 0, "FCM_UsrData1_Bit7_ECUSPEC_AWAKE": 0, "FCM_UsrData2": 1, "FCM_UsrData3": 1, "FCM_UsrData4_PN_Info1": 1, "FCM_UsrData5_PN_Info2": 1,}
+    Run Keyword And Continue On Failure    Send Can Message    FCM_NM_0x42E    ${signals}
+    Sleep    1s
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_SrcNodeID
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit0_RMR
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit1_Res
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit2_Res
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit3_NMCoord
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit4_ActWake
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit5_Res
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit6_PNI
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit7_Res
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData0
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit0_IGN_WAKEUP
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit1_RESET_WAKEUP
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit2_NETWORK_WAKEUP
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit3_ECUSPEC_WAKEUP
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit4_NETWORK_AWAKE
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit5_IGNITION_AWAKE
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit6_DIAGN_AWAKE
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit6_PNI
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit7_ECUSPEC_AWAKE
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData2
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData3
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData4_PN_Info1
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData5_PN_Info2
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    Log    Assigning  Mid  Value to the signal
+    ${signals}=    Evaluate    {"FCM_SrcNodeID": 67, "FCM_CtrlBitVector_Bit0_RMR": 0, "FCM_CtrlBitVector_Bit1_Res": 0, "FCM_CtrlBitVector_Bit2_Res": 0, "FCM_CtrlBitVector_Bit3_NMCoord": 0, "FCM_CtrlBitVector_Bit4_ActWake": 0, "FCM_CtrlBitVector_Bit5_Res": 0, "FCM_CtrlBitVector_Bit6_PNI": 0, "FCM_CtrlBitVector_Bit7_Res": 0, "FCM_UsrData0": 1, "FCM_UsrData1_Bit0_IGN_WAKEUP": 0, "FCM_UsrData1_Bit1_RESET_WAKEUP": 0, "FCM_UsrData1_Bit2_NETWORK_WAKEUP": 0, "FCM_UsrData1_Bit3_ECUSPEC_WAKEUP": 0, "FCM_UsrData1_Bit4_NETWORK_AWAKE": 0, "FCM_UsrData1_Bit5_IGNITION_AWAKE": 0, "FCM_UsrData1_Bit6_DIAGN_AWAKE": 0, "FCM_UsrData1_Bit7_ECUSPEC_AWAKE": 0, "FCM_UsrData2": 237, "FCM_UsrData3": 245, "FCM_UsrData4_PN_Info1": 200, "FCM_UsrData5_PN_Info2": 200,}
+    Run Keyword And Continue On Failure    Send Can Message    FCM_NM_0x42E    ${signals}
+    Sleep    1s
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_SrcNodeID
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    67
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit0_RMR
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit1_Res
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit2_Res
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit3_NMCoord
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit4_ActWake
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit5_Res
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit6_PNI
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit7_Res
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData0
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit0_IGN_WAKEUP
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit1_RESET_WAKEUP
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit2_NETWORK_WAKEUP
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit3_ECUSPEC_WAKEUP
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit4_NETWORK_AWAKE
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit5_IGNITION_AWAKE
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit6_DIAGN_AWAKE
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit6_PNI
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit7_ECUSPEC_AWAKE
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData2
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    237
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData3
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    245
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData4_PN_Info1
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    200
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData5_PN_Info2
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    200
+
+
+    Log    Assigning  Maximum  Value to the signal
+    ${signals}=    Evaluate    {"FCM_SrcNodeID": 127, "FCM_CtrlBitVector_Bit0_RMR": 1, "FCM_CtrlBitVector_Bit1_Res": 1, "FCM_CtrlBitVector_Bit2_Res": 1, "FCM_CtrlBitVector_Bit3_NMCoord": 1, "FCM_CtrlBitVector_Bit4_ActWake": 1, "FCM_CtrlBitVector_Bit5_Res": 1, "FCM_CtrlBitVector_Bit6_PNI": 1, "FCM_CtrlBitVector_Bit7_Res": 1, "FCM_UsrData0": 1, "FCM_UsrData1_Bit0_IGN_WAKEUP": 1, "FCM_UsrData1_Bit1_RESET_WAKEUP": 1, "FCM_UsrData1_Bit2_NETWORK_WAKEUP": 1, "FCM_UsrData1_Bit3_ECUSPEC_WAKEUP": 1, "FCM_UsrData1_Bit4_NETWORK_AWAKE": 1, "FCM_UsrData1_Bit5_IGNITION_AWAKE": 1, "FCM_UsrData1_Bit6_DIAGN_AWAKE": 1, "FCM_UsrData1_Bit7_ECUSPEC_AWAKE": 1, "FCM_UsrData2": 1, "FCM_UsrData3": 1, "FCM_UsrData4_PN_Info1": 1, "FCM_UsrData5_PN_Info2": 1,}
+    Run Keyword And Continue On Failure    Send Can Message    FCM_NM_0x42E    ${signals}
+    Sleep    1s
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_SrcNodeID
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    127
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit0_RMR
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit1_Res
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit2_Res
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit3_NMCoord
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit4_ActWake
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit5_Res
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit6_PNI
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit7_Res
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData0
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit0_IGN_WAKEUP
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit1_RESET_WAKEUP
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit2_NETWORK_WAKEUP
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit3_ECUSPEC_WAKEUP
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit4_NETWORK_AWAKE
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit5_IGNITION_AWAKE
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit6_DIAGN_AWAKE
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_CtrlBitVector_Bit6_PNI
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData1_Bit7_ECUSPEC_AWAKE
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData2
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    255
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData3
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    255
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData4_PN_Info1
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    255
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData5_PN_Info2
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    255
