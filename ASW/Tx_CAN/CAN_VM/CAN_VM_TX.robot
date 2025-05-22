@@ -1,5 +1,5 @@
 *** Settings ***
-Library    can_tx_validation_interface.py
+Library    ../can_tx_validation_interface.py
 Library    BuiltIn
 
 Suite Setup    Setup
@@ -11,12 +11,9 @@ Setup
     Initialize Can    C:/Users/validation/Documents/PythonProject/CANoe/Tx_Testing/CAN_VM_v3.7.1.dbc    3    500000
     Sleep    3s
 
-
-
 Shutdown
     Shutdown Can
     Close Canape
-
 
 *** Test Cases ***
 
