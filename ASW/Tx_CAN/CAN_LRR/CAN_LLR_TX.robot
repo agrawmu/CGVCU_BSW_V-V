@@ -1,5 +1,5 @@
 *** Settings ***
-Library    ../can_rx_validation_interface.py
+Library    ../can_tx_validation_interface.py
 Library    BuiltIn
 
 Suite Setup    Setup
