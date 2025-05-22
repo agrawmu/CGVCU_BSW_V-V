@@ -3475,7 +3475,7 @@ Send mEbcm1U_Stat with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message mEbcm1U_Stat and XCP variable read
 
     Log    Assigning Minimum Value to the signal
-    ${signals}=    Evaluate    {"AutoBrkEngd": 0, "BrkFluidLevSns_EBCM1": 0, "EbcmControllerID": 0, "EbcmRdy":0, "EbcmShtdwnRdy"=0, "Flt_12vCtrl"=0, "Flt_12vMtr"=0, "Flt_CanWhlSpdFL"=0, "Flt_CanWhlSpdFR"=0, "Flt_CanWhlSpdR"=0, "Flt_Critical"=0, "Flt_Hold"=0, "Flt_mBrkCtrl"=0, "Flt_MtrTmpr"=0, "Flt_mVcuImuAngVel"=0, "Flt_mVcuImuLinAccel"=0, "Flt_mVehState"=0, "Flt_mVehState2"=0, "Flt_mWhdCtrl"=0, "Flt_mWhdStat"=0, "MsgCntr"=9, "MsgCrc"=4, "MtrTmprEst"=9, "WakeStat"=0, "Warn_MtrTmpr"=4}
+    ${signals}=    Evaluate    {"AutoBrkEngd": 0, "BrkFluidLevSns_EBCM1": 0, "EbcmControllerID": 0, "EbcmRdy":0, "EbcmShtdwnRdy":0, "Flt_12vCtrl":0, "Flt_12vMtr":0, "Flt_CanWhlSpdFL":0, "Flt_CanWhlSpdFR":0, "Flt_CanWhlSpdR":0, "Flt_Critical":0, "Flt_Hold":0, "Flt_mBrkCtrl":0, "Flt_MtrTmpr":0, "Flt_mVcuImuAngVel":0, "Flt_mVcuImuLinAccel":0, "Flt_mVehState":0, "Flt_mVehState2":0, "Flt_mWhdCtrl":0, "Flt_mWhdStat":0, "MsgCntr":9, "MsgCrc":4, "MtrTmprEst":9, "WakeStat":0, "Warn_MtrTmpr":4}
     Send Can Message    mEbcm1U_Stat    ${signals}
     Sleep    1s
 	
@@ -3556,7 +3556,7 @@ Send mEbcm1U_Stat with Signal Values and Verify by reading XCP Variable
 			
 		
    Log    Assigning Mid Value to the signal
-    ${signals}=    Evaluate    {"AutoBrkEngd": 0, "BrkFluidLevSns_EBCM1":2, "EbcmControllerID": 0, "EbcmRdy":0, "EbcmShtdwnRdy"=0, "Flt_12vCtrl"=0, "Flt_12vMtr"=0, "Flt_CanWhlSpdFL"=0, "Flt_CanWhlSpdFR"=0, "Flt_CanWhlSpdR"=0, "Flt_Critical"=0, "Flt_Hold"=0, "Flt_mBrkCtrl"=2, "Flt_MtrTmpr"=0, "Flt_mVcuImuAngVel"=2, "Flt_mVcuImuLinAccel"=2, "Flt_mVehState"=2, "Flt_mVehState2"=2, "Flt_mWhdCtrl"=2, "Flt_mWhdStat"=2, "MsgCntr"=99, "MsgCrc"=44, "MtrTmprEst"=99, "WakeStat"=0, "Warn_MtrTmpr"=44}
+    ${signals}=    Evaluate    {"AutoBrkEngd": 0, "BrkFluidLevSns_EBCM1":2, "EbcmControllerID": 0, "EbcmRdy":0, "EbcmShtdwnRdy":0, "Flt_12vCtrl":0, "Flt_12vMtr":0, "Flt_CanWhlSpdFL":0, "Flt_CanWhlSpdFR":0, "Flt_CanWhlSpdR":0, "Flt_Critical":0, "Flt_Hold":0, "Flt_mBrkCtrl":2, "Flt_MtrTmpr":0, "Flt_mVcuImuAngVel":2, "Flt_mVcuImuLinAccel":2, "Flt_mVehState":2, "Flt_mVehState2":2, "Flt_mWhdCtrl":2, "Flt_mWhdStat":2, "MsgCntr":99, "MsgCrc":44, "MtrTmprEst":99, "WakeStat":0, "Warn_MtrTmpr":44}
     Send Can Message    mEbcm1U_Stat    ${signals}
     Sleep    1s
 	
@@ -3637,7 +3637,7 @@ Send mEbcm1U_Stat with Signal Values and Verify by reading XCP Variable
 		
 
    Log    Assigning Max Value to the signal
-    ${signals}=    Evaluate    {"AutoBrkEngd": 1, "BrkFluidLevSns_EBCM1":3, "EbcmControllerID":1, "EbcmRdy":1, "EbcmShtdwnRdy"=1, "Flt_12vCtrl"=1, "Flt_12vMtr"=1, "Flt_CanWhlSpdFL"=1, "Flt_CanWhlSpdFR"=1, "Flt_CanWhlSpdR"=1, "Flt_Critical"=1, "Flt_Hold"=1, "Flt_mBrkCtrl"=4, "Flt_MtrTmpr"=1, "Flt_mVcuImuAngVel"=4, "Flt_mVcuImuLinAccel"=4, "Flt_mVehState"=4, "Flt_mVehState2"=4, "Flt_mWhdCtrl"=4, "Flt_mWhdStat"=4, "MsgCntr"=109, "MsgCrc"=199, "MtrTmprEst"=109, "WakeStat"=1, "Warn_MtrTmpr"=199}
+    ${signals}=    Evaluate    {"AutoBrkEngd": 1, "BrkFluidLevSns_EBCM1":3, "EbcmControllerID":1, "EbcmRdy":1, "EbcmShtdwnRdy":1, "Flt_12vCtrl":1, "Flt_12vMtr":1, "Flt_CanWhlSpdFL":1, "Flt_CanWhlSpdFR":1, "Flt_CanWhlSpdR":1, "Flt_Critical":1, "Flt_Hold":1, "Flt_mBrkCtrl":4, "Flt_MtrTmpr":1, "Flt_mVcuImuAngVel":4, "Flt_mVcuImuLinAccel":4, "Flt_mVehState":4, "Flt_mVehState2":4, "Flt_mWhdCtrl":4, "Flt_mWhdStat":4, "MsgCntr":109, "MsgCrc":199, "MtrTmprEst":109, "WakeStat":1, "Warn_MtrTmpr":199}
     Send Can Message    mEbcm1U_Stat    ${signals}
     Sleep    1s
 
@@ -3714,4 +3714,60 @@ Send mEbcm1U_Stat with Signal Values and Verify by reading XCP Variable
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1	
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm1URx20.PP_SG_mEbcm1U_Stat_VDP_SG_mEbcm.Warn_MtrTmpr
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    199		
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    199
+
+Send mRightJoyStat2 with Signal Values and Verify by reading XCP Variable
+    [Documentation]    Validate RX message mRightJoyStat2 and XCP variable read
+
+    Log    Assigning Minimum Value to the signal
+    ${signals}=    Evaluate    {"RightZ_Neg":0, "RightZ_Ntrl":0, "RightZ_Pos":0, "RightZ_Value":0}
+	Send Can Message    mRightJoyStat2    ${signals}
+    Sleep    1s
+	
+	${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat2_VDP_SG_mRi.RightZ_Neg
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+	
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat2_VDP_SG_mRi.RightZ_Ntrl
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat2_VDP_SG_mRi.RightZ_Pos
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat2_VDP_SG_mRi.RightZ_Value
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+	
+	
+	Log    Assigning Mid Value to the signal
+    ${signals}=    Evaluate    {"RightZ_Neg":2, "RightZ_Ntrl":2, "RightZ_Pos":2, "RightZ_Value":700}
+	Send Can Message    mRightJoyStat2    ${signals}
+    Sleep    1s
+	
+	${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat2_VDP_SG_mRi.RightZ_Neg
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+	
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat2_VDP_SG_mRi.RightZ_Ntrl
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat2_VDP_SG_mRi.RightZ_Pos
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat2_VDP_SG_mRi.RightZ_Value
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    700
+	
+	
+	Log    Assigning Max Value to the signal
+    ${signals}=    Evaluate    {"RightZ_Neg":3, "RightZ_Ntrl":3, "RightZ_Pos":3, "RightZ_Value":1023}
+	Send Can Message    mRightJoyStat2    ${signals}
+    Sleep    1s
+	
+	${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat2_VDP_SG_mRi.RightZ_Neg
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3
+	
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat2_VDP_SG_mRi.RightZ_Ntrl
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat2_VDP_SG_mRi.RightZ_Pos
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3
+
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx60_1.PP_SG_mRightJoyStat2_VDP_SG_mRi.RightZ_Value
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1023	
