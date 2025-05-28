@@ -1,9 +1,9 @@
 # ==============================================================================
-# CANape XCP Interface for IMU Module
+# CANape and CAN Interface for ASW
 #
 # This script provides utility functions to:
-# - Open and close CANape with a specific IMU configuration
-# - Read and write calibration variables via XCP
+# - Open and close CANape with a specific ASW configuration
+# - Read and write calibration variables via XCP of the can signals
 # - Send CAN messages using a DBC
 #
 # Dependencies: pycanape, pyautogui, cantools, python-can
@@ -24,9 +24,7 @@ logging.getLogger("pycanape").setLevel(logging.CRITICAL)
 db = None
 bus = None
 module = None
-
 canape_instance = None
-
 
 # Function: Open CANape and load the IMU configuration module
 def open_canape_and_load_imu_configuration(project_path, module_name):
@@ -46,7 +44,6 @@ def open_canape_and_load_imu_configuration(project_path, module_name):
 
     return module
 
-
 # Function: Close CANape without saving changes
 def close_canape() -> None:
     global canape_instance
@@ -60,7 +57,6 @@ def close_canape() -> None:
         pyautogui.press("right")  # Move from "Yes" to "No"
         pyautogui.press("enter")  # Confirm "No" to avoid saving
 
-
 # Function: Read the value of an XCP calibration variable
 def read_xcp_variable(xcp_variable: str):
     try:
@@ -69,7 +65,6 @@ def read_xcp_variable(xcp_variable: str):
         return cal_obj.value
     except Exception as e:
         raise RuntimeError(f"Failed to read XCP variable {xcp_variable}: {str(e)}")
-
 
 # Function: Write a value to an XCP calibration variable
 def write_xcp_variable(variable_name: str, value):
@@ -95,6 +90,26 @@ def initialize_can(db_file_path='CAN_VM_v3.7.1.dbc', channel=1, bitrate=500000):
     except Exception as e:
         print(f"Initialization failed: {e}")
 
+# Function: Initialize a CAN FD interface using the Vector hardware.
+def initialize_canfd(db_file_path='CAN_VM_v3.7.1.dbc', channel=1, bitrate=500000, data_bitrate=2000000):
+    global db, bus
+    try:
+        # Load the DBC file
+        db = cantools.database.load_file(db_file_path)
+
+        # Initialize CAN FD bus
+        bus = can.Bus(
+            interface='vector',     # Change this if using other interfaces like 'socketcan', 'kvaser', etc.
+            channel=channel,
+            bitrate=bitrate,
+            fd=True,                # Enable CAN FD
+            data_bitrate=data_bitrate
+        )
+
+        print("CAN FD interface initialized successfully!")
+
+    except Exception as e:
+        print(f"CAN FD initialization failed: {e}")
 
 # Function: Shutdown the CAN interface safely
 def shutdown_can():
