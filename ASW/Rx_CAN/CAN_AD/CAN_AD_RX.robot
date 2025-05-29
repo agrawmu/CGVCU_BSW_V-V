@@ -16,7 +16,7 @@ Shutdown
     Close Canape
 
 *** Test Cases ***
-AD-RX-mAdcuFaults: Send mAdcuFaults with Signal Values and Verify by reading XCP Variable
+AD-RX-0x207: Send mAdcuFaults with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message and XCP variable read
     # Evaluate the dictionary to convert string to native dict
     Log    Assigning Minimum Value to the signal
@@ -35,7 +35,7 @@ AD-RX-mAdcuFaults: Send mAdcuFaults with Signal Values and Verify by reading XCP
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx100.PP_SG_mAdcuFaults_VDP_SG_mAdcuF.Flt_EPVMC_Cameras
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
 
-AD-RX-mAdcuStat: Send mAdcuStat with Signal Values and Verify by reading XCP Variable
+AD-RX-0x613: Send mAdcuStat with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message and XCP variable read
 
     Log    Assigning Minimum Value to the signal
@@ -103,7 +103,7 @@ AD-RX-mAdcuStat: Send mAdcuStat with Signal Values and Verify by reading XCP Var
 
 
 
-AD-RX-mAdcuSwVer: Send mAdcuSwVer with Signal Values and Verify by reading XCP Variable
+AD-RX-0x701: Send mAdcuSwVer with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message and XCP variable read
     # Evaluate the dictionary to convert string to native dict
     Log    Assigning Minimum Value to the signal
@@ -153,7 +153,7 @@ AD-RX-mAdcuSwVer: Send mAdcuSwVer with Signal Values and Verify by reading XCP V
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
 
 
-AD-RX-mExtLightsADRq: Send mExtLightsADRq with Signal Values and Verify by reading XCP Variable
+AD-RX-0x611: Send mExtLightsADRq with Signal Values and Verify by reading XCP Variable
 
     [Documentation]    Validate RX message and XCP variable read
     # Evaluate the dictionary to convert string to native dict
@@ -191,7 +191,7 @@ AD-RX-mExtLightsADRq: Send mExtLightsADRq with Signal Values and Verify by readi
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx100.PP_SG_mExtLightsADRq_VDP_SG_mEx.LightHazardCmd
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
 
-#Send mGpsAntStatus with Signal Values and Verify by reading XCP Variable
+#AD-RX-0x608: Send mGpsAntStatus with Signal Values and Verify by reading XCP Variable
 #    [Documentation]    Validate RX message and XCP variable read
 #    # Evaluate the dictionary to convert string to native dict
 #    Log    Assigning Minimum Value to the signal
@@ -220,7 +220,7 @@ AD-RX-mExtLightsADRq: Send mExtLightsADRq with Signal Values and Verify by readi
 #    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    ${Raw_value_mGpsAntStatus}    precision=0.001
 
 
-AD-RX-mVehCtrlADRq: Send mVehCtrlADRq with Signal Values and Verify by reading XCP Variable
+AD-RX-0x78: Send mVehCtrlADRq with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message and XCP variable read
 
     Log    Assigning Minimum Value to the signal
