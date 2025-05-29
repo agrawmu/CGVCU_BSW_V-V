@@ -53,9 +53,9 @@ def close_canape() -> None:
         canape_instance.exit(close_canape=True)
         time.sleep(2)  # Delay to allow UI prompt to appear
 
-        # Navigate UI to discard save prompt
-        pyautogui.press("right")  # Move from "Yes" to "No"
-        pyautogui.press("enter")  # Confirm "No" to avoid saving
+        # # Navigate UI to discard save prompt
+        # pyautogui.press("right")  # Move from "Yes" to "No"
+        # pyautogui.press("enter")  # Confirm "No" to avoid saving
 
 # Function: Read the value of an XCP calibration variable
 def read_xcp_variable(xcp_variable: str):
