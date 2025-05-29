@@ -19,7 +19,7 @@ Shutdown
 
 
 *** Test Cases ***
-FCM-RX-FCM_0x67D: Send FCM_0x67D with Signal Values and Verify by reading XCP Variable
+FCM-RX-0x67d: Send FCM_0x67D with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message and XCP variable read
     Log    Assigning Minimum Value to the signal
     ${signals}=    Evaluate    {"FCM_HwVers": 1, "FCM_PartVers": 0, "FCM_SwVersM": 1, "FCM_SwVersS": 1}
@@ -63,7 +63,7 @@ FCM-RX-FCM_0x67D: Send FCM_0x67D with Signal Values and Verify by reading XCP Va
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx1000.PP_SG_FCM_0x67D_VDT_SG_FCM_0x67.FCM_SwVersS
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    255
 
-FCM-RX-FCM_NM_0x42E: Send FCM_NM_0x42E with Signal Values and Verify by reading XCP Variable
+FCM-RX-0x42e: Send FCM_NM_0x42E with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message FCM_NM_0x42E and XCP variable read
     Log    Assigning Minimum Value to the signal
     ${signals}=    Evaluate    {"FCM_SrcNodeID": 0, "FCM_CtrlBitVector_Bit0_RMR": 0, "FCM_CtrlBitVector_Bit1_Res": 0, "FCM_CtrlBitVector_Bit2_Res": 0, "FCM_CtrlBitVector_Bit3_NMCoord": 0, "FCM_CtrlBitVector_Bit4_ActWake": 0, "FCM_CtrlBitVector_Bit5_Res": 0, "FCM_CtrlBitVector_Bit6_PNI": 0, "FCM_CtrlBitVector_Bit7_Res": 0, "FCM_UsrData0": 0, "FCM_UsrData1_Bit0_IGN_WAKEUP": 0, "FCM_UsrData1_Bit1_RESET_WAKEUP": 0, "FCM_UsrData1_Bit2_NETWORK_WAKEUP": 0, "FCM_UsrData1_Bit3_ECUSPEC_WAKEUP": 0, "FCM_UsrData1_Bit4_NETWORK_AWAKE": 0, "FCM_UsrData1_Bit5_IGNITION_AWAKE": 0, "FCM_UsrData1_Bit6_DIAGN_AWAKE": 0, "FCM_UsrData1_Bit7_ECUSPEC_AWAKE": 0, "FCM_UsrData2": 1, "FCM_UsrData3": 1, "FCM_UsrData4_PN_Info1": 1, "FCM_UsrData5_PN_Info2": 1,}
@@ -284,7 +284,7 @@ FCM-RX-FCM_NM_0x42E: Send FCM_NM_0x42E with Signal Values and Verify by reading 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApFcmRx60.PP_SG_FCM_NM_0x42E_VDT_SG_FCM_N.FCM_UsrData5_PN_Info2
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    255
 
-FCM-RX-FCM_0x487: Send FCM_0x487 with Signal Values and Verify by reading XCP Variable
+FCM-RX-0x487: Send FCM_0x487 with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message FCM_0x487 and XCP variable read
     Log    Assigning Minimum Value to the signal
     ${signals}=    Evaluate    {"FCM_ComLostFlt_ESP": 0, "FCM_ComLostFlt_iBooster": 0, "FCM_ComLostFlt_EPS": 0, "FCM_ComLostFlt_YRS": 0, "FCM_ComLostFlt_BCM": 0, "FCM_ComLostFlt_ECC": 0, "FCM_ComLostFlt_TBOX": 0, "FCM_ComLostFlt_CIM": 0, "FCM_ComLostFlt_ICC": 0, "FCM_ComLostFlt_MRR": 0, "FCM_ComLostFlt_PEPS": 0, "FCM_ComLostFlt_ADAS": 0, "FCM_ComE2EFlt": 0, "FCM_ChkInvldSig_ESP": 0, "FCM_ChkInvldSig_iBooster": 0, "FCM_ChkInvldSig_EPS": 0, "FCM_ChkInvldSig_YRS": 0, "FCM_ChkInvldSig_CIM": 0, "FCM_ChkInvldSig_ECC": 0, "FCM_ChkInvldSig_PEPS": 0, "FCM_ChkInvldSig_ICC": 0, "FCM_ChkPrivateCANBusOff": 0, "FCM_ChkPublicCANBusOff": 0, "FCM_BattVoltBelowThd": 0, "FCM_BattVoltOverThd": 0, "FCM_CamBli": 0, "FCM_ECUTmpHiTProtn": 0, "FCM_IntCircOutpVoltBelowThd": 0, "FCM_IntCircOutpVoltOverThd": 0, "FCM_IntCircPrmntFlt": 0, "FCM_MatchParaErr": 0, "FCM_VehCfgInfoErr": 0, "FCM_IntCircFlt": 0, "FCM_DLCFlt_ESP": 0, "FCM_DLCFlt_iBooster": 0, "FCM_DLCFlt_EPS": 0, "FCM_DLCFlt_YRS": 0, "FCM_DLCFlt_BCM": 0, "FCM_DLCFlt_ECC": 0, "FCM_DLCFlt_TBOX": 0, "FCM_DLCFlt_CIM": 0, "FCM_DLCFlt_ICC": 0, "FCM_DLCFlt_MRR": 0, "FCM_DLCFlt_PEPS": 0, "FCM_DLCFlt_ADAS": 0, "FCM_OnlineCalOutOfRng": 0, "FCM_IniCalOutOfRng": 0, "FCM_IniCalTimeout": 0, "FCM_NotCal": 0, "FCM_OTARdy_Fb": 0}
