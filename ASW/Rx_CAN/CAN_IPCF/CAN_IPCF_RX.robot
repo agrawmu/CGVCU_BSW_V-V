@@ -17,7 +17,7 @@ Shutdown
     Close Canape
 
 *** Test Cases ***
-IPCF-RX-mCgmFaults: Send mCgmFaults with Signal Values and Verify by reading XCP Variable
+IPCF-RX-0x558: Send mCgmFaults with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message mCgmFaults and XCP variable read
     Log    Assigning Minimum Value to the signal
     ${signals}=    Evaluate    {"modem_telematics_fault":0, "modem_teleops_1_fault":0, "modem_teleops_2_fault":0, "modem_teleops_3_fault":0, "vcu_connection_fault":0, "to_connection_fault":0, "adcu_ros_bridge_fault":0, "adcu_grpc_bridge_fault":0, "gps_sensor_fault":0, "fms_connection_fault":0,}
@@ -53,7 +53,6 @@ IPCF-RX-mCgmFaults: Send mCgmFaults with Signal Values and Verify by reading XCP
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx500.PP_SG_mCgmFaults_VDP_SG_mCgmFau.fms_connection_fault
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
 
-
     Log    Assigning Maximum Value to the signal
     ${signals}=    Evaluate    {"modem_telematics_fault":1, "modem_teleops_1_fault":1, "modem_teleops_2_fault":1, "modem_teleops_3_fault":1, "vcu_connection_fault":1, "to_connection_fault":1, "adcu_ros_bridge_fault":1, "adcu_grpc_bridge_fault":1, "gps_sensor_fault":1, "fms_connection_fault":1,}
     Send Can Message    mCgmFaults    ${signals}
@@ -88,7 +87,7 @@ IPCF-RX-mCgmFaults: Send mCgmFaults with Signal Values and Verify by reading XCP
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx500.PP_SG_mCgmFaults_VDP_SG_mCgmFau.fms_connection_fault
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
 
-IPCF-RX-mBECargoPIN: Send mBECargoPIN with Signal Values and Verify by reading XCP Variable
+IPCF-RX-0x553: Send mBECargoPIN with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message mBECargoPIN XCP variable read
     Log    Assigning minimum Value to the signal
     ${signals}=    Evaluate    {"tripCargoDoorOnePin": 0,"tripCargoDoorTwoPin": 0,}
@@ -127,7 +126,7 @@ IPCF-RX-mBECargoPIN: Send mBECargoPIN with Signal Values and Verify by reading X
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx500.PP_SG_mBECargoPIN_VDP_SG_mBECar.tripCargoDoorTwoPin
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}   3294967295
 
-IPCF-RX-mBECmd: Send mBECmd with Signal Values and Verify by reading XCP Variable
+IPCF-RX-0x554: Send mBECmd with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message mBECmd XCP variable read
     Log    Assigning minimum Value to the signal
     ${signals}=    Evaluate    {"tripIsActive": 0,"BETripMeterStart": 0,"BETripMeterReset": 0,"Bay2DoorRemoteCmd": 0,"Bay2HtrRemoteCmd": 0,"Bay1DoorRemoteCmd": 0,"Bay1HtrRemoteCmd": 0,"jobType": 0,"AllowDeliveryMode": 0,"MsgCntr": 0,"MsgCrc": 0,}
@@ -247,7 +246,7 @@ IPCF-RX-mBECmd: Send mBECmd with Signal Values and Verify by reading XCP Variabl
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx500.PP_SG_mBECmd_VDP_SG_mBECmd.MsgCrc
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}   250
 
-IPCF-RX-mVehCtrlTORq: Send mVehCtrlTORq with Signal Values and Verify by reading XCP Variable
+IPCF-RX-0x121: Send mVehCtrlTORq with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message mVehCtrlTORq XCP variable read
     Log    Assigning minimum Value to the signal
     ${signals}=    Evaluate    {"TO_Accel_Cmd": 0,"TO_Steer_Cmd": 0,"MsgCntr": 0,"TO_EstopRq": 0,"MsgCrc": 0,}
@@ -316,7 +315,7 @@ IPCF-RX-mVehCtrlTORq: Send mVehCtrlTORq with Signal Values and Verify by reading
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx20_3.PP_SG_mVehCtrlTORq_VDP_SG_mVehC.MsgCrc
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}   250
 
-IPCF-RX-mCgmHeartbeat: Send mCgmHeartbeat with Signal Values and Verify by reading XCP Variable
+IPCF-RX-0x210: Send mCgmHeartbeat with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message mCgmHeartbeat and XCP variable read
     Log    Assigning Minimum Value to the signal
     ${signals}=    Evaluate    {"seconds": -100, "nanoseconds": 0,}
@@ -358,7 +357,7 @@ IPCF-RX-mCgmHeartbeat: Send mCgmHeartbeat with Signal Values and Verify by readi
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx500.PP_SG_mCgmHeartbeat_VDP_SG_mCgm.nanoseconds
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2294967295
 
-IPCF-RX-mFMS_PTT_Sched: Send mFMS_PTT_Sched with Signal Values and Verify by reading XCP Variable
+IPCF-RX-0x621: Send mFMS_PTT_Sched with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message handling and XCP variable read
     # Evaluate the dictionary to convert string to native dict
     Log    Assigning Minimum Value to the signal
@@ -431,7 +430,7 @@ IPCF-RX-mFMS_PTT_Sched: Send mFMS_PTT_Sched with Signal Values and Verify by rea
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx1000.PP_SG_mFMS_PTT_Sched_VDP_SG_mFM.PTT_AudioAlertsChk
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
 
-IPCF-RX-mTOStat: Send mTOStat with Signal Values and Verify by reading XCP Variable
+IPCF-RX-0x120: Send mTOStat with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message handling and XCP variable read
     # Evaluate the dictionary to convert string to native dict
     Log    Assigning Minimum Value to the signal
@@ -516,7 +515,7 @@ IPCF-RX-mTOStat: Send mTOStat with Signal Values and Verify by reading XCP Varia
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApVcuTx500_1.PP_SG_mTOStat_VDP_SG_mTOStat.MsgCrc
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    255
 
-IPCF-RX-mCgmSwVer: Send mCgmSwVer with Signal Values and Verify by reading XCP Variable
+IPCF-RX-0x557: Send mCgmSwVer with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message handling and XCP variable read
     # Evaluate the dictionary to convert string to native dict
 
@@ -574,7 +573,7 @@ IPCF-RX-mCgmSwVer: Send mCgmSwVer with Signal Values and Verify by reading XCP V
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApCgmRx500.PP_SG_mCgmSwVer_VDP_SG_mCgmSwVe.SwStat
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
 
-IPCF-RX-mExtLightsTORq: Send mExtLightsTORq with Signal Values and Verify by reading XCP Variable
+IPCF-RX-0x612: Send mExtLightsTORq with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message mExtLightsTORq and XCP variable read
 
     Log    Assigning Minimum Value to the signal
