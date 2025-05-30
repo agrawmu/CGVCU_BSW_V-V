@@ -16,7 +16,7 @@ Shutdown
     Close Canape
 
 *** Test Cases ***
-Send Tx XCP variables and validating on CAN signals for message mVehOdo
+AD-TX-0x****: Send Tx XCP variables and validating on CAN signals for message mVehOdo
     [Documentation]    Validate TX message 'mVehOdo' by writing XCP variables and reading CAN signals
 
     Log  writing min value to the xcp variables
@@ -38,7 +38,7 @@ Send Tx XCP variables and validating on CAN signals for message mVehOdo
     ${expected_can_signals}=    Evaluate    {"VehOdo": 65.535, "VcuTripMeter": 65.535, "BackendTripMeter": 16777.213}
     Validate TX Message With Expected Values    mVehOdo    ${expected_can_signals}    30
 
-Send Tx XCP variables and validating on CAN signals for message mVscStat
+AD-TX-0x****: Send Tx XCP variables and validating on CAN signals for message mVscStat
     [Documentation]    Validate TX message 'mVscStat' by writing XCP variables and reading CAN signals
 
     Log  writing min value to the xcp variables
