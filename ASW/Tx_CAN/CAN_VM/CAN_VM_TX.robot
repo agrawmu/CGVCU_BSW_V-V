@@ -61,7 +61,7 @@ Send Tx XCP variables and validating on CAN signals for message mVcuGyroAngle
     ${expected_can_signals}=    Evaluate    {"GyroXAng": 30.0, "GyroYAng": 30.0, "Pitch": 25.0, "Tilt": 25.0}
     Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mVcuGyroAngle    ${expected_can_signals}    30
 
-Send Tx XCP variables and validating on CAN signals for message mEbcm2L_Stat2
+VM-TX-0x7B:Send Tx XCP variables and validating on CAN signals for message mEbcm2L_Stat2
     [Documentation]    Validate TX message 'mEbcm2L_Stat2' by writing XCP variables and reading CAN signals
     Log    writing min value to the xcp variables
     ${xcp_values}=    Evaluate    {"TcsAvail": 0, "AbsAvail": 0, "VehSpdEbcm": 0, "MtrCurrEst": 0, "LvVolt": 0, "EscAvail": 0, "EbdActv": 0, "ToShtdwn": 0, "HoldStat": 0, "MsgCntr": 0, "AebRdy": 0, "EscActv": 0, "TcsActv": 0, "AbsActv": 0, "MsgCrc": 0,}
@@ -82,7 +82,7 @@ Send Tx XCP variables and validating on CAN signals for message mEbcm2L_Stat2
     ${expected_can_signals}=    Evaluate    {"TcsAvail": 1, "AbsAvail": 1, "VehSpdEbcm": 1, "MtrCurrEst": 255, "LvVolt": 25.5, "EscAvail": "Level_2", "EbdActv": 1, "ToShtdwn": 1, "HoldStat": "Released", "MsgCntr": 15, "AebRdy": 1, "EscActv": 1, "TcsActv": 0, "AbsActv": 1, "MsgCrc": 15,}
     Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    mEbcm2L_Stat2    ${expected_can_signals}    30
 
-Send Tx XCP variables and validating on CAN signals for message mWhdCtrl2
+VM-TX-0x13:Send Tx XCP variables and validating on CAN signals for message mWhdCtrl2
     [Documentation]    Validate TX message 'mWhdCtrl2' by writing XCP variables and reading CAN signals
     Log    writing min value to the xcp variables
     ${xcp_values}=    Evaluate    {"VoltLmtMax":35,"VoltLmtMin":35,"CurrLmtMtr":0,"CurrLmtRegen":0,"TrqLmtMtr":0,"TrqLmtRegen":0,"WhdShtdwnRq":0,"ClearFltRq":0,"MsgCntr":0,"MsgCrc":0 }
@@ -103,7 +103,7 @@ Send Tx XCP variables and validating on CAN signals for message mWhdCtrl2
     ${expected_can_signals}=    Evaluate    {"VoltLmtMax":60.5,"VoltLmtMin":60.5,"CurrLmtMtr":127,"CurrLmtRegen":127,"TrqLmtMtr":254,"TrqLmtRegen":254,"WhdShtdwnRq":"True","ClearFltRq":"True","MsgCntr":15,"MsgCrc":255}
     Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    mWhdCtrl2    ${expected_can_signals}    30
 
-Send Tx XCP variables and validating on CAN signals for message VcuTask1msStat
+VM-TX-0x666:Send Tx XCP variables and validating on CAN signals for message VcuTask1msStat
     [Documentation]    Validate TX message 'VcuTask1msStat' by writing XCP variables and reading CAN signals
     Log    writing min value to the xcp variables
     ${xcp_values}=    Evaluate    {"MaxExecTimeValid":0,"MaxUtilizationValid":0,"CpuUtilizationValid":0,"CpuUtilization":0,"MaxUtilization":0,"MaxExecTime":0}
@@ -124,7 +124,7 @@ Send Tx XCP variables and validating on CAN signals for message VcuTask1msStat
     ${expected_can_signals}=    Evaluate    {"MaxExecTimeValid":1,"MaxUtilizationValid":1,"CpuUtilizationValid":1,"CpuUtilization":1000,"MaxUtilization":1000,"MaxExecTime":1000}
     Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    VcuTask1msStat    ${expected_can_signals}    30
 
-Send Tx XCP variables and validating on CAN signals for message mVehState2
+VM-TX-0x208:Send Tx XCP variables and validating on CAN signals for message mVehState2
     [Documentation]    Validate TX message 'mVehState2' by writing XCP variables and reading CAN signals
     Log    writing min value to the xcp variables
     ${xcp_values}=    Evaluate    {"ActGndWhlAng":-327.68,"maxDecelAvail":-32,"maxAccelAvail":-32,"MsgCntr":0,"maxSpeedAllowed":0,"MsgCrc":0}
@@ -145,7 +145,7 @@ Send Tx XCP variables and validating on CAN signals for message mVehState2
     ${expected_can_signals}=    Evaluate    {"ActGndWhlAng":327.67,"maxDecelAvail":31.984375,"maxAccelAvail":31.984375,"MsgCntr":15,"maxSpeedAllowed":15,"MsgCrc":255}
     Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    mVehState2    ${expected_can_signals}    30
 
-Send Tx XCP variables and validating on CAN signals for message mVehState3
+VM-TX-0x209:Send Tx XCP variables and validating on CAN signals for message mVehState3
     [Documentation]    Validate TX message 'mVehState3' by writing XCP variables and reading CAN signals
     Log    writing min value to the xcp variables
     ${xcp_values}=    Evaluate    {"ArbVehSpd_mps_Valid":0,"ArbVehSpd_mps":-20.48,"ROI":-1.28,"TargetVehSpd_mps":-20.48,"Aeb_Active":0,"AebSrc":0,"MsgCntr":0,"MsgCrc":0}
@@ -167,7 +167,7 @@ Send Tx XCP variables and validating on CAN signals for message mVehState3
     Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    mVehState3    ${expected_can_signals}    30
 
 
-Send Tx XCP variables and validating on CAN signals for message mVehState
+VM-TX-0x202:Send Tx XCP variables and validating on CAN signals for message mVehState
     [Documentation]    Validate TX message 'mVehState' by writing XCP variables and reading CAN signals
     Log    writing min value to the xcp variables
     ${xcp_values}=    Evaluate    {"VehState":0,"VcuEstopSns":0,"CrashSns":0,"VehDte":0,"LvVolt":0,"GearRq":0,"GearAct":0,"SBW_RtEndStopReached":0,"SBW_LfEndStopReached":0,"GearChangeParkAllow":0,"GearChangeDrvRevAllow":0,"ArbVehSpdValid":0,"EstopDetected":0,"VehParkRq":0,"Tether_Connected":0,"ArbVehSpd":-40.96,"MsgCntr":0,"TO_Allowed":0,"AD_Allowed":0,"LOS_Allowed":0,"Invld_GearRq":0,"MsgCrc":0}
@@ -189,7 +189,7 @@ Send Tx XCP variables and validating on CAN signals for message mVehState
     Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    mVehState    ${expected_can_signals}    30
 
 
-Send Tx XCP variables and validating on CAN signals for message mWhdCtrl
+VM-TX-0x12:Send Tx XCP variables and validating on CAN signals for message mWhdCtrl
     [Documentation]    Validate TX message 'mWhdCtrl' by writing XCP variables and reading CAN signals
     Log    writing min value to the xcp variables
     ${xcp_values}=    Evaluate    {"TrqSlewLmt":0,"SpdSlewLmt":0,"CtrlMode":0,"MtrMode":0,"EnblCmd":0,"Boot":0,"Debug":0,"TrqCmd":-1023,"SpdCmd":-1023,"MsgCntr":0,"MsgCrc":0}
