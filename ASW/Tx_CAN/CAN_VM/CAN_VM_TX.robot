@@ -2,14 +2,14 @@
 Library    ../can_tx_validation_interface.py
 Library    BuiltIn
 
+
 Suite Setup    Setup
 Suite Teardown    Shutdown
 
 *** Keywords ***
 Setup
-    Open Canape And Load Imu Configuration    D:/Validation/Vinayak/ASW/CAN_VM_Configuration/ASW_CAN_VM_RX    CAN_VM_RX
+    Open Canape And Load Imu Configuration    D:/Validation/Vinayak/ASW/CAN_TX/TX_Configuration    CAN_Tx
     Initialize Can    C:/Users/validation/Documents/PythonProject/CANoe/Tx_Testing/CAN_VM_v3.7.1.dbc    3    500000
-    Sleep    3s
 
 Shutdown
     Shutdown Can
