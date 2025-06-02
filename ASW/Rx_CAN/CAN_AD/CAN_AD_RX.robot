@@ -7,8 +7,8 @@ Suite Teardown    Shutdown
 
 *** Keywords ***
 Setup
-    Open Canape And Load Imu Configuration
-    Initialize Can    C:/Users/validation/Documents/PythonProject/CANoe/RX_Testing/CAN_AD/CAN_AD_V1.6.4.dbc    3    500000
+    Open Canape And Load Imu Configuration    D:/Jenkins/workspace/CGVCU_ASW_Testing/ASW/Rx_CAN/Rx_CAN_Config    CAN_RX
+    Initialize Can    D:/Jenkins/workspace/CGVCU_ASW_Testing/ASW/DBC/CAN_AD_V1.6.4.dbc    3    500000
     Sleep    3s
 
 Shutdown
@@ -37,7 +37,6 @@ AD-RX-0x207: Send mAdcuFaults with Signal Values and Verify by reading XCP Varia
 
 AD-RX-0x613: Send mAdcuStat with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message and XCP variable read
-
     Log    Assigning Minimum Value to the signal
     ${signals}=    Evaluate    {"AdcuStatus": 1, "AdcuShtdwnRdy": 0, "AdcuEstopRq": 0, "AD_Ready": 0, "AD_Mission_Cmplt": 0, "TO_Assistance_Rq": 0, "MsgCntr": 0, "MsgCrc": 1}
     Send Can Message    mAdcuStat    ${signals}
@@ -108,7 +107,6 @@ AD-RX-0x701: Send mAdcuSwVer with Signal Values and Verify by reading XCP Variab
     # Evaluate the dictionary to convert string to native dict
     Log    Assigning Minimum Value to the signal
     ${signals}=    Evaluate    {"SwMaj": 2, "SwMin": 0, "SwRev": 88, "SwStat": 0,}
-
     Send Can Message    mAdcuSwVer    ${signals}
     Sleep    10s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx10000.PP_SG_mAdcuSwVer_VDP_SG_mAdcuSw.SwMaj
@@ -119,12 +117,9 @@ AD-RX-0x701: Send mAdcuSwVer with Signal Values and Verify by reading XCP Variab
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    88
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx10000.PP_SG_mAdcuSwVer_VDP_SG_mAdcuSw.SwStat
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
-
-
+    
     Log    Assigning mid Value to the signal
-
     ${signals}=    Evaluate    {"SwMaj": 4, "SwMin": 90, "SwRev": 3, "SwStat": 1,}
-
     Send Can Message    mAdcuSwVer    ${signals}
     Sleep    10s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx10000.PP_SG_mAdcuSwVer_VDP_SG_mAdcuSw.SwMaj
@@ -136,11 +131,8 @@ AD-RX-0x701: Send mAdcuSwVer with Signal Values and Verify by reading XCP Variab
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx10000.PP_SG_mAdcuSwVer_VDP_SG_mAdcuSw.SwStat
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
 
-
     Log    Assigning maximum Value to the signal
-
     ${signals}=    Evaluate    {"SwMaj": 210, "SwMin": 110, "SwRev": 255, "SwStat": 1,}
-
     Send Can Message    mAdcuSwVer    ${signals}
     Sleep    10s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx10000.PP_SG_mAdcuSwVer_VDP_SG_mAdcuSw.SwMaj
@@ -152,14 +144,11 @@ AD-RX-0x701: Send mAdcuSwVer with Signal Values and Verify by reading XCP Variab
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx10000.PP_SG_mAdcuSwVer_VDP_SG_mAdcuSw.SwStat
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
 
-
 AD-RX-0x611: Send mExtLightsADRq with Signal Values and Verify by reading XCP Variable
-
     [Documentation]    Validate RX message and XCP variable read
     # Evaluate the dictionary to convert string to native dict
     Log    Assigning Minimum Value to the signal
     ${signals}=    Evaluate    {"LightTurnCmdR": 0, "LightTurnCmdL": 0, "LightHighCmd": 0, "HornCmd": 0, "LightHazardCmd": 0,}
-
     Send Can Message    mExtLightsADRq    ${signals}
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx100.PP_SG_mExtLightsADRq_VDP_SG_mEx.LightTurnCmdR
@@ -173,11 +162,8 @@ AD-RX-0x611: Send mExtLightsADRq with Signal Values and Verify by reading XCP Va
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx100.PP_SG_mExtLightsADRq_VDP_SG_mEx.LightHazardCmd
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
 
-
     Log    Assigning maximum Value to the signal
-
     ${signals}=    Evaluate    {"LightTurnCmdR": 1, "LightTurnCmdL": 1, "LightHighCmd": 1, "HornCmd": 1, "LightHazardCmd": 1,}
-
     Send Can Message    mExtLightsADRq    ${signals}
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx100.PP_SG_mExtLightsADRq_VDP_SG_mEx.LightTurnCmdR
@@ -222,13 +208,10 @@ AD-RX-0x611: Send mExtLightsADRq with Signal Values and Verify by reading XCP Va
 
 AD-RX-0x78: Send mVehCtrlADRq with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message and XCP variable read
-
     Log    Assigning Minimum Value to the signal
     ${signals}=    Evaluate    {"VehSpdCmd": -64, "VehAccelLongCmd": -32, "VehRoadWhlAngleCmd": -327.68, "b_High_Deceleration_Flag": 0, "AebEvent": 0, "AebSrc": 0, "MsgCntr": 0, "VehDirCmd": 0, "MsgCrc": 0}
-
     Run Keyword And Continue On Failure    Send Can Message    mVehCtrlADRq    ${signals}
     Sleep    1s
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.VehSpdCmd
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -64
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.VehAccelLongCmd
@@ -249,11 +232,9 @@ AD-RX-0x78: Send mVehCtrlADRq with Signal Values and Verify by reading XCP Varia
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
 
     Log    Assigning Mid Value to the signal
-
     ${signals}=    Evaluate    {"VehSpdCmd": 0, "VehAccelLongCmd": 0, "VehRoadWhlAngleCmd": 0, "b_High_Deceleration_Flag": 1, "AebEvent": 1, "AebSrc": 8, "MsgCntr": 8, "VehDirCmd": 1, "MsgCrc": 128}
     Run Keyword And Continue On Failure    Send Can Message    mVehCtrlADRq    ${signals}
     Sleep    1s
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.VehSpdCmd
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0    precision=0.001
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.VehAccelLongCmd
@@ -276,7 +257,6 @@ AD-RX-0x78: Send mVehCtrlADRq with Signal Values and Verify by reading XCP Varia
     ${signals}=    Evaluate    {"VehSpdCmd": 1, "VehAccelLongCmd": 1, "VehRoadWhlAngleCmd": 1, "b_High_Deceleration_Flag": 1, "AebEvent": 1, "AebSrc": 6, "MsgCntr": 15, "VehDirCmd": 1, "MsgCrc": 100}
     Run Keyword And Continue On Failure    Send Can Message    mVehCtrlADRq    ${signals}
     Sleep    1s
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.VehSpdCmd
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1    precision=0.001
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.VehAccelLongCmd
@@ -298,10 +278,8 @@ AD-RX-0x78: Send mVehCtrlADRq with Signal Values and Verify by reading XCP Varia
 
     Log    Assigning Maximum Value to the signal
     ${signals}=    Evaluate    {"VehSpdCmd": 63.96875, "VehAccelLongCmd": 31.984375, "VehRoadWhlAngleCmd": 327.67, "b_High_Deceleration_Flag": 1, "AebEvent": 1, "AebSrc": 15, "MsgCntr": 15, "VehDirCmd": 3, "MsgCrc": 255}
-
     Run Keyword And Continue On Failure    Send Can Message    mVehCtrlADRq    ${signals}
     Sleep    1s
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.VehSpdCmd
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    63.96875    precision=0.001
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.VehAccelLongCmd
@@ -320,4 +298,3 @@ AD-RX-0x78: Send mVehCtrlADRq with Signal Values and Verify by reading XCP Varia
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.MsgCrc
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    255
-
