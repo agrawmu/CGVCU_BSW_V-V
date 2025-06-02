@@ -6,11 +6,11 @@ Suite Setup    Setup
 Suite Teardown    Shutdown
 
 *** Keywords ***
-Setup
-    Open Canape And Load Imu Configuration    D:/Validation/Vinayak/ASW/CAN_VM_Configuration/ASW_CAN_IPCF_RX    CAN_VM_RX
-    Initialize Can    C:/Users/validation/Documents/PythonProject/CANoe/RX_Testing/CAN_VM/CAN_TC_V1.0.4.dbc    3    500000
-    Sleep    3s
 
+Setup
+    Open Canape And Load Imu Configuration    D:/Jenkins/workspace/CGVCU_ASW_Testing/ASW/Rx_CAN/Rx_CAN_Config    CAN_RX
+    Initialize Can    D:/Jenkins/workspace/CGVCU_ASW_Testing/ASW/DBC/CAN_TC_V1.0.4.dbc    1    500000
+    Sleep    3s
 
 Shutdown
     Shutdown Can
