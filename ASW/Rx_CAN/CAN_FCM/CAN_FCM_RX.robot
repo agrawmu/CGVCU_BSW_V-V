@@ -8,8 +8,8 @@ Suite Teardown    Shutdown
 *** Keywords ***
 
 Setup
-    Open Canape And Load Imu Configuration    D:/Jenkins/workspace/CGVCU_BSW_V-V/ASW/Rx_CAN/Rx_CAN_Config    CAN_RX
-    Initialize Canfd        D:/Jenkins/workspace/CGVCU_BSW_V-V/ASW/DBC/CAN-FD_FCM_V1.0.2.dbc    3    500000    2000000
+    Open Canape And Load Imu Configuration    D:/Jenkins/workspace/CGVCU_ASW_Testing/ASW/Rx_CAN/Rx_CAN_Config    CAN_RX
+    Initialize Canfd        D:/Jenkins/workspace/CGVCU_ASW_Testing/ASW/DBC/CAN-FD_FCM_V1.0.2.dbc    3    500000    2000000
     Sleep    3s
 
 Shutdown
