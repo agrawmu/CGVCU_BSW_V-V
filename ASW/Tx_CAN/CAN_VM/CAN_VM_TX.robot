@@ -61,7 +61,7 @@ Send Tx XCP variables and validating on CAN signals for message mVcuGyroAngle
     ${expected_can_signals}=    Evaluate    {"GyroXAng": 30.0, "GyroYAng": 30.0, "Pitch": 25.0, "Tilt": 25.0}
     Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mVcuGyroAngle    ${expected_can_signals}    30
 
-Send Tx XCP variables and validating on CAN signals for message mAVASCmd
+VM-TX-0x301: Send Tx XCP variables and validating on CAN signals for message mAVASCmd
     [Documentation]    Validate TX message 'mAVASCmd' by writing XCP variables and reading CAN signals
     Log    writing min value to the xcp variables
     ${xcp_values}=    Evaluate    {"AVAS_TestMode": 0,"GearRq_AVAS": 0,"MsgCntr": 0,"VehSpdAVAS": -64,"MsgCrc": 0}
@@ -92,7 +92,7 @@ Send Tx XCP variables and validating on CAN signals for message mAVASCmd
 
 
 
-Send Tx XCP Variables and validating on CAN signals for message mBrkCtrl
+VM-TX-0x74: Send Tx XCP Variables and validating on CAN signals for message mBrkCtrl
     [Documentation]    Validate TX message 'mBrkCtrl' by writing XCP variables and reading CAN signals
 
     Log    writing min value to the xcp variables
@@ -117,7 +117,7 @@ Send Tx XCP Variables and validating on CAN signals for message mBrkCtrl
     Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mBrkCtrl    ${expected_can_signals}    30
 
 
-Send Tx XCP variables and validating on CAN signals for message mEbcm2L_WhlSpd
+VM-TX-0x7F: Send Tx XCP variables and validating on CAN signals for message mEbcm2L_WhlSpd
     [Documentation]    Validate TX message 'mEbcm2L_WhlSpd' by writing XCP variables and reading CAN signals
     Log    writing min value to the xcp variables
     ${xcp_values}=    Evaluate    {"WhlSpdFL": -20.48,"WhlSpdFR": -20.48,"WhlSpdR": -20.48,"MsgCntr": 0,"MsgCrc": 0}
@@ -138,7 +138,7 @@ Send Tx XCP variables and validating on CAN signals for message mEbcm2L_WhlSpd
     ${expected_can_signals}=    Evaluate    {"WhlSpdFL": 20.45,"WhlSpdFR": 20.45,"WhlSpdR": 20.45,"MsgCntr": 15,"MsgCrc": 255}
     Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mEbcm2L_WhlSpd    ${expected_can_signals}    30
 
-Send Tx XCP variables and validating on CAN signals for message mHmiPadStat
+VM-TX-0x510: Send Tx XCP variables and validating on CAN signals for message mHmiPadStat
     [Documentation]    Validate TX message 'mHmiPadStat' by writing XCP variables and reading CAN signals
     Log    writing min value to the xcp variables
     ${xcp_values}=    Evaluate    {"KeypadO": 0,"Keypad1": 0,"Keypad2": 0,"Keypad3": 0,"Keypad4": 0,"KeypadC": 0,"PadCodeState": 0,"PadActive": 0,"PadLight": 0,"AudioVoice": 0,"AudioMp3": 0,"VolVoice": 0,"VolMp3": 0}
@@ -159,7 +159,7 @@ Send Tx XCP variables and validating on CAN signals for message mHmiPadStat
     ${expected_can_signals}=    Evaluate    {"KeypadO": "True","Keypad1": "True","Keypad2": "True","Keypad3": "True","Keypad4": "True","KeypadC": "True","PadCodeState": "Lockout","PadActive": "True","PadLight": "True","AudioVoice": 255,"AudioMp3": 255,"VolVoice": 100,"VolMp3": 100}
     Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mHmiPadStat    ${expected_can_signals}    30
 
-Send Tx XCP variables and validating on CAN signals for message mHVESSC1_BMS2
+VM-TX-0xC1BA6F9: Send Tx XCP variables and validating on CAN signals for message mHVESSC1_BMS2
     [Documentation]    Validate TX message 'mHVESSC1_BMS2' by writing XCP variables and reading CAN signals
     Log    writing min value to the xcp variables
     ${xcp_values}=    Evaluate    {"EnblRq": 0,"PwrDownCmd": 0,"HvIsoActiveRq": 0,"HvIsoPassiveRq": 0,"CellBalRq": 0,"EnblIntChrgrRq": 0,"EnblConsent": 0,"HvResistHighRq": 0,"HvResistLowRq": 0,"ThrmlMgmtRq": 0,"MsgCntr": 0,"MsgCrc": 0}
@@ -180,7 +180,7 @@ Send Tx XCP variables and validating on CAN signals for message mHVESSC1_BMS2
     ${expected_can_signals}=    Evaluate    {"EnblRq": "N/A","PwrDownCmd": "N/A","HvIsoActiveRq": "N/A","HvIsoPassiveRq": "N/A","CellBalRq": "N/A","EnblIntChrgrRq": "N/A","EnblConsent": "N/A","HvResistHighRq": "N/A","HvResistLowRq": "N/A","ThrmlMgmtRq": "N/A","MsgCntr": 15,"MsgCrc": 255}
     Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mHVESSC1_BMS2    ${expected_can_signals}    30
 
-Send Tx XCP variables and validating on CAN signals for message mSbwCtrl
+VM-TX-0x29A: Send Tx XCP variables and validating on CAN signals for message mSbwCtrl
     [Documentation]    Validate TX message 'mSbwCtrl' by writing XCP variables and reading CAN signals
     Log    writing min value to the xcp variables
     ${xcp_values}=    Evaluate    {"CtrlMode": 0,"AngleCmd": 0,"MtrDcCmd": -100,"MsgCrc": 0,"MsgCntr": 0}
@@ -201,7 +201,7 @@ Send Tx XCP variables and validating on CAN signals for message mSbwCtrl
     ${expected_can_signals}=    Evaluate    {"CtrlMode": "Angle - Gain 5","AngleCmd": 1023,"MtrDcCmd": 100,"MsgCrc": 255,"MsgCntr": 15}
     Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mSbwCtrl    ${expected_can_signals}    30
 
-Send Tx XCP variables and validating on CAN signals for message mSbwCtrl_Allied
+VM-TX-0x29B: Send Tx XCP variables and validating on CAN signals for message mSbwCtrl_Allied
     [Documentation]    Validate TX message 'mSbwCtrl_Allied' by writing XCP variables and reading CAN signals
     Log    writing min value to the xcp variables
     ${xcp_values}=    Evaluate    {"CommandMode": 0,"CommandVariable1": -8192,"CommandVariable2": -128,"MsgCntr": 0,"EstopReq": 0,"ClearFaults": 0,"MsgCrc": 0}
@@ -222,7 +222,7 @@ Send Tx XCP variables and validating on CAN signals for message mSbwCtrl_Allied
     ${expected_can_signals}=    Evaluate    {"CommandMode": "Off","CommandVariable1": 8192,"CommandVariable2": 127.99609375,"MsgCntr": 15,"EstopReq": "ESTOP Requested","ClearFaults": "True","MsgCrc": 255}
     Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mSbwCtrl_Allied    ${expected_can_signals}    30
 
-Send Tx XCP variables and validating on CAN signals for message mVcuEcuStat
+VM-TX-0x660: Send Tx XCP variables and validating on CAN signals for message mVcuEcuStat
     [Documentation]    Validate TX message 'mVcuEcuStat' by writing XCP variables and reading CAN signals
     Log    writing min value to the xcp variables
     ${xcp_values}=    Evaluate    {"WakeHoldStat": 0,"EcuModingStat": 0,"EcuWakeSource": 0,"VcuLvOk": 0,"DrvpOk": 0,"SnsrPwrOk": 0,"NvmOk": 0,"Hso16WakeHoldOutCmd": 0,"Hso16Status": 0,"RaptorWakeSource": 0,"MomSwPress": 0,"MprdEnCmd": 0,"MomSwInRaw": 0,"CanChk": 0,"EthChk": 0,"LinChk": 0,"FlashChk": 0,"IdleTmr": 0}
@@ -243,7 +243,7 @@ Send Tx XCP variables and validating on CAN signals for message mVcuEcuStat
     ${expected_can_signals}=    Evaluate    {"WakeHoldStat": "N/A","EcuModingStat": "EcuSleep","EcuWakeSource": "VBatt","VcuLvOk": 1,"DrvpOk": 1,"SnsrPwrOk": 1,"NvmOk": 1,"Hso16WakeHoldOutCmd": 1,"Hso16Status": "OPEN LOAD","RaptorWakeSource": 60,"MomSwPress": 1,"MprdEnCmd": 1,"MomSwInRaw": 1,"CanChk": 1,"EthChk": 1,"LinChk": 1,"FlashChk": 1,"IdleTmr": 10000}
     Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mVcuEcuStat    ${expected_can_signals}    30
 
-Send Tx XCP variables and validating on CAN signals for message mVcuFaults
+VM-TX-0x204: Send Tx XCP variables and validating on CAN signals for message mVcuFaults
     [Documentation]    Validate TX message 'mVcuFaults' by writing XCP variables and reading CAN signals
     Log    writing min value to the xcp variables
     ${xcp_values}=    Evaluate    {"Flt_12Volt": 0,"Flt_48Volt": 0,"Flt_MstrSwitch": 0,"Flt_SafeCircuit": 0,"Flt_LocWhd": 0,"Flt_LocAdcu": 0,"Flt_LocEbcm1": 0,"Flt_LocEbcm2": 0,"Flt_LocEss": 0,"Flt_LocVsc": 0,"Flt_LocAVAS": 0,"Flt_LocSbw": 0,"Flt_LocTc": 0,"Flt_WriteEeprom": 0,"Flt_ReadEeprom": 0,"Flt_12vSys": 0,"Flt_Bay1BeltSns": 0,"Flt_Bay1MtrPos": 0,"Flt_Bay1Mtr": 0,"Flt_Bay1Pwr12v": 0,"Flt_LocBe": 0,"Flt_LocTo": 0,"Flt_Bay2BeltSns": 0,"Flt_Bay2MtrPos": 0,"Flt_Bay2Mtr": 0,"Flt_Bay2Pwr12v": 0,"Flt_LocLrr": 0,"Flt_ImuSns": 0,"Flt_ImuRst": 0,"Flt_LocFcmCan": 0,"Flt_Keypad4": 0,"Flt_KeypadC": 0,"Flt_KeypadLight": 0,"Flt_SbwEnbl": 0,"Flt_SafeExtLight": 0,"Flt_SafeProp": 0,"Flt_SafeSteer": 0,"Flt_LocEpb": 0,"Flt_BrkPrsr": 0,"Flt_EpbSys": 0,"Flt_BrkSafeSys": 0,"Flt_CntctrStat": 0,"Flt_InvalidGearRq": 0,"Flt_WhdEnbl": 0,"Flt_DcdcEnbl": 0}
@@ -264,7 +264,7 @@ Send Tx XCP variables and validating on CAN signals for message mVcuFaults
     ${expected_can_signals}=    Evaluate    {"Flt_12Volt": "Low","Flt_48Volt": "Low","Flt_MstrSwitch": "Fault","Flt_SafeCircuit": "Fault","Flt_LocWhd": "Stored","Flt_LocAdcu": 2,"Flt_LocEbcm1": "Stored","Flt_LocEbcm2": "Stored","Flt_LocEss": "Stored","Flt_LocVsc": "Stored","Flt_LocAVAS": "Stored","Flt_LocSbw": "Stored","Flt_LocTc": "Stored","Flt_WriteEeprom": "Fault","Flt_ReadEeprom": "Fault","Flt_12vSys": "Fault","Flt_Bay1BeltSns": "Fault","Flt_Bay1MtrPos": "Fault","Flt_Bay1Mtr": "Fault","Flt_Bay1Pwr12v": "Fault","Flt_LocBe": "Stored","Flt_LocTo": "Stored","Flt_Bay2BeltSns": "Fault","Flt_Bay2MtrPos": "Fault","Flt_Bay2Mtr": "Fault","Flt_Bay2Pwr12v": "Fault","Flt_LocLrr": "Fault","Flt_ImuSns": "Fault","Flt_ImuRst": "Fault","Flt_LocFcmCan": "Fault","Flt_Keypad4": "Fault","Flt_KeypadC": "Fault","Flt_KeypadLight": "Fault","Flt_SbwEnbl": "Fault","Flt_SafeExtLight": "General","Flt_SafeProp": "General","Flt_SafeSteer": "General","Flt_LocEpb": "Stored","Flt_BrkPrsr": "Fault","Flt_EpbSys": "Fault","Flt_BrkSafeSys": "Fault","Flt_CntctrStat": "Unknown","Flt_InvalidGearRq": "Fault","Flt_WhdEnbl": "Fault","Flt_DcdcEnbl": "Fault"}
     Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mVcuFaults    ${expected_can_signals}    30
 
-Send Tx XCP variables and validating on CAN signals for message mVcuImuAngVel
+VM-TX-0x206: Send Tx XCP variables and validating on CAN signals for message mVcuImuAngVel
     [Documentation]    Validate TX message 'mVcuImuAngVel' by writing XCP variables and reading CAN signals
     Log    writing min value to the xcp variables
     ${xcp_values}=    Evaluate    {"X_Angular_Rate": -327.68,"Y_Angular_Rate": -327.68,"Z_Angular_Rate": -327.68,"MsgCntr": 0,"MsgCrc": 0}
@@ -285,7 +285,7 @@ Send Tx XCP variables and validating on CAN signals for message mVcuImuAngVel
     ${expected_can_signals}=    Evaluate    {"X_Angular_Rate": "Fault", "Y_Angular_Rate": "Fault", "Z_Angular_Rate": "Fault", "MsgCntr": 15, "MsgCrc": 255}
     Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mVcuImuAngVel    ${expected_can_signals}    30
 
-Send Tx XCP variables and validating on CAN signals for message mVcuImuAngVel_Filt
+VM-TX-0x20C: Send Tx XCP variables and validating on CAN signals for message mVcuImuAngVel_Filt
     [Documentation]    Validate TX message 'mVcuImuAngVel_Filt' by writing XCP variables and reading CAN signals
     Log    writing min value to the xcp variables
     ${xcp_values}=    Evaluate    {"X_Angular_Rate_Filt": -327.68,"Y_Angular_Rate_Filt": -327.68,"Z_Angular_Rate_Filt": -327.68,"MsgCntr": 0,"MsgCrc": 0}
@@ -309,7 +309,7 @@ Send Tx XCP variables and validating on CAN signals for message mVcuImuAngVel_Fi
     Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mVcuImuAngVel_Filt    ${expected_can_signals}    30
 
 
-Send Tx XCP variables and validating on CAN signals for message mVcuImuLinAccel
+VM-TX-0x205: Send Tx XCP variables and validating on CAN signals for message mVcuImuLinAccel
     [Documentation]    Validate TX message 'mVcuImuLinAccel' by writing XCP variables and reading CAN signals
 
     Log    writing min value to the xcp variables
@@ -331,7 +331,7 @@ Send Tx XCP variables and validating on CAN signals for message mVcuImuLinAccel
     ${expected_can_signals}=    Evaluate    {"X_Accel": 32.767,"Y_Accel": 32.767,"Z_Accel": 32.767,"MsgCntr": 15,"MsgCrc": 255}
     Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mVcuImuLinAccel    ${expected_can_signals}    30
 
-Send Tx XCP variables and validating on CAN signals for message mVcuImuLinAccel_Filt
+VM-TX-0x20B: Send Tx XCP variables and validating on CAN signals for message mVcuImuLinAccel_Filt
     [Documentation]    Validate TX message 'mVcuImuLinAccel_Filt' by writing XCP variables and reading CAN signals
 
     Log    writing min value to the xcp variables
@@ -353,7 +353,7 @@ Send Tx XCP variables and validating on CAN signals for message mVcuImuLinAccel_
     ${expected_can_signals}=    Evaluate    {"X_Accel_Filt": 32.767,"Y_Accel_Filt": 32.767,"Z_Accel_Filt": 32.767,"MsgCntr": 15,"MsgCrc": 255}
     Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mVcuImuLinAccel_Filt    ${expected_can_signals}    30
 
-Send Tx XCP variables and validating on CAN signals for message mVcuSys
+VM-TX-0x302: Send Tx XCP variables and validating on CAN signals for message mVcuSys
     [Documentation]    Validate TX message 'mVcuSys' by writing XCP variables and reading CAN signals
 
     Log    writing min value to the xcp variables
@@ -375,7 +375,7 @@ Send Tx XCP variables and validating on CAN signals for message mVcuSys
     ${expected_can_signals}=    Evaluate    {"AdcuShtdwnRq": "True","EbcmShtdwnRq": "True","MtrTrqLmtAccel": 255,"MtrTrqLmtDecel": 255,"EstopTest": "N/A","VcuStateShtdwn": "N/A","VcuStateInit": "N/A","MsgCntr": 15,"MsgCrc": 255}
     Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mVcuSys    ${expected_can_signals}    30
 
-Send Tx XCP variables and validating on CAN signals for message mVcuVehID
+VM-TX-0x1CFFBACC: Send Tx XCP variables and validating on CAN signals for message mVcuVehID
     [Documentation]    Validate TX message 'mVcuVehID' by writing XCP variables and reading CAN signals
 
     Log    writing min value to the xcp variables
