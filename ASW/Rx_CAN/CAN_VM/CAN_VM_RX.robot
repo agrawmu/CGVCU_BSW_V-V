@@ -7,14 +7,13 @@ Suite Teardown    Shutdown
 
 *** Keywords ***
 Setup
-    Open Canape And Load Imu Configuration    D:/Validation/Vinayak/ASW/CAN_VM_Configuration/ASW_CAN_VM_RX    CAN_VM_RX
-    Initialize Can    C:/Users/validation/Documents/PythonProject/CANoe/RX_Testing/CAN_VM/CAN_VM_v3.7.1.dbc    3    500000
+    Open Canape And Load Imu Configuration    D:/Jenkins/workspace/CGVCU_BSW_V-V/ASW/Rx_CAN/Rx_CAN_Config    CAN_RX
+    Initialize Can    D:/Jenkins/workspace/CGVCU_BSW_V-V/ASW/DBC/CAN_VM_v3.7.1.dbc    3    500000
     Sleep    3s
 
 Shutdown
     Shutdown Can
     Close Canape
-
 
 *** Test Cases ***
 VM-RX-0xcfed9a6: Send AUXIO1_BMS2 with Signal Values and Verify by reading XCP Variable
