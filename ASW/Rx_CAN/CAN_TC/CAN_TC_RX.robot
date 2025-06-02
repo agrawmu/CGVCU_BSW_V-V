@@ -8,8 +8,8 @@ Suite Teardown    Shutdown
 *** Keywords ***
 
 Setup
-    Open Canape And Load Imu Configuration    D:/Validation/Vinayak/ASW/CAN_TC_Configuration/CAN_TC_RX    CAN_TC_RX
-    Initialize Can    C:/Users/validation/Documents/PythonProject/CANoe/RX_Testing/CAN_IPCF/CAN_TC_V1.0.4.dbc    1    500000
+    Open Canape And Load Imu Configuration    D:/Jenkins/workspace/CGVCU_BSW_V-V/ASW/Rx_CAN/Rx_CAN_Config    CAN_RX
+    Initialize Can    D:/Jenkins/workspace/CGVCU_BSW_V-V/ASW/DBC/CAN_TC_V1.0.4.dbc    1    500000
     Sleep    3s
 
 Shutdown
@@ -19,148 +19,104 @@ Shutdown
 *** Test Cases ***
 TC-RX-0x402: Send mTCRightJoyStat with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message handling and XCP variable read
-    # Evaluate the dictionary to convert string to native dict
     Log    Assigning Minimum Value to the signal
     ${signals}=    Evaluate    {"RightX_Ntrl": 0, "RightX_Neg": 0, "RightX_Pos": 0, "RightX_Value": 10, "RightY_Ntrl": 0, "RightY_Neg": 0, "RightY_Pos": 0, "RightY_Value": 10, "Right_Trigger": 0, "Btn_1": 0, "Btn_2": 0, "Btn_3": 0, "Btn_4": 0, "MsgCntr": 15, "MsgCrc": 23,}
-
     Run Keyword And Continue On Failure    Send Can Message    mTCRightJoyStat    ${signals}
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightX_Ntrl
     Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightX_Neg
     Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightX_Pos
     Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightX_Value
     Should Be Equal As Numbers    ${value}    10
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightY_Ntrl
     Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightY_Neg
     Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightY_Pos
     Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightY_Value
     Should Be Equal As Numbers    ${value}    10
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.Right_Trigger
     Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.Btn_1
     Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.Btn_2
     Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.Btn_3
     Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.Btn_4
     Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.MsgCntr
     Should Be Equal As Numbers    ${value}    15
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.MsgCrc
     Should Be Equal As Numbers    ${value}    23
 
     Log    Assigning Mid Value to the signal
     ${signals}=    Evaluate    {"RightX_Ntrl": 1, "RightX_Neg": 1, "RightX_Pos": 1, "RightX_Value": 230, "RightY_Ntrl": 1, "RightY_Neg": 1, "RightY_Pos": 1, "RightY_Value": 230, "Right_Trigger": 1, "Btn_1": 1, "Btn_2": 1, "Btn_3": 1, "Btn_4": 1, "MsgCntr": 15, "MsgCrc": 56,}
-
     Run Keyword And Continue On Failure    Send Can Message    mTCRightJoyStat    ${signals}
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightX_Ntrl
     Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightX_Neg
     Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightX_Pos
     Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightX_Value
     Should Be Equal As Numbers    ${value}    230
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightY_Ntrl
     Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightY_Neg
     Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightY_Pos
     Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightY_Value
     Should Be Equal As Numbers    ${value}    230
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.Right_Trigger
     Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.Btn_1
     Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.Btn_2
     Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.Btn_3
     Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.Btn_4
     Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.MsgCrc
     Should Be Equal As Numbers    ${value}    56
 
     Log    Assigning Maximum Value to the signal
     ${signals}=    Evaluate    {"RightX_Ntrl": 2, "RightX_Neg": 2, "RightX_Pos": 2, "RightX_Value": 1020, "RightY_Ntrl": 2, "RightY_Neg": 2, "RightY_Pos": 2, "RightY_Value": 1020, "Right_Trigger": 2, "Btn_1": 2, "Btn_2": 2, "Btn_3": 2, "Btn_4": 2, "MsgCntr": 15, "MsgCrc": 230,}
-
     Run Keyword And Continue On Failure    Send Can Message    mTCRightJoyStat    ${signals}
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightX_Ntrl
     Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightX_Neg
     Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightX_Pos
     Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightX_Value
     Should Be Equal As Numbers    ${value}    1020
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightY_Ntrl
     Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightY_Neg
     Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightY_Pos
     Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.RightY_Value
     Should Be Equal As Numbers    ${value}    1020
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.Right_Trigger
     Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.Btn_1
     Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.Btn_2
     Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.Btn_3
     Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.Btn_4
     Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCRightJoyStat_VDP_SG_mT.MsgCrc
     Should Be Equal As Numbers    ${value}    230
 
@@ -172,46 +128,32 @@ TC-RX-0x400: Send mTCLeftJoyStat with Signal Values and Verify by reading XCP Va
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftX_Ntrl
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftX_Neg
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftX_Pos
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftX_Value
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftY_Ntrl
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftY_Neg
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftY_Pos
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftY_Value
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    10
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.Left_Trigger
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.Btn_Dwn
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.Btn_Right
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.Btn_Up
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.Btn_Left
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.MsgCntr
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.MsgCrc
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    23
 
@@ -221,46 +163,32 @@ TC-RX-0x400: Send mTCLeftJoyStat with Signal Values and Verify by reading XCP Va
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftX_Ntrl
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftX_Neg
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftX_Pos
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftX_Value
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    190
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftY_Ntrl
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftY_Neg
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftY_Pos
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftY_Value
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    230
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.Left_Trigger
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.Btn_Dwn
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.Btn_Right
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.Btn_Up
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.Btn_Left
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.MsgCntr
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.MsgCrc
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    56
 
@@ -270,46 +198,32 @@ TC-RX-0x400: Send mTCLeftJoyStat with Signal Values and Verify by reading XCP Va
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftX_Ntrl
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftX_Neg
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftX_Pos
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftX_Value
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1010
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftY_Ntrl
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftY_Neg
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftY_Pos
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.LeftY_Value
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1020
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.Left_Trigger
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.Btn_Dwn
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.Btn_Right
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.Btn_Up
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.Btn_Left
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.MsgCntr
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    14
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx100.PP_SG_mTCLeftJoyStat_VDP_SG_mTC.MsgCrc
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    230
 
@@ -321,44 +235,35 @@ TC-RX-0x403: Send mTcSwVer with Signal Values and Verify by reading XCP Variable
     Sleep    2s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx1000.PP_SG_mTcSwVer_VDP_SG_mTcSwVer.HwMaj
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    10
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx1000.PP_SG_mTcSwVer_VDP_SG_mTcSwVer.HwMin
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    10
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx1000.PP_SG_mTcSwVer_VDP_SG_mTcSwVer.SwMaj
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    10
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx1000.PP_SG_mTcSwVer_VDP_SG_mTcSwVer.SwMin
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    10
-
-    Log    Assigning Middle Value to the signal
+    
+	Log    Assigning Middle Value to the signal
     ${signals}=    Evaluate    {"HwMaj":130, "HwMin":130, "SwMaj":130, "SwMin":130,}
     Send Can Message    mTcSwVer    ${signals}
     Sleep    2s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx1000.PP_SG_mTcSwVer_VDP_SG_mTcSwVer.HwMaj
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    130
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx1000.PP_SG_mTcSwVer_VDP_SG_mTcSwVer.HwMin
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    130
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx1000.PP_SG_mTcSwVer_VDP_SG_mTcSwVer.SwMaj
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    130
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx1000.PP_SG_mTcSwVer_VDP_SG_mTcSwVer.SwMin
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    130
-
+	
     Log    Assigning Maximum Value to the signal
     ${signals}=    Evaluate    {"HwMaj":255, "HwMin":255, "SwMaj":255, "SwMin":255,}
     Send Can Message    mTcSwVer    ${signals}
     Sleep    2s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx1000.PP_SG_mTcSwVer_VDP_SG_mTcSwVer.HwMaj
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    255
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx1000.PP_SG_mTcSwVer_VDP_SG_mTcSwVer.HwMin
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    255
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx1000.PP_SG_mTcSwVer_VDP_SG_mTcSwVer.SwMaj
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    255
-
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApTcRx1000.PP_SG_mTcSwVer_VDP_SG_mTcSwVer.SwMin
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    255
