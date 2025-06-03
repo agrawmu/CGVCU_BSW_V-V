@@ -39,7 +39,7 @@ def main():
 
     # flash_tool_root = find_cli_root()
 
-    bin_dir       = r"D:\Jenkins\Flashing\f4.2"      # location of .bin/.sdcard files 
+    bin_dir       = r"D:\Jenkins\Flashing\F5"      # location of .bin/.sdcard files 
 
     # usb_mount     = "/mnt/usb"                          # where you mount the USB stick
 
