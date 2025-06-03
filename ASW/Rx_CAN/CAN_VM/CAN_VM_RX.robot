@@ -1076,32 +1076,32 @@ VM-RX-0x66: Send mWhdStat3 with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message mWhdStat3 and XCP variable read
 
     Log    Assigning Minimum Value to the signal
-    ${signals}=    Evaluate    {"WhdAngle": 0,"WhdCurr_Ph1A": 0,"WhdCurr_Ph2A": 0,"WhdCurr_Ph1B": 0,"WhdCurr_Ph2B": 0,"WhdCurr_Ph1C": 0,"WhdCurr_Ph2C": 0,}
+    ${signals}=    Evaluate    {"WhdAngle": 0,"WhdCurr_Ph1A": -127,"WhdCurr_Ph2A": -127,"WhdCurr_Ph1B": -127,"WhdCurr_Ph2B": -127,"WhdCurr_Ph1C": -127,"WhdCurr_Ph2C": -127,}
     Send Can Message    mWhdStat3    ${signals}
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApWhdRx20_2.PP_SG_mWhdStat3_VDP_SG_mWhdStat.WhdAngle
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApWhdRx20_2.PP_SG_mWhdStat3_VDP_SG_mWhdStat.WhdCurr_Ph1A
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -127
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApWhdRx20_2.PP_SG_mWhdStat3_VDP_SG_mWhdStat.WhdCurr_Ph2A
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -127
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApWhdRx20_2.PP_SG_mWhdStat3_VDP_SG_mWhdStat.WhdCurr_Ph1B
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -127
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApWhdRx20_2.PP_SG_mWhdStat3_VDP_SG_mWhdStat.WhdCurr_Ph2B
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -127
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApWhdRx20_2.PP_SG_mWhdStat3_VDP_SG_mWhdStat.WhdCurr_Ph1C
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -127
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApWhdRx20_2.PP_SG_mWhdStat3_VDP_SG_mWhdStat.WhdCurr_Ph2C
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -127
 
     Log    Assigning Maximum Value to the signal
-    ${signals}=    Evaluate    {"WhdAngle":180,"WhdCurr_Ph1A":50,"WhdCurr_Ph2A":50,"WhdCurr_Ph1B":50,"WhdCurr_Ph2B":50,"WhdCurr_Ph1C":50,"WhdCurr_Ph2C":50,}
+    ${signals}=    Evaluate    {"WhdAngle":180,"WhdCurr_Ph1A":1,"WhdCurr_Ph2A":1,"WhdCurr_Ph1B":1,"WhdCurr_Ph2B":1,"WhdCurr_Ph1C":1,"WhdCurr_Ph2C":1,}
     Send Can Message    mWhdStat3    ${signals}
     Sleep   1s
 
@@ -1109,22 +1109,22 @@ VM-RX-0x66: Send mWhdStat3 with Signal Values and Verify by reading XCP Variable
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}   180
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApWhdRx20_2.PP_SG_mWhdStat3_VDP_SG_mWhdStat.WhdCurr_Ph1A
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}   50
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}   1
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApWhdRx20_2.PP_SG_mWhdStat3_VDP_SG_mWhdStat.WhdCurr_Ph2A
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}   50
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}   1
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApWhdRx20_2.PP_SG_mWhdStat3_VDP_SG_mWhdStat.WhdCurr_Ph1B
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}   50
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}   1
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApWhdRx20_2.PP_SG_mWhdStat3_VDP_SG_mWhdStat.WhdCurr_Ph2B
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}   50
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}   1
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApWhdRx20_2.PP_SG_mWhdStat3_VDP_SG_mWhdStat.WhdCurr_Ph1C
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}   50
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}   1
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApWhdRx20_2.PP_SG_mWhdStat3_VDP_SG_mWhdStat.WhdCurr_Ph2C
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}   50
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}   1
 
     Log    Assigning Maximum Value to the signal
     ${signals}=    Evaluate    {"WhdAngle": 360,"WhdCurr_Ph1A":128,"WhdCurr_Ph2A":128,"WhdCurr_Ph1B":128,"WhdCurr_Ph2B":128,"WhdCurr_Ph1C":128,"WhdCurr_Ph2C":128,}
@@ -3097,7 +3097,7 @@ VM-RX-0x298: Send mSbwPosition with Signal Values and Verify by reading XCP Vari
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    255
 
 
-VM-RX-0x292: Send mSbwStat with Signal Values and Verify by reading XCP Variable
+VM-RX-0x290: Send mSbwStat with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message mSbwStat and XCP variable read
 
     Log    Assigning Minimum Value to the signal
@@ -3131,10 +3131,9 @@ VM-RX-0x292: Send mSbwStat with Signal Values and Verify by reading XCP Variable
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApSbwRx10.PP_SG_mSbwStat_VDP_SG_mSbwStat.TrqSnsIn_1C
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
 
-
     Log    Assigning Mid Value to the signal
 
-    ${signals}=    Evaluate    {"MtrTrqEst": -105, "MtrDcStat": -40, "MtrCurr": 1, "LvVolt": 1, "SwitchStat": 3, "InvTmpr": 100, "TrqSnsIn": -105, "TrqSnsIn_1C": 30,}
+    ${signals}=    Evaluate    {"MtrTrqEst": -105, "MtrDcStat": -40, "MtrCurr": 13.79, "LvVolt": 14.79, "SwitchStat": 3, "InvTmpr": 100, "TrqSnsIn": -105, "TrqSnsIn_1C": 30,}
     Run Keyword And Continue On Failure    Send Can Message    mSbwStat    ${signals}
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApSbwRx10.PP_SG_mSbwStat_VDP_SG_mSbwStat.MtrTrqEst
@@ -3143,9 +3142,9 @@ VM-RX-0x292: Send mSbwStat with Signal Values and Verify by reading XCP Variable
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApSbwRx10.PP_SG_mSbwStat_VDP_SG_mSbwStat.MtrDcStat
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -40
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApSbwRx10.PP_SG_mSbwStat_VDP_SG_mSbwStat.MtrCurr
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    13.79        precision=0.001
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApSbwRx10.PP_SG_mSbwStat_VDP_SG_mSbwStat.LvVolt
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    14.79        precision=0.001
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApSbwRx10.PP_SG_mSbwStat_VDP_SG_mSbwStat.SwitchStat
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3
@@ -3160,7 +3159,7 @@ VM-RX-0x292: Send mSbwStat with Signal Values and Verify by reading XCP Variable
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    30
 
 
-    ${signals}=    Evaluate    {"MtrTrqEst": 120, "MtrDcStat": 60, "MtrCurr": 1, "LvVolt": 1, "SwitchStat": 3, "InvTmpr": 100, "TrqSnsIn": 120, "TrqSnsIn_1C": 30,}
+    ${signals}=    Evaluate    {"MtrTrqEst": 120, "MtrDcStat": 60, "MtrCurr": 1, "LvVolt": 1, "SwitchStat": 3, "InvTmpr": 125, "TrqSnsIn": 120, "TrqSnsIn_1C": 30,}
     Run Keyword And Continue On Failure    Send Can Message    mSbwStat    ${signals}
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApSbwRx10.PP_SG_mSbwStat_VDP_SG_mSbwStat.MtrTrqEst
@@ -3179,7 +3178,7 @@ VM-RX-0x292: Send mSbwStat with Signal Values and Verify by reading XCP Variable
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApSbwRx10.PP_SG_mSbwStat_VDP_SG_mSbwStat.InvTmpr
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    100
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    125
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApSbwRx10.PP_SG_mSbwStat_VDP_SG_mSbwStat.TrqSnsIn
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    120
@@ -3189,32 +3188,32 @@ VM-RX-0x292: Send mSbwStat with Signal Values and Verify by reading XCP Variable
 
     Log    Assigning Maximum Value to the signal
 
-    ${signals}=    Evaluate    {"MtrTrqEst": 125, "MtrDcStat": 90, "MtrCurr": 2, "LvVolt": 2, "SwitchStat": 6, "InvTmpr": 245, "TrqSnsIn": 125, "TrqSnsIn_1C": 250,}
+    ${signals}=    Evaluate    {"MtrTrqEst": 127, "MtrDcStat": 100, "MtrCurr": 25.5, "LvVolt": 25.5, "SwitchStat": 6, "InvTmpr": 255, "TrqSnsIn": 125, "TrqSnsIn_1C": 255,}
     Run Keyword And Continue On Failure    Send Can Message    mSbwStat    ${signals}
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApSbwRx10.PP_SG_mSbwStat_VDP_SG_mSbwStat.MtrTrqEst
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    125
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    127
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApSbwRx10.PP_SG_mSbwStat_VDP_SG_mSbwStat.MtrDcStat
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    90
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    100
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApSbwRx10.PP_SG_mSbwStat_VDP_SG_mSbwStat.MtrCurr
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    25.5        precision=0.001
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApSbwRx10.PP_SG_mSbwStat_VDP_SG_mSbwStat.LvVolt
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    25.5        precision=0.001
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApSbwRx10.PP_SG_mSbwStat_VDP_SG_mSbwStat.SwitchStat
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    6
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApSbwRx10.PP_SG_mSbwStat_VDP_SG_mSbwStat.InvTmpr
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    245
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    255
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApSbwRx10.PP_SG_mSbwStat_VDP_SG_mSbwStat.TrqSnsIn
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    125
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApSbwRx10.PP_SG_mSbwStat_VDP_SG_mSbwStat.TrqSnsIn_1C
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    250
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    255
 
 VM-RX-0x65: Send mWhdStat2 with Signal Values and Verify by reading XCP Variable
 
@@ -4237,7 +4236,7 @@ VM-RX-0x2: Send mEbcm2L_TrqLmts with Signal Values and Verify by reading XCP Var
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_TrqLmts_VDP_SG_mE.TrqSlewRq
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_TrqLmts_VDP_SG_mE.VehAccelEbcm
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -327.68    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    -327.68
 
     Log    Assigning Mid Value to the signal
     ${signals}=    Evaluate    {"MsgCntr": 7, "MsgCrc": 7, "RegBrkTrqRq": 63.75, "StopLightRq": 1, "TrqLmtMtrRq": 63.75, "TrqSlewRq": 1, "VehAccelEbcm": 0}
@@ -4250,10 +4249,10 @@ VM-RX-0x2: Send mEbcm2L_TrqLmts with Signal Values and Verify by reading XCP Var
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_TrqLmts_VDP_SG_mE.MsgCrc
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    7
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_TrqLmts_VDP_SG_mE.RegBrkTrqRq
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    63.75    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    63.75
 
 	${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_TrqLmts_VDP_SG_mE.TrqLmtMtrRq
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    63.75    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    63.75
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_TrqLmts_VDP_SG_mE.TrqSlewRq
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
@@ -4273,19 +4272,19 @@ VM-RX-0x2: Send mEbcm2L_TrqLmts with Signal Values and Verify by reading XCP Var
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    15
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_TrqLmts_VDP_SG_mE.RegBrkTrqRq
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    127.5    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    127.5
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_TrqLmts_VDP_SG_mE.StopLightRq
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
 
 	${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_TrqLmts_VDP_SG_mE.TrqLmtMtrRq
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    127.5    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    127.5
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_TrqLmts_VDP_SG_mE.TrqSlewRq
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
 
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApEbcm2LRx10_1.PP_SG_mEbcm2L_TrqLmts_VDP_SG_mE.VehAccelEbcm
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    327.67    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    327.67
 
 VM-RX-0x294: Send mSbwSys_Allied with Signal Values and Verify by reading XCP Variable
     [Documentation]    Validate RX message mSbwSys_Allied and XCP variable read
