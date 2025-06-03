@@ -106,17 +106,17 @@ AD-RX-0x701: Send mAdcuSwVer with Signal Values and Verify by reading XCP Variab
     [Documentation]    Validate RX message and XCP variable read
     # Evaluate the dictionary to convert string to native dict
     Log    Assigning Minimum Value to the signal
-    ${signals}=    Evaluate    {"SwMaj": 2, "SwMin": 0, "SwRev": 88, "SwStat": 0,}
+    ${signals}=    Evaluate    {"SwMaj": 2, "SwMin": 3, "SwRev": 7, "SwStat": 1,}
     Send Can Message    mAdcuSwVer    ${signals}
     Sleep    10s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx10000.PP_SG_mAdcuSwVer_VDP_SG_mAdcuSw.SwMaj
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    2
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx10000.PP_SG_mAdcuSwVer_VDP_SG_mAdcuSw.SwMin
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    3
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx10000.PP_SG_mAdcuSwVer_VDP_SG_mAdcuSw.SwRev
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    88
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    7
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx10000.PP_SG_mAdcuSwVer_VDP_SG_mAdcuSw.SwStat
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
     
     Log    Assigning mid Value to the signal
     ${signals}=    Evaluate    {"SwMaj": 4, "SwMin": 90, "SwRev": 3, "SwStat": 1,}
@@ -232,43 +232,43 @@ AD-RX-0x78: Send mVehCtrlADRq with Signal Values and Verify by reading XCP Varia
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0
 
     Log    Assigning Mid Value to the signal
-    ${signals}=    Evaluate    {"VehSpdCmd": 0, "VehAccelLongCmd": 0, "VehRoadWhlAngleCmd": 0, "b_High_Deceleration_Flag": 1, "AebEvent": 1, "AebSrc": 8, "MsgCntr": 8, "VehDirCmd": 1, "MsgCrc": 128}
+    ${signals}=    Evaluate    {"VehSpdCmd": 35.5, "VehAccelLongCmd": 21.5, "VehRoadWhlAngleCmd": 150.5, "b_High_Deceleration_Flag": 1, "AebEvent": 1, "AebSrc": 6, "MsgCntr": 10, "VehDirCmd": 1, "MsgCrc": 150}
     Run Keyword And Continue On Failure    Send Can Message    mVehCtrlADRq    ${signals}
     Sleep    1s
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.VehSpdCmd
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    35.5    precision=0.001
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.VehAccelLongCmd
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    21.5    precision=0.001
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.VehRoadWhlAngleCmd
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    0    precision=0.001
-    ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.b_High_Deceleration_Flag
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
-    ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.AebEvent
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
-    ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.AebSrc
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    8
-    ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.MsgCntr
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    8
-    ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.VehDirCmd
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
-    ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.MsgCrc
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    128
-
-    ${signals}=    Evaluate    {"VehSpdCmd": 1, "VehAccelLongCmd": 1, "VehRoadWhlAngleCmd": 1, "b_High_Deceleration_Flag": 1, "AebEvent": 1, "AebSrc": 6, "MsgCntr": 15, "VehDirCmd": 1, "MsgCrc": 100}
-    Run Keyword And Continue On Failure    Send Can Message    mVehCtrlADRq    ${signals}
-    Sleep    1s
-    ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.VehSpdCmd
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1    precision=0.001
-    ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.VehAccelLongCmd
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1    precision=0.001
-    ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.VehRoadWhlAngleCmd
-    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1    precision=0.001
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    150.5    precision=0.001
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.b_High_Deceleration_Flag
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.AebEvent
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.AebSrc
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    6
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.MsgCntr
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    10
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.VehDirCmd
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.MsgCrc
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    150
+
+    ${signals}=    Evaluate    {"VehSpdCmd": 1, "VehAccelLongCmd": 1, "VehRoadWhlAngleCmd": 1, "b_High_Deceleration_Flag": 1, "AebEvent": 1, "AebSrc": 8, "MsgCntr": 15, "VehDirCmd": 1, "MsgCrc": 100}
+    Run Keyword And Continue On Failure    Send Can Message    mVehCtrlADRq    ${signals}
+    Sleep    1s
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.VehSpdCmd
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1    precision=0.001
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.VehAccelLongCmd
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1    precision=0.001
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.VehRoadWhlAngleCmd
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1    precision=0.001
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.b_High_Deceleration_Flag
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.AebEvent
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    1
+    ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.AebSrc
+    Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    8
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.MsgCntr
     Run Keyword And Continue On Failure    Should Be Equal As Numbers    ${value}    15
     ${value}=    Read Xcp Variable    rtARID_DEF_CpApAdcuRx20.PP_SG_mVehCtrlADRq_VDP_SG_mVehC.VehDirCmd
