@@ -5,7 +5,7 @@ from pyftdi.gpio import GpioController
 # ── Configuration ─────────────────────────────────────────────────────────────
 MOBAXTERM = r"C:\Program Files (x86)\Mobatek\MobaXterm\MobaXterm.exe"
 Flash_tool = r"C:\NXP\S32DS.3.5\S32DS\tools\S32FlashTool"
-Bin_Dir = r"D:\Jenkins\Flashing\F5\F5_Acore_Mcore"
+Bin_Dir = r"D:\Jenkins\Flashing"
 Candidates = ["Silicon Labs CP210x", "USB-Enhanced-SERIAL CH9102"]
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)-8s %(message)s', datefmt='%H:%M:%S')
@@ -92,12 +92,12 @@ def main():
     alg_nor_bin  = os.path.join(Flash_tool, "flash", "MX25UW51245G.bin")
     alg_emmc_bin = os.path.join(Flash_tool, "flash", "EMMC.bin")
 
-    bootloader_core_minimal = pick_file(os.path.join(Bin_Dir, "Bootloader_core_minimal.bin"), "bootloader")
-    fip_core                = pick_file(os.path.join(Bin_Dir, "fip_core.s32-sdcard"), "FIP core")
-    core_minimal_img        = pick_file(os.path.join(Bin_Dir, "core-image-minimal-*.rootfs.sdcard"), "minimal image")
-    delivered_bootloader    = pick_file(os.path.join(Bin_Dir, "F5_Bootloader.bin"), "delivered_bootloader")
-    mcore_bin               = pick_file(os.path.join(Bin_Dir, "f5_Mcore.bin"), "M-core app")
-    bl2_file                = pick_file(os.path.join(Bin_Dir, "bl2_w_dtb.s32-sdcard"), "A-core FIP")
+    bootloader_core_minimal = pick_file(os.path.join(Bin_Dir, "Core_minimal", "*.bin"), "bootloader")
+    fip_core                = pick_file(os.path.join(Bin_Dir, "Core_minimal", "*.s32-sdcard"), "FIP core")
+    core_minimal_img        = pick_file(os.path.join(Bin_Dir, "Core_minimal", "*.rootfs.sdcard"), "minimal image")
+    delivered_bootloader    = pick_file(os.path.join(Bin_Dir, "Bootloader", "*loader.bin"), "delivered_bootloader")
+    mcore_bin               = pick_file(os.path.join(Bin_Dir, "M_Core", "*core.bin"), "M-core app")
+    bl2_file                = pick_file(os.path.join(Bin_Dir, "A_Core", "*.s32-sdcard"), "A-core Wake-up")
 
     # Kill MobaXterm sessions
     logging.info("Killing any open MobaXterm session ..")
@@ -112,20 +112,31 @@ def main():
     gpio.write(0x00)
 
     # Flash Bootloader and FIP
+    # power_on_reset()
+    # power_on_reset()
     logging.info("Switching to Flash mode..")
-    time.sleep(2); switch_to_flash_mode(); power_on_reset()
+    time.sleep(2); switch_to_flash_mode()
+    power_on_reset()
+    power_on_reset()
+    logging.info("Performing NOR Erase..\n")    
     nor_erase()
+    logging.info("Flashing Bootloader Core Minimal..\n")    
     nor_program(bootloader_core_minimal, "0x0")
+    logging.info("Flashing FIP-Core..\n")        
     nor_program(fip_core, "0x600000")
 
     logging.info("Performing POWER-ON-RESET..")
     time.sleep(2); power_on_reset()
 
     # Flash minimal image to eMMC
+    logging.info("Performing EMMC Erase..\n")           
     emmc_erase()
+    logging.info("Flashing Core Minimal Image..\n")               
     emmc_program(core_minimal_img, "0x0")
 
+    power_on_reset()
     switch_to_boot_mode()
+    power_on_reset()
 
     # MobaXterm: ROS Flash
     logging.info("Launching MobaXterm for ROS flash..")
@@ -148,13 +159,19 @@ def main():
 
     # Final Flashing: Delivered Bootloader + M-core + BL2
     logging.info("MobaXterm closed, resuming flash flow..")
+    power_on_reset()
     switch_to_flash_mode(); power_on_reset(); power_on_reset()
+    logging.info("Performing NOR Erase..\n")        
     nor_erase()
+    logging.info("Flashing Delivered Bootloader..\n")    
     nor_program(delivered_bootloader, "0x0")
+    logging.info("Flashing M-Core binary..\n")        
     nor_program(mcore_bin, "0x50000")
+    logging.info("Flashing BL2 File..\n")            
     nor_program(bl2_file, "0x600000")
 
     logging.info("Switching back to Boot mode")
+    power_on_reset()
     switch_to_boot_mode(); power_on_reset()
 
     # Final verification
