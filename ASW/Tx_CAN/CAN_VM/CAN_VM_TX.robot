@@ -542,3 +542,35 @@ VM-TX-0x12: Send Tx XCP variables and validating on CAN signals for message mWhd
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TrqSlewLmt":25.4, "SpdSlewLmt":2.54, "CtrlMode":"Disable", "MtrMode":7, "EnblCmd":"True", "Boot":1, "Debug":"DEBUG", "TrqCmd":1023, "SpdCmd":1023, "MsgCntr":15, "MsgCrc":255}
     Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    mWhdCtrl    ${expected_can_signals}    30
+
+VM-TX-0xCFDEA00: Send Tx XCP variables and validating on CAN signals for message mUserText
+    [Documentation]    Validate TX message 'mUserText' by writing XCP variables and reading CAN signals
+
+    Log    writing min value to the xcp variables
+    ${xcp_values}=    Evaluate    {"UserTextStringKey": 0,"UserTextStringSeg": 0,"UserTextString1": 0,"UserTextString2": 0,"UserTextString3": 0,"UserTextString4": 0,"UserTextString5": 0,"UserTextString6": 0}
+    ${xcp_var_map}=    Evaluate    {"UserTextStringKey": "Rte_C_SG_mUserText_adt_E5549464370C805D9FA48ED5C1429E6A.UserTextStringKey","UserTextStringSeg": "Rte_C_SG_mUserText_adt_E5549464370C805D9FA48ED5C1429E6A.UserTextStringSeg","UserTextString1": "Rte_C_SG_mUserText_adt_E5549464370C805D9FA48ED5C1429E6A.UserTextString1","UserTextString2": "Rte_C_SG_mUserText_adt_E5549464370C805D9FA48ED5C1429E6A.UserTextString2","UserTextString3": "Rte_C_SG_mUserText_adt_E5549464370C805D9FA48ED5C1429E6A.UserTextString3","UserTextString4": "Rte_C_SG_mUserText_adt_E5549464370C805D9FA48ED5C1429E6A.UserTextString4","UserTextString5": "Rte_C_SG_mUserText_adt_E5549464370C805D9FA48ED5C1429E6A.UserTextString5","UserTextString6": "Rte_C_SG_mUserText_adt_E5549464370C805D9FA48ED5C1429E6A.UserTextString6",}
+    Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
+    ${expected_can_signals}=    Evaluate    {"UserTextStringKey": 0,"UserTextStringSeg": 0,"UserTextString1": 0,"UserTextString2": 0,"UserTextString3": 0,"UserTextString4": 0,"UserTextString5": 0,"UserTextString6": 0}
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    mUserText    ${expected_can_signals}    30
+
+VM-TX-0xCFDE900: Send Tx XCP variables and validating on CAN signals for message mUserValue
+    [Documentation]    Validate TX message 'mUserValue' by writing XCP variables and reading CAN signals
+
+    Log    writing min value to the xcp variables
+    ${xcp_values}=    Evaluate    {"ConfigId": 0,"ConfigValue": 0}
+    ${xcp_var_map}=    Evaluate    {"ConfigId": "Rte_C_SG_mUserValue_adt_B0C227384AC4BC50713D167702A32FC5.ConfigId","ConfigValue": "Rte_C_SG_mUserValue_adt_B0C227384AC4BC50713D167702A32FC5.ConfigValue",}
+    Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
+    ${expected_can_signals}=    Evaluate    {"ConfigId": "Magna_1","ConfigValue": 0}
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    mUserValue    ${expected_can_signals}    30
+
+    Log    writing mid value to the xcp variables
+    ${xcp_values}=    Evaluate    {"ConfigId": 8,"ConfigValue": 100}
+    Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
+    ${expected_can_signals}=    Evaluate    {"ConfigId": "Magna_8","ConfigValue": 100}
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mUserValue    ${expected_can_signals}    30
+
+    Log    writing max value to the xcp variables
+    ${xcp_values}=    Evaluate    {"ConfigId": 63,"ConfigValue": 4294967295}
+    Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
+    ${expected_can_signals}=    Evaluate    {"ConfigId": "DisplayMode","ConfigValue": 4294967295}
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mUserValue    ${expected_can_signals}    30
