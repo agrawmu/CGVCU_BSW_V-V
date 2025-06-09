@@ -5,7 +5,7 @@ from pyftdi.gpio import GpioController
 # ── Configuration ─────────────────────────────────────────────────────────────
 MOBAXTERM = r"C:\Program Files (x86)\Mobatek\MobaXterm\MobaXterm.exe"
 Flash_tool = r"C:\NXP\S32DS.3.5\S32DS\tools\S32FlashTool"
-Bin_Dir = r"D:\Jenkins\Flashing"
+Bin_Dir = r"D:\Jenkins\workspace\CGVCU_Flashing"
 Candidates = ["Silicon Labs CP210x", "USB-Enhanced-SERIAL CH9102"]
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)-8s %(message)s', datefmt='%H:%M:%S')
@@ -83,6 +83,17 @@ def emmc_program(file, addr):
 
 # ── Main Flow ─────────────────────────────────────────────────────────────────
 def main():
+    # Usage: Argument to take release version to be flashed
+    
+    if len(sys.argv) != 2:
+        print("Usage: python flash_automation_acore_mcore.py [F5|F5.1]")
+        sys.exit(1)
+
+    version = sys.argv[1]
+    if version not in ["F5", "F5.1"]:
+        logging.error(f"Invalid argument for Release version: {version}. Use 'F5' or 'F5.1'")
+        sys.exit(1)
+    
     global gpio, port, target_bin, alg_nor_bin, alg_emmc_bin
 
     port = get_board_port()
@@ -92,16 +103,17 @@ def main():
     alg_nor_bin  = os.path.join(Flash_tool, "flash", "MX25UW51245G.bin")
     alg_emmc_bin = os.path.join(Flash_tool, "flash", "EMMC.bin")
 
-    bootloader_core_minimal = pick_file(os.path.join(Bin_Dir, "Core_minimal", "*.bin"), "bootloader")
-    fip_core                = pick_file(os.path.join(Bin_Dir, "Core_minimal", "*.s32-sdcard"), "FIP core")
-    core_minimal_img        = pick_file(os.path.join(Bin_Dir, "Core_minimal", "*.rootfs.sdcard"), "minimal image")
-    delivered_bootloader    = pick_file(os.path.join(Bin_Dir, "Bootloader", "*loader.bin"), "delivered_bootloader")
-    mcore_bin               = pick_file(os.path.join(Bin_Dir, "M_Core", "*core.bin"), "M-core app")
-    bl2_file                = pick_file(os.path.join(Bin_Dir, "A_Core", "*.s32-sdcard"), "A-core Wake-up")
+    bootloader_core_minimal = pick_file(os.path.join(Bin_Dir, "Flash_Procedure", "Core_Minimal_Binaries", "*.bin"), "bootloader core minimal")
+    fip_core                = pick_file(os.path.join(Bin_Dir, "Flash_Procedure", "Core_Minimal_Binaries", "*.s32-sdcard"), "FIP core")
+    core_minimal_img        = pick_file(os.path.join(Bin_Dir, "Flash_Procedure", "Core_Minimal_Binaries", "*.rootfs.sdcard"), "core minimal image")
+    
+    delivered_bootloader    = pick_file(os.path.join(Bin_Dir, "Bootloader", "*.bin"), "delivered_bootloader")
+    mcore_bin               = pick_file(os.path.join(Bin_Dir, "Mcore", "No_Safety", "*.bin"), "M-core app")
+    bl2_file                = pick_file(os.path.join(Bin_Dir, "Acore", "*.s32-sdcard"), "A-core FIP")
 
     # Kill MobaXterm sessions
     logging.info("Killing any open MobaXterm session ..")
-    subprocess.run(["taskkill", "/F", "/IM", "MobaXterm.exe"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    subprocess.run(["taskkill", "/F", "/T", "/IM", "MobaXterm.exe"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     proc_check_1 = subprocess.Popen([MOBAXTERM])
     time.sleep(3)
     proc_check_1.terminate()
@@ -143,14 +155,19 @@ def main():
     proc = subprocess.Popen([MOBAXTERM, "-bookmark", port])
     time.sleep(1); power_on_reset(); time.sleep(30)
     pyautogui.press('enter', presses=3, interval=2)
-    pyautogui.press('f1'); time.sleep(90)
-
+    
+    if version == "F5":
+        pyautogui.press('f1')
+    elif version == "F5.1":
+        pyautogui.press('f3')
+    time.sleep(90)    
+    
     logging.info("Terminating MobaXterm")
     proc.terminate()
     try: proc.wait(timeout=3)
     except subprocess.TimeoutExpired: proc.kill(); proc.wait()
 
-    subprocess.run(["taskkill", "/F", "/IM", "MobaXterm.exe"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    subprocess.run(["taskkill", "/F", "/T", "/IM", "MobaXterm.exe"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     logging.info("Killed any stray MobaXterm instances")
 
     proc_check_2 = subprocess.Popen([MOBAXTERM])
