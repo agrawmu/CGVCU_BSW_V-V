@@ -38,6 +38,10 @@ def switch_to_boot_mode():
     relay_1_off(gpio); relay_2_on(gpio)
     time.sleep(1); logging.info("Switched to BOOT mode")
 
+def power_supply_toggle():
+    relay_4_on(); time.sleep(1)
+    relay_4_off(); time.sleep(1)
+        
 # ── Utility Functions ─────────────────────────────────────────────────────────
 def run_cmd(cmd, err_msg):
     logging.info(f"Running: {' '.join(cmd)}")
@@ -122,8 +126,9 @@ def main():
 
     # Final verification
     subprocess.Popen([MOBAXTERM, "-bookmark", port])
-    time.sleep(1); power_on_reset(); power_on_reset()
-
+    time.sleep(1); power_on_reset()
+    power_supply_toggle()
+    
     logging.info("All done — please reboot and verify.")
 
 if __name__ == "__main__":
