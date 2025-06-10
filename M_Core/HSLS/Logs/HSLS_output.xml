@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-06-10T08:26:50.896375" rpa="false" schemaversion="5">
+<suite id="s1" name="CANoe" source="C:\Users\validation\Documents\PythonProject\CANoe">
+<suite id="s1-s1" name="BSW" source="C:\Users\validation\Documents\PythonProject\CANoe\BSW">
+<suite id="s1-s1-s1" name="HSLS functional validation" source="C:\Users\validation\Documents\PythonProject\CANoe\BSW\HSLS_functional_validation.robot">
+<kw name="Open Canape And Load Imu Configuration" owner="HSLS_canape_interface" type="SETUP">
+<status status="PASS" start="2025-06-10T08:26:51.120009" elapsed="13.778388"/>
+</kw>
+<test id="s1-s1-s1-t1" name="CGMN-XXXX: Verify signal OUT_HSLS_0 under Normal voltage Operation" line="13">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-10T08:27:04.901628" level="INFO">Verifies from SWE.1 Requirement: XXXX</msg>
+<arg>Verifies from SWE.1 Requirement: XXXX</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-10T08:27:04.901145" elapsed="0.000668"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:04.903372" level="INFO">${initial_val} = 0.0</msg>
+<var>${initial_val}</var>
+<arg>HSLSOut_00</arg>
+<status status="PASS" start="2025-06-10T08:27:04.902200" elapsed="0.001196"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-10T08:27:04.903654" level="INFO">Initial value of HSLSOut_00: 0.0</msg>
+<arg>Initial value of HSLSOut_00: ${initial_val}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-10T08:27:04.903551" elapsed="0.000132"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-06-10T08:27:04.903946" level="INFO">${set_val} = 1.0</msg>
+<var>${set_val}</var>
+<arg>${set_value}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-06-10T08:27:04.903827" elapsed="0.000134"/>
+</kw>
+<kw name="Write Xcp Variable" owner="HSLS_canape_interface">
+<arg>HSLSOut_00</arg>
+<arg>${set_val}</arg>
+<status status="PASS" start="2025-06-10T08:27:04.904091" elapsed="0.003031"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-10T08:27:05.907845" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-10T08:27:04.907267" elapsed="1.000910"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:05.913380" level="INFO">${observed_val} = 1.0</msg>
+<var>${observed_val}</var>
+<arg>Prev_HSLS_State._0_</arg>
+<status status="PASS" start="2025-06-10T08:27:05.909728" elapsed="0.003881"/>
+</kw>
+<kw name="Verify Led" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:05.914708" level="INFO">✅ The parameter 'HSLSOut_00' is set to 1.0. LED 'OUT_HSLS_0' is glowing as expected.</msg>
+<arg>HSLSOut_00</arg>
+<arg>${set_val}</arg>
+<arg>OUT_HSLS_0</arg>
+<arg>${observed_val}</arg>
+<doc>Prints a simple and readable validation summary between a written and observed XCP signal.</doc>
+<status status="PASS" start="2025-06-10T08:27:05.914237" elapsed="0.000566"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-06-10T08:27:05.915634" level="INFO">${reset_val} = 0.0</msg>
+<var>${reset_val}</var>
+<arg>${reset_value}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-06-10T08:27:05.915303" elapsed="0.000367"/>
+</kw>
+<kw name="Write Xcp Variable" owner="HSLS_canape_interface">
+<arg>HSLSOut_00</arg>
+<arg>${reset_val}</arg>
+<status status="PASS" start="2025-06-10T08:27:05.916141" elapsed="0.003355"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-10T08:27:06.920034" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-10T08:27:05.919645" elapsed="1.000677"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:06.923751" level="INFO">${observed_val} = 0.0</msg>
+<var>${observed_val}</var>
+<arg>Prev_HSLS_State._0_</arg>
+<status status="PASS" start="2025-06-10T08:27:06.921299" elapsed="0.002533"/>
+</kw>
+<kw name="Verify Led" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:06.924731" level="INFO">✅ The parameter 'HSLSOut_00' is set to 0.0. LED 'OUT_HSLS_0' is not glowing as expected.</msg>
+<arg>HSLSOut_00</arg>
+<arg>${reset_val}</arg>
+<arg>OUT_HSLS_0</arg>
+<arg>${observed_val}</arg>
+<doc>Prints a simple and readable validation summary between a written and observed XCP signal.</doc>
+<status status="PASS" start="2025-06-10T08:27:06.924376" elapsed="0.000430"/>
+</kw>
+<doc>Verify OUT_HSLS_0 signal under normal voltage conditions</doc>
+<status status="PASS" start="2025-06-10T08:27:04.898915" elapsed="2.026313"/>
+</test>
+<test id="s1-s1-s1-t2" name="CGMN-XXXX: Verify signal OUT_HSLS_1 under Normal voltage Operation" line="35">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-10T08:27:06.926654" level="INFO">Verifies from SWE.1 Requirement: XXXX</msg>
+<arg>Verifies from SWE.1 Requirement: XXXX</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-10T08:27:06.926520" elapsed="0.000185"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:06.928543" level="INFO">${initial_val} = 1.0</msg>
+<var>${initial_val}</var>
+<arg>HSLSOut_01</arg>
+<status status="PASS" start="2025-06-10T08:27:06.926972" elapsed="0.001599"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-10T08:27:06.928871" level="INFO">Initial value of HSLSOut_01: 1.0</msg>
+<arg>Initial value of HSLSOut_01: ${initial_val}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-10T08:27:06.928764" elapsed="0.000134"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-06-10T08:27:06.929159" level="INFO">${set_val} = 1.0</msg>
+<var>${set_val}</var>
+<arg>${set_value}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-06-10T08:27:06.929053" elapsed="0.000121"/>
+</kw>
+<kw name="Write Xcp Variable" owner="HSLS_canape_interface">
+<arg>HSLSOut_01</arg>
+<arg>${set_val}</arg>
+<status status="PASS" start="2025-06-10T08:27:06.929316" elapsed="0.005331"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-10T08:27:07.935638" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-10T08:27:06.934800" elapsed="1.001111"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:07.940231" level="INFO">${observed_val} = 1.0</msg>
+<var>${observed_val}</var>
+<arg>Prev_HSLS_State._1_</arg>
+<status status="PASS" start="2025-06-10T08:27:07.937312" elapsed="0.003038"/>
+</kw>
+<kw name="Verify Led" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:07.941631" level="INFO">✅ The parameter 'HSLSOut_01' is set to 1.0. LED 'OUT_HSLS_1' is glowing as expected.</msg>
+<arg>HSLSOut_01</arg>
+<arg>${set_val}</arg>
+<arg>OUT_HSLS_1</arg>
+<arg>${observed_val}</arg>
+<doc>Prints a simple and readable validation summary between a written and observed XCP signal.</doc>
+<status status="PASS" start="2025-06-10T08:27:07.941094" elapsed="0.000667"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-06-10T08:27:07.942918" level="INFO">${reset_val} = 0.0</msg>
+<var>${reset_val}</var>
+<arg>${reset_value}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-06-10T08:27:07.942439" elapsed="0.000539"/>
+</kw>
+<kw name="Write Xcp Variable" owner="HSLS_canape_interface">
+<arg>HSLSOut_01</arg>
+<arg>${reset_val}</arg>
+<status status="PASS" start="2025-06-10T08:27:07.943665" elapsed="0.004050"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-10T08:27:08.948435" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-10T08:27:07.948075" elapsed="1.001024"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:08.971855" level="INFO">${observed_val} = 0.0</msg>
+<var>${observed_val}</var>
+<arg>Prev_HSLS_State._1_</arg>
+<status status="PASS" start="2025-06-10T08:27:08.950130" elapsed="0.021803"/>
+</kw>
+<kw name="Verify Led" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:08.972903" level="INFO">✅ The parameter 'HSLSOut_01' is set to 0.0. LED 'OUT_HSLS_1' is not glowing as expected.</msg>
+<arg>HSLSOut_01</arg>
+<arg>${reset_val}</arg>
+<arg>OUT_HSLS_1</arg>
+<arg>${observed_val}</arg>
+<doc>Prints a simple and readable validation summary between a written and observed XCP signal.</doc>
+<status status="PASS" start="2025-06-10T08:27:08.972552" elapsed="0.000431"/>
+</kw>
+<doc>Verify the functionality of OUT_HSLS_1 under normal voltage operation to validate signal response.</doc>
+<status status="PASS" start="2025-06-10T08:27:06.925941" elapsed="2.047491"/>
+</test>
+<test id="s1-s1-s1-t3" name="CGMN-XXXX: Verify signal OUT_HSLS_2 under Normal voltage Operation" line="54">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-10T08:27:08.974885" level="INFO">Verifies from SWE.1 Requirement: XXXX</msg>
+<arg>Verifies from SWE.1 Requirement: XXXX</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-10T08:27:08.974743" elapsed="0.000204"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:08.976437" level="INFO">${initial_val} = 1.0</msg>
+<var>${initial_val}</var>
+<arg>HSLSOut_02</arg>
+<status status="PASS" start="2025-06-10T08:27:08.975225" elapsed="0.001247"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-10T08:27:08.976965" level="INFO">Initial value of HSLSOut_02: 1.0</msg>
+<arg>Initial value of HSLSOut_02: ${initial_val}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-10T08:27:08.976779" elapsed="0.000231"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-06-10T08:27:08.977410" level="INFO">${set_val} = 1.0</msg>
+<var>${set_val}</var>
+<arg>${set_value}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-06-10T08:27:08.977240" elapsed="0.000193"/>
+</kw>
+<kw name="Write Xcp Variable" owner="HSLS_canape_interface">
+<arg>HSLSOut_02</arg>
+<arg>${set_val}</arg>
+<status status="PASS" start="2025-06-10T08:27:08.977635" elapsed="0.003140"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-10T08:27:09.981416" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-10T08:27:08.980913" elapsed="1.000652"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:10.072506" level="INFO">${observed_val} = 1.0</msg>
+<var>${observed_val}</var>
+<arg>Prev_HSLS_State._2_</arg>
+<status status="PASS" start="2025-06-10T08:27:09.982059" elapsed="0.090621"/>
+</kw>
+<kw name="Verify Led" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:10.074274" level="INFO">✅ The parameter 'HSLSOut_02' is set to 1.0. LED 'OUT_HSLS_2' is glowing as expected.</msg>
+<arg>HSLSOut_02</arg>
+<arg>${set_val}</arg>
+<arg>OUT_HSLS_2</arg>
+<arg>${observed_val}</arg>
+<doc>Prints a simple and readable validation summary between a written and observed XCP signal.</doc>
+<status status="PASS" start="2025-06-10T08:27:10.073693" elapsed="0.000716"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-06-10T08:27:10.075413" level="INFO">${reset_val} = 0.0</msg>
+<var>${reset_val}</var>
+<arg>${reset_value}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-06-10T08:27:10.074997" elapsed="0.000470"/>
+</kw>
+<kw name="Write Xcp Variable" owner="HSLS_canape_interface">
+<arg>HSLSOut_02</arg>
+<arg>${reset_val}</arg>
+<status status="PASS" start="2025-06-10T08:27:10.076040" elapsed="0.003511"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-10T08:27:11.080674" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-10T08:27:10.080114" elapsed="1.000836"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:11.084350" level="INFO">${observed_val} = 0.0</msg>
+<var>${observed_val}</var>
+<arg>Prev_HSLS_State._2_</arg>
+<status status="PASS" start="2025-06-10T08:27:11.081976" elapsed="0.002477"/>
+</kw>
+<kw name="Verify Led" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:11.085733" level="INFO">✅ The parameter 'HSLSOut_02' is set to 0.0. LED 'OUT_HSLS_2' is not glowing as expected.</msg>
+<arg>HSLSOut_02</arg>
+<arg>${reset_val}</arg>
+<arg>OUT_HSLS_2</arg>
+<arg>${observed_val}</arg>
+<doc>Prints a simple and readable validation summary between a written and observed XCP signal.</doc>
+<status status="PASS" start="2025-06-10T08:27:11.085046" elapsed="0.000819"/>
+</kw>
+<doc>Verify the functionality of OUT_HSLS_2 under normal voltage operation to validate signal response.</doc>
+<status status="PASS" start="2025-06-10T08:27:08.974152" elapsed="2.112302"/>
+</test>
+<test id="s1-s1-s1-t4" name="CGMN-XXXX: Verify signal OUT_HSLS_3 under Normal voltage Operation" line="74">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-10T08:27:11.088112" level="INFO">Verifies from SWE.1 Requirement: XXXX</msg>
+<arg>Verifies from SWE.1 Requirement: XXXX</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-10T08:27:11.087986" elapsed="0.000183"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:11.089718" level="INFO">${initial_val} = 1.0</msg>
+<var>${initial_val}</var>
+<arg>HSLSOut_03</arg>
+<status status="PASS" start="2025-06-10T08:27:11.088434" elapsed="0.001308"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-10T08:27:11.090032" level="INFO">Initial value of HSLSOut_03: 1.0</msg>
+<arg>Initial value of HSLSOut_03: ${initial_val}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-10T08:27:11.089935" elapsed="0.000125"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-06-10T08:27:11.090337" level="INFO">${set_val} = 1.0</msg>
+<var>${set_val}</var>
+<arg>${set_value}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-06-10T08:27:11.090222" elapsed="0.000132"/>
+</kw>
+<kw name="Write Xcp Variable" owner="HSLS_canape_interface">
+<arg>HSLSOut_03</arg>
+<arg>${set_val}</arg>
+<status status="PASS" start="2025-06-10T08:27:11.090503" elapsed="0.002968"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-10T08:27:12.094259" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-10T08:27:11.093618" elapsed="1.000914"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:12.104599" level="INFO">${observed_val} = 1.0</msg>
+<var>${observed_val}</var>
+<arg>Prev_HSLS_State._3_</arg>
+<status status="PASS" start="2025-06-10T08:27:12.098506" elapsed="0.006144"/>
+</kw>
+<kw name="Verify Led" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:12.105514" level="INFO">✅ The parameter 'HSLSOut_03' is set to 1.0. LED 'OUT_HSLS_3' is glowing as expected.</msg>
+<arg>HSLSOut_03</arg>
+<arg>${set_val}</arg>
+<arg>OUT_HSLS_3</arg>
+<arg>${observed_val}</arg>
+<doc>Prints a simple and readable validation summary between a written and observed XCP signal.</doc>
+<status status="PASS" start="2025-06-10T08:27:12.105284" elapsed="0.000285"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-06-10T08:27:12.106001" level="INFO">${reset_val} = 0.0</msg>
+<var>${reset_val}</var>
+<arg>${reset_value}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-06-10T08:27:12.105819" elapsed="0.000315"/>
+</kw>
+<kw name="Write Xcp Variable" owner="HSLS_canape_interface">
+<arg>HSLSOut_03</arg>
+<arg>${reset_val}</arg>
+<status status="PASS" start="2025-06-10T08:27:12.106427" elapsed="0.003007"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-10T08:27:13.110018" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-10T08:27:12.109646" elapsed="1.000621"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:13.113516" level="INFO">${observed_val} = 0.0</msg>
+<var>${observed_val}</var>
+<arg>Prev_HSLS_State._3_</arg>
+<status status="PASS" start="2025-06-10T08:27:13.111110" elapsed="0.002472"/>
+</kw>
+<kw name="Verify Led" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:13.114324" level="INFO">✅ The parameter 'HSLSOut_03' is set to 0.0. LED 'OUT_HSLS_3' is not glowing as expected.</msg>
+<arg>HSLSOut_03</arg>
+<arg>${reset_val}</arg>
+<arg>OUT_HSLS_3</arg>
+<arg>${observed_val}</arg>
+<doc>Prints a simple and readable validation summary between a written and observed XCP signal.</doc>
+<status status="PASS" start="2025-06-10T08:27:13.114084" elapsed="0.000295"/>
+</kw>
+<doc>Verify the functionality of OUT_HSLS_3 under normal voltage operation to validate signal response.</doc>
+<status status="PASS" start="2025-06-10T08:27:11.087332" elapsed="2.027337"/>
+</test>
+<test id="s1-s1-s1-t5" name="CGMN-XXXX: Verify signal OUT_HSLS_4 under Normal voltage Operation" line="95">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-10T08:27:13.115978" level="INFO">verifies from SWE.1 Requirement: XXXX</msg>
+<arg>verifies from SWE.1 Requirement: XXXX</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-10T08:27:13.115866" elapsed="0.000159"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:13.117429" level="INFO">${initial_val} = 1.0</msg>
+<var>${initial_val}</var>
+<arg>HSLSOut_04</arg>
+<status status="PASS" start="2025-06-10T08:27:13.116251" elapsed="0.001201"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-10T08:27:13.117685" level="INFO">Initial value: 1.0</msg>
+<arg>Initial value: ${initial_val}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-10T08:27:13.117605" elapsed="0.000104"/>
+</kw>
+<kw name="Write Xcp Variable" owner="HSLS_canape_interface">
+<arg>HSLSOut_04</arg>
+<arg>${set_value}</arg>
+<status status="PASS" start="2025-06-10T08:27:13.117837" elapsed="0.003180"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-10T08:27:14.121950" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-10T08:27:13.121184" elapsed="1.001046"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:14.126585" level="INFO">${observed_val} = 1.0</msg>
+<var>${observed_val}</var>
+<arg>Prev_HSLS_State._4_</arg>
+<status status="PASS" start="2025-06-10T08:27:14.123606" elapsed="0.003099"/>
+</kw>
+<kw name="Verify Led" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:14.128436" level="INFO">✅ The parameter 'HSLSOut_04' is set to 1.0. LED 'OUT_HSLS_4' is glowing as expected.</msg>
+<arg>HSLSOut_04</arg>
+<arg>${set_value}</arg>
+<arg>OUT_HSLS_4</arg>
+<arg>${observed_val}</arg>
+<doc>Prints a simple and readable validation summary between a written and observed XCP signal.</doc>
+<status status="PASS" start="2025-06-10T08:27:14.127875" elapsed="0.000711"/>
+</kw>
+<kw name="Write Xcp Variable" owner="HSLS_canape_interface">
+<arg>HSLSOut_04</arg>
+<arg>${reset_value}</arg>
+<status status="PASS" start="2025-06-10T08:27:14.129299" elapsed="0.004318"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-10T08:27:15.134835" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-10T08:27:14.133931" elapsed="1.001230"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:15.138540" level="INFO">${observed_val} = 0.0</msg>
+<var>${observed_val}</var>
+<arg>Prev_HSLS_State._4_</arg>
+<status status="PASS" start="2025-06-10T08:27:15.136492" elapsed="0.002107"/>
+</kw>
+<kw name="Verify Led" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:15.139325" level="INFO">✅ The parameter 'HSLSOut_04' is set to 0.0. LED 'OUT_HSLS_4' is not glowing as expected.</msg>
+<arg>HSLSOut_04</arg>
+<arg>${reset_value}</arg>
+<arg>OUT_HSLS_4</arg>
+<arg>${observed_val}</arg>
+<doc>Prints a simple and readable validation summary between a written and observed XCP signal.</doc>
+<status status="PASS" start="2025-06-10T08:27:15.139041" elapsed="0.000346"/>
+</kw>
+<doc>Verify the functionality of OUT_HSLS_4 under normal voltage operation to validate signal response.</doc>
+<status status="PASS" start="2025-06-10T08:27:13.115310" elapsed="2.024429"/>
+</test>
+<test id="s1-s1-s1-t6" name="CGMN-XXXX: Verify signal OUT_HSLS_5 under Normal voltage Operation" line="112">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-10T08:27:15.141141" level="INFO">verifies from SWE.1 Requirement: XXXX</msg>
+<arg>verifies from SWE.1 Requirement: XXXX</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-10T08:27:15.141023" elapsed="0.000160"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:15.143349" level="INFO">${initial_val} = 1.0</msg>
+<var>${initial_val}</var>
+<arg>HSLSOut_05</arg>
+<status status="PASS" start="2025-06-10T08:27:15.141445" elapsed="0.001922"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-10T08:27:15.143587" level="INFO">Initial value: 1.0</msg>
+<arg>Initial value: ${initial_val}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-10T08:27:15.143507" elapsed="0.000101"/>
+</kw>
+<kw name="Write Xcp Variable" owner="HSLS_canape_interface">
+<arg>HSLSOut_05</arg>
+<arg>${set_value}</arg>
+<status status="PASS" start="2025-06-10T08:27:15.143729" elapsed="0.003058"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-10T08:27:16.147301" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-10T08:27:15.146956" elapsed="1.000623"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:16.151051" level="INFO">${observed_val} = 1.0</msg>
+<var>${observed_val}</var>
+<arg>Prev_HSLS_State._5_</arg>
+<status status="PASS" start="2025-06-10T08:27:16.148487" elapsed="0.002669"/>
+</kw>
+<kw name="Verify Led" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:16.152139" level="INFO">✅ The parameter 'HSLSOut_05' is set to 1.0. LED 'OUT_HSLS_5' is glowing as expected.</msg>
+<arg>HSLSOut_05</arg>
+<arg>${set_value}</arg>
+<arg>OUT_HSLS_5</arg>
+<arg>${observed_val}</arg>
+<doc>Prints a simple and readable validation summary between a written and observed XCP signal.</doc>
+<status status="PASS" start="2025-06-10T08:27:16.151890" elapsed="0.000275"/>
+</kw>
+<kw name="Write Xcp Variable" owner="HSLS_canape_interface">
+<arg>HSLSOut_05</arg>
+<arg>${reset_value}</arg>
+<status status="PASS" start="2025-06-10T08:27:16.152299" elapsed="0.003020"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-10T08:27:17.155909" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-10T08:27:16.155499" elapsed="1.000691"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:17.186957" level="INFO">${observed_val} = 0.0</msg>
+<var>${observed_val}</var>
+<arg>Prev_HSLS_State._5_</arg>
+<status status="PASS" start="2025-06-10T08:27:17.157372" elapsed="0.029700"/>
+</kw>
+<kw name="Verify Led" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:17.187560" level="INFO">✅ The parameter 'HSLSOut_05' is set to 0.0. LED 'OUT_HSLS_5' is not glowing as expected.</msg>
+<arg>HSLSOut_05</arg>
+<arg>${reset_value}</arg>
+<arg>OUT_HSLS_5</arg>
+<arg>${observed_val}</arg>
+<doc>Prints a simple and readable validation summary between a written and observed XCP signal.</doc>
+<status status="PASS" start="2025-06-10T08:27:17.187371" elapsed="0.000225"/>
+</kw>
+<doc>Verify the functionality of OUT_HSLS_5 under normal voltage operation to validate signal response.</doc>
+<status status="PASS" start="2025-06-10T08:27:15.140510" elapsed="2.047288"/>
+</test>
+<test id="s1-s1-s1-t7" name="CGMN-XXXX: Verify signal OUT_HSLS_6 under Normal voltage Operation" line="129">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-10T08:27:17.188761" level="INFO">verifies from SWE.1 Requirement: XXXX</msg>
+<arg>verifies from SWE.1 Requirement: XXXX</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-10T08:27:17.188678" elapsed="0.000115"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:17.190071" level="INFO">${initial_val} = 1.0</msg>
+<var>${initial_val}</var>
+<arg>HSLSOut_06</arg>
+<status status="PASS" start="2025-06-10T08:27:17.188951" elapsed="0.001138"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-10T08:27:17.190308" level="INFO">Initial value: 1.0</msg>
+<arg>Initial value: ${initial_val}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-10T08:27:17.190229" elapsed="0.000102"/>
+</kw>
+<kw name="Write Xcp Variable" owner="HSLS_canape_interface">
+<arg>HSLSOut_06</arg>
+<arg>${set_value}</arg>
+<status status="PASS" start="2025-06-10T08:27:17.190457" elapsed="0.002999"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-10T08:27:18.194100" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-10T08:27:17.193709" elapsed="1.000658"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:18.198329" level="INFO">${observed_val} = 1.0</msg>
+<var>${observed_val}</var>
+<arg>Prev_HSLS_State._6_</arg>
+<status status="PASS" start="2025-06-10T08:27:18.195336" elapsed="0.003081"/>
+</kw>
+<kw name="Verify Led" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:18.199364" level="INFO">✅ The parameter 'HSLSOut_06' is set to 1.0. LED 'OUT_HSLS_6' is glowing as expected.</msg>
+<arg>HSLSOut_06</arg>
+<arg>${set_value}</arg>
+<arg>OUT_HSLS_6</arg>
+<arg>${observed_val}</arg>
+<doc>Prints a simple and readable validation summary between a written and observed XCP signal.</doc>
+<status status="PASS" start="2025-06-10T08:27:18.199012" elapsed="0.000435"/>
+</kw>
+<kw name="Write Xcp Variable" owner="HSLS_canape_interface">
+<arg>HSLSOut_06</arg>
+<arg>${reset_value}</arg>
+<status status="PASS" start="2025-06-10T08:27:18.199868" elapsed="0.003575"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-10T08:27:19.203865" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-10T08:27:18.203636" elapsed="1.000502"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:19.292853" level="INFO">${observed_val} = 0.0</msg>
+<var>${observed_val}</var>
+<arg>Prev_HSLS_State._6_</arg>
+<status status="PASS" start="2025-06-10T08:27:19.205280" elapsed="0.087612"/>
+</kw>
+<kw name="Verify Led" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:19.293377" level="INFO">✅ The parameter 'HSLSOut_06' is set to 0.0. LED 'OUT_HSLS_6' is not glowing as expected.</msg>
+<arg>HSLSOut_06</arg>
+<arg>${reset_value}</arg>
+<arg>OUT_HSLS_6</arg>
+<arg>${observed_val}</arg>
+<doc>Prints a simple and readable validation summary between a written and observed XCP signal.</doc>
+<status status="PASS" start="2025-06-10T08:27:19.293206" elapsed="0.000207"/>
+</kw>
+<doc>Verify the functionality of OUT_HSLS_6 under normal voltage operation to validate signal response.</doc>
+<status status="PASS" start="2025-06-10T08:27:17.188300" elapsed="2.105286"/>
+</test>
+<test id="s1-s1-s1-t8" name="CGMN-XXXX: Verify signal OUT_HSLS_7 under Normal voltage Operation" line="146">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-10T08:27:19.294478" level="INFO">verifies from SWE.1 Requirement: XXXX</msg>
+<arg>verifies from SWE.1 Requirement: XXXX</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-10T08:27:19.294377" elapsed="0.000146"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:19.295777" level="INFO">${initial_val} = 1.0</msg>
+<var>${initial_val}</var>
+<arg>HSLSOut_07</arg>
+<status status="PASS" start="2025-06-10T08:27:19.294697" elapsed="0.001105"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-10T08:27:19.296050" level="INFO">Initial value: 1.0</msg>
+<arg>Initial value: ${initial_val}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-10T08:27:19.295950" elapsed="0.000126"/>
+</kw>
+<kw name="Write Xcp Variable" owner="HSLS_canape_interface">
+<arg>HSLSOut_07</arg>
+<arg>${set_value}</arg>
+<status status="PASS" start="2025-06-10T08:27:19.296203" elapsed="0.002951"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-10T08:27:20.300190" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-10T08:27:19.299317" elapsed="1.001175"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:20.302974" level="INFO">${observed_val} = 1.0</msg>
+<var>${observed_val}</var>
+<arg>Prev_HSLS_State._7_</arg>
+<status status="PASS" start="2025-06-10T08:27:20.301696" elapsed="0.001299"/>
+</kw>
+<kw name="Verify Led" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:20.303280" level="INFO">✅ The parameter 'HSLSOut_07' is set to 1.0. LED 'OUT_HSLS_7' is glowing as expected.</msg>
+<arg>HSLSOut_07</arg>
+<arg>${set_value}</arg>
+<arg>OUT_HSLS_7</arg>
+<arg>${observed_val}</arg>
+<doc>Prints a simple and readable validation summary between a written and observed XCP signal.</doc>
+<status status="PASS" start="2025-06-10T08:27:20.303163" elapsed="0.000141"/>
+</kw>
+<kw name="Write Xcp Variable" owner="HSLS_canape_interface">
+<arg>HSLSOut_07</arg>
+<arg>${reset_value}</arg>
+<status status="PASS" start="2025-06-10T08:27:20.303443" elapsed="0.002881"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-10T08:27:21.306738" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-10T08:27:20.306466" elapsed="1.000392"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:21.311597" level="INFO">${observed_val} = 0.0</msg>
+<var>${observed_val}</var>
+<arg>Prev_HSLS_State._7_</arg>
+<status status="PASS" start="2025-06-10T08:27:21.307593" elapsed="0.004043"/>
+</kw>
+<kw name="Verify Led" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:21.312379" level="INFO">✅ The parameter 'HSLSOut_07' is set to 0.0. LED 'OUT_HSLS_7' is not glowing as expected.</msg>
+<arg>HSLSOut_07</arg>
+<arg>${reset_value}</arg>
+<arg>OUT_HSLS_7</arg>
+<arg>${observed_val}</arg>
+<doc>Prints a simple and readable validation summary between a written and observed XCP signal.</doc>
+<status status="PASS" start="2025-06-10T08:27:21.312171" elapsed="0.000277"/>
+</kw>
+<doc>Verify the functionality of OUT_HSLS_7 under normal voltage operation to validate signal response.</doc>
+<status status="PASS" start="2025-06-10T08:27:19.293986" elapsed="2.018723"/>
+</test>
+<test id="s1-s1-s1-t9" name="CGMN-XXXX: Verify signal OUT_HSLS_8 under Normal voltage Operation" line="163">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-10T08:27:21.314242" level="INFO">verifies from SWE.1 Requirement: XXXX</msg>
+<arg>verifies from SWE.1 Requirement: XXXX</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-10T08:27:21.314123" elapsed="0.000169"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:21.315513" level="INFO">${initial_val} = 1.0</msg>
+<var>${initial_val}</var>
+<arg>HSLSOut_08</arg>
+<status status="PASS" start="2025-06-10T08:27:21.314499" elapsed="0.001052"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-10T08:27:21.315853" level="INFO">Initial value: 1.0</msg>
+<arg>Initial value: ${initial_val}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-10T08:27:21.315739" elapsed="0.000148"/>
+</kw>
+<kw name="Write Xcp Variable" owner="HSLS_canape_interface">
+<arg>HSLSOut_08</arg>
+<arg>${set_value}</arg>
+<status status="PASS" start="2025-06-10T08:27:21.316051" elapsed="0.003025"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-10T08:27:22.320039" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-10T08:27:21.319213" elapsed="1.001107"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:22.325130" level="INFO">${observed_val} = 1.0</msg>
+<var>${observed_val}</var>
+<arg>Prev_HSLS_State._8_</arg>
+<status status="PASS" start="2025-06-10T08:27:22.321311" elapsed="0.003898"/>
+</kw>
+<kw name="Verify Led" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:22.326097" level="INFO">✅ The parameter 'HSLSOut_08' is set to 1.0. LED 'OUT_HSLS_8' is glowing as expected.</msg>
+<arg>HSLSOut_08</arg>
+<arg>${set_value}</arg>
+<arg>OUT_HSLS_8</arg>
+<arg>${observed_val}</arg>
+<doc>Prints a simple and readable validation summary between a written and observed XCP signal.</doc>
+<status status="PASS" start="2025-06-10T08:27:22.325770" elapsed="0.000400"/>
+</kw>
+<kw name="Write Xcp Variable" owner="HSLS_canape_interface">
+<arg>HSLSOut_08</arg>
+<arg>${reset_value}</arg>
+<status status="PASS" start="2025-06-10T08:27:22.326584" elapsed="0.003291"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-10T08:27:23.330748" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-10T08:27:22.330066" elapsed="1.001045"/>
+</kw>
+<kw name="Read Xcp Variable" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:23.334910" level="INFO">${observed_val} = 0.0</msg>
+<var>${observed_val}</var>
+<arg>Prev_HSLS_State._8_</arg>
+<status status="PASS" start="2025-06-10T08:27:23.332502" elapsed="0.002506"/>
+</kw>
+<kw name="Verify Led" owner="HSLS_canape_interface">
+<msg time="2025-06-10T08:27:23.336202" level="INFO">✅ The parameter 'HSLSOut_08' is set to 0.0. LED 'OUT_HSLS_8' is not glowing as expected.</msg>
+<arg>HSLSOut_08</arg>
+<arg>${reset_value}</arg>
+<arg>OUT_HSLS_8</arg>
+<arg>${observed_val}</arg>
+<doc>Prints a simple and readable validation summary between a written and observed XCP signal.</doc>
+<status status="PASS" start="2025-06-10T08:27:23.335698" elapsed="0.000619"/>
+</kw>
+<doc>Verify the functionality of OUT_HSLS_8 under normal voltage operation to validate signal response.</doc>
+<status status="PASS" start="2025-06-10T08:27:21.313608" elapsed="2.023282"/>
+</test>
+<kw name="Close Canape" owner="HSLS_canape_interface" type="TEARDOWN">
+<status status="PASS" start="2025-06-10T08:27:23.339113" elapsed="3.683813"/>
+</kw>
+<status status="PASS" start="2025-06-10T08:26:50.917695" elapsed="36.105293"/>
+</suite>
+<status status="PASS" start="2025-06-10T08:26:50.916816" elapsed="36.107576"/>
+</suite>
+<status status="PASS" start="2025-06-10T08:26:50.897505" elapsed="36.127635"/>
+</suite>
+<statistics>
+<total>
+<stat pass="9" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="CANoe" id="s1" pass="9" fail="0" skip="0">CANoe</stat>
+<stat name="BSW" id="s1-s1" pass="9" fail="0" skip="0">CANoe.BSW</stat>
+<stat name="HSLS functional validation" id="s1-s1-s1" pass="9" fail="0" skip="0">CANoe.BSW.HSLS functional validation</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
