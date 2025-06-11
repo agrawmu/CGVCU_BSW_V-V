@@ -23,19 +23,19 @@ AD-TX-0x20A: Send Tx XCP variables and validating on CAN signals for message mVe
     ${xcp_var_map}=    Evaluate    {"VehOdo": "Rte_C_SG_mVehOdo_adt_0E59EED87CCD08BF802DE006BA19BEEF.VehOdo", "VcuTripMeter": "Rte_C_SG_mVehOdo_adt_0E59EED87CCD08BF802DE006BA19BEEF.VcuTripMeter", "BackendTripMeter": "Rte_C_SG_mVehOdo_adt_0E59EED87CCD08BF802DE006BA19BEEF.BackendTripMeter"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VehOdo": 0, "VcuTripMeter": 0, "BackendTripMeter": 0}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mVehOdo    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mVehOdo    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"VehOdo": 1000.5, "VcuTripMeter": 35.5, "BackendTripMeter": 35.5}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VehOdo": 1000.5, "VcuTripMeter": 35.5, "BackendTripMeter": 35.5}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mVehOdo    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mVehOdo    ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"VehOdo": 65.535, "VcuTripMeter": 65.535, "BackendTripMeter": 16777.213}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VehOdo": 65.535, "VcuTripMeter": 65.535, "BackendTripMeter": 16777.213}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mVehOdo    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mVehOdo    ${expected_can_signals}    max    30
 
 AD-TX-0xCFDE801: Send Tx XCP variables and validating on CAN signals for message mVscStat
     [Documentation]    Validate TX message 'mVscStat' by writing XCP variables and reading CAN signals
@@ -44,17 +44,17 @@ AD-TX-0xCFDE801: Send Tx XCP variables and validating on CAN signals for message
     ${xcp_var_map}=    Evaluate    {"VscMode": "Rte_C_SG_mVscStat_adt_317D5362456BDAB18A711606B47078C5.VscMode", "CtrlMode": "Rte_C_SG_mVscStat_adt_317D5362456BDAB18A711606B47078C5.CtrlMode", "VscEstop": "Rte_C_SG_mVscStat_adt_317D5362456BDAB18A711606B47078C5.VscEstop"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VscMode": "Searching", "CtrlMode": "User", "VscEstop": "OK"}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mVscStat    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mVscStat    ${expected_can_signals}    min   30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"VscMode": 4, "CtrlMode": 1, "VscEstop": 0}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VscMode": "Local", "CtrlMode": "Shared", "VscEstop": "OK"}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mVscStat    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    mVscStat    ${expected_can_signals}    mid   30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"VscMode": 11, "CtrlMode": 2, "VscEstop": 1}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VscMode": "Pause", "CtrlMode": "Auton", "VscEstop": "Estop"}
     Run Keyword And
-    Continue On Failure    Validate TX Message With Expected Values    mVscStat    ${expected_can_signals}    30
+    Continue On Failure    Validate TX Message With Expected Values    mVscStat    ${expected_can_signals}    max   30
