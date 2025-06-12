@@ -25,19 +25,19 @@ FCM-TX-0x531: Send Tx XCP variables and validating on CAN signals for message IC
     ${xcp_var_map}=    Evaluate    {"ICC_TotMilgVld_ODO": "Rte_C_SG_ICC_0x531_adt_D61B3906D1B43337D03540B4EA3CB4D1.ICC_TotMilgVld_ODO","ICC_TotMilg_ODO": "Rte_C_SG_ICC_0x531_adt_D61B3906D1B43337D03540B4EA3CB4D1.ICC_TotMilg_ODO","ICC_DispVehSpd": "Rte_C_SG_ICC_0x531_adt_D61B3906D1B43337D03540B4EA3CB4D1.ICC_DispVehSpd","ICC_DispVehSpdUnit": "Rte_C_SG_ICC_0x531_adt_D61B3906D1B43337D03540B4EA3CB4D1.ICC_DispVehSpdUnit","ICC_ADASSigFlt": "Rte_C_SG_ICC_0x531_adt_D61B3906D1B43337D03540B4EA3CB4D1.ICC_ADASSigFlt","ICC_DispFlt": "Rte_C_SG_ICC_0x531_adt_D61B3906D1B43337D03540B4EA3CB4D1.ICC_DispFlt","ICC_WorkshopMode": "Rte_C_SG_ICC_0x531_adt_D61B3906D1B43337D03540B4EA3CB4D1.ICC_WorkshopMode",}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ICC_TotMilgVld_ODO": "Value_OK","ICC_TotMilg_ODO": 0,"ICC_DispVehSpd": 0,"ICC_DispVehSpdUnit": "KMH","ICC_ADASSigFlt": "No_Failure","ICC_DispFlt": "No_Error_No_error","ICC_WorkshopMode": "Init"}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ICC_0x531    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ICC_0x531    ${expected_can_signals}    min    30
 
     Log    writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"ICC_TotMilgVld_ODO": 1,"ICC_TotMilg_ODO": 300,"ICC_DispVehSpd": 120,"ICC_DispVehSpdUnit": 1,"ICC_ADASSigFlt": 1,"ICC_DispFlt": 1,"ICC_WorkshopMode": 1}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ICC_TotMilgVld_ODO": "Value_Unreliable","ICC_TotMilg_ODO": 300,"ICC_DispVehSpd": 120,"ICC_DispVehSpdUnit": "MPH","ICC_ADASSigFlt": "Reversible_Failure","ICC_DispFlt": "Error_error","ICC_WorkshopMode": "Active"}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    ICC_0x531    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    ICC_0x531    ${expected_can_signals}    mid    30
 
     Log    writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"ICC_TotMilgVld_ODO": 1,"ICC_TotMilg_ODO": 400,"ICC_DispVehSpd": 255,"ICC_DispVehSpdUnit": 1,"ICC_ADASSigFlt": 3,"ICC_DispFlt": 1,"ICC_WorkshopMode": 3}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ICC_TotMilgVld_ODO": "Value_Unreliable","ICC_TotMilg_ODO": 400,"ICC_DispVehSpd": 255,"ICC_DispVehSpdUnit": "MPH","ICC_ADASSigFlt": "Reserved","ICC_DispFlt": "Error_error","ICC_WorkshopMode": "Invalid"}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    ICC_0x531    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    ICC_0x531    ${expected_can_signals}    max    30
 
 FCM-TX-0x429: Send Tx XCP variables and validating on CAN signals for message PKC_NM_0x429
     [Documentation]    Validate TX message 'PKC_NM_0x429' by writing XCP variables and reading CAN signals
@@ -47,19 +47,19 @@ FCM-TX-0x429: Send Tx XCP variables and validating on CAN signals for message PK
     ${xcp_var_map}=    Evaluate    {"PKC_SrcNodeID": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_SrcNodeID","PKC_CtrlBitVector_Bit0_RMR": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_CtrlBitVector_Bit0_RMR","PKC_CtrlBitVector_Bit1_Res": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_CtrlBitVector_Bit1_Res","PKC_CtrlBitVector_Bit2_Res": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_CtrlBitVector_Bit2_Res","PKC_CtrlBitVector_Bit3_NMCoord": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_CtrlBitVector_Bit3_NMCoord","PKC_CtrlBitVector_Bit4_ActWake": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_CtrlBitVector_Bit4_ActWake","PKC_CtrlBitVector_Bit5_Res": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_CtrlBitVector_Bit5_Res","PKC_CtrlBitVector_Bit6_PNI": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_CtrlBitVector_Bit6_PNI","PKC_CtrlBitVector_Bit7_Res": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_CtrlBitVector_Bit7_Res","PKC_UsrData0": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_UsrData0","PKC_UsrData1_Bit0_IGN_WAKEUP": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_UsrData1_Bit0_IGN_WAKEUP","PKC_UsrData1_Bit1_RESET_WAKEUP": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_UsrData1_Bit1_RESET_WAKEUP","PKC_UsrData1_Bit2_NETWORK_WAKEUP": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_UsrData1_Bit2_NETWORK_WAKEUP","PKC_UsrData1_Bit3_ECUSPEC_WAKEUP": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_UsrData1_Bit3_ECUSPEC_WAKEUP","PKC_UsrData1_Bit4_NETWORK_AWAKE": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_UsrData1_Bit4_NETWORK_AWAKE","PKC_UsrData1_Bit5_IGNITION_AWAKE": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_UsrData1_Bit5_IGNITION_AWAKE","PKC_UsrData1_Bit6_DIAGN_AWAKE": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_UsrData1_Bit6_DIAGN_AWAKE","PKC_UsrData1_Bit7_ECUSPEC_AWAKE": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_UsrData1_Bit7_ECUSPEC_AWAKE","PKC_UsrData2": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_UsrData2","PKC_UsrData3": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_UsrData3","PKC_UsrData4_PN_Info1": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_UsrData4_PN_Info1","PKC_UsrData5_PN_Info2": "Rte_C_SG_PKC_NM_0x429_adt_93B1296C12AB6A91EC19DD9059B16582.PKC_UsrData5_PN_Info2",}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"PKC_SrcNodeID": 0,"PKC_CtrlBitVector_Bit0_RMR": "Repeat_Message_State_not_requested","PKC_CtrlBitVector_Bit1_Res": 0,"PKC_CtrlBitVector_Bit2_Res": 0,"PKC_CtrlBitVector_Bit3_NMCoord": "Start_of_synchronized_shutdown_is_not_requested_by_main_coordinator","PKC_CtrlBitVector_Bit4_ActWake": "Node_has_not_woken_up_the_network_(passive_wakeup)","PKC_CtrlBitVector_Bit5_Res": 0,"PKC_CtrlBitVector_Bit6_PNI": "NM_PDU_contains_no_Partial_Network_request_information","PKC_CtrlBitVector_Bit7_Res": 0,"PKC_UsrData0": "User_data_for_current_vehicle_without_partial_networking","PKC_UsrData1_Bit0_IGN_WAKEUP": "inactive","PKC_UsrData1_Bit1_RESET_WAKEUP": "inactive","PKC_UsrData1_Bit2_NETWORK_WAKEUP": "inactive","PKC_UsrData1_Bit3_ECUSPEC_WAKEUP": "inactive","PKC_UsrData1_Bit4_NETWORK_AWAKE": "inactive","PKC_UsrData1_Bit5_IGNITION_AWAKE": "inactive","PKC_UsrData1_Bit6_DIAGN_AWAKE": "inactive","PKC_UsrData1_Bit7_ECUSPEC_AWAKE": "inactive","PKC_UsrData2": 0,"PKC_UsrData3": 0,"PKC_UsrData4_PN_Info1": 0,"PKC_UsrData5_PN_Info2": 0}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    PKC_NM_0x429    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    PKC_NM_0x429    ${expected_can_signals}    min    30
 
     Log    writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"PKC_SrcNodeID": 100,"PKC_CtrlBitVector_Bit0_RMR": 0,"PKC_CtrlBitVector_Bit1_Res": 0,"PKC_CtrlBitVector_Bit2_Res": 0,"PKC_CtrlBitVector_Bit3_NMCoord": 0,"PKC_CtrlBitVector_Bit4_ActWake": 0,"PKC_CtrlBitVector_Bit5_Res": 0,"PKC_CtrlBitVector_Bit6_PNI": 0,"PKC_CtrlBitVector_Bit7_Res": 0,"PKC_UsrData0": 0,"PKC_UsrData1_Bit0_IGN_WAKEUP": 0,"PKC_UsrData1_Bit1_RESET_WAKEUP": 0,"PKC_UsrData1_Bit2_NETWORK_WAKEUP": 0,"PKC_UsrData1_Bit3_ECUSPEC_WAKEUP": 0,"PKC_UsrData1_Bit4_NETWORK_AWAKE": 0,"PKC_UsrData1_Bit5_IGNITION_AWAKE": 0,"PKC_UsrData1_Bit6_DIAGN_AWAKE": 0,"PKC_UsrData1_Bit7_ECUSPEC_AWAKE": 0,"PKC_UsrData2": 100,"PKC_UsrData3": 100,"PKC_UsrData4_PN_Info1": 100,"PKC_UsrData5_PN_Info2": 100}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"PKC_SrcNodeID": 100,"PKC_CtrlBitVector_Bit0_RMR": "Repeat_Message_State_not_requested","PKC_CtrlBitVector_Bit1_Res": 0,"PKC_CtrlBitVector_Bit2_Res": 0,"PKC_CtrlBitVector_Bit3_NMCoord": "Start_of_synchronized_shutdown_is_not_requested_by_main_coordinator","PKC_CtrlBitVector_Bit4_ActWake": "Node_has_not_woken_up_the_network_(passive_wakeup)","PKC_CtrlBitVector_Bit5_Res": 0,"PKC_CtrlBitVector_Bit6_PNI": "NM_PDU_contains_no_Partial_Network_request_information","PKC_CtrlBitVector_Bit7_Res": 0,"PKC_UsrData0": "User_data_for_current_vehicle_without_partial_networking","PKC_UsrData1_Bit0_IGN_WAKEUP": "inactive","PKC_UsrData1_Bit1_RESET_WAKEUP": "inactive","PKC_UsrData1_Bit2_NETWORK_WAKEUP": "inactive","PKC_UsrData1_Bit3_ECUSPEC_WAKEUP": "inactive","PKC_UsrData1_Bit4_NETWORK_AWAKE": "inactive","PKC_UsrData1_Bit5_IGNITION_AWAKE": "inactive","PKC_UsrData1_Bit6_DIAGN_AWAKE": "inactive","PKC_UsrData1_Bit7_ECUSPEC_AWAKE": "inactive","PKC_UsrData2": 100,"PKC_UsrData3": 100,"PKC_UsrData4_PN_Info1": 100,"PKC_UsrData5_PN_Info2": 100}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    PKC_NM_0x429    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    PKC_NM_0x429    ${expected_can_signals}    mid    30
 
     Log    writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"PKC_SrcNodeID": 127,"PKC_CtrlBitVector_Bit0_RMR": 1,"PKC_CtrlBitVector_Bit1_Res": 0,"PKC_CtrlBitVector_Bit2_Res": 0,"PKC_CtrlBitVector_Bit3_NMCoord": 1,"PKC_CtrlBitVector_Bit4_ActWake": 1,"PKC_CtrlBitVector_Bit5_Res": 0,"PKC_CtrlBitVector_Bit6_PNI": 1,"PKC_CtrlBitVector_Bit7_Res": 0,"PKC_UsrData0": 1,"PKC_UsrData1_Bit0_IGN_WAKEUP": 1,"PKC_UsrData1_Bit1_RESET_WAKEUP": 1,"PKC_UsrData1_Bit2_NETWORK_WAKEUP": 1,"PKC_UsrData1_Bit3_ECUSPEC_WAKEUP": 1,"PKC_UsrData1_Bit4_NETWORK_AWAKE": 1,"PKC_UsrData1_Bit5_IGNITION_AWAKE": 1,"PKC_UsrData1_Bit6_DIAGN_AWAKE": 1,"PKC_UsrData1_Bit7_ECUSPEC_AWAKE": 1,"PKC_UsrData2": 255,"PKC_UsrData3": 255,"PKC_UsrData4_PN_Info1": 255,"PKC_UsrData5_PN_Info2": 255}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"PKC_SrcNodeID": 127,"PKC_CtrlBitVector_Bit0_RMR": "Repeat_Message_State_requested","PKC_CtrlBitVector_Bit1_Res": 0,"PKC_CtrlBitVector_Bit2_Res": 0,"PKC_CtrlBitVector_Bit3_NMCoord": "Start_of_synchronized_shutdown_is_requested_by_main_coordinator","PKC_CtrlBitVector_Bit4_ActWake": "Node_has_woken_up_the_network_(active_Wakeup)","PKC_CtrlBitVector_Bit5_Res": 0,"PKC_CtrlBitVector_Bit6_PNI": "NM_PDU_contains_Partial_Network_request_information","PKC_CtrlBitVector_Bit7_Res": 0,"PKC_UsrData0": "User_data_for_current_vehicle_with_partial_networking","PKC_UsrData1_Bit0_IGN_WAKEUP": "active","PKC_UsrData1_Bit1_RESET_WAKEUP": "active","PKC_UsrData1_Bit2_NETWORK_WAKEUP": "active","PKC_UsrData1_Bit3_ECUSPEC_WAKEUP": "active","PKC_UsrData1_Bit4_NETWORK_AWAKE": "active","PKC_UsrData1_Bit5_IGNITION_AWAKE": "active","PKC_UsrData1_Bit6_DIAGN_AWAKE": "active","PKC_UsrData1_Bit7_ECUSPEC_AWAKE": "active","PKC_UsrData2": 255,"PKC_UsrData3": 255,"PKC_UsrData4_PN_Info1": 255,"PKC_UsrData5_PN_Info2": 255}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    PKC_NM_0x429    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    PKC_NM_0x429    ${expected_can_signals}    max    30
 
 FCM-TX-0x174: Send Tx XCP variables and validating on CAN signals for message TBOX_0x174
     [Documentation]    Validate TX message 'TBOX_0x174' by writing XCP variables and reading CAN signals
@@ -69,19 +69,19 @@ FCM-TX-0x174: Send Tx XCP variables and validating on CAN signals for message TB
     ${xcp_var_map}=    Evaluate    {"TBOX_174_CheckSum": "Rte_C_SG_TBOX_0x174_adt_FBC9FD7E0EA06DE042C8795A4C833BA8.TBOX_174_CheckSum","TBOX_174_AliveCounter": "Rte_C_SG_TBOX_0x174_adt_FBC9FD7E0EA06DE042C8795A4C833BA8.TBOX_174_AliveCounter","TBOX_XAcce": "Rte_C_SG_TBOX_0x174_adt_FBC9FD7E0EA06DE042C8795A4C833BA8.TBOX_XAcce","TBOX_XVelocity": "Rte_C_SG_TBOX_0x174_adt_FBC9FD7E0EA06DE042C8795A4C833BA8.TBOX_XVelocity","TBOX_XAgrRate": "Rte_C_SG_TBOX_0x174_adt_FBC9FD7E0EA06DE042C8795A4C833BA8.TBOX_XAgrRate",}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_174_CheckSum": 0,"TBOX_174_AliveCounter": 0,"TBOX_XAcce": -327,"TBOX_XVelocity": -32786,"TBOX_XAgrRate": -327}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    TBOX_0x174    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    TBOX_0x174    ${expected_can_signals}    min    30
 
     Log    writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"TBOX_174_CheckSum": 100,"TBOX_174_AliveCounter": 7,"TBOX_XAcce": 100,"TBOX_XVelocity": 3000,"TBOX_XAgrRate": 100}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_174_CheckSum": 100,"TBOX_174_AliveCounter": 7,"TBOX_XAcce": 100,"TBOX_XVelocity": 3000,"TBOX_XAgrRate": 100}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    TBOX_0x174    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    TBOX_0x174    ${expected_can_signals}    mid    30
 
     Log    writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"TBOX_174_CheckSum": 255,"TBOX_174_AliveCounter": 14,"TBOX_XAcce": 327,"TBOX_XVelocity": 32767,"TBOX_XAgrRate": 327}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_174_CheckSum": 255,"TBOX_174_AliveCounter": 14,"TBOX_XAcce": 327,"TBOX_XVelocity": 32767,"TBOX_XAgrRate": 327}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    TBOX_0x174    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    TBOX_0x174    ${expected_can_signals}    max    30
 
 FCM-TX-0x176: Send Tx XCP variables and validating on CAN signals for message TBOX_0x176
 
@@ -92,19 +92,19 @@ FCM-TX-0x176: Send Tx XCP variables and validating on CAN signals for message TB
     ${xcp_var_map}=    Evaluate    {"TBOX_176_CheckSum": "Rte_C_SG_TBOX_0x176_adt_C9CF9F708ADED2371F07E7C9287B5A63.TBOX_176_CheckSum","TBOX_176_AliveCounter": "Rte_C_SG_TBOX_0x176_adt_C9CF9F708ADED2371F07E7C9287B5A63.TBOX_176_AliveCounter","TBOX_ZAcce": "Rte_C_SG_TBOX_0x176_adt_C9CF9F708ADED2371F07E7C9287B5A63.TBOX_ZAcce","TBOX_ZVelocity": "Rte_C_SG_TBOX_0x176_adt_C9CF9F708ADED2371F07E7C9287B5A63.TBOX_ZVelocity","TBOX_ZAgrRate": "Rte_C_SG_TBOX_0x176_adt_C9CF9F708ADED2371F07E7C9287B5A63.TBOX_ZAgrRate",}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_176_CheckSum": 0,"TBOX_176_AliveCounter": 0,"TBOX_ZAcce": -327,"TBOX_ZVelocity": -32786,"TBOX_ZAgrRate": -327}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    TBOX_0x176    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    TBOX_0x176    ${expected_can_signals}    min    30
 
     Log    writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"TBOX_176_CheckSum": 100,"TBOX_176_AliveCounter": 7,"TBOX_ZAcce": 100,"TBOX_ZVelocity": 3000,"TBOX_ZAgrRate": 100}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_176_CheckSum": 100,"TBOX_176_AliveCounter": 7,"TBOX_ZAcce": 100,"TBOX_ZVelocity": 3000,"TBOX_ZAgrRate": 100}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    TBOX_0x176    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    TBOX_0x176    ${expected_can_signals}    mid    30
 
     Log    writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"TBOX_176_CheckSum": 255,"TBOX_176_AliveCounter": 14,"TBOX_ZAcce": 327,"TBOX_ZVelocity": 32767,"TBOX_ZAgrRate": 327}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_176_CheckSum": 255,"TBOX_176_AliveCounter": 14,"TBOX_ZAcce": 327,"TBOX_ZVelocity": 32767,"TBOX_ZAgrRate": 327}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    TBOX_0x176    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    TBOX_0x176    ${expected_can_signals}    max    30
 
 FCM-TX-0x175: Send Tx XCP variables and validating on CAN signals for message TBOX_0x175
     [Documentation]    Validate TX message 'TBOX_0x175' by writing XCP variables and reading CAN signals
@@ -114,19 +114,19 @@ FCM-TX-0x175: Send Tx XCP variables and validating on CAN signals for message TB
     ${xcp_var_map}=    Evaluate    {"TBOX_175_CheckSum": "Rte_C_SG_TBOX_0x175_adt_C3B9626778116B6923216611E56BC855.TBOX_175_CheckSum","TBOX_175_AliveCounter": "Rte_C_SG_TBOX_0x175_adt_C3B9626778116B6923216611E56BC855.TBOX_175_AliveCounter","TBOX_YAcce": "Rte_C_SG_TBOX_0x175_adt_C3B9626778116B6923216611E56BC855.TBOX_YAcce","TBOX_YVelocity": "Rte_C_SG_TBOX_0x175_adt_C3B9626778116B6923216611E56BC855.TBOX_YVelocity","TBOX_YAgrRate": "Rte_C_SG_TBOX_0x175_adt_C3B9626778116B6923216611E56BC855.TBOX_YAgrRate",}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_175_CheckSum": 0,"TBOX_175_AliveCounter": 0,"TBOX_YAcce": -327,"TBOX_YVelocity": -32786,"TBOX_YAgrRate": -327}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    TBOX_0x175    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    TBOX_0x175    ${expected_can_signals}    min    30
 
     Log    writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"TBOX_175_CheckSum": 100,"TBOX_175_AliveCounter": 7,"TBOX_YAcce": 100,"TBOX_YVelocity": 3000,"TBOX_YAgrRate": 100}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_175_CheckSum": 100,"TBOX_175_AliveCounter": 7,"TBOX_YAcce": 100,"TBOX_YVelocity": 3000,"TBOX_YAgrRate": 100}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    TBOX_0x175    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    TBOX_0x175    ${expected_can_signals}    mid    30
 
     Log    writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"TBOX_175_CheckSum": 255,"TBOX_175_AliveCounter": 14,"TBOX_YAcce": 327,"TBOX_YVelocity": 32767,"TBOX_YAgrRate": 327}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_175_CheckSum": 255,"TBOX_175_AliveCounter": 14,"TBOX_YAcce": 327,"TBOX_YVelocity": 32767,"TBOX_YAgrRate": 327}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    TBOX_0x175    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    TBOX_0x175    ${expected_can_signals}    max    30
 
 
 FCM-TX-0x177: Send Tx XCP variables and validating on CAN signals for message TBOX_0x177
@@ -137,19 +137,19 @@ FCM-TX-0x177: Send Tx XCP variables and validating on CAN signals for message TB
     ${xcp_var_map}=    Evaluate    {"TBOX_177_CheckSum": "Rte_C_SG_TBOX_0x177_adt_DE1DDADEADED1F5983CB613F90018C24.TBOX_177_CheckSum","TBOX_177_AliveCounter": "Rte_C_SG_TBOX_0x177_adt_DE1DDADEADED1F5983CB613F90018C24.TBOX_177_AliveCounter","TBOX_DftlAge": "Rte_C_SG_TBOX_0x177_adt_DE1DDADEADED1F5983CB613F90018C24.TBOX_DftlAge","TBOX_Pitch_A": "Rte_C_SG_TBOX_0x177_adt_DE1DDADEADED1F5983CB613F90018C24.TBOX_Pitch_A","TBOX_PitchStdDev": "Rte_C_SG_TBOX_0x177_adt_DE1DDADEADED1F5983CB613F90018C24.TBOX_PitchStdDev",}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_177_CheckSum": 0,"TBOX_177_AliveCounter": 0,"TBOX_DftlAge": 300,"TBOX_Pitch_A": -180,"TBOX_PitchStdDev": 0}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    TBOX_0x177    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    TBOX_0x177    ${expected_can_signals}    min    30
 
     Log    writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"TBOX_177_CheckSum": 100,"TBOX_177_AliveCounter": 7,"TBOX_DftlAge": 5000,"TBOX_Pitch_A": 90,"TBOX_PitchStdDev": 100}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_177_CheckSum": 100,"TBOX_177_AliveCounter": 7,"TBOX_DftlAge": 5000,"TBOX_Pitch_A": 90,"TBOX_PitchStdDev": 100}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    TBOX_0x177    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    TBOX_0x177    ${expected_can_signals}    mid    30
 
     Log    writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"TBOX_177_CheckSum": 255,"TBOX_177_AliveCounter": 14,"TBOX_DftlAge": 65000,"TBOX_Pitch_A": 180,"TBOX_PitchStdDev": 179}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_177_CheckSum": 255,"TBOX_177_AliveCounter": 14,"TBOX_DftlAge": 65000,"TBOX_Pitch_A": 180,"TBOX_PitchStdDev": 179}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    TBOX_0x177    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    TBOX_0x177    ${expected_can_signals}    max    30
 
 FCM-TX-0x59: Send Tx XCP variables and validating on CAN signals for message ACU_0x59
     [Documentation]    Validate TX message 'ACU_0x59' by writing XCP variables and reading CAN signals
@@ -158,19 +158,19 @@ FCM-TX-0x59: Send Tx XCP variables and validating on CAN signals for message ACU
     ${xcp_var_map}=    Evaluate    {"ACU_59_CheckSum": "Rte_C_SG_ACU_0x59_adt_85B7358C4D0542877033F7A15BC900C8.ACU_59_CheckSum","ACU_59_AliveCounter": "Rte_C_SG_ACU_0x59_adt_85B7358C4D0542877033F7A15BC900C8.ACU_59_AliveCounter","ACU_FrntCrashOutpSts": "Rte_C_SG_ACU_0x59_adt_85B7358C4D0542877033F7A15BC900C8.ACU_FrntCrashOutpSts","ACU_RiSideCrashOutpSts": "Rte_C_SG_ACU_0x59_adt_85B7358C4D0542877033F7A15BC900C8.ACU_RiSideCrashOutpSts","ACU_LeSideCrashOutpSts": "Rte_C_SG_ACU_0x59_adt_85B7358C4D0542877033F7A15BC900C8.ACU_LeSideCrashOutpSts","ACU_RearCrashOutpSts": "Rte_C_SG_ACU_0x59_adt_85B7358C4D0542877033F7A15BC900C8.ACU_RearCrashOutpSts","ACU_RollovrCrashOutpSts": "Rte_C_SG_ACU_0x59_adt_85B7358C4D0542877033F7A15BC900C8.ACU_RollovrCrashOutpSts","ACU_Crash_cfm": "Rte_C_SG_ACU_0x59_adt_85B7358C4D0542877033F7A15BC900C8.ACU_Crash_cfm"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ACU_59_CheckSum":0,"ACU_59_AliveCounter":0,"ACU_FrntCrashOutpSts":"no_crash,_level_0","ACU_RiSideCrashOutpSts":"no_crash,_level_0","ACU_LeSideCrashOutpSts":"no_crash,_level_0","ACU_RearCrashOutpSts":"no_crash,_level_0","ACU_RollovrCrashOutpSts":"no_crash,_level_0","ACU_Crash_cfm":"no_crash"}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ACU_0x59    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ACU_0x59    ${expected_can_signals}    min    30
 
     Log    writing mid value to the xcp variables
     ${xcp_values}=    Evaluate     {"ACU_59_CheckSum":127,"ACU_59_AliveCounter":7,"ACU_FrntCrashOutpSts":0,"ACU_RiSideCrashOutpSts":0,"ACU_LeSideCrashOutpSts":0,"ACU_RearCrashOutpSts":1,"ACU_RollovrCrashOutpSts":1,"ACU_Crash_cfm":1}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ACU_59_CheckSum":127,"ACU_59_AliveCounter":7,"ACU_FrntCrashOutpSts":"no_crash,_level_0","ACU_RiSideCrashOutpSts":"no_crash,_level_0","ACU_LeSideCrashOutpSts":"no_crash,_level_0","ACU_RearCrashOutpSts":"rear_crash_high,_level_2","ACU_RollovrCrashOutpSts":"rollover_crash,_level_2","ACU_Crash_cfm":"crash_happened"}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ACU_0x59    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ACU_0x59    ${expected_can_signals}    mid    30
 
     Log    writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"ACU_59_CheckSum":255,"ACU_59_AliveCounter":14,"ACU_FrntCrashOutpSts":7,"ACU_RiSideCrashOutpSts":3,"ACU_LeSideCrashOutpSts":3,"ACU_RearCrashOutpSts":3,"ACU_RollovrCrashOutpSts":3,"ACU_Crash_cfm":3}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ACU_59_CheckSum":255,"ACU_59_AliveCounter":14,"ACU_FrntCrashOutpSts":"invalid","ACU_RiSideCrashOutpSts":"invalid","ACU_LeSideCrashOutpSts":"invalid","ACU_RearCrashOutpSts":"invalid","ACU_RollovrCrashOutpSts":"invalid","ACU_Crash_cfm":"invalid"}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ACU_0x59    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ACU_0x59    ${expected_can_signals}    max    30
 
 
 FCM-TX-0x42d: Send Tx XCP variables and validating on CAN signals for message ADAS_NM_0x42D
@@ -180,19 +180,19 @@ FCM-TX-0x42d: Send Tx XCP variables and validating on CAN signals for message AD
     ${xcp_var_map}=    Evaluate    {"ADAS_SrcNodeID": "Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_SrcNodeID","ADAS_CtrlBitVector_Bit0_RMR": "Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_CtrlBitVector_Bit0_RMR","ADAS_CtrlBitVector_Bit1_Res":"Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_CtrlBitVector_Bit1_Res","ADAS_CtrlBitVector_Bit2_Res": "Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_CtrlBitVector_Bit2_Res","ADAS_CtrlBitVector_Bit3_NMCoord":"Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_CtrlBitVector_Bit3_NMCoord","ADAS_CtrlBitVector_Bit4_ActWake": "Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_CtrlBitVector_Bit4_ActWake","ADAS_CtrlBitVector_Bit5_Res":"Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_CtrlBitVector_Bit5_Res","ADAS_CtrlBitVector_Bit6_PNI": "Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_CtrlBitVector_Bit6_PNI","ADAS_CtrlBitVector_Bit7_Res": "Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_CtrlBitVector_Bit7_Res","ADAS_UsrData0": "Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_UsrData0","ADAS_UsrData1_Bit0_IGN_WAKEUP": "Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_UsrData1_Bit0_IGN_WAKEUP","ADAS_UsrData1_Bit1_RESET_WAKEUP": "Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_UsrData1_Bit1_RESET_WAKEUP","ADAS_UsrData1_Bit2_NET_WKUP": "Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_UsrData1_Bit2_NET_WKUP","ADAS_UsrData1_Bit3_ECUSPEC_WKUP": "Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_UsrData1_Bit3_ECUSPEC_WKUP","ADAS_UsrData1_Bit4_NETWORK_AWAKE": "Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_UsrData1_Bit4_NETWORK_AWAKE","ADAS_UsrData1_Bit5_IGN_AWAKE": "Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_UsrData1_Bit5_IGN_AWAKE","ADAS_UsrData1_Bit6_DIAGN_AWAKE": "Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_UsrData1_Bit6_DIAGN_AWAKE","ADAS_UsrData1_Bit7_ECUSPEC_AWAKE": "Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_UsrData1_Bit7_ECUSPEC_AWAKE","ADAS_UsrData2": "Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_UsrData2","ADAS_UsrData3": "Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_UsrData3","ADAS_UsrData4_PN_Info1": "Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_UsrData4_PN_Info1","ADAS_UsrData5_PN_Info2": "Rte_C_SG_ADAS_NM_0x42D_adt_05003C31160F4984F79ECC8D0EB27556.ADAS_UsrData5_PN_Info2"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ADAS_SrcNodeID":0,"ADAS_CtrlBitVector_Bit0_RMR":"Repeat_Message_State_not_requested","ADAS_CtrlBitVector_Bit1_Res":0,"ADAS_CtrlBitVector_Bit2_Res":0,"ADAS_CtrlBitVector_Bit3_NMCoord":"Start_of_synchronized_shutdown_is_not_requested_by_main_coordinator","ADAS_CtrlBitVector_Bit4_ActWake":"Node_has_not_woken_up_the_network(passive_wakeup)","ADAS_CtrlBitVector_Bit5_Res":0,"ADAS_CtrlBitVector_Bit6_PNI":"NM_PDU_contains_no_Partial_Network_request_information","ADAS_CtrlBitVector_Bit7_Res":0,"ADAS_UsrData0":"User_data_for_current_vehicle_without_partial_networking","ADAS_UsrData1_Bit0_IGN_WAKEUP":"inactive","ADAS_UsrData1_Bit1_RESET_WAKEUP":"inactive","ADAS_UsrData1_Bit2_NET_WKUP":"inactive","ADAS_UsrData1_Bit3_ECUSPEC_WKUP":"inactive","ADAS_UsrData1_Bit4_NETWORK_AWAKE":"inactive","ADAS_UsrData1_Bit5_IGN_AWAKE":"inactive","ADAS_UsrData1_Bit6_DIAGN_AWAKE":"inactive","ADAS_UsrData1_Bit7_ECUSPEC_AWAKE":"inactive","ADAS_UsrData2":0,"ADAS_UsrData3":0,"ADAS_UsrData4_PN_Info1":0,"ADAS_UsrData5_PN_Info2":0}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ADAS_NM_0x42D    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ADAS_NM_0x42D    ${expected_can_signals}    min    30
 
     Log    writing mid value to the xcp variables
     ${xcp_values}=    Evaluate     {"ADAS_SrcNodeID":63,"ADAS_CtrlBitVector_Bit0_RMR":0,"ADAS_CtrlBitVector_Bit1_Res":0,"ADAS_CtrlBitVector_Bit2_Res":0,"ADAS_CtrlBitVector_Bit3_NMCoord":0,"ADAS_CtrlBitVector_Bit4_ActWake":0,"ADAS_CtrlBitVector_Bit5_Res":0,"ADAS_CtrlBitVector_Bit6_PNI":0,"ADAS_CtrlBitVector_Bit7_Res":0,"ADAS_UsrData0":127,"ADAS_UsrData1_Bit0_IGN_WAKEUP":0,"ADAS_UsrData1_Bit1_RESET_WAKEUP":0,"ADAS_UsrData1_Bit2_NET_WKUP":0,"ADAS_UsrData1_Bit3_ECUSPEC_WKUP":0,"ADAS_UsrData1_Bit4_NETWORK_AWAKE":0,"ADAS_UsrData1_Bit5_IGN_AWAKE":0,"ADAS_UsrData1_Bit6_DIAGN_AWAKE":0,"ADAS_UsrData1_Bit7_ECUSPEC_AWAKE":0,"ADAS_UsrData2":127,"ADAS_UsrData3":127,"ADAS_UsrData4_PN_Info1":127,"ADAS_UsrData5_PN_Info2":127}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ADAS_SrcNodeID":63,"ADAS_CtrlBitVector_Bit0_RMR":"Repeat_Message_State_not_requested","ADAS_CtrlBitVector_Bit1_Res":0,"ADAS_CtrlBitVector_Bit2_Res":0,"ADAS_CtrlBitVector_Bit3_NMCoord":"Start_of_synchronized_shutdown_is_not_requested_by_main_coordinator","ADAS_CtrlBitVector_Bit4_ActWake":"Node_has_not_woken_up_the_network(passive_wakeup)","ADAS_CtrlBitVector_Bit5_Res":0,"ADAS_CtrlBitVector_Bit6_PNI":"NM_PDU_contains_no_Partial_Network_request_information","ADAS_CtrlBitVector_Bit7_Res":0,"ADAS_UsrData0":"User_data_not_used","ADAS_UsrData1_Bit0_IGN_WAKEUP":"inactive","ADAS_UsrData1_Bit1_RESET_WAKEUP":"inactive","ADAS_UsrData1_Bit2_NET_WKUP":"inactive","ADAS_UsrData1_Bit3_ECUSPEC_WKUP":"inactive","ADAS_UsrData1_Bit4_NETWORK_AWAKE":"inactive","ADAS_UsrData1_Bit5_IGN_AWAKE":"inactive","ADAS_UsrData1_Bit6_DIAGN_AWAKE":"inactive","ADAS_UsrData1_Bit7_ECUSPEC_AWAKE":"inactive","ADAS_UsrData2":127,"ADAS_UsrData3":127,"ADAS_UsrData4_PN_Info1":127,"ADAS_UsrData5_PN_Info2":127}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ADAS_NM_0x42D    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ADAS_NM_0x42D    ${expected_can_signals}    mid    30
 
     Log    writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"ADAS_SrcNodeID":127,"ADAS_CtrlBitVector_Bit0_RMR":1,"ADAS_CtrlBitVector_Bit1_Res":1,"ADAS_CtrlBitVector_Bit2_Res":1,"ADAS_CtrlBitVector_Bit3_NMCoord":1,"ADAS_CtrlBitVector_Bit4_ActWake":1,"ADAS_CtrlBitVector_Bit5_Res":1,"ADAS_CtrlBitVector_Bit6_PNI":1,"ADAS_CtrlBitVector_Bit7_Res":1,"ADAS_UsrData0":255,"ADAS_UsrData1_Bit0_IGN_WAKEUP":1,"ADAS_UsrData1_Bit1_RESET_WAKEUP":1,"ADAS_UsrData1_Bit2_NET_WKUP":1,"ADAS_UsrData1_Bit3_ECUSPEC_WKUP":1,"ADAS_UsrData1_Bit4_NETWORK_AWAKE":1,"ADAS_UsrData1_Bit5_IGN_AWAKE":1,"ADAS_UsrData1_Bit6_DIAGN_AWAKE":1,"ADAS_UsrData1_Bit7_ECUSPEC_AWAKE":1,"ADAS_UsrData2":255,"ADAS_UsrData3":255,"ADAS_UsrData4_PN_Info1":255,"ADAS_UsrData5_PN_Info2":255}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ADAS_SrcNodeID":127,"ADAS_CtrlBitVector_Bit0_RMR":"Repeat_Message_State_requested","ADAS_CtrlBitVector_Bit1_Res":1,"ADAS_CtrlBitVector_Bit2_Res":1,"ADAS_CtrlBitVector_Bit3_NMCoord":"Start_of_synchronized_shutdown_is_requested_by_main_coordinator","ADAS_CtrlBitVector_Bit4_ActWake":"Node_has_woken_up_the_network(active_Wakeup)","ADAS_CtrlBitVector_Bit5_Res":1,"ADAS_CtrlBitVector_Bit6_PNI":"NM_PDU_contains_Partial_Network_request_information","ADAS_CtrlBitVector_Bit7_Res":1,"ADAS_UsrData0":"User_data_not_used","ADAS_UsrData1_Bit0_IGN_WAKEUP":"active","ADAS_UsrData1_Bit1_RESET_WAKEUP":"active","ADAS_UsrData1_Bit2_NET_WKUP":"active","ADAS_UsrData1_Bit3_ECUSPEC_WKUP":"active","ADAS_UsrData1_Bit4_NETWORK_AWAKE":"active","ADAS_UsrData1_Bit5_IGN_AWAKE":"active","ADAS_UsrData1_Bit6_DIAGN_AWAKE":"active","ADAS_UsrData1_Bit7_ECUSPEC_AWAKE":"active","ADAS_UsrData2":255,"ADAS_UsrData3":255,"ADAS_UsrData4_PN_Info1":255,"ADAS_UsrData5_PN_Info2":255}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ADAS_NM_0x42D    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ADAS_NM_0x42D    ${expected_can_signals}    max    30
 
 FCM-TX-0x333: Send Tx XCP variables and validating on CAN signals for message BCM_0x333
     [Documentation]    Validate TX message 'BCM_0x333' by writing XCP variables and reading CAN signals
@@ -201,19 +201,19 @@ FCM-TX-0x333: Send Tx XCP variables and validating on CAN signals for message BC
     ${xcp_var_map}=    Evaluate    {"BCM_333_CheckSum": "Rte_C_SG_BCM_0x333_adt_0DEDD0BB9EE8CFD0A3391A646FB67E5B.BCM_333_CheckSum","BCM_333_AliveCounter": "Rte_C_SG_BCM_0x333_adt_0DEDD0BB9EE8CFD0A3391A646FB67E5B.BCM_333_AliveCounter","BCM_KL15_Off_Announcement": "Rte_C_SG_BCM_0x333_adt_0DEDD0BB9EE8CFD0A3391A646FB67E5B.BCM_KL15_Off_Announcement","BCM_IG1Sts": "Rte_C_SG_BCM_0x333_adt_0DEDD0BB9EE8CFD0A3391A646FB67E5B.BCM_IG1Sts","BCM_PwrMod": "Rte_C_SG_BCM_0x333_adt_0DEDD0BB9EE8CFD0A3391A646FB67E5B.BCM_PwrMod","BCM_PwrModVld": "Rte_C_SG_BCM_0x333_adt_0DEDD0BB9EE8CFD0A3391A646FB67E5B.BCM_PwrModVld","BCM_BrkSwtSts": "Rte_C_SG_BCM_0x333_adt_0DEDD0BB9EE8CFD0A3391A646FB67E5B.BCM_BrkSwtSts","BCM_IG1StsVld_CAPE": "Rte_C_SG_BCM_0x333_adt_0DEDD0BB9EE8CFD0A3391A646FB67E5B.BCM_IG1StsVld_CAPE","BCM_IG2StsVld_CAPE": "Rte_C_SG_BCM_0x333_adt_0DEDD0BB9EE8CFD0A3391A646FB67E5B.BCM_IG2StsVld_CAPE","BCM_KL30s_L":"Rte_C_SG_BCM_0x333_adt_0DEDD0BB9EE8CFD0A3391A646FB67E5B.BCM_KL30s_L","BCM_IG2Sts": "Rte_C_SG_BCM_0x333_adt_0DEDD0BB9EE8CFD0A3391A646FB67E5B.BCM_IG2Sts","BCM_InteriorSwtSt": "Rte_C_SG_BCM_0x333_adt_0DEDD0BB9EE8CFD0A3391A646FB67E5B.BCM_InteriorSwtSt"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"BCM_333_CheckSum":0,"BCM_333_AliveCounter":0,"BCM_KL15_Off_Announcement":"NotAvailable","BCM_IG1Sts":"NotAvailable","BCM_PwrMod":"Off","BCM_PwrModVld":"Initializing","BCM_BrkSwtSts":"No_Pressed","BCM_IG1StsVld_CAPE":"Initializing","BCM_IG2StsVld_CAPE":"Initializing","BCM_KL30s_L":"Not_Available","BCM_IG2Sts":"Not_Available","BCM_InteriorSwtSt":"pressed"}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    BCM_0x333    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    BCM_0x333    ${expected_can_signals}    min    30
 
     Log    writing mid value to the xcp variables
     ${xcp_values}=    Evaluate     {"BCM_333_CheckSum":0,"BCM_333_AliveCounter":0,"BCM_KL15_Off_Announcement":0,"BCM_IG1Sts":0,"BCM_PwrMod":0,"BCM_PwrModVld":0,"BCM_BrkSwtSts":0,"BCM_IG1StsVld_CAPE":0,"BCM_IG2StsVld_CAPE":0,"BCM_KL30s_L":0,"BCM_IG2Sts":0,"BCM_InteriorSwtSt":0}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"BCM_333_CheckSum":0,"BCM_333_AliveCounter":0,"BCM_KL15_Off_Announcement":"NotAvailable","BCM_IG1Sts":"NotAvailable","BCM_PwrMod":"Off","BCM_PwrModVld":"Initializing","BCM_BrkSwtSts":"No_Pressed","BCM_IG1StsVld_CAPE":"Initializing","BCM_IG2StsVld_CAPE":"Initializing","BCM_KL30s_L":"Not_Available","BCM_IG2Sts":"Not_Available","BCM_InteriorSwtSt":"Inactive"}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    BCM_0x333    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    BCM_0x333    ${expected_can_signals}    mid    30
 
     Log    writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"BCM_333_CheckSum":255,"BCM_333_AliveCounter":14,"BCM_KL15_Off_Announcement":3,"BCM_IG1Sts":3,"BCM_PwrMod":7,"BCM_PwrModVld":3,"BCM_BrkSwtSts":1,"BCM_IG1StsVld_CAPE":3,"BCM_IG2StsVld_CAPE":3,"BCM_KL30s_L":3,"BCM_IG2Sts":3,"BCM_InteriorSwtSt":3}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"BCM_333_CheckSum":255,"BCM_333_AliveCounter":14,"BCM_KL15_Off_Announcement":"Reserved","BCM_IG1Sts":"Reserved","BCM_PwrMod":"Reserved","BCM_PwrModVld":"Reserved","BCM_BrkSwtSts":"Pressed","BCM_IG1StsVld_CAPE":"Reserved","BCM_IG2StsVld_CAPE":"Reserved","BCM_KL30s_L":"Reserved","BCM_IG2Sts":"Reserved","BCM_InteriorSwtSt":"reserved"}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    BCM_0x333    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    BCM_0x333    ${expected_can_signals}    max    30
 
 FCM-TX-0x335: Send Tx XCP variables and validating on CAN signals for message BCM_0x335
     [Documentation]    Validate TX message 'BCM_0x335' by writing XCP variables and reading CAN signals
@@ -222,19 +222,19 @@ FCM-TX-0x335: Send Tx XCP variables and validating on CAN signals for message BC
     ${xcp_var_map}=    Evaluate    {"BCM_335_CheckSum": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_335_CheckSum","BCM_335_AliveCounter": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_335_AliveCounter","BCM_WiprInSrvPosn": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_WiprInSrvPosn","BCM_IntLampTiSetSts": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_IntLampTiSetSts","BCM_WaterPosnSnsrSwtSts": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_WaterPosnSnsrSwtSts","BCM_FrntFogLampOutpCmd": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_FrntFogLampOutpCmd","BCM_LicPlateLampOutpCmd": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_LicPlateLampOutpCmd","BCM_EnaSts_ADB": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_EnaSts_ADB","BCM_PwrSaveOutpCmd": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_PwrSaveOutpCmd","BCM_ExtLampSwtSts": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_ExtLampSwtSts","BCM_HornOutpCmd": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_HornOutpCmd","BCM_HornSwtSts": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_HornSwtSts","BCM_WelLampOutpCmd": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_WelLampOutpCmd","BCM_FolwMeHomeSts": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_FolwMeHomeSts","BCM_FrntFogLampSwtSts": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_FrntFogLampSwtSts","BCM_ReFogLampSwtSts": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_ReFogLampSwtSts","BCM_ReWiprBackSwtSts": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_ReWiprBackSwtSts","BCM_RainClsSunroofSetSts": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_RainClsSunroofSetSts","BCM_MirrLockAutoSetSts": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_MirrLockAutoSetSts","BCM_FrntWshrOutpCmd": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_FrntWshrOutpCmd","BCM_DangerAlrmLampSwtSts": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_DangerAlrmLampSwtSts","BCM_ReDefrstHeatgCmd": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_ReDefrstHeatgCmd","BCM_RvsLampOutpCmd": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_RvsLampOutpCmd","BCM_IntLampOutpCmd": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_IntLampOutpCmd","BCM_LeTrunLampOutpCmd": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_LeTrunLampOutpCmd","BCM_RiTrunLampOutpCmd": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_RiTrunLampOutpCmd","BCM_ReWiprOutpCmd": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_ReWiprOutpCmd","BCM_ReWshrOutpCmd": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_ReWshrOutpCmd","BCM_BrkLampSwtSts":"Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_BrkLampSwtSts","BCM_HiBeamOutpCmd": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_HiBeamOutpCmd","BCM_LoBeamOutpCmd": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_LoBeamOutpCmd","BCM_PosnLampOutpCmd": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_PosnLampOutpCmd","BCM_BrkLampOutpCmd": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_BrkLampOutpCmd","BCM_ReFogLampOutpCmd": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_ReFogLampOutpCmd","BCM_FrntWiprSpd": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_FrntWiprSpd","BCM_EnaReq_ADB": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_EnaReq_ADB","BCM_VehAmbBri": "Rte_C_SG_BCM_0x335_adt_9B63E207A18DFDF62183E79B991BB48F.BCM_VehAmbBri"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"BCM_335_CheckSum":0,"BCM_335_AliveCounter":0,"BCM_WiprInSrvPosn":"No","BCM_IntLampTiSetSts":"Not_Use","BCM_WaterPosnSnsrSwtSts":"Inactive","BCM_FrntFogLampOutpCmd":"Off","BCM_LicPlateLampOutpCmd":"Off","BCM_EnaSts_ADB":"Inactive","BCM_PwrSaveOutpCmd":"Off","BCM_ExtLampSwtSts":"Off","BCM_HornOutpCmd":"Off","BCM_HornSwtSts":"Off","BCM_WelLampOutpCmd":"Off","BCM_FolwMeHomeSts":"Inactive","BCM_FrntFogLampSwtSts":"Inactive","BCM_ReFogLampSwtSts":"Inactive","BCM_ReWiprBackSwtSts":"Inactive","BCM_RainClsSunroofSetSts":"Inactive","BCM_MirrLockAutoSetSts":"Off","BCM_FrntWshrOutpCmd":"Off","BCM_DangerAlrmLampSwtSts":"Off","BCM_ReDefrstHeatgCmd":"Off","BCM_RvsLampOutpCmd":"Off","BCM_IntLampOutpCmd":"Off","BCM_LeTrunLampOutpCmd":"Off","BCM_RiTrunLampOutpCmd":"Off","BCM_ReWiprOutpCmd":"Off","BCM_ReWshrOutpCmd":"Off","BCM_BrkLampSwtSts":"Inactive","BCM_HiBeamOutpCmd":"Off","BCM_LoBeamOutpCmd":"Off","BCM_PosnLampOutpCmd":"Off","BCM_BrkLampOutpCmd":"Off","BCM_ReFogLampOutpCmd":"Off","BCM_FrntWiprSpd":0,"BCM_EnaReq_ADB":"Inactive","BCM_VehAmbBri":0}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    BCM_0x335    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    BCM_0x335    ${expected_can_signals}    min    30
 
     Log    writing mid value to the xcp variables
     ${xcp_values}=    Evaluate     {"BCM_335_CheckSum":0,"BCM_335_AliveCounter":0,"BCM_WiprInSrvPosn":0,"BCM_IntLampTiSetSts":0,"BCM_WaterPosnSnsrSwtSts":0,"BCM_FrntFogLampOutpCmd":0,"BCM_LicPlateLampOutpCmd":0,"BCM_EnaSts_ADB":0,"BCM_PwrSaveOutpCmd":0,"BCM_ExtLampSwtSts":0,"BCM_HornOutpCmd":0,"BCM_HornSwtSts":0,"BCM_WelLampOutpCmd":0,"BCM_FolwMeHomeSts":0,"BCM_FrntFogLampSwtSts":0,"BCM_ReFogLampSwtSts":0,"BCM_ReWiprBackSwtSts":0,"BCM_RainClsSunroofSetSts":0,"BCM_MirrLockAutoSetSts":0,"BCM_FrntWshrOutpCmd":0,"BCM_DangerAlrmLampSwtSts":0,"BCM_ReDefrstHeatgCmd":0,"BCM_RvsLampOutpCmd":0,"BCM_IntLampOutpCmd":0,"BCM_LeTrunLampOutpCmd":0,"BCM_RiTrunLampOutpCmd":0,"BCM_ReWiprOutpCmd":0,"BCM_ReWshrOutpCmd":0,"BCM_BrkLampSwtSts":0,"BCM_HiBeamOutpCmd":0,"BCM_LoBeamOutpCmd":0,"BCM_PosnLampOutpCmd":0,"BCM_BrkLampOutpCmd":0,"BCM_ReFogLampOutpCmd":0,"BCM_FrntWiprSpd":0,"BCM_EnaReq_ADB":0,"BCM_VehAmbBri":110}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"BCM_335_CheckSum":0,"BCM_335_AliveCounter":0,"BCM_WiprInSrvPosn":"No","BCM_IntLampTiSetSts":"Not_Use","BCM_WaterPosnSnsrSwtSts":"Inactive","BCM_FrntFogLampOutpCmd":"Off","BCM_LicPlateLampOutpCmd":"Off","BCM_EnaSts_ADB":"Inactive","BCM_PwrSaveOutpCmd":"Off","BCM_ExtLampSwtSts":"Off","BCM_HornOutpCmd":"Off","BCM_HornSwtSts":"Off","BCM_WelLampOutpCmd":"Off","BCM_FolwMeHomeSts":"Inactive","BCM_FrntFogLampSwtSts":"Inactive","BCM_ReFogLampSwtSts":"Inactive","BCM_ReWiprBackSwtSts":"Inactive","BCM_RainClsSunroofSetSts":"Inactive","BCM_MirrLockAutoSetSts":"Off","BCM_FrntWshrOutpCmd":"Off","BCM_DangerAlrmLampSwtSts":"Off","BCM_ReDefrstHeatgCmd":"Off","BCM_RvsLampOutpCmd":"Off","BCM_IntLampOutpCmd":"Off","BCM_LeTrunLampOutpCmd":"Off","BCM_RiTrunLampOutpCmd":"Off","BCM_ReWiprOutpCmd":"Off","BCM_ReWshrOutpCmd":"Off","BCM_BrkLampSwtSts":"Inactive","BCM_HiBeamOutpCmd":"Off","BCM_LoBeamOutpCmd":"Off","BCM_PosnLampOutpCmd":"Off","BCM_BrkLampOutpCmd":"Off","BCM_ReFogLampOutpCmd":"Off","BCM_FrntWiprSpd":0,"BCM_EnaReq_ADB":"Inactive","BCM_VehAmbBri":110}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    BCM_0x335   ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    BCM_0x335   ${expected_can_signals}    mid    30
 
     Log    writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"BCM_335_CheckSum":255,"BCM_335_AliveCounter":14,"BCM_WiprInSrvPosn":1,"BCM_IntLampTiSetSts":7,"BCM_WaterPosnSnsrSwtSts":1,"BCM_FrntFogLampOutpCmd":1,"BCM_LicPlateLampOutpCmd":1,"BCM_EnaSts_ADB":1,"BCM_PwrSaveOutpCmd":1,"BCM_ExtLampSwtSts":7,"BCM_HornOutpCmd":1,"BCM_HornSwtSts":1,"BCM_WelLampOutpCmd":1,"BCM_FolwMeHomeSts":1,"BCM_FrntFogLampSwtSts":1,"BCM_ReFogLampSwtSts":1,"BCM_ReWiprBackSwtSts":1,"BCM_RainClsSunroofSetSts":0,"BCM_MirrLockAutoSetSts":1,"BCM_FrntWshrOutpCmd":1,"BCM_DangerAlrmLampSwtSts":1,"BCM_ReDefrstHeatgCmd":1,"BCM_RvsLampOutpCmd":1,"BCM_IntLampOutpCmd":1,"BCM_LeTrunLampOutpCmd":1,"BCM_RiTrunLampOutpCmd":1,"BCM_ReWiprOutpCmd":1,"BCM_ReWshrOutpCmd":1,"BCM_BrkLampSwtSts":1,"BCM_HiBeamOutpCmd":1,"BCM_LoBeamOutpCmd":1,"BCM_PosnLampOutpCmd":3,"BCM_BrkLampOutpCmd":1,"BCM_ReFogLampOutpCmd":1,"BCM_FrntWiprSpd":63,"BCM_EnaReq_ADB":1,"BCM_VehAmbBri":25400}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"BCM_335_CheckSum":255,"BCM_335_AliveCounter":14,"BCM_WiprInSrvPosn":"Yes","BCM_IntLampTiSetSts":"Reserved","BCM_WaterPosnSnsrSwtSts":"Active","BCM_FrntFogLampOutpCmd":"On","BCM_LicPlateLampOutpCmd":"On","BCM_EnaSts_ADB":"Active","BCM_PwrSaveOutpCmd":"On","BCM_ExtLampSwtSts":"Reserved","BCM_HornOutpCmd":"On","BCM_HornSwtSts":"On","BCM_WelLampOutpCmd":"On","BCM_FolwMeHomeSts":"Active","BCM_FrntFogLampSwtSts":"Active","BCM_ReFogLampSwtSts":"Active","BCM_ReWiprBackSwtSts":"Active","BCM_RainClsSunroofSetSts":"Inactive","BCM_MirrLockAutoSetSts":"On","BCM_FrntWshrOutpCmd":"On","BCM_DangerAlrmLampSwtSts":"On","BCM_ReDefrstHeatgCmd":"On","BCM_RvsLampOutpCmd":"On","BCM_IntLampOutpCmd":"On","BCM_LeTrunLampOutpCmd":"On","BCM_RiTrunLampOutpCmd":"On","BCM_ReWiprOutpCmd":"On","BCM_ReWshrOutpCmd":"On","BCM_BrkLampSwtSts":"Active","BCM_HiBeamOutpCmd":"On","BCM_LoBeamOutpCmd":"On","BCM_PosnLampOutpCmd":"All_On","BCM_BrkLampOutpCmd":"On","BCM_ReFogLampOutpCmd":"On","BCM_FrntWiprSpd":63,"BCM_EnaReq_ADB":"Active","BCM_VehAmbBri":"Maximum_value"}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    BCM_0x335    ${expected_can_signals}    3
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    BCM_0x335    ${expected_can_signals}    max    30
 
 FCM-TX-0x310: Send Tx XCP variables and validating on CAN signals for message CIM_0x310
     [Documentation]    Validate TX message 'CIM_0x310' by writing XCP variables and reading CAN signals
@@ -243,19 +243,19 @@ FCM-TX-0x310: Send Tx XCP variables and validating on CAN signals for message CI
     ${xcp_var_map}=    Evaluate    {"CIM_310_CheckSum": "Rte_C_SG_CIM_0x310_adt_E38204ACA81E836F608EFD00D213BDF6.CIM_310_CheckSum","CIM_310_AliveCounter": "Rte_C_SG_CIM_0x310_adt_E38204ACA81E836F608EFD00D213BDF6.CIM_310_AliveCounter","CIM_TurnLampSwtSts": "Rte_C_SG_CIM_0x310_adt_E38204ACA81E836F608EFD00D213BDF6.CIM_TurnLampSwtSts","CIM_HiBeamSwtSts": "Rte_C_SG_CIM_0x310_adt_E38204ACA81E836F608EFD00D213BDF6.CIM_HiBeamSwtSts","CIM_FrntWshrSwtSts": "Rte_C_SG_CIM_0x310_adt_E38204ACA81E836F608EFD00D213BDF6.CIM_FrntWshrSwtSts","CIM_FrntWiprSwtSts": "Rte_C_SG_CIM_0x310_adt_E38204ACA81E836F608EFD00D213BDF6.CIM_FrntWiprSwtSts"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"CIM_310_CheckSum":0,"CIM_310_AliveCounter":0,"CIM_TurnLampSwtSts":"Default_state","CIM_HiBeamSwtSts":"Neutral_middle_position","CIM_FrntWshrSwtSts":"Washing_OFF","CIM_FrntWiprSwtSts":"Off_default"}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    CIM_0x310    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    CIM_0x310    ${expected_can_signals}    min    30
 
     Log    writing mid value to the xcp variables
     ${xcp_values}=    Evaluate     {"CIM_310_CheckSum":150,"CIM_310_AliveCounter":7,"CIM_TurnLampSwtSts":5,"CIM_HiBeamSwtSts":1,"CIM_FrntWshrSwtSts":2,"CIM_FrntWiprSwtSts":5}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"CIM_310_CheckSum":150,"CIM_310_AliveCounter":7,"CIM_TurnLampSwtSts":"Mechanical_Failure","CIM_HiBeamSwtSts":"High_beam_pull","CIM_FrntWshrSwtSts":"Front_wash_2nd_position","CIM_FrntWiprSwtSts":"Reserved"}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    CIM_0x310    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    CIM_0x310    ${expected_can_signals}    mid    30
 
     Log    writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"CIM_310_CheckSum":255,"CIM_310_AliveCounter":14,"CIM_TurnLampSwtSts":7,"CIM_HiBeamSwtSts":3,"CIM_FrntWshrSwtSts":3,"CIM_FrntWiprSwtSts":7}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"CIM_310_CheckSum":255,"CIM_310_AliveCounter":14,"CIM_TurnLampSwtSts":"Invalid_right","CIM_HiBeamSwtSts":"Invalid","CIM_FrntWshrSwtSts":"Invalid","CIM_FrntWiprSwtSts":"Invalid"}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    CIM_0x310    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    CIM_0x310    ${expected_can_signals}    max    30
 
 FCM-TX-0x345: Send Tx XCP variables and validating on CAN signals for message BCM_0x345
     [Documentation]    Validate TX message 'BCM_0x345' by writing XCP variables and reading CAN signals
@@ -264,19 +264,19 @@ FCM-TX-0x345: Send Tx XCP variables and validating on CAN signals for message BC
     ${xcp_var_map}=    Evaluate    {"BCM_345_CheckSum": "Rte_C_SG_BCM_0x345_adt_E12CC95EFD77B2C9729C48A04EABFFF8.BCM_345_CheckSum","BCM_345_AliveCounter": "Rte_C_SG_BCM_0x345_adt_E12CC95EFD77B2C9729C48A04EABFFF8.BCM_345_AliveCounter","BCM_OutpValResl_HUD": "Rte_C_SG_BCM_0x345_adt_E12CC95EFD77B2C9729C48A04EABFFF8.BCM_OutpValResl_HUD","BCM_SunshadeRunngSts": "Rte_C_SG_BCM_0x345_adt_E12CC95EFD77B2C9729C48A04EABFFF8.BCM_SunshadeRunngSts","BCM_RiSolaValr_RLS": "Rte_C_SG_BCM_0x345_adt_E12CC95EFD77B2C9729C48A04EABFFF8.BCM_RiSolaValr_RLS","BCM_LeSolaValr_RLS": "Rte_C_SG_BCM_0x345_adt_E12CC95EFD77B2C9729C48A04EABFFF8.BCM_LeSolaValr_RLS","BCM_WindshdHum_RLS": "Rte_C_SG_BCM_0x345_adt_E12CC95EFD77B2C9729C48A04EABFFF8.BCM_WindshdHum_RLS","BCM_WindshdT_RLS": "Rte_C_SG_BCM_0x345_adt_E12CC95EFD77B2C9729C48A04EABFFF8.BCM_WindshdT_RLS","BCM_MeasdVal_HUD": "Rte_C_SG_BCM_0x345_adt_E12CC95EFD77B2C9729C48A04EABFFF8.BCM_MeasdVal_HUD","BCM_SunshadePosnInfo": "Rte_C_SG_BCM_0x345_adt_E12CC95EFD77B2C9729C48A04EABFFF8.BCM_SunshadePosnInfo"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"BCM_345_CheckSum":0,"BCM_345_AliveCounter":0,"BCM_OutpValResl_HUD":"HUD_Measuring_Range_1(4cd/m2)","BCM_SunshadeRunngSts":"Stopped","BCM_RiSolaValr_RLS":0,"BCM_LeSolaValr_RLS":0,"BCM_WindshdHum_RLS":0,"BCM_WindshdT_RLS":-40,"BCM_MeasdVal_HUD":0,"BCM_SunshadePosnInfo":0}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    BCM_0x345    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    BCM_0x345    ${expected_can_signals}    min    30
 
     Log    writing mid value to the xcp variables
     ${xcp_values}=    Evaluate     {"BCM_345_CheckSum":125,"BCM_345_AliveCounter":7,"BCM_OutpValResl_HUD":0,"BCM_SunshadeRunngSts":4,"BCM_RiSolaValr_RLS":525,"BCM_LeSolaValr_RLS":510,"BCM_WindshdHum_RLS":55,"BCM_WindshdT_RLS":30,"BCM_MeasdVal_HUD":125,"BCM_SunshadePosnInfo":50}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"BCM_345_CheckSum":125,"BCM_345_AliveCounter":7,"BCM_OutpValResl_HUD":"HUD_Measuring_Range_1(4cd/m2)","BCM_SunshadeRunngSts":"Moving_Uninitialized","BCM_RiSolaValr_RLS":525,"BCM_LeSolaValr_RLS":510,"BCM_WindshdHum_RLS":55,"BCM_WindshdT_RLS":30,"BCM_MeasdVal_HUD":125,"BCM_SunshadePosnInfo":50}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    BCM_0x345   ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    BCM_0x345   ${expected_can_signals}    mid    30
 
     Log    writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"BCM_345_CheckSum":255,"BCM_345_AliveCounter":14,"BCM_OutpValResl_HUD":1,"BCM_SunshadeRunngSts":7,"BCM_RiSolaValr_RLS":1024.01625,"BCM_LeSolaValr_RLS":1024.01625,"BCM_WindshdHum_RLS":127.5,"BCM_WindshdT_RLS":87.5,"BCM_MeasdVal_HUD":255,"BCM_SunshadePosnInfo":100}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"BCM_345_CheckSum":255,"BCM_345_AliveCounter":14,"BCM_OutpValResl_HUD":"HUD_Measuring_Range_1(40cd/m2)","BCM_SunshadeRunngSts":"Reserved","BCM_RiSolaValr_RLS":1024.01625,"BCM_LeSolaValr_RLS":1024.01625,"BCM_WindshdHum_RLS":127.5,"BCM_WindshdT_RLS":87.5,"BCM_MeasdVal_HUD":255,"BCM_SunshadePosnInfo":100}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    BCM_0x345    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    BCM_0x345    ${expected_can_signals}    max    30
 
 FCM-TX-0x373: Send Tx XCP variables and validating on CAN signals for message ECC_0x373
     [Documentation]    Validate TX message 'ECC_0x373' by writing XCP variables and reading CAN signals
@@ -285,19 +285,19 @@ FCM-TX-0x373: Send Tx XCP variables and validating on CAN signals for message EC
     ${xcp_var_map}=    Evaluate    {"ECC_CrtSts": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_CrtSts","ECC_IninSts": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_IninSts","ECC_PwrSysHeatMngtSts": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_PwrSysHeatMngtSts","ECC_ACSts": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_ACSts","ECC_AirClnSts": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_AirClnSts","ECC_WindSpdSts": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_WindSpdSts","ECC_BackRowAirOutlModSts": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_BackRowAirOutlModSts","ECC_DrvrTSetSts": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_DrvrTSetSts","ECC_PassTSetSts": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_PassTSetSts","ECC_HeatSts": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_HeatSts","ECC_AUTOSts": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_AUTOSts","ECC_SYNCSts": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_SYNCSts","ECC_InfoSysWrmColdDisp": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_InfoSysWrmColdDisp","ECC_CircSts": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_CircSts","ECC_ParticleConcVld": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_ParticleConcVld","ECC_OutdT": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_OutdT","ECC_OutdTVld": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_OutdTVld","ECC_MaxFrntDefrst": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_MaxFrntDefrst","ECC_HeatMngtSysFlt": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_HeatMngtSysFlt","ECC_HeatMngtFctLim": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_HeatMngtFctLim","ECC_DrvrAirOutlMod": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_DrvrAirOutlMod","ECC_PassAirOutlMod": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_PassAirOutlMod","ECC_RemSts": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_RemSts","ECC_OTAInhbRdy": "Rte_C_SG_ECC_0x373_adt_CB4C2C5EF6A755170A4B181D76DEAC29.ECC_OTAInhbRdy"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ECC_CrtSts":"Load_initialization","ECC_IninSts":"Incomplete_initialization","ECC_PwrSysHeatMngtSts":"No_action","ECC_ACSts":"Off_state","ECC_AirClnSts":"Not_ON","ECC_WindSpdSts":"Windless_gear","ECC_BackRowAirOutlModSts":"Rear_face_blowing","ECC_DrvrTSetSts":"Inactive","ECC_PassTSetSts":"Inactive","ECC_HeatSts":"Off_state","ECC_AUTOSts":"Off","ECC_SYNCSts":"Off","ECC_InfoSysWrmColdDisp":"No_action","ECC_CircSts":"Inner_circulation_state","ECC_ParticleConcVld":"Initializing","ECC_OutdT":-48,"ECC_OutdTVld":"Initializing","ECC_MaxFrntDefrst":"Not_opened","ECC_HeatMngtSysFlt":"Normal","ECC_HeatMngtFctLim":"Functional","ECC_DrvrAirOutlMod":"Reserved","ECC_PassAirOutlMod":"Reserved","ECC_RemSts":"Standby","ECC_OTAInhbRdy":"Initial"}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ECC_0x373    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ECC_0x373    ${expected_can_signals}    min    30
 
     Log    writing mid value to the xcp variables
     ${xcp_values}=    Evaluate     {"ECC_CrtSts":7,"ECC_IninSts":0,"ECC_PwrSysHeatMngtSts":1,"ECC_ACSts":0,"ECC_AirClnSts":0,"ECC_WindSpdSts":7,"ECC_BackRowAirOutlModSts":5,"ECC_DrvrTSetSts":75,"ECC_PassTSetSts":60,"ECC_HeatSts":0,"ECC_AUTOSts":0,"ECC_SYNCSts":0,"ECC_InfoSysWrmColdDisp":2,"ECC_CircSts":0,"ECC_ParticleConcVld":2,"ECC_OutdT":40,"ECC_OutdTVld":1,"ECC_MaxFrntDefrst":0,"ECC_HeatMngtSysFlt":0,"ECC_HeatMngtFctLim":0,"ECC_DrvrAirOutlMod":5,"ECC_PassAirOutlMod":5,"ECC_RemSts":2,"ECC_OTAInhbRdy":2}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ECC_CrtSts":"Reserved","ECC_IninSts":"Incomplete_initialization","ECC_PwrSysHeatMngtSts":"Self_circulation_state","ECC_ACSts":"Off_state","ECC_AirClnSts":"Not_ON","ECC_WindSpdSts":"Wind_speed_seven_gear","ECC_BackRowAirOutlModSts":"Reserved","ECC_DrvrTSetSts":"High","ECC_PassTSetSts":"30¡æ","ECC_HeatSts":"Off_state","ECC_AUTOSts":"Off","ECC_SYNCSts":"Off","ECC_InfoSysWrmColdDisp":"Cold_air","ECC_CircSts":"Inner_circulation_state","ECC_ParticleConcVld":"Invalid","ECC_OutdT":40,"ECC_OutdTVld":"Valid","ECC_MaxFrntDefrst":"Not_opened","ECC_HeatMngtSysFlt":"Normal","ECC_HeatMngtFctLim":"Functional","ECC_DrvrAirOutlMod":"Window_blowing_mode","ECC_PassAirOutlMod":"Reserved","ECC_RemSts":"Fault","ECC_OTAInhbRdy":"Not_Inhibit"}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ECC_0x373    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ECC_0x373    ${expected_can_signals}    mid    30
 
     Log    writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"ECC_CrtSts":15,"ECC_IninSts":1,"ECC_PwrSysHeatMngtSts":3,"ECC_ACSts":1,"ECC_AirClnSts":1,"ECC_WindSpdSts":15,"ECC_BackRowAirOutlModSts":7,"ECC_DrvrTSetSts":127.5,"ECC_PassTSetSts":127.5,"ECC_HeatSts":1,"ECC_AUTOSts":1,"ECC_SYNCSts":1,"ECC_InfoSysWrmColdDisp":3,"ECC_CircSts":1,"ECC_ParticleConcVld":3,"ECC_OutdT":79.5,"ECC_OutdTVld":3,"ECC_MaxFrntDefrst":1,"ECC_HeatMngtSysFlt":1,"ECC_HeatMngtFctLim":1,"ECC_DrvrAirOutlMod":7,"ECC_PassAirOutlMod":7,"ECC_RemSts":3,"ECC_OTAInhbRdy":3}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ECC_CrtSts":"Reserved","ECC_IninSts":"initialization_completed","ECC_PwrSysHeatMngtSts":"Reserved","ECC_ACSts":"ON_state","ECC_AirClnSts":"On","ECC_WindSpdSts":"Reserved","ECC_BackRowAirOutlModSts":"Reserved","ECC_DrvrTSetSts":"High","ECC_PassTSetSts":"High","ECC_HeatSts":"ON_state","ECC_AUTOSts":"On","ECC_SYNCSts":"On","ECC_InfoSysWrmColdDisp":"Hot_air","ECC_CircSts":"outer_circulation_state","ECC_ParticleConcVld":"Reserved","ECC_OutdT":"Invalid","ECC_OutdTVld":"Reserved","ECC_MaxFrntDefrst":"Open","ECC_HeatMngtSysFlt":"Fault","ECC_HeatMngtFctLim":"function_limit","ECC_DrvrAirOutlMod":"Reserved","ECC_PassAirOutlMod":"Reserved","ECC_RemSts":"Reserved","ECC_OTAInhbRdy":"Invalid"}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ECC_0x373    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ECC_0x373    ${expected_can_signals}    max    30
 
 FCM-TX-0x1c2: Send Tx XCP variables and validating on CAN signals for message EPS_0x1C2
     [Documentation]    Validate TX message 'EPS_0x1C2' by writing XCP variables and reading CAN signals
@@ -306,19 +306,19 @@ FCM-TX-0x1c2: Send Tx XCP variables and validating on CAN signals for message EP
     ${xcp_var_map}=    Evaluate    {"EPS_1C2_CheckSum": "Rte_C_SG_EPS_0x1C2_adt_96174F6F588F9F2D0E42E0AEBF3A468B.EPS_1C2_CheckSum","EPS_1C2_AliveCounter": "Rte_C_SG_EPS_0x1C2_adt_96174F6F588F9F2D0E42E0AEBF3A468B.EPS_1C2_AliveCounter","EPS_AbortFb": "Rte_C_SG_EPS_0x1C2_adt_96174F6F588F9F2D0E42E0AEBF3A468B.EPS_AbortFb","EPS_SteerWhlAgSig": "Rte_C_SG_EPS_0x1C2_adt_96174F6F588F9F2D0E42E0AEBF3A468B.EPS_SteerWhlAgSig","EPS_SteerAgSnsrCalSts": "Rte_C_SG_EPS_0x1C2_adt_96174F6F588F9F2D0E42E0AEBF3A468B.EPS_SteerAgSnsrCalSts","EPS_SteerWhlAgSigVld": "Rte_C_SG_EPS_0x1C2_adt_96174F6F588F9F2D0E42E0AEBF3A468B.EPS_SteerWhlAgSigVld","EPS_SteerWhlRotSpdDir": "Rte_C_SG_EPS_0x1C2_adt_96174F6F588F9F2D0E42E0AEBF3A468B.EPS_SteerWhlRotSpdDir","EPS_SteerWhlRotSpdVld": "Rte_C_SG_EPS_0x1C2_adt_96174F6F588F9F2D0E42E0AEBF3A468B.EPS_SteerWhlRotSpdVld","EPS_AdasLatCtrlSts": "Rte_C_SG_EPS_0x1C2_adt_96174F6F588F9F2D0E42E0AEBF3A468B.EPS_AdasLatCtrlSts","EPS_AdasLatCtrlStsVld": "Rte_C_SG_EPS_0x1C2_adt_96174F6F588F9F2D0E42E0AEBF3A468B.EPS_AdasLatCtrlStsVld","EPS_SteerWhlRotSpd": "Rte_C_SG_EPS_0x1C2_adt_96174F6F588F9F2D0E42E0AEBF3A468B.EPS_SteerWhlRotSpd","EPS_AsscMotCrtTq": "Rte_C_SG_EPS_0x1C2_adt_96174F6F588F9F2D0E42E0AEBF3A468B.EPS_AsscMotCrtTq"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"EPS_1C2_CheckSum":0,"EPS_1C2_AliveCounter":0,"EPS_AbortFb":"No_Abort","EPS_SteerWhlAgSig":-780,"EPS_SteerAgSnsrCalSts":"Uncalibrated","EPS_SteerWhlAgSigVld":"Initializing","EPS_SteerWhlRotSpdDir":"Forward_rotation","EPS_SteerWhlRotSpdVld":"Initializing","EPS_AdasLatCtrlSts":"Off","EPS_AdasLatCtrlStsVld":"Initializing","EPS_SteerWhlRotSpd":-1016,"EPS_AsscMotCrtTq":0}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    EPS_0x1C2    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    EPS_0x1C2    ${expected_can_signals}    min    30
 
     Log    writing mid value to the xcp variables
     ${xcp_values}=    Evaluate     {"EPS_1C2_CheckSum":125,"EPS_1C2_AliveCounter":7,"EPS_AbortFb":7,"EPS_SteerWhlAgSig":0,"EPS_SteerAgSnsrCalSts":0,"EPS_SteerWhlAgSigVld":2,"EPS_SteerWhlRotSpdDir":1,"EPS_SteerWhlRotSpdVld":2,"EPS_AdasLatCtrlSts":1,"EPS_AdasLatCtrlStsVld":1,"EPS_SteerWhlRotSpd":0,"EPS_AsscMotCrtTq":5}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"EPS_1C2_CheckSum":125,"EPS_1C2_AliveCounter":7,"EPS_AbortFb":"Vehilce_Speed_Exceeds_Limits_When_In_Control","EPS_SteerWhlAgSig":0,"EPS_SteerAgSnsrCalSts":"Uncalibrated","EPS_SteerWhlAgSigVld":"Invalid","EPS_SteerWhlRotSpdDir":"Negative_rotation","EPS_SteerWhlRotSpdVld":"Invalid","EPS_AdasLatCtrlSts":"Available_For_Control","EPS_AdasLatCtrlStsVld":"Valid","EPS_SteerWhlRotSpd":0,"EPS_AsscMotCrtTq":5}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    EPS_0x1C2    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    EPS_0x1C2    ${expected_can_signals}    mid    30
 
     Log    writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"EPS_1C2_CheckSum":255,"EPS_1C2_AliveCounter":14,"EPS_AbortFb":15,"EPS_SteerWhlAgSig":780,"EPS_SteerAgSnsrCalSts":1,"EPS_SteerWhlAgSigVld":3,"EPS_SteerWhlRotSpdDir":3,"EPS_SteerWhlRotSpdVld":3,"EPS_AdasLatCtrlSts":3,"EPS_AdasLatCtrlStsVld":3,"EPS_SteerWhlRotSpd":1016,"EPS_AsscMotCrtTq":10}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"EPS_1C2_CheckSum":255,"EPS_1C2_AliveCounter":14,"EPS_AbortFb":"Reserved","EPS_SteerWhlAgSig":780,"EPS_SteerAgSnsrCalSts":"Calibrated","EPS_SteerWhlAgSigVld":"Reserved","EPS_SteerWhlRotSpdDir":"Reserved","EPS_SteerWhlRotSpdVld":"Reserved","EPS_AdasLatCtrlSts":"Failure","EPS_AdasLatCtrlStsVld":"Reserved","EPS_SteerWhlRotSpd":1016,"EPS_AsscMotCrtTq":10}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    EPS_0x1C2    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    EPS_0x1C2    ${expected_can_signals}    max    30
 
 
 FCM-TX-0x1c4: Send Tx XCP variables and validating on CAN signals for message EPS_0x1C4
@@ -328,7 +328,7 @@ FCM-TX-0x1c4: Send Tx XCP variables and validating on CAN signals for message EP
     ${xcp_var_map}=    Evaluate    {"EPS_1C4_CheckSum": "Rte_C_SG_EPS_0x1C4_adt_D7ECC87D3F01CB4427672F4C17C89FD6.EPS_1C4_CheckSum","EPS_1C4_AliveCounter": "Rte_C_SG_EPS_0x1C4_adt_D7ECC87D3F01CB4427672F4C17C89FD6.EPS_1C4_AliveCounter","EPS_DrvrSteerTqDir": "Rte_C_SG_EPS_0x1C4_adt_D7ECC87D3F01CB4427672F4C17C89FD6.EPS_DrvrSteerTqDir","EPS_DrvrSteerTqVld": "Rte_C_SG_EPS_0x1C4_adt_D7ECC87D3F01CB4427672F4C17C89FD6.EPS_DrvrSteerTqVld","EPS_OTARdy_Fb": "Rte_C_SG_EPS_0x1C4_adt_D7ECC87D3F01CB4427672F4C17C89FD6.EPS_OTARdy_Fb","EPS_DrvrSteerTq": "Rte_C_SG_EPS_0x1C4_adt_D7ECC87D3F01CB4427672F4C17C89FD6.EPS_DrvrSteerTq","EPS_DrvrIntvSteerWhlDetd": "Rte_C_SG_EPS_0x1C4_adt_D7ECC87D3F01CB4427672F4C17C89FD6.EPS_DrvrIntvSteerWhlDetd","EPS_DrvrIntvSteerWhlVld": "Rte_C_SG_EPS_0x1C4_adt_D7ECC87D3F01CB4427672F4C17C89FD6.EPS_DrvrIntvSteerWhlVld","EPS_SteerSnsrSts": "Rte_C_SG_EPS_0x1C4_adt_D7ECC87D3F01CB4427672F4C17C89FD6.EPS_SteerSnsrSts","EPS_PinionAg": "Rte_C_SG_EPS_0x1C4_adt_D7ECC87D3F01CB4427672F4C17C89FD6.EPS_PinionAg"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"EPS_1C4_CheckSum":0,"EPS_1C4_AliveCounter":0,"EPS_DrvrSteerTqDir":"Postive_counterclockwise","EPS_DrvrSteerTqVld":"Initializing","EPS_OTARdy_Fb":"Initial","EPS_DrvrSteerTq":0,"EPS_DrvrIntvSteerWhlDetd":"False_Unintervened","EPS_DrvrIntvSteerWhlVld":"Initializing","EPS_SteerSnsrSts":"Not_Failure","EPS_PinionAg":-780}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    EPS_0x1C4    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    EPS_0x1C4    ${expected_can_signals}    min    30
 
     Log    writing mid value to the xcp variables
     ${xcp_values}=    Evaluate     {"EPS_1C4_CheckSum":125,"EPS_1C4_AliveCounter":7,"EPS_DrvrSteerTqDir":2,"EPS_DrvrSteerTqVld":1,"EPS_OTARdy_Fb":2,"EPS_DrvrSteerTq":4,"EPS_DrvrIntvSteerWhlDetd":0,"EPS_DrvrIntvSteerWhlVld":2,"EPS_SteerSnsrSts":0,"EPS_PinionAg":0}
@@ -336,13 +336,13 @@ FCM-TX-0x1c4: Send Tx XCP variables and validating on CAN signals for message EP
     ${expected_can_signals}=    Evaluate    {"EPS_1C4_CheckSum":125,"EPS_1C4_AliveCounter":7,"EPS_DrvrSteerTqDir":"No_direction","EPS_DrvrSteerTqVld":"Valid","EPS_OTARdy_Fb":"Not_Ready","EPS_DrvrSteerTq":4,"EPS_DrvrIntvSteerWhlDetd":"False_Unintervened","EPS_DrvrIntvSteerWhlVld":"Invalid","EPS_SteerSnsrSts":"Not_Failure","EPS_PinionAg":0}
     Sleep    20ms
 
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    EPS_0x1C4    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    EPS_0x1C4    ${expected_can_signals}    mid    30
 
     Log    writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"EPS_1C4_CheckSum":255,"EPS_1C4_AliveCounter":14,"EPS_DrvrSteerTqDir":3,"EPS_DrvrSteerTqVld":3,"EPS_OTARdy_Fb":3,"EPS_DrvrSteerTq":8,"EPS_DrvrIntvSteerWhlDetd":1,"EPS_DrvrIntvSteerWhlVld":3,"EPS_SteerSnsrSts":1,"EPS_PinionAg":780}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"EPS_1C4_CheckSum":255,"EPS_1C4_AliveCounter":14,"EPS_DrvrSteerTqDir":"Invalid","EPS_DrvrSteerTqVld":"Reserved","EPS_OTARdy_Fb":"Invalid","EPS_DrvrSteerTq":8,"EPS_DrvrIntvSteerWhlDetd":"True_intervention","EPS_DrvrIntvSteerWhlVld":"Reserved","EPS_SteerSnsrSts":"Failure","EPS_PinionAg":780}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    EPS_0x1C4    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    EPS_0x1C4    ${expected_can_signals}    max    30
 
 FCM-TX-0x115: Send Tx XCP variables and validating on CAN signals for message ESP_0x115
     [Documentation]    Validate TX message 'ACU_0x59' by writing XCP variables and reading CAN signals
@@ -351,19 +351,19 @@ FCM-TX-0x115: Send Tx XCP variables and validating on CAN signals for message ES
     ${xcp_var_map}=    Evaluate    {"ESP_115_CheckSum": "Rte_C_SG_ESP_0x115_adt_9C7A952E09D770353A90CE133EDAA6FF.ESP_115_CheckSum","ESP_115_AliveCounter": "Rte_C_SG_ESP_0x115_adt_9C7A952E09D770353A90CE133EDAA6FF.ESP_115_AliveCounter","ESP_WhlSpdVld_RF": "Rte_C_SG_ESP_0x115_adt_9C7A952E09D770353A90CE133EDAA6FF.ESP_WhlSpdVld_RF","ESP_WhlSpd_RF": "Rte_C_SG_ESP_0x115_adt_9C7A952E09D770353A90CE133EDAA6FF.ESP_WhlSpd_RF","ESP_WhlMovgDir_RF": "Rte_C_SG_ESP_0x115_adt_9C7A952E09D770353A90CE133EDAA6FF.ESP_WhlMovgDir_RF","ESP_WhlMovgDir_LF": "Rte_C_SG_ESP_0x115_adt_9C7A952E09D770353A90CE133EDAA6FF.ESP_WhlMovgDir_LF","ESP_WhlSpdVld_LF": "Rte_C_SG_ESP_0x115_adt_9C7A952E09D770353A90CE133EDAA6FF.ESP_WhlSpdVld_LF","ESP_WhlSpd_LF": "Rte_C_SG_ESP_0x115_adt_9C7A952E09D770353A90CE133EDAA6FF.ESP_WhlSpd_LF"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_115_CheckSum":0,"ESP_115_AliveCounter":0,"ESP_WhlSpdVld_RF":"Initializing","ESP_WhlSpd_RF":0,"ESP_WhlMovgDir_RF":"Init","ESP_WhlMovgDir_LF":"Init","ESP_WhlSpdVld_LF":"Initializing","ESP_WhlSpd_LF":0}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ESP_0x115    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ESP_0x115    ${expected_can_signals}    min    30
 
     Log    writing mid value to the xcp variables
     ${xcp_values}=    Evaluate     {"ESP_115_CheckSum":125,"ESP_115_AliveCounter":7,"ESP_WhlSpdVld_RF":2,"ESP_WhlSpd_RF":150,"ESP_WhlMovgDir_RF":4,"ESP_WhlMovgDir_LF":5,"ESP_WhlSpdVld_LF":2,"ESP_WhlSpd_LF":150}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_115_CheckSum":125,"ESP_115_AliveCounter":7,"ESP_WhlSpdVld_RF":"Invalid","ESP_WhlSpd_RF":150,"ESP_WhlMovgDir_RF":"Invalid","ESP_WhlMovgDir_LF":"Reserved","ESP_WhlSpdVld_LF":"Invalid","ESP_WhlSpd_LF":150}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ESP_0x115   ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ESP_0x115   ${expected_can_signals}    mid    30
 
     Log    writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"ESP_115_CheckSum":255,"ESP_115_AliveCounter":14,"ESP_WhlSpdVld_RF":3,"ESP_WhlSpd_RF":300,"ESP_WhlMovgDir_RF":7,"ESP_WhlMovgDir_LF":7,"ESP_WhlSpdVld_LF":3,"ESP_WhlSpd_LF":300}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_115_CheckSum":255,"ESP_115_AliveCounter":14,"ESP_WhlSpdVld_RF":"Reserved","ESP_WhlSpd_RF":300,"ESP_WhlMovgDir_RF":"Reserved","ESP_WhlMovgDir_LF":"Reserved","ESP_WhlSpdVld_LF":"Reserved","ESP_WhlSpd_LF":300}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ESP_0x115    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ESP_0x115    ${expected_can_signals}    max    30
 
 FCM-TX-0x114: Send Tx XCP variables and validating on CAN signals for message ESP_0x114
     [Documentation]    Validate TX message 'ACU_0x59' by writing XCP variables and reading CAN signals
@@ -372,19 +372,19 @@ FCM-TX-0x114: Send Tx XCP variables and validating on CAN signals for message ES
     ${xcp_var_map}=    Evaluate    {"ESP_114_CheckSum": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_114_CheckSum","ESP_114_AliveCounter": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_114_AliveCounter","ESP_OTARdy_Fb": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_OTARdy_Fb","ESP_FltIndcn_DTC": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_FltIndcn_DTC","ESP_ActvSig_VDC": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_ActvSig_VDC","ESP_ActvSig_TCS": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_ActvSig_TCS","ESP_ActvSig_EBD": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_ActvSig_EBD","ESP_ActvSig_DTC": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_ActvSig_DTC","ESP_WarningOn": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_WarningOn","ESP_Actvndcn_CDD": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_Actvndcn_CDD","ESP_FltIndcn_CDD": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_FltIndcn_CDD","ESP_ActvIndcn_ABA": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_ActvIndcn_ABA","ESP_FltIndcn_ABA": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_FltIndcn_ABA","ESP_ActvIndcn_ABP": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_ActvIndcn_ABP","ESP_FltIndcn_ABP": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_FltIndcn_ABP","ESP_ActvIndcn_AEB": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_ActvIndcn_AEB","ESP_FltIndcn_AEB": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_FltIndcn_AEB","ESP_ActvIndcn_AWB": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_ActvIndcn_AWB","ESP_FltIndcn_AWB": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_FltIndcn_AWB","ESP_VehStandstillIndcn": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_VehStandstillIndcn","ESP_BrkOverTIndcn": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_BrkOverTIndcn","ESP_FltIndcn_VDC": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_FltIndcn_VDC","ESP_ActvIndcn_CDD_AP": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_ActvIndcn_CDD_AP","ESP_FltIndcn_CDD_AP": "Rte_C_SG_ESP_0x114_adt_E5E6B4315742A9B67B08E8273CB0F20A.ESP_FltIndcn_CDD_AP"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_114_CheckSum":0,"ESP_114_AliveCounter":0,"ESP_OTARdy_Fb":"Initial","ESP_FltIndcn_DTC":"No_Fault","ESP_ActvSig_VDC":"ESP_Standby","ESP_ActvSig_TCS":"TCS_Standby","ESP_ActvSig_EBD":"EBD_Not_Active","ESP_ActvSig_DTC":"DTC_Not_Active","ESP_WarningOn":"No_Request","ESP_Actvndcn_CDD":"Not_Active","ESP_FltIndcn_CDD":"Available","ESP_ActvIndcn_ABA":"Not_Active","ESP_FltIndcn_ABA":"Available","ESP_ActvIndcn_ABP":"Not_Active","ESP_FltIndcn_ABP":"Available","ESP_ActvIndcn_AEB":"Not_Active","ESP_FltIndcn_AEB":"Available","ESP_ActvIndcn_AWB":"Not_Active","ESP_FltIndcn_AWB":"Available","ESP_VehStandstillIndcn":"Not_Standstill","ESP_BrkOverTIndcn":"Not_High","ESP_FltIndcn_VDC":"No_Fault","ESP_ActvIndcn_CDD_AP":"Not_Active","ESP_FltIndcn_CDD_AP":"No_Error"}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ESP_0x114    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ESP_0x114    ${expected_can_signals}    min    30
 
     Log    writing mid value to the xcp variables
     ${xcp_values}=    Evaluate     {"ESP_114_CheckSum":125,"ESP_114_AliveCounter":7,"ESP_OTARdy_Fb":1,"ESP_FltIndcn_DTC":0,"ESP_ActvSig_VDC":0,"ESP_ActvSig_TCS":0,"ESP_ActvSig_EBD":0,"ESP_ActvSig_DTC":0,"ESP_WarningOn":2,"ESP_Actvndcn_CDD":0,"ESP_FltIndcn_CDD":0,"ESP_ActvIndcn_ABA":0,"ESP_FltIndcn_ABA":0,"ESP_ActvIndcn_ABP":0,"ESP_FltIndcn_ABP":0,"ESP_ActvIndcn_AEB":0,"ESP_FltIndcn_AEB":0,"ESP_ActvIndcn_AWB":0,"ESP_FltIndcn_AWB":0,"ESP_VehStandstillIndcn":1,"ESP_BrkOverTIndcn":0,"ESP_FltIndcn_VDC":0,"ESP_ActvIndcn_CDD_AP":0,"ESP_FltIndcn_CDD_AP":0}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_114_CheckSum":125,"ESP_114_AliveCounter":7,"ESP_OTARdy_Fb":"Ready","ESP_FltIndcn_DTC":"No_Fault","ESP_ActvSig_VDC":"ESP_Standby","ESP_ActvSig_TCS":"TCS_Standby","ESP_ActvSig_EBD":"EBD_Not_Active","ESP_ActvSig_DTC":"DTC_Not_Active","ESP_WarningOn":"Red_Lamp_Request","ESP_Actvndcn_CDD":"Not_Active","ESP_FltIndcn_CDD":"Available","ESP_ActvIndcn_ABA":"Not_Active","ESP_FltIndcn_ABA":"Available","ESP_ActvIndcn_ABP":"Not_Active","ESP_FltIndcn_ABP":"Available","ESP_ActvIndcn_AEB":"Not_Active","ESP_FltIndcn_AEB":"Available","ESP_ActvIndcn_AWB":"Not_Active","ESP_FltIndcn_AWB":"Available","ESP_VehStandstillIndcn":"Standstill","ESP_BrkOverTIndcn":"Not_High","ESP_FltIndcn_VDC":"No_Fault","ESP_ActvIndcn_CDD_AP":"Not_Active","ESP_FltIndcn_CDD_AP":"No_Error"}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ESP_0x114   ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ESP_0x114   ${expected_can_signals}    mid    30
 
     Log    writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"ESP_114_CheckSum":255,"ESP_114_AliveCounter":14,"ESP_OTARdy_Fb":3,"ESP_FltIndcn_DTC":1,"ESP_ActvSig_VDC":1,"ESP_ActvSig_TCS":1,"ESP_ActvSig_EBD":1,"ESP_ActvSig_DTC":1,"ESP_WarningOn":3,"ESP_Actvndcn_CDD":1,"ESP_FltIndcn_CDD":1,"ESP_ActvIndcn_ABA":1,"ESP_FltIndcn_ABA":1,"ESP_ActvIndcn_ABP":1,"ESP_FltIndcn_ABP":1,"ESP_ActvIndcn_AEB":1,"ESP_FltIndcn_AEB":1,"ESP_ActvIndcn_AWB":1,"ESP_FltIndcn_AWB":1,"ESP_VehStandstillIndcn":3,"ESP_BrkOverTIndcn":1,"ESP_FltIndcn_VDC":1,"ESP_ActvIndcn_CDD_AP":1,"ESP_FltIndcn_CDD_AP":1}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_114_CheckSum":255,"ESP_114_AliveCounter":14,"ESP_OTARdy_Fb":"Invalid","ESP_FltIndcn_DTC":"Fault","ESP_ActvSig_VDC":"ESP_Actually_Operating","ESP_ActvSig_TCS":"TCS_Actually_Operating","ESP_ActvSig_EBD":"EBD_Active","ESP_ActvSig_DTC":"DTC_Active","ESP_WarningOn":"Reserved","ESP_Actvndcn_CDD":"Active","ESP_FltIndcn_CDD":"Not_Available","ESP_ActvIndcn_ABA":"Active","ESP_FltIndcn_ABA":"Not_Available","ESP_ActvIndcn_ABP":"Active","ESP_FltIndcn_ABP":"Not_Available","ESP_ActvIndcn_AEB":"Active","ESP_FltIndcn_AEB":"Not_Available","ESP_ActvIndcn_AWB":"Active","ESP_FltIndcn_AWB":"Not_Available","ESP_VehStandstillIndcn":"Reserved","ESP_BrkOverTIndcn":"Temp_Too_High","ESP_FltIndcn_VDC":"Fault","ESP_ActvIndcn_CDD_AP":"Active","ESP_FltIndcn_CDD_AP":"Error"}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ESP_0x114    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ESP_0x114    ${expected_can_signals}    max    30
 
 FCM-TX-0x116: Send Tx XCP variables and validating on CAN signals for message ESP_0x116
     [Documentation]    Validate TX message 'ESP_0x116' by writing XCP variables and reading CAN signals
@@ -394,21 +394,21 @@ FCM-TX-0x116: Send Tx XCP variables and validating on CAN signals for message ES
 
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_116_CheckSum": 1, "ESP_116_AliveCounter": 0, "ESP_WhlSpdVld_RR": "Initializing", "ESP_WhlSpd_RR": 1, "ESP_WhlMovgDir_RR": "Init", "ESP_WhlMovgDir_RL": "Init", "ESP_WhlSpdVld_RL": "Initializing", "ESP_WhlSpd_RL": 0}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    ESP_0x116    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    ESP_0x116    ${expected_can_signals}    min    30
 
     Log    Writing mid value to the XCP variables
     ${xcp_values}=    Evaluate    {"ESP_116_CheckSum": 100, "ESP_116_AliveCounter": 6, "ESP_WhlSpdVld_RR": 2, "ESP_WhlSpd_RR": 50, "ESP_WhlMovgDir_RR": 3, "ESP_WhlMovgDir_RL": 3, "ESP_WhlSpdVld_RL": 2, "ESP_WhlSpd_RL": 50}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
 
     ${expected_can_signals}=    Evaluate    {"ESP_116_CheckSum": 100, "ESP_116_AliveCounter": 6, "ESP_WhlSpdVld_RR": "Invalid", "ESP_WhlSpd_RR": 50, "ESP_WhlMovgDir_RR": "Stop", "ESP_WhlMovgDir_RL": "Stop", "ESP_WhlSpdVld_RL": "Invalid", "ESP_WhlSpd_RL": 50}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    ESP_0x116    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    ESP_0x116    ${expected_can_signals}    mid    30
 
     Log    Writing max value to the XCP variables
     ${xcp_values}=    Evaluate    {"ESP_116_CheckSum": 255, "ESP_116_AliveCounter": 14, "ESP_WhlSpdVld_RR": 3, "ESP_WhlSpd_RR": 300, "ESP_WhlMovgDir_RR": 2, "ESP_WhlMovgDir_RL": 2, "ESP_WhlSpdVld_RL": 3, "ESP_WhlSpd_RL": 300}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
 
     ${expected_can_signals}=    Evaluate    {"ESP_116_CheckSum": 255, "ESP_116_AliveCounter": 14, "ESP_WhlSpdVld_RR": "Reserved", "ESP_WhlSpd_RR": 300, "ESP_WhlMovgDir_RR": "Backward", "ESP_WhlMovgDir_RL": "Backward", "ESP_WhlSpdVld_RL": "Reserved", "ESP_WhlSpd_RL": 300}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    ESP_0x116    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    ESP_0x116    ${expected_can_signals}    max    30
 
 FCM-TX-0x120: Send Tx XCP variables and validating on CAN signals for message ESP_0x120
     [Documentation]    Validate TX message 'ESP_0x120' by writing XCP variables and reading CAN signals
@@ -417,19 +417,19 @@ FCM-TX-0x120: Send Tx XCP variables and validating on CAN signals for message ES
     ${xcp_var_map}=    Evaluate    {"ESP_120_CheckSum": "Rte_C_SG_ESP_0x120_adt_EFF829A85F8E28D5EA8DB3CCA8795C92.ESP_120_CheckSum", "ESP_120_AliveCounter": "Rte_C_SG_ESP_0x120_adt_EFF829A85F8E28D5EA8DB3CCA8795C92.ESP_120_AliveCounter", "ESP_ActvSig_ABS": "Rte_C_SG_ESP_0x120_adt_EFF829A85F8E28D5EA8DB3CCA8795C92.ESP_ActvSig_ABS", "ESP_MstCylPVld": "Rte_C_SG_ESP_0x120_adt_EFF829A85F8E28D5EA8DB3CCA8795C92.ESP_MstCylPVld", "ESP_MstCylP": "Rte_C_SG_ESP_0x120_adt_EFF829A85F8E28D5EA8DB3CCA8795C92.ESP_MstCylP", "ESP_MstCylPOffs": "Rte_C_SG_ESP_0x120_adt_EFF829A85F8E28D5EA8DB3CCA8795C92.ESP_MstCylPOffs", "ESP_MstCylPOffsVld": "Rte_C_SG_ESP_0x120_adt_EFF829A85F8E28D5EA8DB3CCA8795C92.ESP_MstCylPOffsVld", "ESP_TotBrkTqReq": "Rte_C_SG_ESP_0x120_adt_EFF829A85F8E28D5EA8DB3CCA8795C92.ESP_TotBrkTqReq"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_120_CheckSum": 1, "ESP_120_AliveCounter": 0, "ESP_ActvSig_ABS": "ABS_Standby", "ESP_MstCylPVld": "Initializing", "ESP_MstCylP": 0, "ESP_MstCylPOffs": 1, "ESP_MstCylPOffsVld": "Initializing", "ESP_TotBrkTqReq": 1}
-    Validate TX Message With Expected Values  ESP_0x120    ${expected_can_signals}    30
+    Validate TX Message With Expected Values  ESP_0x120    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"ESP_120_CheckSum": 100, "ESP_120_AliveCounter": 6, "ESP_ActvSig_ABS": 0, "ESP_MstCylPVld": 1, "ESP_MstCylP": 0, "ESP_MstCylPOffs": 1, "ESP_MstCylPOffsVld": 1, "ESP_TotBrkTqReq": 5}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_120_CheckSum": 100, "ESP_120_AliveCounter": 6, "ESP_ActvSig_ABS": "ABS_Standby", "ESP_MstCylPVld": "Valid", "ESP_MstCylP": 0, "ESP_MstCylPOffs": 1, "ESP_MstCylPOffsVld": "Valid", "ESP_TotBrkTqReq": 5}
-    Validate TX Message With Expected Values    ESP_0x120    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    ESP_0x120    ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"ESP_120_CheckSum": 255, "ESP_120_AliveCounter": 14, "ESP_ActvSig_ABS": 1, "ESP_MstCylPVld": 3, "ESP_MstCylP": 276.6, "ESP_MstCylPOffs": 2, "ESP_MstCylPOffsVld": 3, "ESP_TotBrkTqReq": 30000}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_120_CheckSum": 255, "ESP_120_AliveCounter": 14, "ESP_ActvSig_ABS": "ABS_Actually_Operating", "ESP_MstCylPVld": "Reserved", "ESP_MstCylP": 276.6, "ESP_MstCylPOffs": 2, "ESP_MstCylPOffsVld": "Reserved", "ESP_TotBrkTqReq": 30000}
-    Validate TX Message With Expected Values    ESP_0x120    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    ESP_0x120    ${expected_can_signals}    max    30
 
 FCM-TX-0x125: Send Tx XCP variables and validating on CAN signals for message ESP_0x125
     [Documentation]    Validate TX message 'ESP_0x125' by writing XCP variables and reading CAN signals
@@ -438,19 +438,19 @@ FCM-TX-0x125: Send Tx XCP variables and validating on CAN signals for message ES
     ${xcp_var_map}=    Evaluate    {"ESP_125_CheckSum": "Rte_C_SG_ESP_0x125_adt_C9C4B535BC0F04C406C70C4B5C600682.ESP_125_CheckSum", "ESP_125_AliveCounter": "Rte_C_SG_ESP_0x125_adt_C9C4B535BC0F04C406C70C4B5C600682.ESP_125_AliveCounter", "ESP_WhlOdoEdges_FL": "Rte_C_SG_ESP_0x125_adt_C9C4B535BC0F04C406C70C4B5C600682.ESP_WhlOdoEdges_FL", "ESP_WhlOdoEdges_FR": "Rte_C_SG_ESP_0x125_adt_C9C4B535BC0F04C406C70C4B5C600682.ESP_WhlOdoEdges_FR", "ESP_WhlOdoEdges_RL": "Rte_C_SG_ESP_0x125_adt_C9C4B535BC0F04C406C70C4B5C600682.ESP_WhlOdoEdges_RL", "ESP_WhlOdoEdges_RR": "Rte_C_SG_ESP_0x125_adt_C9C4B535BC0F04C406C70C4B5C600682.ESP_WhlOdoEdges_RR", "ESP_WhlOdoEdgesVld_FL": "Rte_C_SG_ESP_0x125_adt_C9C4B535BC0F04C406C70C4B5C600682.ESP_WhlOdoEdgesVld_FL", "ESP_WhlOdoEdgesVld_FR": "Rte_C_SG_ESP_0x125_adt_C9C4B535BC0F04C406C70C4B5C600682.ESP_WhlOdoEdgesVld_FR", "ESP_WhlOdoEdgesVld_RL": "Rte_C_SG_ESP_0x125_adt_C9C4B535BC0F04C406C70C4B5C600682.ESP_WhlOdoEdgesVld_RL", "ESP_WhlOdoEdgesVld_RR": "Rte_C_SG_ESP_0x125_adt_C9C4B535BC0F04C406C70C4B5C600682.ESP_WhlOdoEdgesVld_RR"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_125_CheckSum": 1, "ESP_125_AliveCounter": 0, "ESP_WhlOdoEdges_FL": 2, "ESP_WhlOdoEdges_FR": 3, "ESP_WhlOdoEdges_RL": 4, "ESP_WhlOdoEdges_RR": 5, "ESP_WhlOdoEdgesVld_FL": "Initializing", "ESP_WhlOdoEdgesVld_FR": "Initializing", "ESP_WhlOdoEdgesVld_RL": "Initializing", "ESP_WhlOdoEdgesVld_RR": "Initializing"}
-    Validate TX Message With Expected Values    ESP_0x125    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    ESP_0x125    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"ESP_125_CheckSum": 100, "ESP_125_AliveCounter": 6, "ESP_WhlOdoEdges_FL": 100, "ESP_WhlOdoEdges_FR": 100, "ESP_WhlOdoEdges_RL": 100, "ESP_WhlOdoEdges_RR": 100, "ESP_WhlOdoEdgesVld_FL": 2, "ESP_WhlOdoEdgesVld_FR": 2, "ESP_WhlOdoEdgesVld_RL": 2, "ESP_WhlOdoEdgesVld_RR": 2}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_125_CheckSum": 100, "ESP_125_AliveCounter": 6, "ESP_WhlOdoEdges_FL": 100, "ESP_WhlOdoEdges_FR": 100, "ESP_WhlOdoEdges_RL": 100, "ESP_WhlOdoEdges_RR": 100, "ESP_WhlOdoEdgesVld_FL": "Invalid", "ESP_WhlOdoEdgesVld_FR": "Invalid", "ESP_WhlOdoEdgesVld_RL": "Invalid", "ESP_WhlOdoEdgesVld_RR": "Invalid"}
-    Validate TX Message With Expected Values    ESP_0x125   ${expected_can_signals}    30
+    Validate TX Message With Expected Values    ESP_0x125   ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"ESP_125_CheckSum": 255, "ESP_125_AliveCounter": 14, "ESP_WhlOdoEdges_FL": 255, "ESP_WhlOdoEdges_FR": 255, "ESP_WhlOdoEdges_RL": 255, "ESP_WhlOdoEdges_RR": 255, "ESP_WhlOdoEdgesVld_FL": 3, "ESP_WhlOdoEdgesVld_FR": 3, "ESP_WhlOdoEdgesVld_RL": 3, "ESP_WhlOdoEdgesVld_RR": 3}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_125_CheckSum": 255, "ESP_125_AliveCounter": 14, "ESP_WhlOdoEdges_FL": 255, "ESP_WhlOdoEdges_FR": 255, "ESP_WhlOdoEdges_RL": 255, "ESP_WhlOdoEdges_RR": 255, "ESP_WhlOdoEdgesVld_FL": "Reserved", "ESP_WhlOdoEdgesVld_FR": "Reserved", "ESP_WhlOdoEdgesVld_RL": "Reserved", "ESP_WhlOdoEdgesVld_RR": "Reserved"}
-    Validate TX Message With Expected Values    ESP_0x125    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    ESP_0x125    ${expected_can_signals}    max    30
 
 
 
@@ -461,19 +461,19 @@ FCM-TX-0x318: Send Tx XCP variables and validating on CAN signals for message ES
     ${xcp_var_map}=    Evaluate    {"ESP_318_CheckSum" : "Rte_C_SG_ESP_0x318_adt_F02716FFB698CB3B9900E402CEFFAFE7.ESP_318_CheckSum", "ESP_318_AliveCounter" : "Rte_C_SG_ESP_0x318_adt_F02716FFB698CB3B9900E402CEFFAFE7.ESP_318_AliveCounter", "ESP_BrkPedlStsVld" : "Rte_C_SG_ESP_0x318_adt_F02716FFB698CB3B9900E402CEFFAFE7.ESP_BrkPedlStsVld", "ESP_BrkPedlSts" : "Rte_C_SG_ESP_0x318_adt_F02716FFB698CB3B9900E402CEFFAFE7.ESP_BrkPedlSts", "ESP_VehSpdVld" : "Rte_C_SG_ESP_0x318_adt_F02716FFB698CB3B9900E402CEFFAFE7.ESP_VehSpdVld", "ESP_SysActv" : "Rte_C_SG_ESP_0x318_adt_F02716FFB698CB3B9900E402CEFFAFE7.ESP_SysActv", "ESP_LampSwtOffIndcn" : "Rte_C_SG_ESP_0x318_adt_F02716FFB698CB3B9900E402CEFFAFE7.ESP_LampSwtOffIndcn", "ESP_FltIndcn_EBD" : "Rte_C_SG_ESP_0x318_adt_F02716FFB698CB3B9900E402CEFFAFE7.ESP_FltIndcn_EBD", "ESP_FltIndcn_ABS" : "Rte_C_SG_ESP_0x318_adt_F02716FFB698CB3B9900E402CEFFAFE7.ESP_FltIndcn_ABS", "ESP_MilgRollgCntr_ODO" : "Rte_C_SG_ESP_0x318_adt_F02716FFB698CB3B9900E402CEFFAFE7.ESP_MilgRollgCntr_ODO", "ESP_VehSpd" : "Rte_C_SG_ESP_0x318_adt_F02716FFB698CB3B9900E402CEFFAFE7.ESP_VehSpd", "ESP_IninModSigIndcn" : "Rte_C_SG_ESP_0x318_adt_F02716FFB698CB3B9900E402CEFFAFE7.ESP_IninModSigIndcn", "ESP_FltIndcn_TCS" : "Rte_C_SG_ESP_0x318_adt_F02716FFB698CB3B9900E402CEFFAFE7.ESP_FltIndcn_TCS", "ESP_CtrlSts_HDC" : "Rte_C_SG_ESP_0x318_adt_F02716FFB698CB3B9900E402CEFFAFE7.ESP_CtrlSts_HDC", "ESP_AvlIndcn_HDC" : "Rte_C_SG_ESP_0x318_adt_F02716FFB698CB3B9900E402CEFFAFE7.ESP_AvlIndcn_HDC", "ESP_NoBrkP" : "Rte_C_SG_ESP_0x318_adt_F02716FFB698CB3B9900E402CEFFAFE7.ESP_NoBrkP", "ESP_RDAEnaFlg" : "Rte_C_SG_ESP_0x318_adt_F02716FFB698CB3B9900E402CEFFAFE7.ESP_RDAEnaFlg"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_318_CheckSum": 1, "ESP_318_AliveCounter": 0, "ESP_BrkPedlStsVld": "Initializing", "ESP_BrkPedlSts": "Brake_Pedal_Not_Pressed", "ESP_VehSpdVld": "Initializing", "ESP_SysActv": "No_Telltale_Requested", "ESP_LampSwtOffIndcn": "No_Telltale_Requested", "ESP_FltIndcn_EBD": "No_Telltale_Requested", "ESP_FltIndcn_ABS": "No_Telltale_Requested", "ESP_MilgRollgCntr_ODO": 0, "ESP_VehSpd": 0, "ESP_IninModSigIndcn": "Not_In_Initialization_Mode", "ESP_FltIndcn_TCS": "No_Telltale_Requested", "ESP_CtrlSts_HDC": "Off", "ESP_AvlIndcn_HDC": "Not_Available", "ESP_NoBrkP": "Exist_Brk_Force", "ESP_RDAEnaFlg": "Inactive_not_enabled"}
-    Validate TX Message With Expected Values    ESP_0x318    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    ESP_0x318    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"ESP_318_CheckSum": 100, "ESP_318_AliveCounter": 6, "ESP_BrkPedlStsVld": 2, "ESP_BrkPedlSts": 0, "ESP_VehSpdVld": 2, "ESP_SysActv": 0, "ESP_LampSwtOffIndcn": 0, "ESP_FltIndcn_EBD": 0, "ESP_FltIndcn_ABS": 0, "ESP_MilgRollgCntr_ODO": 200, "ESP_VehSpd": 300, "ESP_IninModSigIndcn": 0, "ESP_FltIndcn_TCS": 0, "ESP_CtrlSts_HDC": 1, "ESP_AvlIndcn_HDC": 1, "ESP_NoBrkP": 0, "ESP_RDAEnaFlg": 0}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_318_CheckSum": 100, "ESP_318_AliveCounter": 6, "ESP_BrkPedlStsVld": "Invalid", "ESP_BrkPedlSts": "Brake_Pedal_Not_Pressed", "ESP_VehSpdVld": "Invalid", "ESP_SysActv": "No_Telltale_Requested", "ESP_LampSwtOffIndcn": "No_Telltale_Requested", "ESP_FltIndcn_EBD": "No_Telltale_Requested", "ESP_FltIndcn_ABS": "No_Telltale_Requested", "ESP_MilgRollgCntr_ODO": 200, "ESP_VehSpd": 300, "ESP_IninModSigIndcn": "Not_In_Initialization_Mode", "ESP_FltIndcn_TCS": "No_Telltale_Requested", "ESP_CtrlSts_HDC": "On_Active_Braking", "ESP_AvlIndcn_HDC": "Not_Available", "ESP_NoBrkP": "Exist_Brk_Force", "ESP_RDAEnaFlg": "Inactive_not_enabled"}
-    Validate TX Message With Expected Values    ESP_0x318    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    ESP_0x318    ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"ESP_318_CheckSum": 255, "ESP_318_AliveCounter": 14, "ESP_BrkPedlStsVld": 3, "ESP_BrkPedlSts": 1, "ESP_VehSpdVld": 3, "ESP_SysActv": 1, "ESP_LampSwtOffIndcn": 1, "ESP_FltIndcn_EBD": 1, "ESP_FltIndcn_ABS": 1, "ESP_MilgRollgCntr_ODO": 65535, "ESP_VehSpd": 550, "ESP_IninModSigIndcn": 1, "ESP_FltIndcn_TCS": 1, "ESP_CtrlSts_HDC": 2, "ESP_AvlIndcn_HDC": 0, "ESP_NoBrkP": 1, "ESP_RDAEnaFlg": 1}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_318_CheckSum": 255, "ESP_318_AliveCounter": 14, "ESP_BrkPedlStsVld": "Reserved", "ESP_BrkPedlSts": "Brake_Pedal_Pressed", "ESP_VehSpdVld": "Reserved", "ESP_SysActv": "Telltale_Requested", "ESP_LampSwtOffIndcn": "Telltale_Requested", "ESP_FltIndcn_EBD": "Telltale_Requested", "ESP_FltIndcn_ABS": "Telltale_Requested", "ESP_MilgRollgCntr_ODO": 65535, "ESP_VehSpd": 550, "ESP_IninModSigIndcn": "In_Intialization_Mode", "ESP_FltIndcn_TCS": "Telltale_Requested", "ESP_CtrlSts_HDC": "On_Not_Active_Braking", "ESP_AvlIndcn_HDC": "Available", "ESP_NoBrkP": "No_Brk_Force", "ESP_RDAEnaFlg": "Active_enable"}
-    Validate TX Message With Expected Values    ESP_0x318    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    ESP_0x318    ${expected_can_signals}    max    30
 
 
 FCM-TX-0x43E: Send Tx XCP variables and validating on CAN signals for message GW_NM_0x43E
@@ -483,19 +483,19 @@ FCM-TX-0x43E: Send Tx XCP variables and validating on CAN signals for message GW
     ${xcp_var_map}=    Evaluate    {"GW_SrcNodeId" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_SrcNodeID", "GW_CtrlBitVector_Bit0_RMR" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_CtrlBitVector_Bit0_RMR", "GW_CtrlBitVector_Bit1_Res" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_CtrlBitVector_Bit1_Res", "GW_CtrlBitVector_Bit2_Res" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_CtrlBitVector_Bit2_Res", "GW_CtrlBitVector_Bit3_NMCoord" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_CtrlBitVector_Bit3_NMCoord", "GW_CtrlBitVector_Bit4_ActWake" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_CtrlBitVector_Bit4_ActWake", "GW_CtrlBitVector_Bit5_Res" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_CtrlBitVector_Bit5_Res", "GW_CtrlBitVector_Bit6_PNI" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_CtrlBitVector_Bit6_PNI", "GW_CtrlBitVector_Bit7_Res" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_CtrlBitVector_Bit7_Res", "GW_UsrData0" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_UsrData0", "GW_UsrData1_Bit0_IGN_WAKEUP" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_UsrData1_Bit0_IGN_WAKEUP", "GW_UsrData1_Bit1_RESET_WAKEUP" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_UsrData1_Bit1_RESET_WAKEUP", "GW_UsrData1_Bit2_NETWORK_WAKEUP" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_UsrData1_Bit2_NETWORK_WAKEUP", "GW_UsrData1_Bit3_ECUSPEC_WAKEUP" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_UsrData1_Bit3_ECUSPEC_WAKEUP", "GW_UsrData1_Bit4_NETWORK_AWAKE" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_UsrData1_Bit4_NETWORK_AWAKE", "GW_UsrData1_Bit5_IGNITION_AWAKE" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_UsrData1_Bit5_IGNITION_AWAKE", "GW_UsrData1_Bit6_DIAGN_AWAKE" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_UsrData1_Bit6_DIAGN_AWAKE", "GW_UsrData1_Bit7_ECUSPEC_AWAKE" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_UsrData1_Bit7_ECUSPEC_AWAKE", "GW_UsrData2" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_UsrData2", "GW_UsrData3" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_UsrData3", "GW_UsrData4_PN_Info1" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_UsrData4_PN_Info1", "GW_UsrData5_PN_Info2" : "Rte_C_SG_GW_NM_0x43E_adt_759336F4A41C3765C5686B2371FF03E1.GW_UsrData5_PN_Info2"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"GW_SrcNodeID": 0, "GW_CtrlBitVector_Bit0_RMR": "Repeat_Message_State_not_requested", "GW_CtrlBitVector_Bit1_Res": 0, "GW_CtrlBitVector_Bit2_Res": 0, "GW_CtrlBitVector_Bit3_NMCoord": "Start_of_synchronized_shutdown_is_not_requested_by_main_coordinator", "GW_CtrlBitVector_Bit4_ActWake": "Node_has_not_woken_up_the_network_(passive_wakeup)", "GW_CtrlBitVector_Bit5_Res": 0, "GW_CtrlBitVector_Bit6_PNI": "NM_PDU_contains_no_Partial_Network_request_information", "GW_CtrlBitVector_Bit7_Res": 0, "GW_UsrData0": "User_data_for_current_vehicle_without_partial_networking", "GW_UsrData1_Bit0_IGN_WAKEUP": "inactive", "GW_UsrData1_Bit1_RESET_WAKEUP": "inactive", "GW_UsrData1_Bit2_NETWORK_WAKEUP": "inactive", "GW_UsrData1_Bit3_ECUSPEC_WAKEUP": "inactive", "GW_UsrData1_Bit4_NETWORK_AWAKE": "inactive", "GW_UsrData1_Bit5_IGNITION_AWAKE": "inactive", "GW_UsrData1_Bit6_DIAGN_AWAKE": "inactive", "GW_UsrData1_Bit7_ECUSPEC_AWAKE": "inactive", "GW_UsrData2": 1, "GW_UsrData3": 1, "GW_UsrData4_PN_Info1": 1, "GW_UsrData5_PN_Info2": 1}
-    Validate TX Message With Expected Values    GW_NM_0x43E    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    GW_NM_0x43E    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"GW_SrcNodeId" : 67, "GW_CtrlBitVector_Bit0_RMR" : 0, "GW_CtrlBitVector_Bit1_Res" : 0, "GW_CtrlBitVector_Bit2_Res" : 0, "GW_CtrlBitVector_Bit3_NMCoord" : 0, "GW_CtrlBitVector_Bit4_ActWake" : 0, "GW_CtrlBitVector_Bit5_Res" : 0, "GW_CtrlBitVector_Bit6_PNI" : 0, "GW_CtrlBitVector_Bit7_Res" : 0, "GW_UsrData0" : 1, "GW_UsrData1_Bit0_IGN_WAKEUP" : 0, "GW_UsrData1_Bit1_RESET_WAKEUP" : 0, "GW_UsrData1_Bit2_NETWORK_WAKEUP" : 0, "GW_UsrData1_Bit3_ECUSPEC_WAKEUP" : 0, "GW_UsrData1_Bit4_NETWORK_AWAKE" : 0, "GW_UsrData1_Bit5_IGNITION_AWAKE" : 0, "GW_UsrData1_Bit6_DIAGN_AWAKE" : 0, "GW_UsrData1_Bit7_ECUSPEC_AWAKE" : 0, "GW_UsrData2" : 237, "GW_UsrData3" : 245, "GW_UsrData4_PN_Info1" : 250, "GW_UsrData5_PN_Info2" : 250}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"GW_SrcNodeID": 67, "GW_CtrlBitVector_Bit0_RMR": "Repeat_Message_State_not_requested", "GW_CtrlBitVector_Bit1_Res": 0, "GW_CtrlBitVector_Bit2_Res": 0, "GW_CtrlBitVector_Bit3_NMCoord": "Start_of_synchronized_shutdown_is_not_requested_by_main_coordinator", "GW_CtrlBitVector_Bit4_ActWake": "Node_has_not_woken_up_the_network_(passive_wakeup)", "GW_CtrlBitVector_Bit5_Res": 0, "GW_CtrlBitVector_Bit6_PNI": "NM_PDU_contains_no_Partial_Network_request_information", "GW_CtrlBitVector_Bit7_Res": 0, "GW_UsrData0": "User_data_for_current_vehicle_with_partial_networking", "GW_UsrData1_Bit0_IGN_WAKEUP": "inactive", "GW_UsrData1_Bit1_RESET_WAKEUP": "inactive", "GW_UsrData1_Bit2_NETWORK_WAKEUP": "inactive", "GW_UsrData1_Bit3_ECUSPEC_WAKEUP": "inactive", "GW_UsrData1_Bit4_NETWORK_AWAKE": "inactive", "GW_UsrData1_Bit5_IGNITION_AWAKE": "inactive", "GW_UsrData1_Bit6_DIAGN_AWAKE": "inactive", "GW_UsrData1_Bit7_ECUSPEC_AWAKE": "inactive", "GW_UsrData2": 237, "GW_UsrData3": 245, "GW_UsrData4_PN_Info1": 250, "GW_UsrData5_PN_Info2": 250}
-    Validate TX Message With Expected Values    GW_NM_0x43E    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    GW_NM_0x43E    ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"GW_SrcNodeId" : 127, "GW_CtrlBitVector_Bit0_RMR" : 1, "GW_CtrlBitVector_Bit1_Res" : 1, "GW_CtrlBitVector_Bit2_Res" : 1, "GW_CtrlBitVector_Bit3_NMCoord" : 1, "GW_CtrlBitVector_Bit4_ActWake" : 1, "GW_CtrlBitVector_Bit5_Res" : 1, "GW_CtrlBitVector_Bit6_PNI" : 1, "GW_CtrlBitVector_Bit7_Res" : 1, "GW_UsrData0" : 2, "GW_UsrData1_Bit0_IGN_WAKEUP" : 1, "GW_UsrData1_Bit1_RESET_WAKEUP" : 1, "GW_UsrData1_Bit2_NETWORK_WAKEUP" : 1, "GW_UsrData1_Bit3_ECUSPEC_WAKEUP" : 1, "GW_UsrData1_Bit4_NETWORK_AWAKE" : 1, "GW_UsrData1_Bit5_IGNITION_AWAKE" : 1, "GW_UsrData1_Bit6_DIAGN_AWAKE" : 1, "GW_UsrData1_Bit7_ECUSPEC_AWAKE" : 1, "GW_UsrData2" : 255, "GW_UsrData3" : 255, "GW_UsrData4_PN_Info1" : 255, "GW_UsrData5_PN_Info2" : 255}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"GW_SrcNodeID": 127, "GW_CtrlBitVector_Bit0_RMR": "Repeat_Message_State_requested", "GW_CtrlBitVector_Bit1_Res": 1, "GW_CtrlBitVector_Bit2_Res": 1, "GW_CtrlBitVector_Bit3_NMCoord": "Start_of_synchronized_shutdown_is_requested_by_main_coordinator", "GW_CtrlBitVector_Bit4_ActWake": "Node_has_woken_up_the_network_(active_Wakeup)", "GW_CtrlBitVector_Bit5_Res": 1, "GW_CtrlBitVector_Bit6_PNI": "NM_PDU_contains_Partial_Network_request_information", "GW_CtrlBitVector_Bit7_Res": 1, "GW_UsrData0": "User_data_not_used", "GW_UsrData1_Bit0_IGN_WAKEUP": "active", "GW_UsrData1_Bit1_RESET_WAKEUP": "active", "GW_UsrData1_Bit2_NETWORK_WAKEUP": "active", "GW_UsrData1_Bit3_ECUSPEC_WAKEUP": "active", "GW_UsrData1_Bit4_NETWORK_AWAKE": "active", "GW_UsrData1_Bit5_IGNITION_AWAKE": "active", "GW_UsrData1_Bit6_DIAGN_AWAKE": "active", "GW_UsrData1_Bit7_ECUSPEC_AWAKE": "active", "GW_UsrData2": 255, "GW_UsrData3": 255, "GW_UsrData4_PN_Info1": 255, "GW_UsrData5_PN_Info2": 255}
-    Validate TX Message With Expected Values    GW_NM_0x43E    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    GW_NM_0x43E    ${expected_can_signals}    max    30
 
 FCM-TX-0x336: Send Tx XCP variables and validating on CAN signals for message ICC_0x336
     [Documentation]    Validate TX message 'ICC_0x336' by writing XCP variables and reading CAN signals
@@ -504,7 +504,7 @@ FCM-TX-0x336: Send Tx XCP variables and validating on CAN signals for message IC
     ${xcp_var_map}=    Evaluate    {"ICC_336_Checksum" : "Rte_C_SG_ICC_0x336_adt_0C87F200C4D96261FE4B0C607CF01CF2.ICC_336_Checksum", "ICC_336_AliveCounter" : "Rte_C_SG_ICC_0x336_adt_0C87F200C4D96261FE4B0C607CF01CF2.ICC_336_AliveCounter", "ICC_SetAtmLampBri" : "Rte_C_SG_ICC_0x336_adt_0C87F200C4D96261FE4B0C607CF01CF2.ICC_SetAtmLampBri", "ICC_SuspSet" : "Rte_C_SG_ICC_0x336_adt_0C87F200C4D96261FE4B0C607CF01CF2.ICC_SuspSet", "ICC_OTAInhbRdy" : "Rte_C_SG_ICC_0x336_adt_0C87F200C4D96261FE4B0C607CF01CF2.ICC_OTAInhbRdy", "ICC_AtmLampOpenCmd" : "Rte_C_SG_ICC_0x336_adt_0C87F200C4D96261FE4B0C607CF01CF2.ICC_AtmLampOpenCmd", "ICC_SteerAssiSet" : "Rte_C_SG_ICC_0x336_adt_0C87F200C4D96261FE4B0C607CF01CF2.ICC_SteerAssiSet", "ICC_SetStorageBrilvl" : "Rte_C_SG_ICC_0x336_adt_0C87F200C4D96261FE4B0C607CF01CF2.ICC_SetStorageBriLvl", "ICC_HDCSwtSig" : "Rte_C_SG_ICC_0x336_adt_0C87F200C4D96261FE4B0C607CF01CF2.ICC_HDCSwtSig", "ICC_ESPSwtSig" : "Rte_C_SG_ICC_0x336_adt_0C87F200C4D96261FE4B0C607CF01CF2.ICC_ESPSwtSig", "ICC_ReqCalifModHMIBtn" : "Rte_C_SG_ICC_0x336_adt_0C87F200C4D96261FE4B0C607CF01CF2.ICC_ReqCalifModHMIBtn", "ICC_SpdLimOffs" : "Rte_C_SG_ICC_0x336_adt_0C87F200C4D96261FE4B0C607CF01CF2.ICC_SpdLimOffs", "ICC_iTPMSResetSig" : "Rte_C_SG_ICC_0x336_adt_0C87F200C4D96261FE4B0C607CF01CF2.ICC_iTPMSResetSig", "ICC_WIFIONOffSig" : "Rte_C_SG_ICC_0x336_adt_0C87F200C4D96261FE4B0C607CF01CF2.ICC_WIFIOnOffSig", "ICC_LeMirrAlrmLampFlt" : "Rte_C_SG_ICC_0x336_adt_0C87F200C4D96261FE4B0C607CF01CF2.ICC_LeMirrAlrmLampFlt", "ICC_RiMirrAlrmLampFlt" : "Rte_C_SG_ICC_0x336_adt_0C87F200C4D96261FE4B0C607CF01CF2.ICC_RiMirrAlrmLampFlt", "ICC_PhoneSt" : "Rte_C_SG_ICC_0x336_adt_0C87F200C4D96261FE4B0C607CF01CF2.ICC_PhoneSt", "ICC_SpeechSt" : "Rte_C_SG_ICC_0x336_adt_0C87F200C4D96261FE4B0C607CF01CF2.ICC_SpeechSt", "ICC_RemReqFb" : "Rte_C_SG_ICC_0x336_adt_0C87F200C4D96261FE4B0C607CF01CF2.ICC_RemReqFb", "ICC_SpdLimFdb" : "Rte_C_SG_ICC_0x336_adt_0C87F200C4D96261FE4B0C607CF01CF2.ICC_SpdLimFdb", "ICC_OTARdy_Fb" : "Rte_C_SG_ICC_0x336_adt_0C87F200C4D96261FE4B0C607CF01CF2.ICC_OTARdy_Fb"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ICC_336_Checksum": 0, "ICC_336_AliveCounter": 0, "ICC_SetAtmLampBri": "Level_1", "ICC_SuspSet": "Normal", "ICC_OTAInhbRdy": "Initial", "ICC_AtmLampOpenCmd": "turn_off_ambient_light", "ICC_SteerAssiSet": "Initial_value", "ICC_SetStorageBriLvl": "Level_1", "ICC_HDCSwtSig": "No_Pressed", "ICC_ESPSwtSig": "Normal", "ICC_ReqCalifModHMIBtn": "Init,_No_request", "ICC_SpdLimOffs": 0, "ICC_iTPMSResetSig": "no_reset", "ICC_WIFIOnOffSig": "Invalid", "ICC_LeMirrAlrmLampFlt": "No_Failure", "ICC_RiMirrAlrmLampFlt": "No_Failure", "ICC_PhoneSt": "Init", "ICC_SpeechSt": "Init", "ICC_RemReqFb": "Idle", "ICC_SpdLimFdb": "Idle", "ICC_OTARdy_Fb": "Initial"}
-    Validate TX Message With Expected Values    ICC_0x336    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    ICC_0x336    ${expected_can_signals}    min    30
 
 #    Log  writing mid value to the xcp variables
 #    ${xcp_values}=    Evaluate    {"ICC_336_Checksum" : 119, "ICC_336_AliveCounter" : 11, "ICC_SetAtmLampBri" : 1, "ICC_SuspSet" : 0, "ICC_OTAInhbRdy" : 1, "ICC_AtmLampOpenCmd" : 0, "ICC_SteerAssiSet" : 1, "ICC_SetStorageBrilvl" : 1, "ICC_HDCSwtSig" : 0, "ICC_ESPSwtSig" : 0, "ICC_ReqCalifModHMIBtn" : 1, "ICC_SpdLimOffs" : 11, "ICC_iTPMSResetSig" : 1, "ICC_WIFIONOffSig" : 1, "ICC_LeMirrAlrmLampFlt" : 1, "ICC_RiMirrAlrmLampFlt" : 1, "ICC_PhoneSt" : 1, "ICC_SpeechSt" : 1, "ICC_RemReqFb" : 1, "ICC_SpdLimFdb" : 1, "ICC_OTARdy_Fb" : 1}
@@ -516,13 +516,13 @@ FCM-TX-0x336: Send Tx XCP variables and validating on CAN signals for message IC
     ${xcp_values}=    Evaluate    {"ICC_336_Checksum" : 119, "ICC_336_AliveCounter" : 11, "ICC_SetAtmLampBri" : 2, "ICC_SuspSet" : 2, "ICC_OTAInhbRdy" : 2, "ICC_AtmLampOpenCmd" : 0, "ICC_SteerAssiSet" : 2, "ICC_SetStorageBrilvl" : 2, "ICC_HDCSwtSig" : 0, "ICC_ESPSwtSig" : 0, "ICC_ReqCalifModHMIBtn" : 2, "ICC_SpdLimOffs" : 11, "ICC_iTPMSResetSig" : 2, "ICC_WIFIONOffSig" : 2, "ICC_LeMirrAlrmLampFlt" : 2, "ICC_RiMirrAlrmLampFlt" : 2, "ICC_PhoneSt" : 2, "ICC_SpeechSt" : 2, "ICC_RemReqFb" : 2, "ICC_SpdLimFdb" : 2, "ICC_OTARdy_Fb" : 2}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ICC_336_Checksum": 119, "ICC_336_AliveCounter": 11, "ICC_SetAtmLampBri": "Level_3", "ICC_SuspSet": "Off_Road", "ICC_OTAInhbRdy": "Not_Inhibit", "ICC_AtmLampOpenCmd": "turn_off_ambient_light", "ICC_SteerAssiSet": "ECO", "ICC_SetStorageBriLvl": "Level_3", "ICC_HDCSwtSig": "No_Pressed", "ICC_ESPSwtSig": "Normal", "ICC_ReqCalifModHMIBtn": "Request_California_Mode_ON", "ICC_SpdLimOffs": 11, "ICC_iTPMSResetSig": "Reserved", "ICC_WIFIOnOffSig": "OFF", "ICC_LeMirrAlrmLampFlt": "Reserved", "ICC_RiMirrAlrmLampFlt": "Reserved", "ICC_PhoneSt": "Active", "ICC_SpeechSt": "Active", "ICC_RemReqFb": "Failed", "ICC_SpdLimFdb": "Failed", "ICC_OTARdy_Fb": "Not_Ready"}
-    Validate TX Message With Expected Values    ICC_0x336   ${expected_can_signals}    30
+    Validate TX Message With Expected Values    ICC_0x336   ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"ICC_336_Checksum" : 255, "ICC_336_AliveCounter" : 14, "ICC_SetAtmLampBri" : 15, "ICC_SuspSet" : 3, "ICC_OTAInhbRdy" : 3, "ICC_AtmLampOpenCmd" : 1, "ICC_SteerAssiSet" : 7, "ICC_SetStorageBrilvl" : 15, "ICC_HDCSwtSig" : 1, "ICC_ESPSwtSig" : 1, "ICC_ReqCalifModHMIBtn" : 3, "ICC_SpdLimOffs" : 15, "ICC_iTPMSResetSig" : 3, "ICC_WIFIONOffSig" : 3, "ICC_LeMirrAlrmLampFlt" : 3, "ICC_RiMirrAlrmLampFlt" : 3, "ICC_PhoneSt" : 3, "ICC_SpeechSt" : 3, "ICC_RemReqFb" : 3, "ICC_SpdLimFdb" : 3, "ICC_OTARdy_Fb" : 3}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ICC_336_Checksum": 255, "ICC_336_AliveCounter": 14, "ICC_SetAtmLampBri": "Reserved", "ICC_SuspSet": "Invalid", "ICC_OTAInhbRdy": "Invalid", "ICC_AtmLampOpenCmd": "turn_on_ambient_light", "ICC_SteerAssiSet": "Invalid", "ICC_SetStorageBriLvl": "Reserved", "ICC_HDCSwtSig": "Pressed", "ICC_ESPSwtSig": "Sport", "ICC_ReqCalifModHMIBtn": "Reserved", "ICC_SpdLimOffs": 15, "ICC_iTPMSResetSig": "Invalid", "ICC_WIFIOnOffSig": "Reserved", "ICC_LeMirrAlrmLampFlt": "Reserved", "ICC_RiMirrAlrmLampFlt": "Reserved", "ICC_PhoneSt": "Error", "ICC_SpeechSt": "Error", "ICC_RemReqFb": "Processing", "ICC_SpdLimFdb": "Processing", "ICC_OTARdy_Fb": "Invalid"}
-    Validate TX Message With Expected Values    ICC_0x336    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    ICC_0x336    ${expected_can_signals}    max    30
 
 
 FCM-TX-0x362: Send Tx XCP variables and validating on CAN signals for message ICC_0x362
@@ -532,19 +532,19 @@ FCM-TX-0x362: Send Tx XCP variables and validating on CAN signals for message IC
     ${xcp_var_map}=    Evaluate    {"ICC_MetaMapProvider": "Rte_C_SG_ICC_0x362_adt_62C55F79D8175321974B2FDBB337E593.ICC_MetaMapProvider", "ICC_MetaMsgType": "Rte_C_SG_ICC_0x362_adt_62C55F79D8175321974B2FDBB337E593.ICC_MetaMsgType", "ICC_MetaCountryCode": "Rte_C_SG_ICC_0x362_adt_62C55F79D8175321974B2FDBB337E593.ICC_MetaCountryCode", "ICC_MetaProtVerMinorSub": "Rte_C_SG_ICC_0x362_adt_62C55F79D8175321974B2FDBB337E593.ICC_MetaProtVerMinorSub", "ICC_MetaProtVerMajor": "Rte_C_SG_ICC_0x362_adt_62C55F79D8175321974B2FDBB337E593.ICC_MetaProtVerMajor", "ICC_MetaCycCnt": "Rte_C_SG_ICC_0x362_adt_62C55F79D8175321974B2FDBB337E593.ICC_MetaCycCnt", "ICC_MetaHwVer": "Rte_C_SG_ICC_0x362_adt_62C55F79D8175321974B2FDBB337E593.ICC_MetaHwVer", "ICC_MetaDrvSide": "Rte_C_SG_ICC_0x362_adt_62C55F79D8175321974B2FDBB337E593.ICC_MetaDrvSide", "ICC_MetaRegionCode": "Rte_C_SG_ICC_0x362_adt_62C55F79D8175321974B2FDBB337E593.ICC_MetaRegionCode", "ICC_MetaMapVerYear": "Rte_C_SG_ICC_0x362_adt_62C55F79D8175321974B2FDBB337E593.ICC_MetaMapVerYear", "ICC_MetaMapVerQtr": "Rte_C_SG_ICC_0x362_adt_62C55F79D8175321974B2FDBB337E593.ICC_MetaMapVerQtr", "ICC_MetaProtVerMinor": "Rte_C_SG_ICC_0x362_adt_62C55F79D8175321974B2FDBB337E593.ICC_MetaProtVerMinor", "ICC_MetaSpdUnits": "Rte_C_SG_ICC_0x362_adt_62C55F79D8175321974B2FDBB337E593.ICC_MetaSpdUnits", "ICC_Reserved": "Rte_C_SG_ICC_0x362_adt_62C55F79D8175321974B2FDBB337E593.ICC_Reserved"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ICC_MetaMapProvider": "Unknown", "ICC_MetaMsgType": "System_Specific", "ICC_MetaCountryCode": 0, "ICC_MetaProtVerMinorSub": 0, "ICC_MetaProtVerMajor": 0, "ICC_MetaCycCnt": 0, "ICC_MetaHwVer": "Unknown", "ICC_MetaDrvSide": "Driving_Side_Left", "ICC_MetaRegionCode": 0, "ICC_MetaMapVerYear": 2000, "ICC_MetaMapVerQtr": 1, "ICC_MetaProtVerMinor": 0, "ICC_MetaSpdUnits": "Kilometers_Per_Hour_(km/h)", "ICC_Reserved": 0}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ICC_0x362    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    ICC_0x362    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"ICC_MetaMapProvider": 1, "ICC_MetaMsgType": 1, "ICC_MetaCountryCode": 546, "ICC_MetaProtVerMinorSub": 5, "ICC_MetaProtVerMajor": 2, "ICC_MetaCycCnt": 1, "ICC_MetaHwVer": 345, "ICC_MetaDrvSide": 0, "ICC_MetaRegionCode": 20000, "ICC_MetaMapVerYear": 2030, "ICC_MetaMapVerQtr": 2, "ICC_MetaProtVerMinor": 11, "ICC_MetaSpdUnits": 0, "ICC_Reserved": 5}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ICC_MetaMapProvider": "Nokia_HERE_(NAVTEQ)", "ICC_MetaMsgType": "Position", "ICC_MetaCountryCode": 546, "ICC_MetaProtVerMinorSub": 5, "ICC_MetaProtVerMajor": 2, "ICC_MetaCycCnt": 1, "ICC_MetaHwVer": 345, "ICC_MetaDrvSide": "Driving_Side_Left", "ICC_MetaRegionCode": 20000, "ICC_MetaMapVerYear": 2030, "ICC_MetaMapVerQtr": 2, "ICC_MetaProtVerMinor": 11, "ICC_MetaSpdUnits": "Kilometers_Per_Hour_(km/h)", "ICC_Reserved": 5}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    ICC_0x362   ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    ICC_0x362   ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"ICC_MetaMapProvider": 4, "ICC_MetaMsgType": 3, "ICC_MetaCountryCode": 1023, "ICC_MetaProtVerMinorSub": 7, "ICC_MetaProtVerMajor": 3, "ICC_MetaCycCnt": 3, "ICC_MetaHwVer": 511, "ICC_MetaDrvSide": 1, "ICC_MetaRegionCode": 32767, "ICC_MetaMapVerYear": 2063, "ICC_MetaMapVerQtr": 3, "ICC_MetaProtVerMinor": 15, "ICC_MetaSpdUnits": 1, "ICC_Reserved": 7}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ICC_MetaMapProvider": "IPC", "ICC_MetaMsgType": "Stub", "ICC_MetaCountryCode": 1023, "ICC_MetaProtVerMinorSub": 7, "ICC_MetaProtVerMajor": 3, "ICC_MetaCycCnt": 3, "ICC_MetaHwVer": 511, "ICC_MetaDrvSide": "Driving_Side_Right_Default_is_0x1", "ICC_MetaRegionCode": 32767, "ICC_MetaMapVerYear": 2063, "ICC_MetaMapVerQtr": 3, "ICC_MetaProtVerMinor": 15, "ICC_MetaSpdUnits": "Miles_Per_Hour_(mph)_Default_is_0", "ICC_Reserved": 7}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    ICC_0x362    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    ICC_0x362    ${expected_can_signals}    max    30
 
 
 FCM-TX-0x119: Send Tx XCP variables and validating on CAN signals for message iBooster_0x119
@@ -554,24 +554,24 @@ FCM-TX-0x119: Send Tx XCP variables and validating on CAN signals for message iB
     ${xcp_var_map}=    Evaluate    {"iBooster_119_CheckSum": "Rte_C_SG_iBooster_0x119_adt_8F045E2168C010783C326F17733E4F5F.iBooster_119_CheckSum", "iBooster_119_AliveCounter": "Rte_C_SG_iBooster_0x119_adt_8F045E2168C010783C326F17733E4F5F.iBooster_119_AliveCounter", "iBooster_OTARdy_Fb": "Rte_C_SG_iBooster_0x119_adt_8F045E2168C010783C326F17733E4F5F.iBooster_OTARdy_Fb", "iBooster_WarnOn": "Rte_C_SG_iBooster_0x119_adt_8F045E2168C010783C326F17733E4F5F.iBooster_WarnOn", "iBooster_BrkPedlAppIdFlg": "Rte_C_SG_iBooster_0x119_adt_8F045E2168C010783C326F17733E4F5F.iBooster_BrkPedlAppldFlg", "iBooster_BrkPedlAppIdVld": "Rte_C_SG_iBooster_0x119_adt_8F045E2168C010783C326F17733E4F5F.iBooster_BrkPedlAppldVld"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"iBooster_119_CheckSum": 0, "iBooster_119_AliveCounter": 0, "iBooster_OTARdy_Fb": "Initial", "iBooster_WarnOn": "No_Request_To_The_Warning_Lamp", "iBooster_BrkPedlAppldFlg": "Brake_Pedal_Not_Applied", "iBooster_BrkPedlAppldVld": "Initializing"}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    iBooster_0x119    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    iBooster_0x119    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"iBooster_119_CheckSum": 119, "iBooster_119_AliveCounter": 11, "iBooster_OTARdy_Fb": 1, "iBooster_WarnOn": 0, "iBooster_BrkPedlAppIdFlg": 0, "iBooster_BrkPedlAppIdVld": 1}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"iBooster_119_CheckSum": 119, "iBooster_119_AliveCounter": 11, "iBooster_OTARdy_Fb": "Ready", "iBooster_WarnOn": "No_Request_To_The_Warning_Lamp", "iBooster_BrkPedlAppldFlg": "Brake_Pedal_Not_Applied", "iBooster_BrkPedlAppldVld": "Valid"}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    iBooster_0x119   ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    iBooster_0x119   ${expected_can_signals}    mid    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"iBooster_119_CheckSum": 119, "iBooster_119_AliveCounter": 11, "iBooster_OTARdy_Fb": 2, "iBooster_WarnOn": 0, "iBooster_BrkPedlAppIdFlg": 0, "iBooster_BrkPedlAppIdVld": 2}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"iBooster_119_CheckSum": 119, "iBooster_119_AliveCounter": 11, "iBooster_OTARdy_Fb": "Not_Ready", "iBooster_WarnOn": "No_Request_To_The_Warning_Lamp", "iBooster_BrkPedlAppldFlg": "Brake_Pedal_Not_Applied", "iBooster_BrkPedlAppldVld": "Invalid"}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    iBooster_0x119   ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    iBooster_0x119   ${expected_can_signals}    mid    30
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"iBooster_119_CheckSum": 255, "iBooster_119_AliveCounter": 14, "iBooster_OTARdy_Fb": 3, "iBooster_WarnOn": 1, "iBooster_BrkPedlAppIdFlg": 1, "iBooster_BrkPedlAppIdVld": 3}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"iBooster_119_CheckSum": 255, "iBooster_119_AliveCounter": 14, "iBooster_OTARdy_Fb": "Invalid", "iBooster_WarnOn": "Warning_Lamp_Requested", "iBooster_BrkPedlAppldFlg": "Brake_Pedal_Applied", "iBooster_BrkPedlAppldVld": "Reserved"}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    iBooster_0x119    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    iBooster_0x119    ${expected_can_signals}    max    30
 
 FCM-TX-0x12A: Send Tx XCP variables and validating on CAN signals for message ESP_0x12A
     [Documentation]    Validate TX message 'ESP_0x12A' by writing XCP variables and reading CAN signals
@@ -581,19 +581,19 @@ FCM-TX-0x12A: Send Tx XCP variables and validating on CAN signals for message ES
     ${xcp_var_map}=    Evaluate    {"ESP_12A_CheckSum": "Rte_C_SG_ESP_0x12A_adt_54D3E83A4B950AB0CE5101D5CB2DA1EC.ESP_12A_CheckSum", "ESP_12A_AliveCounter": "Rte_C_SG_ESP_0x12A_adt_54D3E83A4B950AB0CE5101D5CB2DA1EC.ESP_12A_AliveCounter", "ESP_ExtBrkReqFlg": "Rte_C_SG_ESP_0x12A_adt_54D3E83A4B950AB0CE5101D5CB2DA1EC.ESP_ExtBrkReqFlg", "ESP_FBldgCtrlSts": "Rte_C_SG_ESP_0x12A_adt_54D3E83A4B950AB0CE5101D5CB2DA1EC.ESP_FBldgCtrlSts", "ESP_ExtBrkReq": "Rte_C_SG_ESP_0x12A_adt_54D3E83A4B950AB0CE5101D5CB2DA1EC.ESP_ExtBrkReq", "ESP_MstCylVirtPTarValVld": "Rte_C_SG_ESP_0x12A_adt_54D3E83A4B950AB0CE5101D5CB2DA1EC.ESP_MstCylVirtPTarValVld", "ESP_MstCylTarPVld": "Rte_C_SG_ESP_0x12A_adt_54D3E83A4B950AB0CE5101D5CB2DA1EC.ESP_MstCylTarPVld", "ESP_VirtP": "Rte_C_SG_ESP_0x12A_adt_54D3E83A4B950AB0CE5101D5CB2DA1EC.ESP_VirtP", "ESP_StopMain2BackupState": "Rte_C_SG_ESP_0x12A_adt_54D3E83A4B950AB0CE5101D5CB2DA1EC.ESP_StopMain2BackupState", "ESP_MstCylTarP": "Rte_C_SG_ESP_0x12A_adt_54D3E83A4B950AB0CE5101D5CB2DA1EC.ESP_MstCylTarP"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_12A_CheckSum": 1, "ESP_12A_AliveCounter": 0, "ESP_ExtBrkReqFlg": "QTarget_Off", "ESP_FBldgCtrlSts": "PFC_Inactive", "ESP_ExtBrkReq": -252, "ESP_MstCylVirtPTarValVld": "Initializing", "ESP_MstCylTarPVld": "Initializing", "ESP_VirtP": 1, "ESP_StopMain2BackupState": "NotAvailable_Temporary", "ESP_MstCylTarP": 1}
-    Validate TX Message With Expected Values    ESP_0x12A    ${expected_can_signals}    60
+    Validate TX Message With Expected Values    ESP_0x12A    ${expected_can_signals}    min    60
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"ESP_12A_CheckSum": 100, "ESP_12A_AliveCounter": 6, "ESP_ExtBrkReqFlg": 1, "ESP_FBldgCtrlSts": 2, "ESP_ExtBrkReq": 100, "ESP_MstCylVirtPTarValVld": 2, "ESP_MstCylTarPVld": 2, "ESP_VirtP": 100, "ESP_StopMain2BackupState": 5, "ESP_MstCylTarP": 100}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_12A_CheckSum": 100, "ESP_12A_AliveCounter": 6, "ESP_ExtBrkReqFlg": "Qtarget_EBR", "ESP_FBldgCtrlSts": "PFC_Hold", "ESP_ExtBrkReq": 100, "ESP_MstCylVirtPTarValVld": "Invalid", "ESP_MstCylTarPVld": "Invalid", "ESP_VirtP": 100, "ESP_StopMain2BackupState": "Activation_Pending", "ESP_MstCylTarP": 100}
-    Validate TX Message With Expected Values    ESP_0x12A   ${expected_can_signals}    60
+    Validate TX Message With Expected Values    ESP_0x12A   ${expected_can_signals}    mid    60
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"ESP_12A_CheckSum": 255, "ESP_12A_AliveCounter": 14, "ESP_ExtBrkReqFlg": 3, "ESP_FBldgCtrlSts": PFC_Active, "ESP_ExtBrkReq": 252, "ESP_MstCylVirtPTarValVld": 3, "ESP_MstCylTarPVld": 3, "ESP_VirtP": 255, "ESP_StopMain2BackupState": 9, "ESP_MstCylTarP": 255}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_12A_CheckSum": 255, "ESP_12A_AliveCounter": 14, "ESP_ExtBrkReqFlg": "Undefined", "ESP_FBldgCtrlSts": PFC_Active, "ESP_ExtBrkReq": 252, "ESP_MstCylVirtPTarValVld": "Reserved", "ESP_MstCylTarPVld": "Reserved", "ESP_VirtP": 255, "ESP_StopMain2BackupState": "Activated_FailOperation", "ESP_MstCylTarP": 255}
-    Validate TX Message With Expected Values    ESP_0x12A    ${expected_can_signals}    60
+    Validate TX Message With Expected Values    ESP_0x12A    ${expected_can_signals}    max    60
 
 
 FCM-TX-0x1B8: Send Tx XCP variables and validating on CAN signals for message ESP_0x1B8
@@ -603,7 +603,7 @@ FCM-TX-0x1B8: Send Tx XCP variables and validating on CAN signals for message ES
     ${xcp_var_map}=    Evaluate    {"ESP_1B8_CheckSum": "Rte_C_SG_ESP_0x1B8_adt_546AEC1EC6D31F6875D913A8D076317C.ESP_ModSwtAllw", "ESP_ActvVehHldFlg": "Rte_C_SG_ESP_0x1B8_adt_546AEC1EC6D31F6875D913A8D076317C.ESP_ActvVehHldFlg", "ESP_VehSecuCdn": "Rte_C_SG_ESP_0x1B8_adt_546AEC1EC6D31F6875D913A8D076317C.ESP_VehSecuCdn", "ESP_BrkFStsFlg": "Rte_C_SG_ESP_0x1B8_adt_546AEC1EC6D31F6875D913A8D076317C.ESP_BrkFStsFlg", "ESP_CddApOpsDirMovmt": "Rte_C_SG_ESP_0x1B8_adt_546AEC1EC6D31F6875D913A8D076317C.ESP_CddApOpsDirMovmt", "ESP_VehStopSts": "Rte_C_SG_ESP_0x1B8_adt_546AEC1EC6D31F6875D913A8D076317C.ESP_VehStopSts", "ESP_VehStandstillSts": "Rte_C_SG_ESP_0x1B8_adt_546AEC1EC6D31F6875D913A8D076317C.ESP_VehStandstillSts", "ESP_EPB_BenchMode": "Rte_C_SG_ESP_0x1B8_adt_546AEC1EC6D31F6875D913A8D076317C.ESP_EPB_BenchMode", "ESP_RoadSlopVld": "Rte_C_SG_ESP_0x1B8_adt_546AEC1EC6D31F6875D913A8D076317C.ESP_RoadSlopVld", "ESP_AEBRdy": "Rte_C_SG_ESP_0x1B8_adt_546AEC1EC6D31F6875D913A8D076317C.ESP_AEBRdy", "ESP_ACCRdy": "Rte_C_SG_ESP_0x1B8_adt_546AEC1EC6D31F6875D913A8D076317C.ESPACCRdy", "ESP_ParkRdy": "Rte_C_SG_ESP_0x1B8_adt_546AEC1EC6D31F6875D913A8D076317C.ESP_ParkRdy", "ESP_ReAEBRdy": "Rte_C_SG_ESP_0x1B8_adt_546AEC1EC6D31F6875D913A8D076317C.ESP_ReAEBRdy", "ESP_SpclTerrainModFltIndcn": "Rte_C_SG_ESP_0x1B8_adt_546AEC1EC6D31F6875D913A8D076317C.ESP_SpclTerrainModFltIndcn", "ESP_DrvOffStRdy": "Rte_C_SG_ESP_0x1B8_adt_546AEC1EC6D31F6875D913A8D076317C.ESP_DrvOffStRdy", "ESP_TarLSMSts": "Rte_C_SG_ESP_0x1B8_adt_546AEC1EC6D31F6875D913A8D076317C.ESP_TarLSMSts", "ESP_RoadSlop": "Rte_C_SG_ESP_0x1B8_adt_546AEC1EC6D31F6875D913A8D076317C.ESP_RoadSlop"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_1B8_CheckSum": 1, "ESP_1B8_AliveCounter": 0, "ESP_ModFbSig": "Init", "ESP_ModSwtAllw": "Not_Allowed", "ESP_ActvVehHldFlg": "False", "ESP_VehSecuCdn": "ParkSt_Other", "ESP_BrkFStsFlg": "False", "ESP_CddApOpsDirMovmt": "False", "ESP_VehStopSts": "Not_Stop", "ESP_VehStandstillSts": "Not_Standstill", "ESP_EPB_BenchMode": "Not_Active", "ESP_RoadSlopVld": "Initializing", "ESP_AEBRdy": "Not_ready", "ESPACCRdy": "Not_ready", "ESP_ParkRdy": "Not_ready", "ESP_ReAEBRdy": "Not_ready", "ESP_SpclTerrainModFltIndcn": "Not_Available", "ESP_DrvOffStRdy": "False", "ESP_TarLSMSts": "LSM_Off", "ESP_RoadSlop": -10}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    ESP_0x1B8    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    ESP_0x1B8    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
 
@@ -611,14 +611,14 @@ FCM-TX-0x1B8: Send Tx XCP variables and validating on CAN signals for message ES
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_1B8_CheckSum": 100, "ESP_1B8_AliveCounter": 6, "ESP_ModFbSig": "Sport", "ESP_ModSwtAllw": "Not_Allowed", "ESP_ActvVehHldFlg": "False", "ESP_VehSecuCdn": "ParkSt_Reld", "ESP_BrkFStsFlg": "False", "ESP_CddApOpsDirMovmt": "False", "ESP_VehStopSts": "Not_Stop", "ESP_VehStandstillSts": "Not_Standstill", "ESP_EPB_BenchMode": "Active", "ESP_RoadSlopVld": "Invalid", "ESP_AEBRdy": "Reserved", "ESPACCRdy": "Ready", "ESP_ParkRdy": "Reserved", "ESP_ReAEBRdy": "Reserved", "ESP_SpclTerrainModFltIndcn": "Not_Available", "ESP_DrvOffStRdy": "False", "ESP_TarLSMSts": "LSM_Off", "ESP_RoadSlop": 5}
 
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    ESP_0x1B8   ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    ESP_0x1B8   ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
 
     ${xcp_values}=    Evaluate    {"ESP_1B8_CheckSum": 255, "ESP_1B8_AliveCounter": 14, "ESP_ModFbSig": 7, "ESP_ModSwtAllw": 1, "ESP_ActvVehHldFlg": 1, "ESP_VehSecuCdn": 4, "ESP_BrkFStsFlg": 1, "ESP_CddApOpsDirMovmt": 1, "ESP_VehStopSts": 1, "ESP_VehStandstillSts": 1, "ESP_EPB_BenchMode": 3, "ESP_RoadSlopVld": 3, "ESP_AEBRdy": 3, "ESP_ACCRdy": 3, "ESP_ParkRdy": 3, "ESP_ReAEBRdy": 3, "ESP_SpclTerrainModFltIndcn": 1, "ESP_DrvOffStRdy": 1, "ESP_TarLSMSts": 1, "ESP_RoadSlop": 10}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"ESP_1B8_CheckSum": 255, "ESP_1B8_AliveCounter": 14, "ESP_ModFbSig": "Invalid", "ESP_ModSwtAllw": "Allowed", "ESP_ActvVehHldFlg": "True", "ESP_VehSecuCdn": "ParkSt_ReqToutorOvrdn", "ESP_BrkFStsFlg": "True", "ESP_CddApOpsDirMovmt": "True", "ESP_VehStopSts": "Stop", "ESP_VehStandstillSts": "Standstill", "ESP_EPB_BenchMode": "Invalid", "ESP_RoadSlopVld": "Reserved", "ESP_AEBRdy": "Invalid", "ESPACCRdy": "Invalid", "ESP_ParkRdy": "Invalid", "ESP_ReAEBRdy": "Invalid", "ESP_SpclTerrainModFltIndcn": "Available", "ESP_DrvOffStRdy": "True", "ESP_TarLSMSts": "LSM_On", "ESP_RoadSlop": 10}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    ESP_0x1B8    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    ESP_0x1B8    ${expected_can_signals}    max    30
 
 FCM-TX-0x178: Send Tx XCP variables and validating on CAN signals for message TBOX_0x178
     [Documentation]    Validate TX message 'TBOX_0x178' by writing XCP variables and reading CAN signals
@@ -628,19 +628,19 @@ FCM-TX-0x178: Send Tx XCP variables and validating on CAN signals for message TB
     ${xcp_var_map}=    Evaluate    {"TBOX_178_AliveCounter": "Rte_C_SG_TBOX_0x178_adt_674B821ABA64C143D2E5DF282A3B0FBE.TBOX_178_AliveCounter", "TBOX_178_CheckSum": "Rte_C_SG_TBOX_0x178_adt_674B821ABA64C143D2E5DF282A3B0FBE.TBOX_178_CheckSum", "TBOX_Roll": "Rte_C_SG_TBOX_0x178_adt_674B821ABA64C143D2E5DF282A3B0FBE.TBOX_Roll", "TBOX_RollStdDev": "Rte_C_SG_TBOX_0x178_adt_674B821ABA64C143D2E5DF282A3B0FBE.TBOX_RollStdDev"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_178_AliveCounter": 0, "TBOX_178_CheckSum": 0, "TBOX_Roll": 0, "TBOX_RollStdDev": 0}
-    Validate TX Message With Expected Values    TBOX_0x178    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    TBOX_0x178    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"TBOX_178_AliveCounter": 11, "TBOX_178_CheckSum": 110., "TBOX_Roll": 100.25, "TBOX_RollStdDev": 150.35}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_178_AliveCounter": 11, "TBOX_178_CheckSum": 110, "TBOX_Roll": 100.25, "TBOX_RollStdDev": 150.35}
-    Validate TX Message With Expected Values    TBOX_0x178    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    TBOX_0x178    ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"TBOX_178_AliveCounter": 14, "TBOX_178_CheckSum": 255, "TBOX_Roll": 360, "TBOX_RollStdDev": 179.9}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_178_AliveCounter": 14, "TBOX_178_CheckSum": 255, "TBOX_Roll": 360, "TBOX_RollStdDev": 179.9}
-    Validate TX Message With Expected Values    TBOX_0x178    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    TBOX_0x178    ${expected_can_signals}    max    30
 
 FCM-TX-0x179: Send Tx XCP variables and validating on CAN signals for message TBOX_0x179
     [Documentation]    Validate TX message 'TBOX_0x179' by writing XCP variables and reading CAN signals
@@ -650,19 +650,19 @@ FCM-TX-0x179: Send Tx XCP variables and validating on CAN signals for message TB
     ${xcp_var_map}=    Evaluate    {"TBOX_179_AliveCounter": "Rte_C_SG_TBOX_0x179_adt_01E34BFBF5A27FF853FE05DBFB5BF815.TBOX_179_AliveCounter", "TBOX_179_CheckSum": "Rte_C_SG_TBOX_0x179_adt_01E34BFBF5A27FF853FE05DBFB5BF815.TBOX_179_CheckSum", "TBOX_Heading": "Rte_C_SG_TBOX_0x179_adt_01E34BFBF5A27FF853FE05DBFB5BF815.TBOX_Heading", "TBOX_HeadingStdDev": "Rte_C_SG_TBOX_0x179_adt_01E34BFBF5A27FF853FE05DBFB5BF815.TBOX_HeadingStdDev",}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_179_AliveCounter": 0, "TBOX_179_CheckSum": 0, "TBOX_Heading": 0, "TBOX_HeadingStdDev": 0}
-    Validate TX Message With Expected Values    TBOX_0x179    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    TBOX_0x179    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"TBOX_179_AliveCounter": 11, "TBOX_179_CheckSum": 110., "TBOX_Heading": 100.25, "TBOX_HeadingStdDev": 120.25}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_179_AliveCounter": 11, "TBOX_179_CheckSum": 110, "TBOX_Heading": 100.25, "TBOX_HeadingStdDev": 120.35}
-    Validate TX Message With Expected Values    TBOX_0x179    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    TBOX_0x179    ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"TBOX_179_AliveCounter": 14, "TBOX_179_CheckSum": 255, "TBOX_Heading": 359.9, "TBOX_HeadingStdDev": 179.9}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_179_AliveCounter": 14, "TBOX_179_CheckSum": 255, "TBOX_Heading": 359.9, "TBOX_HeadingStdDev": 179.9}
-    Validate TX Message With Expected Values    TBOX_0x179    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    TBOX_0x179    ${expected_can_signals}    max    30
 
 FCM-TX-0x4F4: Send Tx XCP variables and validating on CAN signals for message TBOX_0x4F4
     [Documentation]    Validate TX message 'TBOX_0x4F4' by writing XCP variables and reading CAN signals
@@ -671,25 +671,25 @@ FCM-TX-0x4F4: Send Tx XCP variables and validating on CAN signals for message TB
     ${xcp_var_map}=    Evaluate    {"TBOX_4F4_4F8_CheckSum": "Rte_C_SG_TBOX_0x4F4_adt_54F8F0935AB8F1F747E6851CD8A55822.TBOX_4F4_4F8_CheckSum", "TBOX_4F4_4F8_AliveCounter": "Rte_C_SG_TBOX_0x4F4_adt_54F8F0935AB8F1F747E6851CD8A55822.TBOX_4F4_4F8_AliveCounter", "TBOX_Sw_upd": "Rte_C_SG_TBOX_0x4F4_adt_54F8F0935AB8F1F747E6851CD8A55822.TBOX_Sw_upd", "TBOX_Flsflg": "Rte_C_SG_TBOX_0x4F4_adt_54F8F0935AB8F1F747E6851CD8A55822.TBOX_Flsflg","TBOX_RemFlsh": "Rte_C_SG_TBOX_0x4F4_adt_54F8F0935AB8F1F747E6851CD8A55822.TBOX_RemFlsh", "TBOX_FobdGWPartBUSUDSCom": "Rte_C_SG_TBOX_0x4F4_adt_54F8F0935AB8F1F747E6851CD8A55822.TBOX_FobdGWPartBUSUDSCom", "TBOX_RemChrgInsulFctReq": "Rte_C_SG_TBOX_0x4F4_adt_54F8F0935AB8F1F747E6851CD8A55822.TBOX_RemChrgInsulFctReq", "TBOX_EHUSetTrvlMod": "Rte_C_SG_TBOX_0x4F4_adt_54F8F0935AB8F1F747E6851CD8A55822.TBOX_EHUSetTrvlMod", "TBOX_ResvACChrgOpenSts": "Rte_C_SG_TBOX_0x4F4_adt_54F8F0935AB8F1F747E6851CD8A55822.TBOX_ResvACChrgOpenSts", "TBOX_RemKL15PwrOnReq": "Rte_C_SG_TBOX_0x4F4_adt_54F8F0935AB8F1F747E6851CD8A55822.TBOX_RemKL15PwrOnReq", "TBOX_SetChrgEndSOC": "Rte_C_SG_TBOX_0x4F4_adt_54F8F0935AB8F1F747E6851CD8A55822.TBOX_SetChrgEndSOC", "TBOX_PreCondTriggerReq": "Rte_C_SG_TBOX_0x4F4_adt_54F8F0935AB8F1F747E6851CD8A55822.TBOX_PreCondTriggerReq", "TBOX_BlowLvlReq": "Rte_C_SG_TBOX_0x4F4_adt_54F8F0935AB8F1F747E6851CD8A55822.TBOX_BlowLvlReq", "TBOX_ICC_UpdStrt": "Rte_C_SG_TBOX_0x4F4_adt_54F8F0935AB8F1F747E6851CD8A55822.TBOX_ICC_UpdStrt", "TBOX_VehiMod": "Rte_C_SG_TBOX_0x4F4_adt_54F8F0935AB8F1F747E6851CD8A55822.TBOX_VehiMod", "TBOX_Crash_cfm": "Rte_C_SG_TBOX_0x4F4_adt_54F8F0935AB8F1F747E6851CD8A55822.TBOX_Crash_cfm", "TBOX_SchedChrgnReq": "Rte_C_SG_TBOX_0x4F4_adt_54F8F0935AB8F1F747E6851CD8A55822.TBOX_SchedChrgnReq",}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_4F4_4F8_CheckSum": 0, "TBOX_4F4_4F8_AliveCounter": 0, "TBOX_Sw_upd": "Initial", "TBOX_Flsflg": "Initial_Value", "TBOX_RemFlsh": "Without_Request", "TBOX_FobdGWPartBUSUDSCom": "Initial_value", "TBOX_RemChrgInsulFctReq": "No_action", "TBOX_EHUSetTrvlMod": "Initial_value", "TBOX_ResvACChrgOpenSts": "Initial_value", "TBOX_RemKL15PwrOnReq": "Init_value", "TBOX_SetChrgEndSOC": 0, "TBOX_PreCondTriggerReq": "no_trigger", "TBOX_BlowLvlReq": "off", "TBOX_ICC_UpdStrt": "Initial_Value", "TBOX_VehiMod": "California_mode", "TBOX_Crash_cfm": "No_Crash", "TBOX_SchedChrgnReq": "Scheduled_Charging_Req_Inactive", "TBOX_4F4_SSecOC_Fresh_Byte0": 0, "TBOX_4F4_SSecOC_MAC_Byte0": 0, "TBOX_4F4_SSecOC_MAC_Byte1": 0, "TBOX_4F4_SSecOC_MAC_Byte2": 0}
-    Validate TX Message With Expected Values    TBOX_0x4F4    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    TBOX_0x4F4    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"TBOX_4F4_4F8_CheckSum": 110, "TBOX_4F4_4F8_AliveCounter": 11, "TBOX_Sw_upd": 1, "TBOX_Flsflg": 1, "TBOX_RemFlsh": 1, "TBOX_FobdGWPartBUSUDSCom": 1, "TBOX_RemChrgInsulFctReq": 1, "TBOX_EHUSetTrvlMod": 1, "TBOX_ResvACChrgOpenSts": 1, "TBOX_RemKL15PwrOnReq": 1, "TBOX_SetChrgEndSOC": 55, "TBOX_PreCondTriggerReq": 1, "TBOX_BlowLvlReq": 1, "TBOX_ICC_UpdStrt": 1, "TBOX_VehiMod": 2, "TBOX_Crash_cfm": 1, "TBOX_SchedChrgnReq": 1,}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_4F4_4F8_CheckSum": 110, "TBOX_4F4_4F8_AliveCounter": 11, "TBOX_Sw_upd": "Flashing", "TBOX_Flsflg": "HV_Flash_Mode", "TBOX_RemFlsh": "RemFlash_Req_Active", "TBOX_FobdGWPartBUSUDSCom": "Not_allowed", "TBOX_RemChrgInsulFctReq": "On", "TBOX_EHUSetTrvlMod": "Daily_commuter_mode", "TBOX_ResvACChrgOpenSts": "On", "TBOX_RemKL15PwrOnReq": "Request", "TBOX_SetChrgEndSOC": 55, "TBOX_PreCondTriggerReq": "Start_Precond._Battery", "TBOX_BlowLvlReq": "Step1", "TBOX_ICC_UpdStrt": "With_Request", "TBOX_VehiMod": "Pet_mode", "TBOX_Crash_cfm": "Crash_Happened", "TBOX_SchedChrgnReq": "Scheduled_Charging_Req_Active", "TBOX_4F4_SSecOC_Fresh_Byte0": 0, "TBOX_4F4_SSecOC_MAC_Byte0": 0, "TBOX_4F4_SSecOC_MAC_Byte1": 0, "TBOX_4F4_SSecOC_MAC_Byte2": 0}
-    Validate TX Message With Expected Values    TBOX_0x4F4    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    TBOX_0x4F4    ${expected_can_signals}    mid    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"TBOX_4F4_4F8_CheckSum": 110, "TBOX_4F4_4F8_AliveCounter": 11, "TBOX_Sw_upd": 1, "TBOX_Flsflg": 2, "TBOX_RemFlsh": 1, "TBOX_FobdGWPartBUSUDSCom": 2, "TBOX_RemChrgInsulFctReq": 1, "TBOX_EHUSetTrvlMod": 1, "TBOX_ResvACChrgOpenSts": 1, "TBOX_RemKL15PwrOnReq": 1, "TBOX_SetChrgEndSOC": 55, "TBOX_PreCondTriggerReq": 1, "TBOX_BlowLvlReq": 2, "TBOX_ICC_UpdStrt": 1, "TBOX_VehiMod": 5, "TBOX_Crash_cfm": 2, "TBOX_SchedChrgnReq": 1,}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_4F4_4F8_CheckSum": 110, "TBOX_4F4_4F8_AliveCounter": 11, "TBOX_Sw_upd": "Flashing", "TBOX_Flsflg": "LV_Flash_Mode", "TBOX_RemFlsh": "RemFlash_Req_Active", "TBOX_FobdGWPartBUSUDSCom": "Recovery", "TBOX_RemChrgInsulFctReq": "On", "TBOX_EHUSetTrvlMod": "Daily_commuter_mode", "TBOX_ResvACChrgOpenSts": "On", "TBOX_RemKL15PwrOnReq": "Request", "TBOX_SetChrgEndSOC": 55, "TBOX_PreCondTriggerReq": "Start_Precond._Battery", "TBOX_BlowLvlReq": "Step2", "TBOX_ICC_UpdStrt": "With_Request", "TBOX_VehiMod": "Mode5", "TBOX_Crash_cfm": "Reserved", "TBOX_SchedChrgnReq": "Scheduled_Charging_Req_Active", "TBOX_4F4_SSecOC_Fresh_Byte0": 0, "TBOX_4F4_SSecOC_MAC_Byte0": 0, "TBOX_4F4_SSecOC_MAC_Byte1": 0, "TBOX_4F4_SSecOC_MAC_Byte2": 0}
-    Validate TX Message With Expected Values    TBOX_0x4F4    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    TBOX_0x4F4    ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"TBOX_4F4_4F8_CheckSum": 255, "TBOX_4F4_4F8_AliveCounter": 14, "TBOX_Sw_upd": 2, "TBOX_Flsflg": 7, "TBOX_RemFlsh": 7, "TBOX_FobdGWPartBUSUDSCom": 3, "TBOX_RemChrgInsulFctReq": 2, "TBOX_EHUSetTrvlMod": 2, "TBOX_ResvACChrgOpenSts": 2, "TBOX_RemKL15PwrOnReq": 3, "TBOX_SetChrgEndSOC": 100, "TBOX_PreCondTriggerReq": 4, "TBOX_BlowLvlReq": 3, "TBOX_ICC_UpdStrt": 2, "TBOX_VehiMod": 3, "TBOX_Crash_cfm": 3, "TBOX_SchedChrgnReq": 3,}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_4F4_4F8_CheckSum": 255, "TBOX_4F4_4F8_AliveCounter": 14, "TBOX_Sw_upd": "Coding", "TBOX_Flsflg": "Invalid", "TBOX_RemFlsh": "Invalid", "TBOX_FobdGWPartBUSUDSCom": "Void", "TBOX_RemChrgInsulFctReq": "Off", "TBOX_EHUSetTrvlMod": "Long-distance_travel_mode", "TBOX_ResvACChrgOpenSts": "Off", "TBOX_RemKL15PwrOnReq": "Invalid", "TBOX_SetChrgEndSOC": 100, "TBOX_PreCondTriggerReq": "Stop_Precond.", "TBOX_BlowLvlReq": "Step3", "TBOX_ICC_UpdStrt": "Reserved", "TBOX_VehiMod": "Camping_mode", "TBOX_Crash_cfm": "Invalid", "TBOX_SchedChrgnReq": "Invalid", "TBOX_4F4_SSecOC_Fresh_Byte0": 0, "TBOX_4F4_SSecOC_MAC_Byte0": 0, "TBOX_4F4_SSecOC_MAC_Byte1": 0, "TBOX_4F4_SSecOC_MAC_Byte2": 0}
-    Validate TX Message With Expected Values    TBOX_0x4F4    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    TBOX_0x4F4    ${expected_can_signals}    max    30
 
 FCM-TX-0x5C4: Send Tx XCP variables and validating on CAN signals for message TBOX_0x5C4
     [Documentation]    Validate TX message 'TBOX_0x5C4' by writing XCP variables and reading CAN signals
@@ -699,19 +699,19 @@ FCM-TX-0x5C4: Send Tx XCP variables and validating on CAN signals for message TB
     ${xcp_var_map}=    Evaluate    {"TBOX_OTA_ownCondchk" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_OTA_ownCondchk", "TBOX_TerminalRemWakeupSig" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_TerminalRemWakeupSig", "TBOX_RemSCModReq" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_RemSCModReq","TBOX_RemPwrBattOpenHeatgReq" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_RemPwrBattOpenHeatgReq", "TBOX_RemPwrBattResvHeatgReq" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_RemPwrBattResvHeatgReq", "TBOX_RemInsdInfoDispEna" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_RemInsdInfoDispEna", "TBOX_RemECCDefrstModReq" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_RemECCDefrstModReq", "TBOX_RemECCResvDefrstReq" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_RemECCResvDefrstReq", "TBOX_RemECCSetT" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_RemECCSetT", "TBOX_RemResvECCSetT" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_RemResvECCSetT", "TBOX_RemSOCMax" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_RemSOCMax", "TBOX_4GSigIND" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_4GSigIND", "TBOX_Conn_Typ" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_Conn_Typ", "TBOX_TSPNotConn" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_TSPNotConn", "TBOX_EHUNotCONN" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_EHUNotCONN", "TBOX_WIFIError" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_WIFIError", "TBOX_InnerBattError" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_InnerBattError", "TBOX_VoltLow" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_VoltLow", "TBOX_VoltHigh" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_VoltHigh", "TBOX_4GLoss" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_4GLoss", "TBOX_RemSWH_Req" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_RemSWH_Req", "TBOX_OTAInhbReq" : "Rte_C_SG_TBOX_0x5C4_adt_6CDCB54A9F3AFEB76F753B3AAE5ECD3B.TBOX_OTAInhbReq"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_OTA_ownCondchk" : "No_Request", "TBOX_TerminalRemWakeupSig" : "Not_waken_up", "TBOX_RemSCModReq" : "No_remote_control", "TBOX_RemPwrBattOpenHeatgReq" : "No_remote_control", "TBOX_RemPwrBattResvHeatgReq" : "No_request", "TBOX_RemInsdInfoDispEna" : "Disable", "TBOX_RemECCDefrstModReq" : "No_remote_control", "TBOX_RemECCResvDefrstReq" : "No_remote_control", "TBOX_RemECCSetT" : "Inactive", "TBOX_RemResvECCSetT" : "Inactive", "TBOX_RemSOCMax" : 0, "TBOX_4GSigIND" : "No_signal", "TBOX_Conn_Typ" : "Not_Connected", "TBOX_TSPNotConn" : "Normal", "TBOX_EHUNotCONN" : "Normal", "TBOX_WIFIError" : "Normal", "TBOX_InnerBattError" : "Normal", "TBOX_VoltLow" : "Normal", "TBOX_VoltHigh" : "Normal", "TBOX_4GLoss" : "Normal", "TBOX_RemSWH_Req" : "No_request", "TBOX_OTAInhbReq" : "No_Inhibit_request"}
-    Validate TX Message With Expected Values    TBOX_0x5C4    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    TBOX_0x5C4    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"TBOX_OTA_ownCondchk" : 1, "TBOX_TerminalRemWakeupSig" : 0, "TBOX_RemSCModReq" : 1, "TBOX_RemPwrBattOpenHeatgReq" : 1, "TBOX_RemPwrBattResvHeatgReq" : 0, "TBOX_RemInsdInfoDispEna" : 0, "TBOX_RemECCDefrstModReq" : 1, "TBOX_RemECCResvDefrstReq" : 0, "TBOX_RemECCSetT" : 100, "TBOX_RemResvECCSetT" : 100, "TBOX_RemSOCMax" : 55, "TBOX_4GSigIND" : 1, "TBOX_Conn_Typ" : 1, "TBOX_TSPNotConn" : 0, "TBOX_EHUNotCONN" : 0, "TBOX_WIFIError" : 0, "TBOX_InnerBattError" : 0, "TBOX_VoltLow" : 0, "TBOX_VoltHigh" : 0, "TBOX_4GLoss" : 0, "TBOX_RemSWH_Req" : 1, "TBOX_OTAInhbReq" : 1}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_OTA_ownCondchk" : "Request", "TBOX_TerminalRemWakeupSig" : "Not_waken_up", "TBOX_RemSCModReq" : "Turn_on_remote_charging", "TBOX_RemPwrBattOpenHeatgReq" : "Turn_on_remote_power_battery_heating_mode", "TBOX_RemPwrBattResvHeatgReq" : "No_request", "TBOX_RemInsdInfoDispEna" : "Disable", "TBOX_RemECCDefrstModReq" : "Turn_on_remote_AC_defrost_mode", "TBOX_RemECCResvDefrstReq" : "No_remote_control", "TBOX_RemECCSetT" : "High", "TBOX_RemResvECCSetT" : "High", "TBOX_RemSOCMax" : 55, "TBOX_4GSigIND" : "Weak", "TBOX_Conn_Typ" : "3G_or_4G_LTE_CAT-1_and_below_(downllink_less_than_10_Mbps)", "TBOX_TSPNotConn" : "Normal", "TBOX_EHUNotCONN" : "Normal", "TBOX_WIFIError" : "Normal", "TBOX_InnerBattError" : "Normal", "TBOX_VoltLow" : "Normal", "TBOX_VoltHigh" : "Normal", "TBOX_4GLoss" : "Normal", "TBOX_RemSWH_Req" : "SWH_ON", "TBOX_OTAInhbReq" : "Inhibit_Request"}
-    Validate TX Message With Expected Values    TBOX_0x5C4    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    TBOX_0x5C4    ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"TBOX_OTA_ownCondchk" : 3, "TBOX_TerminalRemWakeupSig" : 1, "TBOX_RemSCModReq" : 2, "TBOX_RemPwrBattOpenHeatgReq" : 2, "TBOX_RemPwrBattResvHeatgReq" : 1, "TBOX_RemInsdInfoDispEna" : 1, "TBOX_RemECCDefrstModReq" : 3, "TBOX_RemECCResvDefrstReq" : 1, "TBOX_RemECCSetT" : 127.5, "TBOX_RemResvECCSetT" : 127.5, "TBOX_RemSOCMax" : 100, "TBOX_4GSigIND" : 3, "TBOX_Conn_Typ" : 7, "TBOX_TSPNotConn" : 1, "TBOX_EHUNotCONN" : 1, "TBOX_WIFIError" : 1, "TBOX_InnerBattError" : 1, "TBOX_VoltLow" : 1, "TBOX_VoltHigh" : 1, "TBOX_4GLoss" : 1, "TBOX_RemSWH_Req" : 3, "TBOX_OTAInhbReq" : 3}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_OTA_ownCondchk" : "Invalid", "TBOX_TerminalRemWakeupSig" : "Waken_up", "TBOX_RemSCModReq" : "Turn_off_remote_charging", "TBOX_RemPwrBattOpenHeatgReq" : "Turn_off_remote_power_battery_heating_mode", "TBOX_RemPwrBattResvHeatgReq" : "Request", "TBOX_RemInsdInfoDispEna" : "Enable", "TBOX_RemECCDefrstModReq" : "Reserved", "TBOX_RemECCResvDefrstReq" : "Reserve_remote_AC_deforst_mode", "TBOX_RemECCSetT" : "High", "TBOX_RemResvECCSetT" : "High", "TBOX_RemSOCMax" : 100, "TBOX_4GSigIND" : "Strong", "TBOX_Conn_Typ" : "Reserved_for_5G_mmWave", "TBOX_TSPNotConn" : "fault", "TBOX_EHUNotCONN" : "fault", "TBOX_WIFIError" : "fault", "TBOX_InnerBattError" : "fault", "TBOX_VoltLow" : "fault", "TBOX_VoltHigh" : "fault", "TBOX_4GLoss" : "fault", "TBOX_RemSWH_Req" : "Invalid", "TBOX_OTAInhbReq" : "Invalid"}
-    Validate TX Message With Expected Values    TBOX_0x5C4    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    TBOX_0x5C4    ${expected_can_signals}    max    30
 
 
 FCM-TX-0x62F: Send Tx XCP variables and validating on CAN signals for message TBOX_0x62F
@@ -722,19 +722,19 @@ FCM-TX-0x62F: Send Tx XCP variables and validating on CAN signals for message TB
     ${xcp_var_map}=    Evaluate    {"TBOX_ZoneT" : "Rte_C_SG_TBOX_0x62F_adt_956FC804FA23B9191BD03861699682D9.TBOX_ZoneT", "TBOX_CrtTi_Day" : "Rte_C_SG_TBOX_0x62F_adt_956FC804FA23B9191BD03861699682D9.TBOX_CrtTi_Day", "TBOX_CrtTi_Hr" : "Rte_C_SG_TBOX_0x62F_adt_956FC804FA23B9191BD03861699682D9.TBOX_CrtTi_Hr", "TBOX_CrtTi_Mins" : "Rte_C_SG_TBOX_0x62F_adt_956FC804FA23B9191BD03861699682D9.TBOX_CrtTi_Mins", "TBOX_CrtTi_Yr" : "Rte_C_SG_TBOX_0x62F_adt_956FC804FA23B9191BD03861699682D9.TBOX_CrtTi_Yr", "TBOX_CrtTi_Mth" : "Rte_C_SG_TBOX_0x62F_adt_956FC804FA23B9191BD03861699682D9.TBOX_CrtTi_Mth", "TBOX_CrtTi_Sec" : "Rte_C_SG_TBOX_0x62F_adt_956FC804FA23B9191BD03861699682D9.TBOX_CrtTi_Sec"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_ZoneT" : -720, "TBOX_CrtTi_Day" : "Day1", "TBOX_CrtTi_Hr" : "Hour_0", "TBOX_CrtTi_Mins" : "Mintue_0", "TBOX_CrtTi_Yr" : 2015, "TBOX_CrtTi_Mth" : "January", "TBOX_CrtTi_Sec" : "Second_0"}
-    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    TBOX_0x62F    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate Tx Message With Expected Values    TBOX_0x62F    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"TBOX_ZoneT" : 1000, "TBOX_CrtTi_Day" : 15, "TBOX_CrtTi_Hr" : 15, "TBOX_CrtTi_Mins" : 15, "TBOX_CrtTi_Yr" : 2000, "TBOX_CrtTi_Mth" : 10, "TBOX_CrtTi_Sec" : 15}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_ZoneT" : 1000, "TBOX_CrtTi_Day" : 15, "TBOX_CrtTi_Hr" : 15, "TBOX_CrtTi_Mins" : 15, "TBOX_CrtTi_Yr" : 2000, "TBOX_CrtTi_Mth" : 10, "TBOX_CrtTi_Sec" : 15}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    TBOX_0x62F    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    TBOX_0x62F    ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"TBOX_ZoneT" : 1185, "TBOX_CrtTi_Day" : 31, "TBOX_CrtTi_Hr" : 23, "TBOX_CrtTi_Mins" : 59, "TBOX_CrtTi_Yr" : 2270, "TBOX_CrtTi_Mth" : 12, "TBOX_CrtTi_Sec" : 59}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"TBOX_ZoneT" : 1185, "TBOX_CrtTi_Day" : "Day31", "TBOX_CrtTi_Hr" : "Hour_23", "TBOX_CrtTi_Mins" : "Mintue_59", "TBOX_CrtTi_Yr" : "Year2270", "TBOX_CrtTi_Mth" : "December", "TBOX_CrtTi_Sec" : "Second_59"}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    TBOX_0x62F    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    TBOX_0x62F    ${expected_can_signals}    max    30
 
 FCM-TX-0x214: Send Tx XCP variables and validating on CAN signals for message VCU_0x214
     [Documentation]    Validate TX message 'VCU_0x214' by writing XCP variables and reading CAN signals
@@ -744,19 +744,19 @@ FCM-TX-0x214: Send Tx XCP variables and validating on CAN signals for message VC
     ${xcp_var_map}=    Evaluate    {"VCU_214_234_CheckSum" : "Rte_C_SG_VCU_0x214_adt_B28F2E915E01743326C344F99B6572E4.VCU_214_234_CheckSum", "VCU_214_234_AliveCounter" : "Rte_C_SG_VCU_0x214_adt_B28F2E915E01743326C344F99B6572E4.VCU_214_234_AliveCounter", "VCU_RdyLamp" : "Rte_C_SG_VCU_0x214_adt_B28F2E915E01743326C344F99B6572E4.VCU_RdyLamp", "VCU_BrkLampCtrlSts" : "Rte_C_SG_VCU_0x214_adt_B28F2E915E01743326C344F99B6572E4.VCU_BrkLampCtrlSts", "VCU_RemWakeUpEndFlg" : "Rte_C_SG_VCU_0x214_adt_B28F2E915E01743326C344F99B6572E4.VCU_RemWakeUpEndFlg", "VCU_StgyGearSig" : "Rte_C_SG_VCU_0x214_adt_B28F2E915E01743326C344F99B6572E4.VCU_StgyGearSig", "VCU_ShiftMisoper" : "Rte_C_SG_VCU_0x214_adt_B28F2E915E01743326C344F99B6572E4.VCU_ShiftMisoper", "VCU_GearSigVld" : "Rte_C_SG_VCU_0x214_adt_B28F2E915E01743326C344F99B6572E4.VCU_GearSigVld", "VCU_GearSig" : "Rte_C_SG_VCU_0x214_adt_B28F2E915E01743326C344F99B6572E4.VCU_GearSig", "VCU_ACCRdy" : "Rte_C_SG_VCU_0x214_adt_B28F2E915E01743326C344F99B6572E4.VCU_ACCRdy", "VCU_ParkRdy" : "Rte_C_SG_VCU_0x214_adt_B28F2E915E01743326C344F99B6572E4.VCU_ParkRdy", "VCU_APSPercVld" : "Rte_C_SG_VCU_0x214_adt_B28F2E915E01743326C344F99B6572E4.VCU_APSPercVld", "VCU_VehSt" : "Rte_C_SG_VCU_0x214_adt_B28F2E915E01743326C344F99B6572E4.VCU_VehSt", "VCU_APSPerc" : "Rte_C_SG_VCU_0x214_adt_B28F2E915E01743326C344F99B6572E4.VCU_APSPerc", "VCU_BrkSig" : "Rte_C_SG_VCU_0x214_adt_B28F2E915E01743326C344F99B6572E4.VCU_BrkSig", "VCU_BrkSigVld" : "Rte_C_SG_VCU_0x214_adt_B28F2E915E01743326C344F99B6572E4.VCU_BrkSigVld", "VCU_DrvModSigFb" : "Rte_C_SG_VCU_0x214_adt_B28F2E915E01743326C344F99B6572E4.VCU_DrvModSigFb", "VCU_DrvModShiftMisoper" : "Rte_C_SG_VCU_0x214_adt_B28F2E915E01743326C344F99B6572E4.VCU_DrvModShiftMisoper", "VCU_SpclTerrainModEnaSig" : "Rte_C_SG_VCU_0x214_adt_B28F2E915E01743326C344F99B6572E4.VCU_SpclTerrainModEnaSig"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VCU_214_234_CheckSum" : 0, "VCU_214_234_AliveCounter" : 0, "VCU_RdyLamp" : "Not_ready", "VCU_BrkLampCtrlSts" : "No_request", "VCU_RemWakeUpEndFlg" : "remote_control_not_ended", "VCU_StgyGearSig" : "Undefined_initial_value", "VCU_ShiftMisoper" : "Normal", "VCU_GearSigVld" : "Initializing", "VCU_GearSig" : "Undefined_initial_value", "VCU_ACCRdy" : "Not_ready", "VCU_ParkRdy" : "Not_ready", "VCU_APSPercVld" : "Initializing", "VCU_VehSt" : "VCUSleep", "VCU_APSPerc" : 0, "VCU_BrkSig" : "brake_pedal_not_pressed", "VCU_BrkSigVld" : "Initializing", "VCU_DrvModSigFb" : "Eco", "VCU_DrvModShiftMisoper" : "Normal", "VCU_SpclTerrainModEnaSig" : "Not_enabled"}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x214    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x214    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"VCU_214_234_CheckSum" : 100, "VCU_214_234_AliveCounter" : 10, "VCU_RdyLamp" : 0, "VCU_BrkLampCtrlSts" : 0, "VCU_RemWakeUpEndFlg" : 0, "VCU_StgyGearSig" : 6, "VCU_ShiftMisoper" : 0, "VCU_GearSigVld" : 1, "VCU_GearSig" : 7, "VCU_ACCRdy" : 0, "VCU_ParkRdy" : 0, "VCU_APSPercVld" : 1, "VCU_VehSt" : 4, "VCU_APSPerc" : 50, "VCU_BrkSig" : 0, "VCU_BrkSigVld" : 1, "VCU_DrvModSigFb" : 1, "VCU_DrvModShiftMisoper" : 0, "VCU_SpclTerrainModEnaSig" : 0}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VCU_214_234_CheckSum" : 100, "VCU_214_234_AliveCounter" : 10, "VCU_RdyLamp" : "Not_ready", "VCU_BrkLampCtrlSts" : "No_request", "VCU_RemWakeUpEndFlg" : "remote_control_not_ended", "VCU_StgyGearSig" : "gear_E", "VCU_ShiftMisoper" : "Normal", "VCU_GearSigVld" : "Valid", "VCU_GearSig" : "gear_S", "VCU_ACCRdy" : "Not_ready", "VCU_ParkRdy" : "Not_ready", "VCU_APSPercVld" : "Valid", "VCU_VehSt" : "Driving", "VCU_APSPerc" : 50, "VCU_BrkSig" : "brake_pedal_not_pressed", "VCU_BrkSigVld" : "Valid", "VCU_DrvModSigFb" : "Normal", "VCU_DrvModShiftMisoper" : "Normal", "VCU_SpclTerrainModEnaSig" : "Not_enabled"}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x214    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x214    ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"VCU_214_234_CheckSum" : 255, "VCU_214_234_AliveCounter" : 14, "VCU_RdyLamp" : 1, "VCU_BrkLampCtrlSts" : 1, "VCU_RemWakeUpEndFlg" : 1, "VCU_StgyGearSig" : 15, "VCU_ShiftMisoper" : 1, "VCU_GearSigVld" : 3, "VCU_GearSig" : 15, "VCU_ACCRdy" : 1, "VCU_ParkRdy" : 1, "VCU_APSPercVld" : 3, "VCU_VehSt" : 65535, "VCU_APSPerc" : 100, "VCU_BrkSig" : 1, "VCU_BrkSigVld" : 3, "VCU_DrvModSigFb" : 7, "VCU_DrvModShiftMisoper" : 1, "VCU_SpclTerrainModEnaSig" : 1}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VCU_214_234_CheckSum" : 255, "VCU_214_234_AliveCounter" : 14, "VCU_RdyLamp" : "Ready", "VCU_BrkLampCtrlSts" : "lighting_request", "VCU_RemWakeUpEndFlg" : "remote_control_ended", "VCU_StgyGearSig" : "Reserved", "VCU_ShiftMisoper" : "Abnormal", "VCU_GearSigVld" : "Reserved", "VCU_GearSig" : "Reserved", "VCU_ACCRdy" : "Ready", "VCU_ParkRdy" : "Ready", "VCU_APSPercVld" : "Reserved", "VCU_VehSt" : "Invalid", "VCU_APSPerc" : 100, "VCU_BrkSig" : "Brake_pedal_depressed", "VCU_BrkSigVld" : "Reserved", "VCU_DrvModSigFb" : "Invalid", "VCU_DrvModShiftMisoper" : "Abnormal", "VCU_SpclTerrainModEnaSig" : "Enable"}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x214    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x214    ${expected_can_signals}    max    30
 
 FCM-TX-0x358: Send Tx XCP variables and validating on CAN signals for message VCU_0x358
     [Documentation]    Validate TX message 'VCU_0x358' by writing XCP variables and reading CAN signals
@@ -768,19 +768,19 @@ FCM-TX-0x358: Send Tx XCP variables and validating on CAN signals for message VC
 
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VCU_358_CheckSum" : 0, "VCU_358_AliveCounter" : 0, "VCU_KickdwnFlg" : "Inactive", "VCU_EPedlEnaSig" : "Not_enabled", "VCU_ComLostFlt_ESP" : "Normal", "VCU_ComFlt_iBooster" : "Normal", "VCU_AccelModFb" : "Low", "VCU_EPedlStsFb" : "OnePedalDrive", "VCU_CcTrgSpdDisp" : 0, "VCU_Sts_CC_ICC" : "Off", "VCU_CCIconDisp" : "No_Display", "VCU_DispSpdUnit_CC" : "KMH", "VCU_BoostEnStat" : "Default", "VCU_OTARdy_Fb" : "Initial", "VCU_OTA_ECUInhb_Req" : "Init", "VCU_OTAVehCdnChk_ASIL" : "OTA_veh_cond_not_ok", "VCU_OTAVehInhb_ASIL_Fb" : "Inhibition_not_ok"}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x358    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x358    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"VCU_358_CheckSum" : 100, "VCU_358_AliveCounter" : 10, "VCU_KickdwnFlg" : 1, "VCU_EPedlEnaSig" : 0, "VCU_ComLostFlt_ESP" : 0, "VCU_ComFlt_iBooster" : 0, "VCU_AccelModFb" : 1, "VCU_EPedlStsFb" : 1, "VCU_CcTrgSpdDisp" : 100, "VCU_Sts_CC_ICC" : 7, "VCU_CCIconDisp" : 2, "VCU_DispSpdUnit_CC" : 0, "VCU_BoostEnStat" : 5, "VCU_OTARdy_Fb" : 1, "VCU_OTA_ECUInhb_Req" : 1, "VCU_OTAVehCdnChk_ASIL" : 1, "VCU_OTAVehInhb_ASIL_Fb" : 1}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VCU_358_CheckSum" : 100, "VCU_358_AliveCounter" : 10, "VCU_KickdwnFlg" : "Active", "VCU_EPedlEnaSig" : "Not_enabled", "VCU_ComLostFlt_ESP" : "Normal", "VCU_ComFlt_iBooster" : "Normal", "VCU_AccelModFb" : "Medium_", "VCU_EPedlStsFb" : "Roll", "VCU_CcTrgSpdDisp" : 100, "VCU_Sts_CC_ICC" : "Deactivation_brake", "VCU_CCIconDisp" : "Green", "VCU_DispSpdUnit_CC" : "KMH", "VCU_BoostEnStat" : "Boost_unavailable:_EDU_Stator/_Rotor_Temperature", "VCU_OTARdy_Fb" : "Ready", "VCU_OTA_ECUInhb_Req" : "Inhibit_Request", "VCU_OTAVehCdnChk_ASIL" : "OTA_veh_cond_ok", "VCU_OTAVehInhb_ASIL_Fb" : "Inhibition_ok"}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x358    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x358    ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"VCU_358_CheckSum" : 255, "VCU_358_AliveCounter" : 14, "VCU_KickdwnFlg" : 3, "VCU_EPedlEnaSig" : 1, "VCU_ComLostFlt_ESP" : 1, "VCU_ComFlt_iBooster" : 1, "VCU_AccelModFb" : 3, "VCU_EPedlStsFb" : 3, "VCU_CcTrgSpdDisp" : 255, "VCU_Sts_CC_ICC" : 15, "VCU_CCIconDisp" : 7, "VCU_DispSpdUnit_CC" : 1, "VCU_BoostEnStat" : 15, "VCU_OTARdy_Fb" : 3, "VCU_OTA_ECUInhb_Req" : 3, "VCU_OTAVehCdnChk_ASIL" : 3, "VCU_OTAVehInhb_ASIL_Fb" : 3}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VCU_358_CheckSum": 255, "VCU_358_AliveCounter": 14, "VCU_KickdwnFlg": "Invalid", "VCU_EPedlEnaSig": "Enable", "VCU_ComLostFlt_ESP": "Abnormal", "VCU_ComFlt_iBooster": "Abnormal", "VCU_AccelModFb": "Invalid", "VCU_EPedlStsFb": "Invalid", "VCU_CcTrgSpdDisp": "no_display", "VCU_Sts_CC_ICC": "Reserved", "VCU_CCIconDisp": "Reserved", "VCU_DispSpdUnit_CC": "MPH", "VCU_BoostEnStat": "invalid", "VCU_OTARdy_Fb": "Invalid", "VCU_OTA_ECUInhb_Req": "Invalid", "VCU_OTAVehCdnChk_ASIL": "Invalid", "VCU_OTAVehInhb_ASIL_Fb": "Invalid"}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x358    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x358    ${expected_can_signals}    max    30
 
 FCM-TX-0x507: Send Tx XCP variables and validating on CAN signals for message VCU_0x507
     [Documentation]    Validate TX message 'VCU_0x507' by writing XCP variables and reading CAN signals
@@ -790,19 +790,19 @@ FCM-TX-0x507: Send Tx XCP variables and validating on CAN signals for message VC
     ${xcp_var_map}=    Evaluate    {"VCU_OTAVehInhb_QM_Fb": "Rte_C_SG_VCU_0x507_adt_B411D96DA77F6B0C31B76F209836B072.VCU_OTAVehInhb_QM_Fb", "VCU_OTAVehCdnChk_QM_sts": "Rte_C_SG_VCU_0x507_adt_B411D96DA77F6B0C31B76F209836B072.VCU_OTAVehCdnChk_QM_sts", "VCU_DrvAvl": "Rte_C_SG_VCU_0x507_adt_B411D96DA77F6B0C31B76F209836B072.VCU_DrvAvl", "VCU_CllsnSigSts": "Rte_C_SG_VCU_0x507_adt_B411D96DA77F6B0C31B76F209836B072.VCU_CllsnSigSts", "VCU_VehSts_GB": "Rte_C_SG_VCU_0x507_adt_B411D96DA77F6B0C31B76F209836B072.VCU_VehSts_GB", "VCU_MCUOverTFlt_GB": "Rte_C_SG_VCU_0x507_adt_B411D96DA77F6B0C31B76F209836B072.VCU_MCUOverTFlt_GB", "VCU_DrvrMotOverTFlt_GB": "Rte_C_SG_VCU_0x507_adt_B411D96DA77F6B0C31B76F209836B072.VCU_DrvrMotOverTFlt_GB", "VCU_SOCTooLoAlrm": "Rte_C_SG_VCU_0x507_adt_B411D96DA77F6B0C31B76F209836B072.VCU_SOCTooLoAlrm", "VCU_SOCJumpAlrm": "Rte_C_SG_VCU_0x507_adt_B411D96DA77F6B0C31B76F209836B072.VCU_SOCJumpAlrm", "VCU_PwrBattPackMismatAlrm": "Rte_C_SG_VCU_0x507_adt_B411D96DA77F6B0C31B76F209836B072.VCU_PwrBattPackMismatAlrm", "VCU_SOCTooHiAlrm": "Rte_C_SG_VCU_0x507_adt_B411D96DA77F6B0C31B76F209836B072.VCU_SOCTooHiAlrm", "VCU_DCDCEnaCmd": "Rte_C_SG_VCU_0x507_adt_B411D96DA77F6B0C31B76F209836B072.VCU_DCDCEnaCmd", "VCU_PwrBattECCEnaCmd": "Rte_C_SG_VCU_0x507_adt_B411D96DA77F6B0C31B76F209836B072.VCU_PwrBattECCEnaCmd", "VCU_MstRlyCtrlCmd": "Rte_C_SG_VCU_0x507_adt_B411D96DA77F6B0C31B76F209836B072.VCU_MstRlyCtrlCmd", "VCU_DCDCOutpVoltCmd": "Rte_C_SG_VCU_0x507_adt_B411D96DA77F6B0C31B76F209836B072.VCU_DCDCOutpVoltCmd", "VCU_CCCnctnVolt": "Rte_C_SG_VCU_0x507_adt_B411D96DA77F6B0C31B76F209836B072.VCU_CCCnctnVolt", "VCU_GearSig_GB": "Rte_C_SG_VCU_0x507_adt_B411D96DA77F6B0C31B76F209836B072.VCU_GearSig_GB", "VCU_DrvrMotNr_GB": "Rte_C_SG_VCU_0x507_adt_B411D96DA77F6B0C31B76F209836B072.VCU_DrvrMotNr_GB", "VCU_BattVolt": "Rte_C_SG_VCU_0x507_adt_B411D96DA77F6B0C31B76F209836B072.VCU_BattVolt"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VCU_OTAVehCdnChk_QM_sts" : "OTA_veh_cond_not_ok", "VCU_OTAVehInhb_QM_Fb" : "OTA_veh_cond_not_ok", "VCU_MCUOverTFlt_GB" : "Normal", "VCU_DrvrMotOverTFlt_GB" : "Normal", "VCU_VehSts_GB" : "Initial_value", "VCU_CllsnSigSts" : "Not_collided", "VCU_DrvAvl" : "Invalid", "VCU_MstRlyCtrlCmd" : "Disconnect", "VCU_PwrBattECCEnaCmd" : "Disable", "VCU_DCDCEnaCmd" : "Disable", "VCU_SOCTooHiAlrm" : "No_fault", "VCU_PwrBattPackMismatAlrm" : "No_fault", "VCU_SOCJumpAlrm" : '"o_fault", "VCU_SOCTooLoAlrm" : "No_fault", "VCU_DCDCOutpVoltCmd" : 0, "VCU_CCCnctnVolt" : 0, "VCU_DrvrMotNr_GB" : "Initial_value", "VCU_GearSig_GB" : "Neutral", "VCU_BattVolt" : 0}
-    Validate TX Message With Expected Values    VCU_0x507    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    VCU_0x507    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"VCU_OTAVehInhb_QM_Fb" : 1, "VCU_OTAVehCdnChk_QM_sts" : 1, "VCU_DrvAvl" : 0, "VCU_CllsnSigSts" : 0, "VCU_VehSts_GB" : 1, "VCU_MCUOverTFlt_GB" : 0, "VCU_DrvrMotOverTFlt_GB" : 0, "VCU_SOCTooLoAlrm" : 0, "VCU_SOCJumpAlrm" : 0, "VCU_PwrBattPackMismatAlrm" : 0, "VCU_SOCTooHiAlrm" : 0, "VCU_DCDCEnaCmd" : 0, "VCU_PwrBattECCEnaCmd" : 0, "VCU_MstRlyCtrlCmd" : 0, "VCU_DCDCOutpVoltCmd" : 15, "VCU_CCCnctnVolt" : 15, "VCU_GearSig_GB" : 5, "VCU_DrvrMotNr_GB" : 5, "VCU_BattVolt" : 45.5}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {'VCU_OTAVehCdnChk_QM_sts': 'OTA_veh_cond_ok', "VCU_OTAVehInhb_QM_Fb": 'OTA_veh_cond_ok', 'VCU_MCUOverTFlt_GB': 'Normal', 'VCU_DrvrMotOverTFlt_GB': 'Normal', 'VCU_VehSts_GB': 'Vehicle_starting', 'VCU_CllsnSigSts': 'Not_collided', 'VCU_DrvAvl': 'Invalid', 'VCU_MstRlyCtrlCmd': 'Disconnect', 'VCU_PwrBattECCEnaCmd': 'Disable', 'VCU_DCDCEnaCmd': 'Disable', 'VCU_SOCTooHiAlrm': 'No_fault', 'VCU_PwrBattPackMismatAlrm': 'No_fault', 'VCU_SOCJumpAlrm': 'No_fault', 'VCU_SOCTooLoAlrm': 'No_fault', 'VCU_DCDCOutpVoltCmd': 15.0, 'VCU_CCCnctnVolt': 15.0, 'VCU_DrvrMotNr_GB': 'Reserved', 'VCU_GearSig_GB': '5th_gear', 'VCU_BattVolt': 45.5}
-    Validate TX Message With Expected Values    VCU_0x507    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    VCU_0x507    ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"VCU_OTAVehInhb_QM_Fb" : 3, "VCU_OTAVehCdnChk_QM_sts" : 3, "VCU_DrvAvl" : 1, "VCU_CllsnSigSts" : 1, "VCU_VehSts_GB" : 3, "VCU_MCUOverTFlt_GB" : 1, "VCU_DrvrMotOverTFlt_GB" : 1, "VCU_SOCTooLoAlrm" : 1, "VCU_SOCJumpAlrm" : 1, "VCU_PwrBattPackMismatAlrm" : 1, "VCU_SOCTooHiAlrm" : 1, "VCU_DCDCEnaCmd" : 1, "VCU_PwrBattECCEnaCmd" : 1, "VCU_MstRlyCtrlCmd" : 1, "VCU_DCDCOutpVoltCmd" : 25.5, "VCU_CCCnctnVolt" : 25.5, "VCU_GearSig_GB" : 15, "VCU_DrvrMotNr_GB" : 15, "VCU_BattVolt" : 65.535}
      Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VCU_OTAVehCdnChk_QM_sts": "Invalid", "VCU_OTAVehInhb_QM_Fb": "Invalid", "VCU_MCUOverTFlt_GB": "Abnormal", "VCU_DrvrMotOverTFlt_GB": "Abnormal", "VCU_VehSts_GB": "Other_states", "VCU_CllsnSigSts": "Collided", "VCU_DrvAvl": "Valid", "VCU_MstRlyCtrlCmd": "Closed", "VCU_PwrBattECCEnaCmd": "Enable", "VCU_DCDCEnaCmd": "Enable", "VCU_SOCTooHiAlrm": "faulty", "VCU_PwrBattPackMismatAlrm": "faulty", "VCU_SOCJumpAlrm": "faulty", "VCU_SOCTooLoAlrm": "faulty", "VCU_DCDCOutpVoltCmd": 25.5, "VCU_CCCnctnVolt": 25.5, "VCU_DrvrMotNr_GB": "Reserved", "VCU_GearSig_GB": "parking_gear_P", "VCU_BattVolt": "Invalid"}
-    Validate TX Message With Expected Values    VCU_0x507    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    VCU_0x507    ${expected_can_signals}    max    30
 
 FCM-TX-0x511: Send Tx XCP variables and validating on CAN signals for message VCU_0x511
     [Documentation]    Validate TX message 'VCU_0x511' by writing XCP variables and reading CAN signals
@@ -813,20 +813,20 @@ FCM-TX-0x511: Send Tx XCP variables and validating on CAN signals for message VC
 
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VCU_BMSLVWakeUpSts":"Not_waken_up", "VCU_ONWakeUpSig":"Not_waken_up", "VCU_FCWakeUpSig":"Not_waken_up", "VCU_SCWakeUpSig":"Not_waken_up", "VCU_RemWakeUpSig":"Not_waken_up", "VCU_NetWakeUpSig":"Not_waken_up", "VCU_LVWakeUpSts_PDU":"Not_waken_up", "VCU_VehEOLFctFlg":"Normal_mode", "VCU_LVWakeUpSts_MCU":"Not_waken_up", "VCU_PwrAntithefAllwtRdyFlg":"READY_allowed", "VCU_LVWakeUpSts_CCU":"Not_waken_up", "VCU_RemECCEndCmd":"Not_ended", "VCU_EvChrgElectcLockCtrlCmd":"Initial_value", "VCU_RemPwrBattHeatgEndCmd":"Not_ended", "VCU_RemChrgEndCmd":"No", "VCU_V2L_TrAvl":"No", "VCU_RemBattHeatgFailReason":"Initial_value", "VCU_RemECCEndReason":"Initial_value", "VCU_V2L_ChrgPortAvl":"No", "VCU_RemChrgEndReason":"Initial_value", "VCU_SchedChrgnStsFb":"Idle", "VCU_V2V_Avl":"No", "VCU_V2H_Avl":"No", "VCU_V2G_Avl":"No", "VCU_VehMod":"None", "VCU_VehCrtChrgEndSOC":0, "VCU_CalSwVers":"Reserved", "VCU_RemPwrBattPreheatgEndFlg":"Not_ended", "VCU_VehOperMod":"Reserved", "VCU_VehRemRefrshModReq":"Initial_value", "VCU_RemDTCPwrOnReq":"No_demand"}
-    Validate TX Message With Expected Values    VCU_0x511    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    VCU_0x511    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"VCU_BMSLVWakeUpSts" : 0, "VCU_ONWakeUpSig" : 0, "VCU_FCWakeUpSig" : 0, "VCU_SCWakeUpSig" : 0, "VCU_RemWakeUpSig" : 0, "VCU_NetWakeUpSig" : 0, "VCU_LVWakeUpSts_PDU" : 0, "VCU_VehEOLFctFlg" : 0, "VCU_LVWakeUpSts_MCU" : 0, "VCU_PwrAntithefAllwtRdyFlg" : 0, "VCU_LVWakeUpSts_CCU" : 0, "VCU_RemECCEndCmd" : 0, "VCU_EvChrgElectcLockCtrlCmd" : 1, "VCU_RemPwrBattHeatgEndCmd" : 0, "VCU_RemChrgEndCmd" : 0, "VCU_V2L_TrAvl" : 0, "VCU_RemBattHeatgFailReason" : 5, "VCU_RemECCEndReason" : 0, "VCU_V2L_ChrgPortAvl" : 0, "VCU_RemChrgEndReason" : 5, "VCU_SchedChrgnStsFb" : 1, "VCU_V2V_Avl" : 0, "VCU_V2H_Avl" : 0, "VCU_V2G_Avl" : 0, "VCU_VehMod" : 10, "VCU_VehCrtChrgEndSOC" : 50, "VCU_CalSwVers" : 5, "VCU_RemPwrBattPreheatgEndFlg" : 0, "VCU_VehOperMod" : 10, "VCU_VehRemRefrshModReq" : 1, "VCU_RemDTCPwrOnReq" : 0}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {'VCU_BMSLVWakeUpSts': 'Not_waken_up', 'VCU_ONWakeUpSig': 'Not_waken_up', 'VCU_FCWakeUpSig': 'Not_waken_up', 'VCU_SCWakeUpSig': 'Not_waken_up', 'VCU_RemWakeUpSig': 'Not_waken_up', 'VCU_NetWakeUpSig' : 'Not_waken_up', 'VCU_LVWakeUpSts_PDU': 'Not_waken_up', 'VCU_VehEOLFctFlg': 'Normal_mode', 'VCU_LVWakeUpSts_MCU': 'Not_waken_up', 'VCU_PwrAntithefAllwtRdyFlg': 'READY_allowed', 'VCU_RemChrgEndCmd': 'No', 'VCU_RemPwrBattHeatgEndCmd': 'Not_ended', 'VCU_EvChrgElectcLockCtrlCmd': 'locking_command_state', 'VCU_RemECCEndCmd': 'Not_ended', 'VCU_LVWakeUpSts_CCU': 'Not_waken_up', 'VCU_V2L_ChrgPortAvl': 'No', 'VCU_RemECCEndReason': 'Initial_value', 'VCU_RemBattHeatgFailReason': 'The_temp_meets_requ,_there_is_no_need_to_remotely_heat_in_the_discharg_state', 'VCU_V2L_TrAvl': 'No', 'VCU_V2G_Avl': 'No', 'VCU_V2H_Avl': 'No', 'VCU_V2V_Avl': 'No', 'VCU_SchedChrgnStsFb': 'Successful', 'VCU_RemChrgEndReason': 'Void', 'VCU_VehMod': 'LV_Energy_Management_during_Wakeup', 'VCU_VehCrtChrgEndSOC': 50, 'VCU_RemPwrBattPreheatgEndFlg': 'Not_ended', 'VCU_CalSwVers': 'G6-5', 'VCU_RemDTCPwrOnReq': 'No_demand', 'VCU_VehRemRefrshModReq': 'Remote_high_voltage_flash', 'VCU_VehOperMod': 'gear_D_braking_feedback'}
 
-    Validate TX Message With Expected Values    VCU_0x511    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    VCU_0x511    ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"VCU_BMSLVWakeUpSts" : 1, "VCU_ONWakeUpSig" : 1, "VCU_FCWakeUpSig" : 1, "VCU_SCWakeUpSig" : 1, "VCU_RemWakeUpSig" : 1, "VCU_NetWakeUpSig" : 1, "VCU_LVWakeUpSts_PDU" : 1, "VCU_VehEOLFctFlg" : 1, "VCU_LVWakeUpSts_MCU" : 1, "VCU_PwrAntithefAllwtRdyFlg" : 1, "VCU_LVWakeUpSts_CCU" : 1, "VCU_RemECCEndCmd" : 1, "VCU_EvChrgElectcLockCtrlCmd" : 3, "VCU_RemPwrBattHeatgEndCmd" : 1, "VCU_RemChrgEndCmd" : 1, "VCU_V2L_TrAvl" : 1, "VCU_RemBattHeatgFailReason" : 7, "VCU_RemECCEndReason" : 1, "VCU_V2L_ChrgPortAvl" : 1, "VCU_RemChrgEndReason" : 7, "VCU_SchedChrgnStsFb" : 3, "VCU_V2V_Avl" : 1, "VCU_V2H_Avl" : 1, "VCU_V2G_Avl" : 1, "VCU_VehMod" : 15, "VCU_VehCrtChrgEndSOC" : 100, "VCU_CalSwVers" : 31, "VCU_RemPwrBattPreheatgEndFlg" : 1, "VCU_VehOperMod" : 31, "VCU_VehRemRefrshModReq" : 3, "VCU_RemDTCPwrOnReq" : 1}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {'VCU_BMSLVWakeUpSts': 'waken_up', 'VCU_ONWakeUpSig': 'waken_up', 'VCU_FCWakeUpSig': 'waken_up', 'VCU_SCWakeUpSig': 'waken_up', 'VCU_RemWakeUpSig': 'waken_up', 'VCU_NetWakeUpSig': 'waken_up', 'VCU_LVWakeUpSts_PDU': 'waken_up', 'VCU_VehEOLFctFlg': 'EOL_mode', 'VCU_LVWakeUpSts_MCU': 'waken_up', 'VCU_PwrAntithefAllwtRdyFlg': 'READY_not_allowed', 'VCU_RemChrgEndCmd': 'Yes', 'VCU_RemPwrBattHeatgEndCmd': 'End', 'VCU_EvChrgElectcLockCtrlCmd': 'Invalid', 'VCU_RemECCEndCmd': 'End', 'VCU_LVWakeUpSts_CCU': 'waken_up', 'VCU_V2L_ChrgPortAvl': 'Yes', 'VCU_RemECCEndReason': 'When_the_SOC_of_the_vehicle_is_lower_than_5%,_the_remote_A/C_is_prohibited.', 'VCU_RemBattHeatgFailReason': 'Void', 'VCU_V2L_TrAvl': 'Yes', 'VCU_V2G_Avl': 'Yes', 'VCU_V2H_Avl': 'Yes', 'VCU_V2V_Avl': 'Yes', 'VCU_SchedChrgnStsFb': 'Processing', 'VCU_RemChrgEndReason': 'Void', 'VCU_VehMod': 'Invalid', 'VCU_VehCrtChrgEndSOC': 100, 'VCU_RemPwrBattPreheatgEndFlg': 'End', 'VCU_CalSwVers': 'Reserved', 'VCU_RemDTCPwrOnReq': 'In_demand', 'VCU_VehRemRefrshModReq': 'Void', 'VCU_VehOperMod': 'Reserved'}
-    Validate TX Message With Expected Values    VCU_0x511    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    VCU_0x511    ${expected_can_signals}    max    30
 
 
 FCM-TX-0x6E5: Send Tx XCP variables and validating on CAN signals for message VCU_0x6E5
@@ -837,19 +837,19 @@ FCM-TX-0x6E5: Send Tx XCP variables and validating on CAN signals for message VC
     ${xcp_var_map}=    Evaluate    {"VCU_VINCod1": "Rte_C_SG_VCU_0x6E5_adt_8169177D5383A0EC751E035FD495B850.VCU_VINCod1"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VCU_VINCod1": 0}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x6E5    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x6E5    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"VCU_VINCod1": 100000}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VCU_VINCod1": 100000}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x6E5    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x6E5    ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"VCU_VINCod1": 16777215}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VCU_VINCod1": 16777215}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x6E5    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x6E5    ${expected_can_signals}    max    30
 
 FCM-TX-0x6E6: Send Tx XCP variables and validating on CAN signals for message VCU_0x6E6
     [Documentation]    Validate TX message 'VCU_0x6E6' by writing XCP variables and reading CAN signals
@@ -859,19 +859,19 @@ FCM-TX-0x6E6: Send Tx XCP variables and validating on CAN signals for message VC
     ${xcp_var_map}=    Evaluate    {"VCU_VINCod2": "Rte_C_SG_VCU_0x6E6_adt_05CA1BD686BD44F04D901E2B0D03ADD0.VCU_VINCod2"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VCU_VINCod2": 0}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x6E6    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x6E6    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"VCU_VINCod2": 100000}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VCU_VINCod2": 100000}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x6E6    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x6E6    ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"VCU_VINCod2": 16777215}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VCU_VINCod2": 16777215}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x6E6    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x6E6    ${expected_can_signals}    max    30
 
 FCM-TX-0x6E7: Send Tx XCP variables and validating on CAN signals for message VCU_0x6E7
     [Documentation]    Validate TX message 'VCU_0x6E7' by writing XCP variables and reading CAN signals
@@ -881,19 +881,19 @@ FCM-TX-0x6E7: Send Tx XCP variables and validating on CAN signals for message VC
     ${xcp_var_map}=    Evaluate    {"VCU_VINCod3": "Rte_C_SG_VCU_0x6E7_adt_B0100FD64089A5BB21D8B136FB84C4C0.VCU_VINCod3"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VCU_VINCod3": 0}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x6E7    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x6E7    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"VCU_VINCod3": 100000}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VCU_VINCod3": 100000}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x6E7    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x6E7    ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"VCU_VINCod3": 16777215}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"VCU_VINCod3": 16777215}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x6E7    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    VCU_0x6E7    ${expected_can_signals}    max    30
 
 
 FCM-TX-0x112: Send Tx XCP variables and validating on CAN signals for message YRS_0x112
@@ -903,19 +903,19 @@ FCM-TX-0x112: Send Tx XCP variables and validating on CAN signals for message YR
     ${xcp_var_map}=    Evaluate    {"YRS_112_CheckSum": "Rte_C_SG_YRS_0x112_adt_7E06CB5398F3C7D75359B44BEE8F8E25.YRS_112_CheckSum", "YRS_112_AliveCounter": "Rte_C_SG_YRS_0x112_adt_7E06CB5398F3C7D75359B44BEE8F8E25.YRS_112_AliveCounter", "YRS_YawRateCalSts": "Rte_C_SG_YRS_0x112_adt_7E06CB5398F3C7D75359B44BEE8F8E25.YRS_YawRateCalSts", "YRS_YawRateSnsrSts": "Rte_C_SG_YRS_0x112_adt_7E06CB5398F3C7D75359B44BEE8F8E25.YRS_YawRateSnsrSts", "YRS_LatSnsrSts": "Rte_C_SG_YRS_0x112_adt_7E06CB5398F3C7D75359B44BEE8F8E25.YRS_LatSnsrSts", "YRS_LatAcce": "Rte_C_SG_YRS_0x112_adt_7E06CB5398F3C7D75359B44BEE8F8E25.YRS_LatAcce", "YRS_YawRate": "Rte_C_SG_YRS_0x112_adt_7E06CB5398F3C7D75359B44BEE8F8E25.YRS_YawRate"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"YRS_112_CheckSum": 0, "YRS_112_AliveCounter": 0, "YRS_YawRateCalSts": "Sensor_Not_Calibrated", "YRS_YawRateSnsrSts": "Initializing", "YRS_LatSnsrSts": "Initializing", "YRS_LatAcce": -2, "YRS_YawRate": -180}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    YRS_0x112    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    YRS_0x112    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"YRS_112_CheckSum": 100, "YRS_112_AliveCounter": 10, "YRS_YawRateCalSts": 0, "YRS_YawRateSnsrSts": 1, "YRS_LatSnsrSts": 1, "YRS_LatAcce": 1, "YRS_YawRate": 100}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"YRS_112_CheckSum": 100, "YRS_112_AliveCounter": 10, "YRS_YawRateCalSts": "Sensor_Not_Calibrated", "YRS_YawRateSnsrSts": "Valid", "YRS_LatSnsrSts": "Valid", "YRS_LatAcce": 1, "YRS_YawRate": 100}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    YRS_0x112    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    YRS_0x112    ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"YRS_112_CheckSum": 255, "YRS_112_AliveCounter": 14, "YRS_YawRateCalSts": 1, "YRS_YawRateSnsrSts": 3, "YRS_LatSnsrSts": 3, "YRS_LatAcce": 2, "YRS_YawRate": 180}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"YRS_112_CheckSum": 255, "YRS_112_AliveCounter": 14, "YRS_YawRateCalSts": "Sensor_Calibrated", "YRS_YawRateSnsrSts": "Reserved", "YRS_LatSnsrSts": "Reserved", "YRS_LatAcce": 2, "YRS_YawRate": 180}
-    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    YRS_0x112    ${expected_can_signals}    30
+    Run Keyword And Continue On Failure    Validate TX Message With Expected Values    YRS_0x112    ${expected_can_signals}    max    30
 
 FCM-TX-0x113: Send Tx XCP variables and validating on CAN signals for message YRS_0x113
     [Documentation]    Validate TX message 'YRS_0x113' by writing XCP variables and reading CAN signals
@@ -925,16 +925,16 @@ FCM-TX-0x113: Send Tx XCP variables and validating on CAN signals for message YR
     ${xcp_var_map}=    Evaluate    {"YRS_113_CheckSum": "Rte_C_SG_YRS_0x113_adt_B65C7485CC461A7E547F9C6CDFF6A070.YRS_113_CheckSum", "YRS_113_AliveCounter": "Rte_C_SG_YRS_0x113_adt_B65C7485CC461A7E547F9C6CDFF6A070.YRS_113_AliveCounter", "YRS_LgtSnsrSts": "Rte_C_SG_YRS_0x113_adt_B65C7485CC461A7E547F9C6CDFF6A070.YRS_LgtSnsrSts", "YRS_LgtAcce": "Rte_C_SG_YRS_0x113_adt_B65C7485CC461A7E547F9C6CDFF6A070.YRS_LgtAcce"}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"YRS_113_CheckSum": 0, "YRS_113_AliveCounter": 0, "YRS_LgtSnsrSts": "Initializing", "YRS_LgtAcce": 0}
-    Validate TX Message With Expected Values    YRS_0x113    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    YRS_0x113    ${expected_can_signals}    min    30
 
     Log  writing mid value to the xcp variables
     ${xcp_values}=    Evaluate    {"YRS_113_CheckSum": 100, "YRS_113_AliveCounter": 10, "YRS_LgtSnsrSts": 1, "YRS_LgtAcce": 1}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"YRS_113_CheckSum": 100, "YRS_113_AliveCounter": 10, "YRS_LgtSnsrSts": "Valid", "YRS_LgtAcce": 1}
-    Validate TX Message With Expected Values    YRS_0x113    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    YRS_0x113    ${expected_can_signals}    mid    30
 
     Log  writing max value to the xcp variables
     ${xcp_values}=    Evaluate    {"YRS_113_CheckSum": 255, "YRS_113_AliveCounter": 14, "YRS_LgtSnsrSts": 3, "YRS_LgtAcce": 3}
     Write Multiple XCP Variables    ${xcp_var_map}    ${xcp_values}
     ${expected_can_signals}=    Evaluate    {"YRS_113_CheckSum": 255, "YRS_113_AliveCounter": 14, "YRS_LgtSnsrSts": "Reserved", "YRS_LgtAcce": 3}
-    Validate TX Message With Expected Values    YRS_0x113    ${expected_can_signals}    30
+    Validate TX Message With Expected Values    YRS_0x113    ${expected_can_signals}    max    30
